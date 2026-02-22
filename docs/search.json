@@ -14,7 +14,7 @@
     "href": "Introducao.html",
     "title": "2  INTRODUÇÃO",
     "section": "",
-    "text": "Segue o link para os slides deste capítulo:",
+    "text": "A apresentação em slides para este capítulo pode ser consultado aqui 🔗",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>**INTRODUÇÃO**</span>"
     ]
@@ -24,7 +24,7 @@
     "href": "CronogramaOrganizacao.html",
     "title": "3  ORGANIZAÇÃO E CRONOGRAMA DA DISCIPLINA",
     "section": "",
-    "text": "3.1 AVALIAÇÕES",
+    "text": "3.1 CRONOGRAMA\nSegue o cronograma da disciplina de Análise de Sobrevivência e Confiabilidade do primeiro semestre de 2026:",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>**ORGANIZAÇÃO E CRONOGRAMA DA DISCIPLINA**</span>"
     ]
@@ -33,8 +33,18 @@
     "objectID": "CronogramaOrganizacao.html#cronograma",
     "href": "CronogramaOrganizacao.html#cronograma",
     "title": "3  ORGANIZAÇÃO E CRONOGRAMA DA DISCIPLINA",
-    "section": "3.2 CRONOGRAMA",
-    "text": "3.2 CRONOGRAMA\nSegue o cronograma da disciplina de Análise de Sobrevivência e Confiabilidade do segundo semestre de 2025:\n\n\n\nData\nConteúdo\n\n\n\n\n18/08\nIntrodução à disciplina. Cronograma e Organização.\n\n\n20/08\nCriação de relatórios com o quarto.\n\n\n25/08\nCriação de relatórios com o quarto.\n\n\n27/08\nCriação de relatórios com o quarto.\n\n\n01/09\nR-LADIES NITERÓI (não tem aula)\n\n\n03/09\nIntrodução ao ggplot2. Gráficos para variáveis qualitativas.\n\n\n08/09\nGráficos para variáveis qualitativas.\n\n\n10/09\nGráficos para variáveis qualitativas.\n\n\n15/09\nGráficos para variáveis qualitativas.\n\n\n17/09\nPrimeira prova prática: 2 pontos\n\n\n22/09\nGráficos para variáveis quantitativas.\n\n\n24/09\nGráficos para variáveis quantitativas.\n\n\n29/09\nGráficos para variáveis quantitativas.\n\n\n01/10\nSegunda prova prática: 2 pontos\n\n\n06/10\nCongresso ISI (não tem aula)\n\n\n08/10\nCongresso ISI (não tem aula)\n\n\n13/10\nGráficos para variáveis qualitativas e quantitativas.\n\n\n15/10\nDia do professor (não tem aula)\n\n\n20/10\nSemest - 14ª SNCT (não tem aula)\n\n\n22/10\nSemest - 14ª SNCT (não tem aula)\n\n\n27/10\nRecesso (não tem aula)\n\n\n29/10\nUFF cancelou aulas\n\n\n03/11\nGráficos para variáveis qualitativas e quantitativas\n\n\n05/11\nGráficos para variáveis qualitativas e quantitativas\n\n\n10/11\nBanca UERJ (não tem aula)\n\n\n12/11\nBanca UERJ (não tem aula)\n\n\n17/11\nTerceira prova prática: 2 pontos\n\n\n19/11\nMapas\n\n\n24/11\nMapas\n\n\n26/11\nQuarta prova prática: 2 pontos\n\n\n01/12\nGráficos Interativos e dashboards\n\n\n03/12\nGráficos Interativos e dashboards\n\n\n08/12\nGráficos Interativos e dashboards\n\n\n10/12\nQuinta prova prática: 2 pontos\n\n\n15/12\nVerificação de Reposição\n\n\n17/12\nVerificação Suplementar",
+    "section": "",
+    "text": "Data\nConteúdo\n\n\n\n\n09/03\nIntrodução à disciplina de Análise de Sobrevivência e Confiabilidade\n\n\n11/03\nMecanismos de Censura e truncamento.\n\n\n16/03\nFunções Básicas em Análise de Sobrevivência e Confiabilidade\n\n\n18/03\nEstimação não Paramétrica (parte I)\n\n\n23/03\nEstimação não Paramétrica (parte II)\n\n\n25/03\nLaboratório: Estimação não Paramétrica\n\n\n30/03\nComparando Curvas de Sobrevivência/Confiabilidade.\n\n\n01/04\nLaboratório: Comparando Curvas de Sobrevivência/Confiabilidade\n\n\n06/04\nAula de Dúvidas e Exercícios\n\n\n08/04\nProva 1: 2,5 pontos",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>**ORGANIZAÇÃO E CRONOGRAMA DA DISCIPLINA**</span>"
+    ]
+  },
+  {
+    "objectID": "CronogramaOrganizacao.html#avaliações",
+    "href": "CronogramaOrganizacao.html#avaliações",
+    "title": "3  ORGANIZAÇÃO E CRONOGRAMA DA DISCIPLINA",
+    "section": "3.2 AVALIAÇÕES",
+    "text": "3.2 AVALIAÇÕES\nAs avaliações dessa disciplina serão:\n\nProva 1: 2,5 pontos (08/04)\nProva 2: 2,5 pontos ()\nTrabalho 1: 2,5 pontos ()\nTrabalho 2: 2,5 pontos ()",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>**ORGANIZAÇÃO E CRONOGRAMA DA DISCIPLINA**</span>"
     ]
@@ -47,6 +57,26 @@
     "text": "3.3 PRESENÇA\nSerá cobrado 75% de frequência nas aulas.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>**ORGANIZAÇÃO E CRONOGRAMA DA DISCIPLINA**</span>"
+    ]
+  },
+  {
+    "objectID": "Cap1.html",
+    "href": "Cap1.html",
+    "title": "4  CONCEITOS INICIAIS",
+    "section": "",
+    "text": "A apresentação em slides para este capítulo pode ser consultado aqui 🔗",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>**CONCEITOS INICIAIS**</span>"
+    ]
+  },
+  {
+    "objectID": "Cap2.html",
+    "href": "Cap2.html",
+    "title": "5  FUNÇÕES BÁSICAS",
+    "section": "",
+    "text": "A apresentação em slides para este capítulo pode ser consultado aqui 🔗",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>**FUNÇÕES BÁSICAS**</span>"
     ]
   }
 ]
