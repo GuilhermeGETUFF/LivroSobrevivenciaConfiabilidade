@@ -1,0 +1,29 @@
+body {
+  background-color: #fff9f0;
+  color: #222;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+h1, h2, h3, h4 {
+  color: #ff5c57;
+}
+
+a {
+  color: #007acc;
+}
+
+.navbar, .sidebar {
+  background-color: #ffe4b5;
+}
+
+blockquote {
+  background-color: #fff7e6;
+  border-left: 5px solid #ff7f50;
+  padding: 10px;
+  font-style: italic;
+}
+
+p {
+  text-align: justify;
+}
+
