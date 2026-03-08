@@ -40,11 +40,21 @@
     ]
   },
   {
+    "objectID": "CronogramaOrganizacao.html#referências",
+    "href": "CronogramaOrganizacao.html#referências",
+    "title": "3  ORGANIZAÇÃO E CRONOGRAMA DA DISCIPLINA",
+    "section": "3.2 REFERÊNCIAS",
+    "text": "3.2 REFERÊNCIAS\nAs referências dessa disciplina incluem:\n\nCOLOSIMO, E. A.; GIOLO, S. R. Análise de Sobrevivência Aplicada. São Paulo: Edgard Blücher, 2006.\nCOLOSIMO, E. A.; FREITAS, M. A. V. Confiabilidade: Análise de Tempo de Falha e Testes de Vida. Belo Horizonte: Fundação Christiano Ottoni, 1997.\nKLEINBAUM, D. G.; KLEIN, M. Survival Analysis: A Self-Learning Text. 3. ed. New York: Springer, 2012.\nKALBFLEISCH, J. D.; PRENTICE, R. L. The Statistical Analysis of Failure Time Data. 2. ed. Hoboken: Wiley, 2011.\nLAWLESS, J. F. Statistical Models and Methods for Lifetime Data. 2. ed. Hoboken: Wiley, 2011.\nCOLLETT, D. Modelling Survival Data in Medical Research. 3. ed. Boca Raton: CRC Press, 2015.\nKLEIN, J. P.; MOESCHBERGER, M. L. Survival Analysis: Techniques for Censored and Truncated Data. 2. ed. New York: Springer, 2003.\nMEEKER, W. Q.; ESCOBAR, L. A. Statistical Methods for Reliability Data. New York: Wiley, 1998.\nNELSON, W. Applied Life Data Analysis. Hoboken: Wiley, 2004.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>**ORGANIZAÇÃO E CRONOGRAMA DA DISCIPLINA**</span>"
+    ]
+  },
+  {
     "objectID": "CronogramaOrganizacao.html#avaliações",
     "href": "CronogramaOrganizacao.html#avaliações",
     "title": "3  ORGANIZAÇÃO E CRONOGRAMA DA DISCIPLINA",
-    "section": "3.2 AVALIAÇÕES",
-    "text": "3.2 AVALIAÇÕES\nAs avaliações dessa disciplina serão:\n\nProva 1: 2,5 pontos (08/04)\nProva 2: 2,5 pontos ()\nTrabalho 1: 2,5 pontos ()\nTrabalho 2: 2,5 pontos ()",
+    "section": "3.3 AVALIAÇÕES",
+    "text": "3.3 AVALIAÇÕES\nAs avaliações dessa disciplina serão:\n\nProva 1: 2,5 pontos (08/04)\nProva 2: 2,5 pontos ()\nListas de Exercício: 1,0 ponto\nTrabalho 1: 2 pontos ()\nTrabalho 2: 2 pontos ()",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>**ORGANIZAÇÃO E CRONOGRAMA DA DISCIPLINA**</span>"
     ]
@@ -53,8 +63,8 @@
     "objectID": "CronogramaOrganizacao.html#presença",
     "href": "CronogramaOrganizacao.html#presença",
     "title": "3  ORGANIZAÇÃO E CRONOGRAMA DA DISCIPLINA",
-    "section": "3.3 PRESENÇA",
-    "text": "3.3 PRESENÇA\nSerá cobrado 75% de frequência nas aulas.",
+    "section": "3.4 PRESENÇA",
+    "text": "3.4 PRESENÇA\nSerá cobrado 75% de frequência nas aulas.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>**ORGANIZAÇÃO E CRONOGRAMA DA DISCIPLINA**</span>"
     ]
