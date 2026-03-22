@@ -227,12 +227,15 @@ window.Quarto = {
   <li><a href="#bases-de-dados" id="toc-bases-de-dados" class="nav-link" data-scroll-target="#bases-de-dados"><span class="header-section-number">7.2</span> <strong>BASES DE DADOS</strong></a>
   <ul>
   <li><a href="#hepatite" id="toc-hepatite" class="nav-link" data-scroll-target="#hepatite"><span class="header-section-number">7.2.1</span> <strong>HEPATITE</strong></a></li>
-  <li><a href="#reincidência-de-tumor-sólido" id="toc-reincidência-de-tumor-sólido" class="nav-link" data-scroll-target="#reincidência-de-tumor-sólido"><span class="header-section-number">7.2.2</span> <strong>REINCIDÊNCIA DE TUMOR SÓLIDO</strong></a></li>
-  <li><a href="#isolante-elétrico" id="toc-isolante-elétrico" class="nav-link" data-scroll-target="#isolante-elétrico"><span class="header-section-number">7.2.3</span> <strong>ISOLANTE ELÉTRICO</strong></a></li>
-  <li><a href="#aids" id="toc-aids" class="nav-link" data-scroll-target="#aids"><span class="header-section-number">7.2.4</span> <strong>AIDS</strong></a></li>
+  <li><a href="#isolante-elétrico" id="toc-isolante-elétrico" class="nav-link" data-scroll-target="#isolante-elétrico"><span class="header-section-number">7.2.2</span> <strong>ISOLANTE ELÉTRICO</strong></a></li>
+  <li><a href="#aids" id="toc-aids" class="nav-link" data-scroll-target="#aids"><span class="header-section-number">7.2.3</span> <strong>AIDS</strong></a></li>
   </ul></li>
   <li><a href="#estimando-a-função-st" id="toc-estimando-a-função-st" class="nav-link" data-scroll-target="#estimando-a-função-st"><span class="header-section-number">7.3</span> <strong>ESTIMANDO A FUNÇÃO <span class="math inline">\(S(T)\)</span></strong></a></li>
-  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">7.4</span> <strong>EXERCÍCIOS</strong></a></li>
+  <li><a href="#estimando-o-percentil-t_p" id="toc-estimando-o-percentil-t_p" class="nav-link" data-scroll-target="#estimando-o-percentil-t_p"><span class="header-section-number">7.4</span> <strong>ESTIMANDO O PERCENTIL <span class="math inline">\(T_p\)</span></strong></a></li>
+  <li><a href="#estimando-a-função-lambdat" id="toc-estimando-a-função-lambdat" class="nav-link" data-scroll-target="#estimando-a-função-lambdat"><span class="header-section-number">7.5</span> <strong>ESTIMANDO A FUNÇÃO <span class="math inline">\(\lambda(t)\)</span></strong></a></li>
+  <li><a href="#estimando-a-função-lambdat-1" id="toc-estimando-a-função-lambdat-1" class="nav-link" data-scroll-target="#estimando-a-função-lambdat-1"><span class="header-section-number">7.6</span> <strong>ESTIMANDO A FUNÇÃO <span class="math inline">\(\Lambda(t)\)</span></strong></a></li>
+  <li><a href="#estimando-os-tempos-médios-t_m-e-vmrt" id="toc-estimando-os-tempos-médios-t_m-e-vmrt" class="nav-link" data-scroll-target="#estimando-os-tempos-médios-t_m-e-vmrt"><span class="header-section-number">7.7</span> <strong>ESTIMANDO OS TEMPOS MÉDIOS <span class="math inline">\(t_m\)</span> E <span class="math inline">\(vmr(t)\)</span></strong></a></li>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">7.8</span> <strong>EXERCÍCIOS</strong></a></li>
   </ul>
 </nav>
     </div>
@@ -266,13 +269,15 @@ window.Quarto = {
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggplot2)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(survival)    </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggsurvfit)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggsurvfit)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(muhaz)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <ul>
 <li><p><strong>Pacote</strong> <code>ggplot2</code>: <strong>Pacote fundamental</strong> para construção de <strong>gráficos</strong> no <code>R</code></p></li>
 <li><p><strong>Pacote</strong> <code>survival</code>: É o <strong>pacote básico</strong> para o <strong>estudo</strong> de Análise de Sobrevivência e Confiabilidade. Contém as <strong>principais rotinas</strong>, incluindo definição de <strong>objetos</strong> <code>Surv</code>, <strong>curvas Kaplan-Meier</strong>, <strong>modelos Cox</strong> e <strong>modelos paramétricos</strong>.</p></li>
-<li><p><strong>Pacote</strong> <code>ggsurvfit</code>: O pacote <code>survival</code>do <code>R</code> <strong>ajusta e traça curvas de sobrevivência (confiabilidade)</strong> usando <strong>gráficos básicos</strong> do <code>R</code>. Os gráficos do pacote <code>ggsurvfit</code> <strong>são baseados</strong> na estrutura gráfica do pacote <code>ggplot2</code>:</p></li>
+<li><p><strong>Pacote</strong> <code>ggsurvfit</code>: O pacote <code>survival</code>do <code>R</code> <strong>ajusta e traça curvas de sobrevivência (confiabilidade)</strong> usando <strong>gráficos básicos</strong> do <code>R</code>. Os gráficos do pacote <code>ggsurvfit</code> <strong>são baseados</strong> na estrutura gráfica do pacote <code>ggplot2</code>.</p></li>
+<li><p><strong>Pacote</strong> <code>muhaz</code>: O pacote <code>muhaz</code> do <code>R</code> <strong>estima a função de risco</strong> de forma <strong>não paramétrica</strong> a partir de dados de sobrevivência. Ele permite calcular <strong>estimativas suaves do risco ao longo do tempo</strong>, auxiliando na <strong>análise detalhada da taxa de eventos</strong> e no <strong>diagnóstico de modelos de sobrevivência</strong>. Os gráficos gerados pelo pacote ajudam a <strong>visualizar variações temporais no risco</strong>.</p></li>
 </ul>
 </section>
 <section id="bases-de-dados" class="level2" data-number="7.2">
@@ -288,28 +293,16 @@ window.Quarto = {
 <img src="images/Hepatite.png" class="img-fluid">
 </center>
 </section>
-<section id="reincidência-de-tumor-sólido" class="level3" data-number="7.2.2">
-<h3 data-number="7.2.2" class="anchored" data-anchor-id="reincidência-de-tumor-sólido"><span class="header-section-number">7.2.2</span> <strong>REINCIDÊNCIA DE TUMOR SÓLIDO</strong></h3>
-<center>
-<img src="images/Tumor2.png" class="img-fluid">
-</center>
-<p>Considere este outro exemplo em que se <strong>deseja avaliar os tempos de reincidência de 10 pacientes com tumor sólido</strong>. Dos <strong>10 pacientes</strong>, <strong>seis deles apresentaram reincidência</strong> aos 3; 6,5; 6,5; 10; 12 e 15 meses de seus respectivos ingressos no estudo; um deles não retornou após 8,4 meses de acompanhamento e três deles permaneceram sem reincidência após 4; 5,7 e 10 meses de acompanhamento. Os <strong>esquemas que ilustram hipoteticamente o acompanhamento dos pacientes deste estudo são apresentados na figura abaixo</strong>:</p>
-<center>
-<img src="images/Tumor.png" class="img-fluid">
-</center>
-<p>Do esquema (a), apresentado nesta figura, observa-se que <strong>o experimento foi planejado para durar 18 meses e teve início com três pacientes</strong>. Após ter decorrido um mês do início do experimento, <strong>ocorreu o ingresso do quarto paciente e assim sucessivamente, até o décimo paciente</strong>, que ingressou após decorridos 14 meses de andamento do experimento.</p>
-<p>O esquema apresentado em (b) mostra, por sua vez, <strong>quanto tempo cada paciente permaneceu no estudo</strong>. Note que o uso do referencial “zero” neste último esquema possibilita que o tempo até a ocorrência do evento de interesse ou da censura de cada paciente sob estudo <strong>seja observado de maneira mais facil e direta</strong> do que no esquema (a).</p>
-</section>
-<section id="isolante-elétrico" class="level3" data-number="7.2.3">
-<h3 data-number="7.2.3" class="anchored" data-anchor-id="isolante-elétrico"><span class="header-section-number">7.2.3</span> <strong>ISOLANTE ELÉTRICO</strong></h3>
+<section id="isolante-elétrico" class="level3" data-number="7.2.2">
+<h3 data-number="7.2.2" class="anchored" data-anchor-id="isolante-elétrico"><span class="header-section-number">7.2.2</span> <strong>ISOLANTE ELÉTRICO</strong></h3>
 <center>
 <img src="images/Isolante.png" class="img-fluid">
 </center>
 <p>Os <strong>dados</strong> mostrados a seguir <strong>representam o tempo até a ruptura de um tipo de isolante elétrico sujeito a uma tensão de estresse de 35 Kvolts</strong>. O <strong>teste</strong> consistiu em deixar <strong>25 destes isolantes funcionando até que 15 deles falhassem</strong> (censura do tipo II), obtendo-se os seguintes resultados (em minutos):</p>
 <p>0,19 0,78 0,96 1,31 2,78 3,16 4,67 4,85 6,50 7,35 8,27 12,07 32,52 33,91 36,71</p>
 </section>
-<section id="aids" class="level3" data-number="7.2.4">
-<h3 data-number="7.2.4" class="anchored" data-anchor-id="aids"><span class="header-section-number">7.2.4</span> <strong>AIDS</strong></h3>
+<section id="aids" class="level3" data-number="7.2.3">
+<h3 data-number="7.2.3" class="anchored" data-anchor-id="aids"><span class="header-section-number">7.2.3</span> <strong>AIDS</strong></h3>
 <center>
 <img src="images/Aids.png" class="img-fluid">
 </center>
@@ -318,12 +311,39 @@ window.Quarto = {
 </section>
 <section id="estimando-a-função-st" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="estimando-a-função-st"><span class="header-section-number">7.3</span> <strong>ESTIMANDO A FUNÇÃO <span class="math inline">\(S(T)\)</span></strong></h2>
-<p>Na aula <strong>teórica</strong>, vimos a estimação não paramétrica da <strong>função <span class="math inline">\(S(t)\)</span></strong> a partir do estimador de <strong>Kaplan-Meier</strong>. Além disso, vimos <strong>três abordagens para construir os intervalos de confiança para <span class="math inline">\(S(t)\)</span></strong>:</p>
+<p>Na aula <strong>teórica</strong>, vimos os seguintes:</p>
+<ul>
+<li><p>A estimação não paramétrica da <strong>função <span class="math inline">\(S(t)\)</span></strong> a partir do estimador de <strong>Kaplan-Meier</strong>: <span class="math inline">\(\hat{S}(t)=\prod_{j:t_j\leq t}\left(1-\frac{d_j}{n_j}\right).\)</span></p></li>
+<li><p>A variância do estimador <strong>Kaplan-Meier</strong> obtida pela fórmula de Greenwood: <span class="math inline">\(\text{Var}\left(\hat{S}(t)\right) = \left[\hat{S}(t)\right]^2 \sum_{j:t_j \le t} \frac{d_j}{n_j (n_j - d_j)}\)</span></p></li>
+<li><p><strong>três abordagens para construir os intervalos de confiança para <span class="math inline">\(S(t)\)</span></strong>:</p>
 <ol type="1">
-<li><strong>Intervalo de confiança</strong> <em>plain</em></li>
-<li><strong>Intervalo de confiança com a transformação</strong> <em>log</em></li>
-<li><strong>Intervalo de confiança com a transformação</strong> <em>log-log</em></li>
-</ol>
+<li><strong>Intervalo de confiança</strong> <em>plain</em>: <span class="math display">\[
+IC_{100(1-\alpha)\%}^{plain}(S(t))\approx\hat{S}(t) \pm z_{\alpha/2}
+\sqrt{\text{Var}\left(\hat{S}(t)\right)}
+\]</span></li>
+<li><strong>Intervalo de confiança com a transformação</strong> <em>log</em> <span class="math display">\[
+IC_{100(1-\alpha)\%}^{\log}(S(t))
+=
+\left[
+\hat{S}(t)\exp\!\left(\pm z_{\alpha/2}\frac{\sqrt{\text{Var}(\hat{S}(t))}}{\hat{S}(t)}\right)\right]
+\]</span></li>
+<li><strong>Intervalo de confiança com a transformação</strong> <em>log-log</em> <span class="math display">\[
+IC_{100(1-\alpha)\%}^{\log\text{–}\log}(S(t))
+=
+\left[
+\exp\!\Big(-\exp\!\big(
+\log(-\log \hat{S}(t)) \pm z_{\alpha/2}\,SE
+\big)\Big)
+\right]
+\]
+onde
+\[
+SE = \sqrt{
+\text{Var}\!\left(\log\!\big(-\log \hat{S}(t)\big)\right)
+}.
+\]</span></li>
+</ol></li>
+</ul>
 <p>Para exemplificar a aplicação destes conteúdos, <strong>vamos utilizar os dados de Hepatite</strong>. Lembre-se que sempre observamos uma amostra de <span class="math inline">\(n\)</span> elementos. <strong>Os dados observados de sobrevivência (confiabilidade) para o elemento</strong> <span class="math inline">\(i\)</span>, com <span class="math inline">\(i = 1, 2, 3, ..., n\)</span>, <strong>são representados</strong>, em geral, <strong>pelo par </strong></p>
 <p><span class="math display">\[(t_i , \delta_i ),\]</span></p>
 <p>em que:</p>
@@ -350,7 +370,7 @@ window.Quarto = {
 <li>O <strong>objeto <code>cens</code> guarda a indicadora</strong> <span class="math inline">\(\delta_i\)</span>, para <span class="math inline">\(i=1,2,...,29\)</span></li>
 <li>o <strong>objeto <code>grupos</code> indica o grupo o qual os pacientes estão submetidos</strong>: Controle ou Esteroide</li>
 </ul>
-<p>As <strong>estimativas de Kaplan-Meier</strong> para os grupos Controle e Esteroide, associados aos dados de Hepatite, <strong>podem ser obtidas a partir da função <code>survfit2()</code></strong> do pacote <code>survival</code>. Essa <strong>função</strong> possui os <strong>seguintes argumentos</strong> básicos:</p>
+<p>As <strong>estimativas de Kaplan-Meier</strong> para os grupos Controle e Esteroide, associados aos dados de Hepatite, <strong>podem ser obtidas a partir da função <code>survfit2()</code></strong> do pacote <code>ggsurvfit</code>. Essa função é uma ligeira adaptação da função <code>survfit</code> do pacote <code>survival</code>, para melhor <strong>preservar os elementos para a representação gráfica</strong>. Essa <strong>função</strong> possui os <strong>seguintes argumentos</strong> básicos:</p>
 <ul>
 <li><p><code>data</code>: <strong>A base de dados</strong>.</p></li>
 <li><p><code>formula</code>: <strong>Essa fórmula quase sempre tem essa estrutura</strong>: <code>Surv(tempos,cens)~grupos</code>.</p>
@@ -456,7 +476,7 @@ upper 95% CI
 <li><code>std.error</code>: <strong>Desvio padrão associado à estimativa de Kaplan-Meier (raiz quadrada da variância de Greenwood)</strong></li>
 <li><code>lower CI</code> e <code>upper CI</code>: <strong>limites do intervalo de confiança solicitado e com a confiança especificada</strong>.</li>
 </ul>
-<p>Para <strong>visualizar o gráfico com a função de sobrevivência estimada, vamos usar o objeto <code>ekm3</code></strong> (transformação log-log). O gráfico é feito com a função <code>ggsurvplot()</code> do pacote <code>survminer</code> com os comandos:</p>
+<p>Para <strong>visualizar o gráfico com a função de sobrevivência estimada, vamos usar o objeto <code>ekm3</code></strong> (transformação log-log). O gráfico é feito com a função <code>ggsurvplot()</code> do pacote <code>ggsurvfit</code> com os comandos:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
@@ -500,7 +520,7 @@ upper 95% CI
 </div>
 </div>
 </div>
-<p>Os comandos para realizar este gráfico são</p>
+<p>Os comandos para realizar estes gráficos são descritos a seguir</p>
 <ul>
 <li><p><code>ggsurvfit(ekm3, linewidth = 1.2)</code><br>
 → gera a curva de sobrevivência (Kaplan–Meier)<br>
@@ -523,25 +543,242 @@ upper 95% CI
 </ul>
 <p>Para mais <strong>detalhes</strong> sobre o a função <code>ggsurvfitt</code>, basta <strong>consultar o site</strong> <a href="https://www.danieldsjoberg.com/ggsurvfit/">ggsurvfit</a></p>
 </section>
-<section id="exercícios" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">7.4</span> <strong>EXERCÍCIOS</strong></h2>
+<section id="estimando-o-percentil-t_p" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="estimando-o-percentil-t_p"><span class="header-section-number">7.4</span> <strong>ESTIMANDO O PERCENTIL <span class="math inline">\(T_p\)</span></strong></h2>
+<p>Na aula <strong>teórica</strong>, vimos os seguintes:</p>
+<ul>
+<li><p>A estimativa não paramétrica do percentil <span class="math inline">\(t_p\)</span> é <span class="math display">\[
+\hat{t_p} = \min \{ t_j \mid \hat{S}(t_j) \leq 1-\frac{p}{100} \}
+\]</span></p></li>
+<li><p>Os intervalos de confiança para o percentil <span class="math inline">\(t_p\)</span> são obtidos de maneira gráfica traçando uma linha horizontal no eixo da probabilidade de sobrevivência no valor correspondente ao quantil desejado.</p></li>
+<li><p>Encontre a interseção dessa linha horizontal com as três curvas: a curva de sobrevivência estimada, o limite inferior do IC e o limite superior do IC.</p></li>
+</ul>
+<p>A partir da função <code>quantile</code> do <code>R</code>, é possível estimar qualquer percentil dos tempos de ocorrência do evento de interesse. Essa função também apresenta o intervalo de confiança de 95% atrelado a essa estimativa. Utilize o seguinte esquema:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(<span class="st">"Objeto_surv"</span>,<span class="st">"percentil"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Por exemplo, para os dados de pacientes com hepatite, tem-se as seguintes estimativas e intervalos de confiança para o <span class="math inline">\(t_{10}\)</span>, avaliado em cada grupo:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(ekm3,<span class="fl">0.1</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>$quantile
+                 10
+grupos=Controle   3
+grupos=Esteroide  1
+
+$lower
+                 10
+grupos=Controle   3
+grupos=Esteroide  1
+
+$upper
+                 10
+grupos=Controle  NA
+grupos=Esteroide  5</code></pre>
+</div>
+</div>
+<ul>
+<li>Para o grupo controle, <span class="math inline">\(\hat{t_{10}}=3\)</span> e o intervalo com 95% de confiança é <span class="math inline">\(IC_{95\%}(t_{10})=[3,NA)\)</span></li>
+<li>Para o grupo esteroide, <span class="math inline">\(\hat{t_{10}}=1\)</span> e o intervalo com 95% de confiança é <span class="math inline">\(IC_{95\%}(t_{10})=[1,5]\)</span></li>
+</ul>
+<blockquote class="blockquote">
+<p>Note que algumas estimativas no <code>R</code> não podem ser obtidas. Isso se deve, no nosso caso, ao pequeno tamanho de amostra e excesso de censuras.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Note que como o intervalo calculado herda as especificações da função <code>survfit2</code>.</p>
+</blockquote>
+<p>Graficamente, podemos acrescentar esse percentil no gráfico adicionando o comando <code>add_quantile("1-probabilidade(s)")</code></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>p<span class="ot">=</span><span class="fl">0.1</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsurvfit</span>(ekm3, <span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_confidence_interval</span>() <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_quantile</span>(<span class="dv">1</span><span class="sc">-</span>p)<span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_risktable</span>() <span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_ggsurvfit</span>() <span class="sc">+</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Tempo (semanas)"</span>,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Sobrevivência estimada"</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">16</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Cap4_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Agora considere as seguintes estimativas e intervalos de confiança para o <span class="math inline">\(t_{50}\)</span>, avaliado em cada grupo:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(ekm3,<span class="fl">0.5</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>$quantile
+                 50
+grupos=Controle  NA
+grupos=Esteroide 10
+
+$lower
+                 50
+grupos=Controle  NA
+grupos=Esteroide  1
+
+$upper
+                 50
+grupos=Controle  NA
+grupos=Esteroide NA</code></pre>
+</div>
+</div>
+<ul>
+<li>Para o grupo controle, <span class="math inline">\(\hat{t_{10}}=NA\)</span> e o intervalo com 95% de confiança é <span class="math inline">\(IC_{95\%}(t_{10})=(NA,NA)\)</span></li>
+<li>Para o grupo esteroide, <span class="math inline">\(\hat{t_{10}}=10\)</span> e o intervalo com 95% de confiança é <span class="math inline">\(IC_{95\%}(t_{10})=[1,NA]\)</span></li>
+</ul>
+<p>Graficamente:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>p<span class="ot">=</span><span class="fl">0.5</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsurvfit</span>(ekm3, <span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_confidence_interval</span>() <span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_quantile</span>(<span class="dv">1</span><span class="sc">-</span>p)<span class="sc">+</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_risktable</span>() <span class="sc">+</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_ggsurvfit</span>() <span class="sc">+</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Tempo (semanas)"</span>,</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Sobrevivência estimada"</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">16</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Cap4_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="estimando-a-função-lambdat" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="estimando-a-função-lambdat"><span class="header-section-number">7.5</span> <strong>ESTIMANDO A FUNÇÃO <span class="math inline">\(\lambda(t)\)</span></strong></h2>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 🔹 Separando os grupos</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>dados_controle <span class="ot">&lt;-</span> Dados1 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(grupos <span class="sc">==</span> <span class="st">"Controle"</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>dados_esteroide <span class="ot">&lt;-</span> Dados1 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(grupos <span class="sc">==</span> <span class="st">"Esteroide"</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 🔹 Estimando hazard (muhaz)</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>haz_controle <span class="ot">&lt;-</span> <span class="fu">muhaz</span>(</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">max.time =</span> <span class="dv">16</span>,</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">times =</span> dados_controle<span class="sc">$</span>tempos,</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">delta =</span> dados_controle<span class="sc">$</span>cens</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>haz_esteroide <span class="ot">&lt;-</span> <span class="fu">muhaz</span>(</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">max.time =</span> <span class="dv">16</span>,</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">times =</span> dados_esteroide<span class="sc">$</span>tempos,</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">delta =</span> dados_esteroide<span class="sc">$</span>cens</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 🔹 Organizando resultados</span></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>df_controle <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">tempo =</span> haz_controle<span class="sc">$</span>est.grid,</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">hazard =</span> haz_controle<span class="sc">$</span>haz.est,</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">grupo =</span> <span class="st">"Controle"</span></span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>df_esteroide <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">tempo =</span> haz_esteroide<span class="sc">$</span>est.grid,</span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">hazard =</span> haz_esteroide<span class="sc">$</span>haz.est,</span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">grupo =</span> <span class="st">"Esteroide"</span></span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(df_controle, df_esteroide)</span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a><span class="co"># 🔹 Gráfico</span></span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> tempo, <span class="at">y =</span> hazard, <span class="at">color =</span> grupo)) <span class="sc">+</span></span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Tempo (semanas)"</span>,</span>
+<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">lambda</span>(t)),</span>
+<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Grupo"</span></span>
+<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">16</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="estimando-a-função-lambdat-1" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="estimando-a-função-lambdat-1"><span class="header-section-number">7.6</span> <strong>ESTIMANDO A FUNÇÃO <span class="math inline">\(\Lambda(t)\)</span></strong></h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>fit_na <span class="ot">&lt;-</span> <span class="fu">survfit2</span>(</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Surv</span>(tempos, cens) <span class="sc">~</span> grupos,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> Dados1,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">conf.type =</span> <span class="st">"log"</span>, </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"fh"</span>  </span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsurvfit</span>(fit_na, </span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">linewidth =</span> <span class="fl">1.2</span>,</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">"cumhaz"</span>) <span class="sc">+</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_confidence_interval</span>() <span class="sc">+</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Tempo (semanas)"</span>,</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Função de risco acumulada estimada"</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">16</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Cap4_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="estimando-os-tempos-médios-t_m-e-vmrt" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="estimando-os-tempos-médios-t_m-e-vmrt"><span class="header-section-number">7.7</span> <strong>ESTIMANDO OS TEMPOS MÉDIOS <span class="math inline">\(t_m\)</span> E <span class="math inline">\(vmr(t)\)</span></strong></h2>
+</section>
+<section id="exercícios" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">7.8</span> <strong>EXERCÍCIOS</strong></h2>
 <p><em>Utilize a transformação log-log, quando necessário</em></p>
-<p>1- <strong>Base de dados Tumor Sólido:</strong></p>
+<p>1- <strong>Base de dados Isolantes Elétricos</strong>.</p>
 <ol type="a">
 <li><p>A partir da descrição dos dados, construa a base de dados e guarde em um objeto chamado <code>Dados2</code>.</p></li>
 <li><p>Obtenha as estimativas para as funções de sobrevivência a partir do estimador de Kaplan-Meier. Faça um gráfico com o intervalo construído.</p></li>
 </ol>
-<p>2- <strong>Base de dados Isolantes Elétricos</strong>.</p>
+<p>2- <strong>Base de dados AIDS</strong>.</p>
 <ol type="a">
-<li><p>A partir da descrição dos dados, construa a base de dados e guarde em um objeto chamado <code>Dados3</code>.</p></li>
-<li><p>Obtenha as estimativas para as funções de sobrevivência a partir do estimador de Kaplan-Meier. Faça um gráfico com o intervalo construído.</p></li>
+<li><p>Leia a base de dados e guarde em um objeto <code>Dados3</code>.</p></li>
+<li><p>Considerando os dados completos (sem estratificar por sexo), obtenha as estimativas para a função de sobrevivência a partir do estimador de Kaplan-Meier e faça um gráfico com o intervalo construído.</p></li>
 </ol>
-<p>3- <strong>Base de dados AIDS</strong>.</p>
-<ol type="a">
-<li><p>Leia a base de dados e guarde em um objeto <code>Dados4</code>.</p></li>
-<li><p>Considerando os dados completos (sem estratificar por sexo), obtenha as estimativas para a função de sobrevivência a partir do estimador de Kaplan-Meier e faça um gráfico com o intervalo construído</p></li>
-<li><p>Considerando o sexo, obtenha as estimativas para as funções de sobrevivência a partir do estimador de Kaplan-Meier e faça um gráfico com o intervalo construído. Qual sexo tende a sobreviver mais, descritivamente?</p></li>
+<ul>
+<li>Qual a probabilidade estimada de um paciente sobreviver por mais de 1000 dias?</li>
+<li>Qual a probabilidade estimada de um paciente morrer antes de 1750 dias?</li>
+</ul>
+<ol start="3" type="a">
+<li>Considerando o sexo, obtenha as estimativas para as funções de sobrevivência a partir do estimador de Kaplan-Meier e faça um gráfico com o intervalo construído.</li>
 </ol>
+<ul>
+<li>Para cada sexo, qual a probabilidade estimada de um paciente sobreviver por mais de 1000 dias?</li>
+<li>Para cada sexo, qual a probabilidade estimada de um paciente morrer antes de 1750 dias?</li>
+</ul>
+<ol start="4" type="a">
+<li><p>Você acha que as funções de sobrevivência de homens e mulheres são diferentes?</p></li>
+<li><p>Encontre uma estimativa pontual e intervalar para os tempos em dias tal que 20% dos pacientes do sexo masculino e do sexo feminino já morreram.</p></li>
+</ol>
+<ul>
+<li>Represente graficamente essas estimativas pontuais.</li>
+</ul>
+<ol start="6" type="a">
+<li>Encontre uma estimativa pontual e intervalar para os tempos medianos de sobrevivência dos pacientes do sexo masculino e do sexo feminino.</li>
+</ol>
+<ul>
+<li>Represente graficamente essas estimativas pontuais.</li>
+</ul>
 
 
 <!-- -->
@@ -1015,239 +1252,416 @@ upper 95% CI
   <div class="nav-page nav-page-next">
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Código fonte</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb11" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># **ESTIMAÇÃO NÃO PARAMÉTRICA (PRÁTICA)**</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## **PACOTES NECESSÁRIOS**</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>Para esta **primeira aula prática** de Análise de Sobrevivência e Confiabilidade, precisaremos dos seguintes **pacotes**:</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T,message=F,message=FALSE}</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggplot2)</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(survival)    </span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggsurvfit)</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Pacote** `ggplot2`: **Pacote fundamental** para construção de **gráficos** no <span class="in">`R`</span></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Pacote** `survival`: É o **pacote básico** para o **estudo** de Análise de Sobrevivência e Confiabilidade. Contém as **principais rotinas**, incluindo definição de **objetos** `Surv`, **curvas Kaplan-Meier**, **modelos Cox** e **modelos paramétricos**.</span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Pacote** `ggsurvfit`: O pacote `survival`do `R` **ajusta e traça curvas de sobrevivência (confiabilidade)** usando **gráficos básicos** do `R`. Os gráficos do pacote `ggsurvfit` **são baseados** na estrutura gráfica do pacote <span class="in">`ggplot2`</span>:</span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## **BASES DE DADOS** </span></span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>Esta **seção** é dedicada **à descrição das bases de dados** utilizadas **nesta aula**.</span>
-<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="fu">### **HEPATITE**</span></span>
-<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">center</span><span class="dt">&gt;</span></span>
-<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="al">![ ](images/Hepatite2.png)</span></span>
-<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">center</span><span class="dt">&gt;</span></span>
-<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>Um **estudo clínico aleatorizado** com o objetivo de **investigar o efeito da terapia com esteroide no tratamento de hepatite viral aguda**. **Vinte e nove pacientes** com esta doença **foram aleatorizados** para receber um **placebo** ou o tratamento com **esteroide**. Cada paciente foi acompanhado por **16 semanas** ou até a **morte** (evento de interesse) ou até a **perda de acompanhamento**. Os dados são retratados a seguir:</span>
-<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">center</span><span class="dt">&gt;</span></span>
-<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a><span class="al">![ ](images/Hepatite.png)</span></span>
-<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">center</span><span class="dt">&gt;</span></span>
-<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a><span class="fu">### **REINCIDÊNCIA DE TUMOR SÓLIDO** </span></span>
-<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">center</span><span class="dt">&gt;</span></span>
-<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a><span class="al">![ ](images/Tumor2.png)</span></span>
-<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">center</span><span class="dt">&gt;</span></span>
-<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>Considere este outro exemplo em que se **deseja avaliar os tempos de reincidência de 10 pacientes com tumor sólido**. Dos **10 pacientes**, **seis deles apresentaram reincidência** aos 3; 6,5; 6,5; </span>
-<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>10; 12 e 15 meses de seus respectivos ingressos no estudo; um deles não retornou após 8,4 meses de acompanhamento e três deles permaneceram sem </span>
-<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>reincidência após 4; 5,7 e 10 meses de acompanhamento. Os **esquemas que ilustram hipoteticamente o acompanhamento dos pacientes deste estudo são apresentados na figura abaixo**: </span>
-<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">center</span><span class="dt">&gt;</span></span>
-<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a><span class="al">![ ](images/Tumor.png)</span></span>
-<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">center</span><span class="dt">&gt;</span></span>
-<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a>Do esquema (a), apresentado nesta figura, observa-se que **o experimento foi planejado para durar 18 meses e teve início com três pacientes**. Após ter decorrido um mês do início do experimento, **ocorreu o ingresso do quarto paciente e assim sucessivamente, até o décimo paciente**, que ingressou após decorridos 14 meses de andamento do experimento. </span>
-<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a>O esquema apresentado em (b) mostra, por sua vez, **quanto tempo cada paciente permaneceu no estudo**. Note que o uso do referencial "zero" neste último esquema possibilita que o tempo até a ocorrência do evento de interesse ou da censura de cada paciente sob estudo **seja observado de maneira mais facil e direta** do que no esquema (a).</span>
-<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a><span class="fu">### **ISOLANTE ELÉTRICO**</span></span>
-<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">center</span><span class="dt">&gt;</span></span>
-<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a><span class="al">![ ](images/Isolante.png)</span></span>
-<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">center</span><span class="dt">&gt;</span></span>
-<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a>Os **dados** mostrados a seguir **representam o tempo até a ruptura de um tipo de isolante elétrico sujeito a uma tensão de estresse de 35 Kvolts**. O **teste** consistiu em deixar **25 destes isolantes funcionando até que 15 deles falhassem** (censura do tipo II), obtendo-se os seguintes resultados (em minutos):</span>
-<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a>0,19  0,78  0,96  1,31  2,78  3,16  4,67  4,85  6,50  7,35  8,27  12,07  32,52  33,91  36,71</span>
-<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a><span class="fu">### **AIDS**</span></span>
-<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">center</span><span class="dt">&gt;</span></span>
-<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a><span class="al">![ ](images/Aids.png)</span></span>
-<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">center</span><span class="dt">&gt;</span></span>
-<span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a>O estudo **é constituído de pacientes portadores de HIV atendidos entre 1986 e 2000** no Instituto de Pesquisa Clínica Evandro Chagas (Ipec/Fiocruz). **Dessa coorte, obteve-se uma amostra de 193 indivíduos que foram diagnosticados como portadores de AIDS** (critério CDC 1993) durante o período de acompanhamento. O objetivo é **mensurar o tempo, em dias, do diagnóstico até a morte dos pacientes**. Para comparação da sobrevivência, vamos ver como o sexo impacta a sobrevivência do paciente. **Essa base de dados está armazenada no objeto** <span class="in">`DadosAIDS.csv`</span></span>
-<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-67"><a href="#cb11-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## **ESTIMANDO A FUNÇÃO $S(T)$**</span></span>
-<span id="cb11-68"><a href="#cb11-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-69"><a href="#cb11-69" aria-hidden="true" tabindex="-1"></a>Na aula **teórica**, vimos a estimação não paramétrica da **função $S(t)$** a partir do estimador de **Kaplan-Meier**. Além disso, vimos **três abordagens para construir os intervalos de confiança para $S(t)$**:</span>
-<span id="cb11-70"><a href="#cb11-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-71"><a href="#cb11-71" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Intervalo de confiança** *plain*</span>
-<span id="cb11-72"><a href="#cb11-72" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Intervalo de confiança com a transformação** *log*</span>
-<span id="cb11-73"><a href="#cb11-73" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Intervalo de confiança com a transformação** *log-log*</span>
-<span id="cb11-74"><a href="#cb11-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-75"><a href="#cb11-75" aria-hidden="true" tabindex="-1"></a>Para exemplificar a aplicação destes conteúdos, **vamos utilizar os dados de Hepatite**. Lembre-se que sempre observamos uma amostra de $n$ elementos.  **Os dados observados de sobrevivência (confiabilidade) para o elemento** $i$, com $i = 1, 2, 3, ..., n$, **são representados**, em geral, **pelo par **</span>
-<span id="cb11-76"><a href="#cb11-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-77"><a href="#cb11-77" aria-hidden="true" tabindex="-1"></a>$$(t_i , \delta_i ),$$</span>
-<span id="cb11-78"><a href="#cb11-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-79"><a href="#cb11-79" aria-hidden="true" tabindex="-1"></a>em que:</span>
-<span id="cb11-80"><a href="#cb11-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-81"><a href="#cb11-81" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$t_i$ é o **tempo observado até a ocorrência do evento de interesse ou o tempo observado de censura para o elemento $i$**.</span>
-<span id="cb11-82"><a href="#cb11-82" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$\delta_i$ **é uma função indicadora de ocorrência do evento**:</span>
-<span id="cb11-83"><a href="#cb11-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-84"><a href="#cb11-84" aria-hidden="true" tabindex="-1"></a>$\delta_i=\begin{cases}</span>
-<span id="cb11-85"><a href="#cb11-85" aria-hidden="true" tabindex="-1"></a>1, \quad \textrm{se } t_i \textrm{ é um tempo de ocorrência do evento de interesse}<span class="sc">\\</span></span>
-<span id="cb11-86"><a href="#cb11-86" aria-hidden="true" tabindex="-1"></a>0, \quad \textrm{se } t_i \textrm{ é um tempo censurado}</span>
-<span id="cb11-87"><a href="#cb11-87" aria-hidden="true" tabindex="-1"></a>\end{cases}$</span>
-<span id="cb11-88"><a href="#cb11-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-89"><a href="#cb11-89" aria-hidden="true" tabindex="-1"></a>Como a **base é pequena**, vamos **criar** os dados manualmente:</span>
-<span id="cb11-90"><a href="#cb11-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-91"><a href="#cb11-91" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
-<span id="cb11-92"><a href="#cb11-92" aria-hidden="true" tabindex="-1"></a>tempos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">16</span>,<span class="dv">16</span>,<span class="dv">16</span>,<span class="dv">16</span>,<span class="dv">16</span>,<span class="dv">16</span>,<span class="dv">16</span>,<span class="dv">16</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">12</span>,<span class="dv">16</span>,<span class="dv">16</span>,<span class="dv">16</span>)</span>
-<span id="cb11-93"><a href="#cb11-93" aria-hidden="true" tabindex="-1"></a>cens <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>)</span>
-<span id="cb11-94"><a href="#cb11-94" aria-hidden="true" tabindex="-1"></a>grupos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"Controle"</span>,<span class="dv">15</span>),<span class="fu">rep</span>(<span class="st">"Esteroide"</span>,<span class="dv">14</span>))    </span>
-<span id="cb11-95"><a href="#cb11-95" aria-hidden="true" tabindex="-1"></a>Dados1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(tempos,cens,grupos)</span>
-<span id="cb11-96"><a href="#cb11-96" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-97"><a href="#cb11-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-98"><a href="#cb11-98" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>O **objeto `tempos` guarda os valores dos tempos** $t_i$, para $i=1,2,...,29$</span>
-<span id="cb11-99"><a href="#cb11-99" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>O **objeto `cens` guarda a indicadora** $\delta_i$, para $i=1,2,...,29$ </span>
-<span id="cb11-100"><a href="#cb11-100" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>o **objeto `grupos` indica o grupo o qual os pacientes estão submetidos**: Controle ou Esteroide</span>
-<span id="cb11-101"><a href="#cb11-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-102"><a href="#cb11-102" aria-hidden="true" tabindex="-1"></a>As **estimativas de Kaplan-Meier** para os grupos Controle e Esteroide, associados aos dados de Hepatite, **podem ser obtidas a partir da função `survfit2()`** do pacote `survival`. Essa **função** possui os **seguintes argumentos** básicos:</span>
-<span id="cb11-103"><a href="#cb11-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-104"><a href="#cb11-104" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`data`</span>: **A base de dados**.</span>
-<span id="cb11-105"><a href="#cb11-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-106"><a href="#cb11-106" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`formula`</span>: **Essa fórmula quase sempre tem essa estrutura**: <span class="in">`Surv(tempos,cens)~grupos`</span>.</span>
-<span id="cb11-107"><a href="#cb11-107" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Se você não tem grupos em sua base de dados, utilize <span class="in">`Surv(tempos,cens)~1`</span>.</span>
-<span id="cb11-108"><a href="#cb11-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-109"><a href="#cb11-109" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`conf.int`</span>: **Nível de confiança do intervalo**.</span>
-<span id="cb11-110"><a href="#cb11-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-111"><a href="#cb11-111" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`conf.type`</span>: Para o intervalo de confiança básico, utilize <span class="in">`conf.type = "plain"`</span>. Para o intervalo de confiança com a transformação log use <span class="in">`conf.type = "log"`</span> (default do <span class="in">`R`</span>). Para o intervalo de confiança com a transformação log-log, utilize <span class="in">`conf.type = "log-log"`</span>. </span>
-<span id="cb11-112"><a href="#cb11-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-113"><a href="#cb11-113" aria-hidden="true" tabindex="-1"></a>Assim, **vamos estimar a função de sobrevivência pelo estimador de Kaplan-Meier a partir dos dados de Hepatite** utilizando um **intervalo com 95% de confiança sem transformação**:</span>
-<span id="cb11-114"><a href="#cb11-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-115"><a href="#cb11-115" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
-<span id="cb11-116"><a href="#cb11-116" aria-hidden="true" tabindex="-1"></a>ekm<span class="ot">&lt;-</span> <span class="fu">survfit2</span>(<span class="at">data=</span>Dados1,</span>
-<span id="cb11-117"><a href="#cb11-117" aria-hidden="true" tabindex="-1"></a>              <span class="at">formula =</span> <span class="fu">Surv</span>(tempos,cens)<span class="sc">~</span>grupos,</span>
-<span id="cb11-118"><a href="#cb11-118" aria-hidden="true" tabindex="-1"></a>              <span class="at">conf.type =</span> <span class="st">"plain"</span>, </span>
-<span id="cb11-119"><a href="#cb11-119" aria-hidden="true" tabindex="-1"></a>              <span class="at">conf.int=</span><span class="fl">0.95</span>)</span>
-<span id="cb11-120"><a href="#cb11-120" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ekm)</span>
-<span id="cb11-121"><a href="#cb11-121" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-122"><a href="#cb11-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-123"><a href="#cb11-123" aria-hidden="true" tabindex="-1"></a>Agora **vamos estimar a função de sobrevivência pelo estimador de Kaplan-Meier a partir dos dados de Hepatite** utilizando **um intervalo com 95% de confiança com a transformação log**:</span>
-<span id="cb11-124"><a href="#cb11-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-125"><a href="#cb11-125" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
-<span id="cb11-126"><a href="#cb11-126" aria-hidden="true" tabindex="-1"></a>ekm2<span class="ot">&lt;-</span> <span class="fu">survfit2</span>(<span class="at">data=</span>Dados1,</span>
-<span id="cb11-127"><a href="#cb11-127" aria-hidden="true" tabindex="-1"></a>               <span class="at">formula =</span> <span class="fu">Surv</span>(tempos,cens)<span class="sc">~</span>grupos,</span>
-<span id="cb11-128"><a href="#cb11-128" aria-hidden="true" tabindex="-1"></a>               <span class="at">conf.type =</span> <span class="st">"log"</span>, </span>
-<span id="cb11-129"><a href="#cb11-129" aria-hidden="true" tabindex="-1"></a>               <span class="at">conf.int=</span><span class="fl">0.95</span>)</span>
-<span id="cb11-130"><a href="#cb11-130" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ekm2)</span>
-<span id="cb11-131"><a href="#cb11-131" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-132"><a href="#cb11-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-133"><a href="#cb11-133" aria-hidden="true" tabindex="-1"></a>Agora **vamos estimar a função de sobrevivência pelo estimador de Kaplan-Meier a partir dos dados de Hepatite** utilizando um **intervalo com 95% de confiança com a transformação** log-log:</span>
-<span id="cb11-134"><a href="#cb11-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-135"><a href="#cb11-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
-<span id="cb11-136"><a href="#cb11-136" aria-hidden="true" tabindex="-1"></a>ekm3<span class="ot">&lt;-</span> <span class="fu">survfit2</span>(<span class="at">data=</span>Dados1,</span>
-<span id="cb11-137"><a href="#cb11-137" aria-hidden="true" tabindex="-1"></a>               <span class="at">formula =</span> <span class="fu">Surv</span>(tempos,cens)<span class="sc">~</span>grupos,</span>
-<span id="cb11-138"><a href="#cb11-138" aria-hidden="true" tabindex="-1"></a>               <span class="at">conf.type =</span> <span class="st">"log-log"</span>, </span>
-<span id="cb11-139"><a href="#cb11-139" aria-hidden="true" tabindex="-1"></a>               <span class="at">conf.int=</span><span class="fl">0.95</span>)</span>
-<span id="cb11-140"><a href="#cb11-140" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ekm3)</span>
-<span id="cb11-141"><a href="#cb11-141" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-142"><a href="#cb11-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-143"><a href="#cb11-143" aria-hidden="true" tabindex="-1"></a>Para todas as saídas, observe que:</span>
-<span id="cb11-144"><a href="#cb11-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-145"><a href="#cb11-145" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`time`</span>: Os **tempos distintos de ocorrência do evento** ($t_j$)</span>
-<span id="cb11-146"><a href="#cb11-146" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`n.risk`</span>: $n_j$</span>
-<span id="cb11-147"><a href="#cb11-147" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`n.event`</span>: $d_j$</span>
-<span id="cb11-148"><a href="#cb11-148" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`survival`</span>: **Estimativa de Kaplan-Meier para** $S(t_j)$</span>
-<span id="cb11-149"><a href="#cb11-149" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`std.error`</span>: **Desvio padrão associado à estimativa de Kaplan-Meier (raiz quadrada da variância de Greenwood)**</span>
-<span id="cb11-150"><a href="#cb11-150" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`lower CI`</span> e <span class="in">`upper CI`</span>: **limites do intervalo de confiança solicitado e com a confiança especificada**.</span>
-<span id="cb11-151"><a href="#cb11-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-152"><a href="#cb11-152" aria-hidden="true" tabindex="-1"></a>Para **visualizar o gráfico com a função de sobrevivência estimada, vamos usar o objeto `ekm3`** (transformação log-log). O gráfico é feito com a função <span class="in">`ggsurvplot()`</span> do pacote <span class="in">`survminer`</span> com os comandos:</span>
-<span id="cb11-153"><a href="#cb11-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-154"><a href="#cb11-154" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
-<span id="cb11-155"><a href="#cb11-155" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsurvfit</span>(ekm3, <span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb11-156"><a href="#cb11-156" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_risktable</span>() <span class="sc">+</span></span>
-<span id="cb11-157"><a href="#cb11-157" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_censor_mark</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="dv">1</span>)<span class="sc">+</span></span>
-<span id="cb11-158"><a href="#cb11-158" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_ggsurvfit</span>() <span class="sc">+</span></span>
-<span id="cb11-159"><a href="#cb11-159" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb11-160"><a href="#cb11-160" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Tempo (semanas)"</span>,</span>
-<span id="cb11-161"><a href="#cb11-161" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Sobrevivência estimada"</span></span>
-<span id="cb11-162"><a href="#cb11-162" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb11-163"><a href="#cb11-163" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">16</span>) </span>
-<span id="cb11-164"><a href="#cb11-164" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-165"><a href="#cb11-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-166"><a href="#cb11-166" aria-hidden="true" tabindex="-1"></a>Para **incluir o intervalo de confiança**, basta **acrescentar o comando** <span class="in">`add_confidence_interval()`</span></span>
-<span id="cb11-167"><a href="#cb11-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-168"><a href="#cb11-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-169"><a href="#cb11-169" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
-<span id="cb11-170"><a href="#cb11-170" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsurvfit</span>(ekm3, <span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb11-171"><a href="#cb11-171" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_confidence_interval</span>() <span class="sc">+</span></span>
-<span id="cb11-172"><a href="#cb11-172" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_risktable</span>() <span class="sc">+</span></span>
-<span id="cb11-173"><a href="#cb11-173" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_ggsurvfit</span>() <span class="sc">+</span></span>
-<span id="cb11-174"><a href="#cb11-174" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb11-175"><a href="#cb11-175" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Tempo (semanas)"</span>,</span>
-<span id="cb11-176"><a href="#cb11-176" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Sobrevivência estimada"</span></span>
-<span id="cb11-177"><a href="#cb11-177" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb11-178"><a href="#cb11-178" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">16</span>)</span>
-<span id="cb11-179"><a href="#cb11-179" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-180"><a href="#cb11-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-181"><a href="#cb11-181" aria-hidden="true" tabindex="-1"></a>Os comandos para realizar este gráfico são</span>
-<span id="cb11-182"><a href="#cb11-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-183"><a href="#cb11-183" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`ggsurvfit(ekm3, linewidth = 1.2)`</span>  </span>
-<span id="cb11-184"><a href="#cb11-184" aria-hidden="true" tabindex="-1"></a>  → gera a curva de sobrevivência (Kaplan–Meier)  </span>
-<span id="cb11-185"><a href="#cb11-185" aria-hidden="true" tabindex="-1"></a>  → <span class="in">`linewidth`</span>: espessura da linha  </span>
-<span id="cb11-186"><a href="#cb11-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-187"><a href="#cb11-187" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`add_risktable()`</span>  </span>
-<span id="cb11-188"><a href="#cb11-188" aria-hidden="true" tabindex="-1"></a>  → adiciona a tabela de indivíduos sob risco ao longo do tempo  </span>
-<span id="cb11-189"><a href="#cb11-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-190"><a href="#cb11-190" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`add_censor_mark(size = 2, alpha = 1)`</span>  </span>
-<span id="cb11-191"><a href="#cb11-191" aria-hidden="true" tabindex="-1"></a>  → adiciona marcas de censura na curva  </span>
-<span id="cb11-192"><a href="#cb11-192" aria-hidden="true" tabindex="-1"></a>  → <span class="in">`size`</span>: tamanho  </span>
-<span id="cb11-193"><a href="#cb11-193" aria-hidden="true" tabindex="-1"></a>  → <span class="in">`alpha`</span>: transparência  </span>
-<span id="cb11-194"><a href="#cb11-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-195"><a href="#cb11-195" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`add_confidence_interval()`</span>  </span>
-<span id="cb11-196"><a href="#cb11-196" aria-hidden="true" tabindex="-1"></a>  → adiciona o intervalo de confiança da curva (faixa sombreada)  </span>
-<span id="cb11-197"><a href="#cb11-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-198"><a href="#cb11-198" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`scale_ggsurvfit()`</span>  </span>
-<span id="cb11-199"><a href="#cb11-199" aria-hidden="true" tabindex="-1"></a>  → coloca o eixo y em porcentagem.</span>
-<span id="cb11-200"><a href="#cb11-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-201"><a href="#cb11-201" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`labs(x = ..., y = ...)`</span>  </span>
-<span id="cb11-202"><a href="#cb11-202" aria-hidden="true" tabindex="-1"></a>  → define os rótulos dos eixos  </span>
-<span id="cb11-203"><a href="#cb11-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-204"><a href="#cb11-204" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`theme_classic(base_size = 16)`</span>  </span>
-<span id="cb11-205"><a href="#cb11-205" aria-hidden="true" tabindex="-1"></a>  → aplica um tema limpo  </span>
-<span id="cb11-206"><a href="#cb11-206" aria-hidden="true" tabindex="-1"></a>  → <span class="in">`base_size`</span>: tamanho da fonte  </span>
-<span id="cb11-207"><a href="#cb11-207" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-208"><a href="#cb11-208" aria-hidden="true" tabindex="-1"></a>Para mais **detalhes** sobre o a função `ggsurvfitt`, basta **consultar o site** <span class="co">[</span><span class="ot">ggsurvfit</span><span class="co">](https://www.danieldsjoberg.com/ggsurvfit/)</span></span>
-<span id="cb11-209"><a href="#cb11-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-210"><a href="#cb11-210" aria-hidden="true" tabindex="-1"></a><span class="fu">## **EXERCÍCIOS**</span></span>
-<span id="cb11-211"><a href="#cb11-211" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-212"><a href="#cb11-212" aria-hidden="true" tabindex="-1"></a>*Utilize a transformação log-log, quando necessário*</span>
-<span id="cb11-213"><a href="#cb11-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-214"><a href="#cb11-214" aria-hidden="true" tabindex="-1"></a>1- **Base de dados Tumor Sólido:**</span>
-<span id="cb11-215"><a href="#cb11-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-216"><a href="#cb11-216" aria-hidden="true" tabindex="-1"></a>a) A partir da descrição dos dados, construa a base de dados e guarde em um objeto chamado <span class="in">`Dados2`</span>.</span>
-<span id="cb11-217"><a href="#cb11-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-218"><a href="#cb11-218" aria-hidden="true" tabindex="-1"></a>b) Obtenha as estimativas para as funções de sobrevivência a partir do estimador de Kaplan-Meier. Faça um gráfico com o intervalo construído.</span>
-<span id="cb11-219"><a href="#cb11-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-220"><a href="#cb11-220" aria-hidden="true" tabindex="-1"></a>2- **Base de dados Isolantes Elétricos**.</span>
-<span id="cb11-221"><a href="#cb11-221" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-222"><a href="#cb11-222" aria-hidden="true" tabindex="-1"></a>a) A partir da descrição dos dados, construa a base de dados e guarde em um objeto chamado <span class="in">`Dados3`</span>.</span>
-<span id="cb11-223"><a href="#cb11-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-224"><a href="#cb11-224" aria-hidden="true" tabindex="-1"></a>b) Obtenha as estimativas para as funções de sobrevivência a partir do estimador de Kaplan-Meier. Faça um gráfico com o intervalo construído.</span>
-<span id="cb11-225"><a href="#cb11-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-226"><a href="#cb11-226" aria-hidden="true" tabindex="-1"></a>3- **Base de dados AIDS**.</span>
-<span id="cb11-227"><a href="#cb11-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-228"><a href="#cb11-228" aria-hidden="true" tabindex="-1"></a>a) Leia a base de dados e guarde em um objeto <span class="in">`Dados4`</span>.</span>
-<span id="cb11-229"><a href="#cb11-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-230"><a href="#cb11-230" aria-hidden="true" tabindex="-1"></a>b) Considerando os dados completos (sem estratificar por sexo), obtenha as estimativas para a função de sobrevivência a partir do estimador de Kaplan-Meier e faça um gráfico com o intervalo construído</span>
-<span id="cb11-231"><a href="#cb11-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-232"><a href="#cb11-232" aria-hidden="true" tabindex="-1"></a>c) Considerando o sexo, obtenha as estimativas para as funções de sobrevivência a partir do estimador de Kaplan-Meier e faça um gráfico com o intervalo construído. Qual sexo tende a sobreviver mais, descritivamente?</span>
-<span id="cb11-233"><a href="#cb11-233" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="an">output:</span><span class="co"> html_document</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="an">editor_options:</span><span class="co"> </span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">  chunk_output_type: console</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># **ESTIMAÇÃO NÃO PARAMÉTRICA (PRÁTICA)**</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## **PACOTES NECESSÁRIOS**</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>Para esta **primeira aula prática** de Análise de Sobrevivência e Confiabilidade, precisaremos dos seguintes **pacotes**:</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T,warning=FALSE,message=FALSE}</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggplot2)</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(survival)    </span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggsurvfit)</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(muhaz)</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Pacote** `ggplot2`: **Pacote fundamental** para construção de **gráficos** no <span class="in">`R`</span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Pacote** `survival`: É o **pacote básico** para o **estudo** de Análise de Sobrevivência e Confiabilidade. Contém as **principais rotinas**, incluindo definição de **objetos** `Surv`, **curvas Kaplan-Meier**, **modelos Cox** e **modelos paramétricos**.</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Pacote** `ggsurvfit`: O pacote `survival`do `R` **ajusta e traça curvas de sobrevivência (confiabilidade)** usando **gráficos básicos** do `R`. Os gráficos do pacote `ggsurvfit` **são baseados** na estrutura gráfica do pacote <span class="in">`ggplot2`</span>.</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Pacote** `muhaz`: O pacote `muhaz` do `R` **estima a função de risco** de forma **não paramétrica** a partir de dados de sobrevivência. Ele permite calcular **estimativas suaves do risco ao longo do tempo**, auxiliando na **análise detalhada da taxa de eventos** e no **diagnóstico de modelos de sobrevivência**. Os gráficos gerados pelo pacote ajudam a **visualizar variações temporais no risco**.</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## **BASES DE DADOS** </span></span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>Esta **seção** é dedicada **à descrição das bases de dados** utilizadas **nesta aula**.</span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a><span class="fu">### **HEPATITE**</span></span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">center</span><span class="dt">&gt;</span></span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a><span class="al">![ ](images/Hepatite2.png)</span></span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">center</span><span class="dt">&gt;</span></span>
+<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a>Um **estudo clínico aleatorizado** com o objetivo de **investigar o efeito da terapia com esteroide no tratamento de hepatite viral aguda**. **Vinte e nove pacientes** com esta doença **foram aleatorizados** para receber um **placebo** ou o tratamento com **esteroide**. Cada paciente foi acompanhado por **16 semanas** ou até a **morte** (evento de interesse) ou até a **perda de acompanhamento**. Os dados são retratados a seguir:</span>
+<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">center</span><span class="dt">&gt;</span></span>
+<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a><span class="al">![ ](images/Hepatite.png)</span></span>
+<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">center</span><span class="dt">&gt;</span></span>
+<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a><span class="fu">### **ISOLANTE ELÉTRICO**</span></span>
+<span id="cb20-43"><a href="#cb20-43" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">center</span><span class="dt">&gt;</span></span>
+<span id="cb20-44"><a href="#cb20-44" aria-hidden="true" tabindex="-1"></a><span class="al">![ ](images/Isolante.png)</span></span>
+<span id="cb20-45"><a href="#cb20-45" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">center</span><span class="dt">&gt;</span></span>
+<span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-47"><a href="#cb20-47" aria-hidden="true" tabindex="-1"></a>Os **dados** mostrados a seguir **representam o tempo até a ruptura de um tipo de isolante elétrico sujeito a uma tensão de estresse de 35 Kvolts**. O **teste** consistiu em deixar **25 destes isolantes funcionando até que 15 deles falhassem** (censura do tipo II), obtendo-se os seguintes resultados (em minutos):</span>
+<span id="cb20-48"><a href="#cb20-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-49"><a href="#cb20-49" aria-hidden="true" tabindex="-1"></a>0,19  0,78  0,96  1,31  2,78  3,16  4,67  4,85  6,50  7,35  8,27  12,07  32,52  33,91  36,71</span>
+<span id="cb20-50"><a href="#cb20-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-51"><a href="#cb20-51" aria-hidden="true" tabindex="-1"></a><span class="fu">### **AIDS**</span></span>
+<span id="cb20-52"><a href="#cb20-52" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">center</span><span class="dt">&gt;</span></span>
+<span id="cb20-53"><a href="#cb20-53" aria-hidden="true" tabindex="-1"></a><span class="al">![ ](images/Aids.png)</span></span>
+<span id="cb20-54"><a href="#cb20-54" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">center</span><span class="dt">&gt;</span></span>
+<span id="cb20-55"><a href="#cb20-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-56"><a href="#cb20-56" aria-hidden="true" tabindex="-1"></a>O estudo **é constituído de pacientes portadores de HIV atendidos entre 1986 e 2000** no Instituto de Pesquisa Clínica Evandro Chagas (Ipec/Fiocruz). **Dessa coorte, obteve-se uma amostra de 193 indivíduos que foram diagnosticados como portadores de AIDS** (critério CDC 1993) durante o período de acompanhamento. O objetivo é **mensurar o tempo, em dias, do diagnóstico até a morte dos pacientes**. Para comparação da sobrevivência, vamos ver como o sexo impacta a sobrevivência do paciente. **Essa base de dados está armazenada no objeto** <span class="in">`DadosAIDS.csv`</span></span>
+<span id="cb20-57"><a href="#cb20-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-58"><a href="#cb20-58" aria-hidden="true" tabindex="-1"></a><span class="fu">## **ESTIMANDO A FUNÇÃO $S(T)$**</span></span>
+<span id="cb20-59"><a href="#cb20-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-60"><a href="#cb20-60" aria-hidden="true" tabindex="-1"></a>Na aula **teórica**, vimos os seguintes:</span>
+<span id="cb20-61"><a href="#cb20-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-62"><a href="#cb20-62" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>A estimação não paramétrica da **função $S(t)$** a partir do estimador de **Kaplan-Meier**: $\hat{S}(t)=\prod_{j:t_j\leq t}\left(1-\frac{d_j}{n_j}\right).$</span>
+<span id="cb20-63"><a href="#cb20-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-64"><a href="#cb20-64" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>A variância do estimador **Kaplan-Meier** obtida pela fórmula de Greenwood: $\text{Var}\left(\hat{S}(t)\right) = \left<span class="co">[</span><span class="ot">\hat{S}(t)\right</span><span class="co">]</span>^2 \sum_{j:t_j \le t} \frac{d_j}{n_j (n_j - d_j)}$</span>
+<span id="cb20-65"><a href="#cb20-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-66"><a href="#cb20-66" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**três abordagens para construir os intervalos de confiança para $S(t)$**:</span>
+<span id="cb20-67"><a href="#cb20-67" aria-hidden="true" tabindex="-1"></a><span class="ss">  1. </span>**Intervalo de confiança** *plain*:</span>
+<span id="cb20-68"><a href="#cb20-68" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-69"><a href="#cb20-69" aria-hidden="true" tabindex="-1"></a>IC_{100(1-\alpha)\%}^{plain}(S(t))\approx\hat{S}(t) \pm z_{\alpha/2}</span>
+<span id="cb20-70"><a href="#cb20-70" aria-hidden="true" tabindex="-1"></a>\sqrt{\text{Var}\left(\hat{S}(t)\right)}</span>
+<span id="cb20-71"><a href="#cb20-71" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-72"><a href="#cb20-72" aria-hidden="true" tabindex="-1"></a><span class="ss">  2. </span>**Intervalo de confiança com a transformação** *log*</span>
+<span id="cb20-73"><a href="#cb20-73" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-74"><a href="#cb20-74" aria-hidden="true" tabindex="-1"></a>IC_{100(1-\alpha)\%}^{\log}(S(t))</span>
+<span id="cb20-75"><a href="#cb20-75" aria-hidden="true" tabindex="-1"></a>=</span>
+<span id="cb20-76"><a href="#cb20-76" aria-hidden="true" tabindex="-1"></a>\left[</span>
+<span id="cb20-77"><a href="#cb20-77" aria-hidden="true" tabindex="-1"></a>\hat{S}(t)\exp<span class="sc">\!</span>\left(\pm z_{\alpha/2}\frac{\sqrt{\text{Var}(\hat{S}(t))}}{\hat{S}(t)}\right)\right]</span>
+<span id="cb20-78"><a href="#cb20-78" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-79"><a href="#cb20-79" aria-hidden="true" tabindex="-1"></a><span class="ss">  3. </span>**Intervalo de confiança com a transformação** *log-log*</span>
+<span id="cb20-80"><a href="#cb20-80" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-81"><a href="#cb20-81" aria-hidden="true" tabindex="-1"></a>IC_{100(1-\alpha)\%}^{\log\text{–}\log}(S(t))</span>
+<span id="cb20-82"><a href="#cb20-82" aria-hidden="true" tabindex="-1"></a>=</span>
+<span id="cb20-83"><a href="#cb20-83" aria-hidden="true" tabindex="-1"></a>\left[</span>
+<span id="cb20-84"><a href="#cb20-84" aria-hidden="true" tabindex="-1"></a>\exp<span class="sc">\!</span>\Big(-\exp<span class="sc">\!</span>\big(</span>
+<span id="cb20-85"><a href="#cb20-85" aria-hidden="true" tabindex="-1"></a>\log(-\log \hat{S}(t)) \pm z_{\alpha/2}\,SE</span>
+<span id="cb20-86"><a href="#cb20-86" aria-hidden="true" tabindex="-1"></a>\big)\Big)</span>
+<span id="cb20-87"><a href="#cb20-87" aria-hidden="true" tabindex="-1"></a>\right]</span>
+<span id="cb20-88"><a href="#cb20-88" aria-hidden="true" tabindex="-1"></a><span class="sc">\]</span></span>
+<span id="cb20-89"><a href="#cb20-89" aria-hidden="true" tabindex="-1"></a>onde</span>
+<span id="cb20-90"><a href="#cb20-90" aria-hidden="true" tabindex="-1"></a><span class="sc">\[</span></span>
+<span id="cb20-91"><a href="#cb20-91" aria-hidden="true" tabindex="-1"></a>SE = \sqrt{</span>
+<span id="cb20-92"><a href="#cb20-92" aria-hidden="true" tabindex="-1"></a>\text{Var}<span class="sc">\!</span>\left(\log<span class="sc">\!</span>\big(-\log \hat{S}(t)\big)\right)</span>
+<span id="cb20-93"><a href="#cb20-93" aria-hidden="true" tabindex="-1"></a>}.</span>
+<span id="cb20-94"><a href="#cb20-94" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-95"><a href="#cb20-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-96"><a href="#cb20-96" aria-hidden="true" tabindex="-1"></a>Para exemplificar a aplicação destes conteúdos, **vamos utilizar os dados de Hepatite**. Lembre-se que sempre observamos uma amostra de $n$ elementos.  **Os dados observados de sobrevivência (confiabilidade) para o elemento** $i$, com $i = 1, 2, 3, ..., n$, **são representados**, em geral, **pelo par **</span>
+<span id="cb20-97"><a href="#cb20-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-98"><a href="#cb20-98" aria-hidden="true" tabindex="-1"></a>$$(t_i , \delta_i ),$$</span>
+<span id="cb20-99"><a href="#cb20-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-100"><a href="#cb20-100" aria-hidden="true" tabindex="-1"></a>em que:</span>
+<span id="cb20-101"><a href="#cb20-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-102"><a href="#cb20-102" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$t_i$ é o **tempo observado até a ocorrência do evento de interesse ou o tempo observado de censura para o elemento $i$**.</span>
+<span id="cb20-103"><a href="#cb20-103" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$\delta_i$ **é uma função indicadora de ocorrência do evento**:</span>
+<span id="cb20-104"><a href="#cb20-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-105"><a href="#cb20-105" aria-hidden="true" tabindex="-1"></a>$\delta_i=\begin{cases}</span>
+<span id="cb20-106"><a href="#cb20-106" aria-hidden="true" tabindex="-1"></a>1, \quad \textrm{se } t_i \textrm{ é um tempo de ocorrência do evento de interesse}<span class="sc">\\</span></span>
+<span id="cb20-107"><a href="#cb20-107" aria-hidden="true" tabindex="-1"></a>0, \quad \textrm{se } t_i \textrm{ é um tempo censurado}</span>
+<span id="cb20-108"><a href="#cb20-108" aria-hidden="true" tabindex="-1"></a>\end{cases}$</span>
+<span id="cb20-109"><a href="#cb20-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-110"><a href="#cb20-110" aria-hidden="true" tabindex="-1"></a>Como a **base é pequena**, vamos **criar** os dados manualmente:</span>
+<span id="cb20-111"><a href="#cb20-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-112"><a href="#cb20-112" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
+<span id="cb20-113"><a href="#cb20-113" aria-hidden="true" tabindex="-1"></a>tempos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">16</span>,<span class="dv">16</span>,<span class="dv">16</span>,<span class="dv">16</span>,<span class="dv">16</span>,<span class="dv">16</span>,<span class="dv">16</span>,<span class="dv">16</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">12</span>,<span class="dv">16</span>,<span class="dv">16</span>,<span class="dv">16</span>)</span>
+<span id="cb20-114"><a href="#cb20-114" aria-hidden="true" tabindex="-1"></a>cens <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>)</span>
+<span id="cb20-115"><a href="#cb20-115" aria-hidden="true" tabindex="-1"></a>grupos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"Controle"</span>,<span class="dv">15</span>),<span class="fu">rep</span>(<span class="st">"Esteroide"</span>,<span class="dv">14</span>))    </span>
+<span id="cb20-116"><a href="#cb20-116" aria-hidden="true" tabindex="-1"></a>Dados1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(tempos,cens,grupos)</span>
+<span id="cb20-117"><a href="#cb20-117" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-118"><a href="#cb20-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-119"><a href="#cb20-119" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>O **objeto `tempos` guarda os valores dos tempos** $t_i$, para $i=1,2,...,29$</span>
+<span id="cb20-120"><a href="#cb20-120" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>O **objeto `cens` guarda a indicadora** $\delta_i$, para $i=1,2,...,29$ </span>
+<span id="cb20-121"><a href="#cb20-121" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>o **objeto `grupos` indica o grupo o qual os pacientes estão submetidos**: Controle ou Esteroide</span>
+<span id="cb20-122"><a href="#cb20-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-123"><a href="#cb20-123" aria-hidden="true" tabindex="-1"></a>As **estimativas de Kaplan-Meier** para os grupos Controle e Esteroide, associados aos dados de Hepatite, **podem ser obtidas a partir da função `survfit2()`** do pacote `ggsurvfit`. Essa função é uma ligeira adaptação da função  `survfit` do pacote `survival`, para melhor **preservar os elementos para a representação gráfica**. Essa **função** possui os **seguintes argumentos** básicos:</span>
+<span id="cb20-124"><a href="#cb20-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-125"><a href="#cb20-125" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`data`</span>: **A base de dados**.</span>
+<span id="cb20-126"><a href="#cb20-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-127"><a href="#cb20-127" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`formula`</span>: **Essa fórmula quase sempre tem essa estrutura**: <span class="in">`Surv(tempos,cens)~grupos`</span>.</span>
+<span id="cb20-128"><a href="#cb20-128" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Se você não tem grupos em sua base de dados, utilize <span class="in">`Surv(tempos,cens)~1`</span>.</span>
+<span id="cb20-129"><a href="#cb20-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-130"><a href="#cb20-130" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`conf.int`</span>: **Nível de confiança do intervalo**.</span>
+<span id="cb20-131"><a href="#cb20-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-132"><a href="#cb20-132" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`conf.type`</span>: Para o intervalo de confiança básico, utilize <span class="in">`conf.type = "plain"`</span>. Para o intervalo de confiança com a transformação log use <span class="in">`conf.type = "log"`</span> (default do <span class="in">`R`</span>). Para o intervalo de confiança com a transformação log-log, utilize <span class="in">`conf.type = "log-log"`</span>. </span>
+<span id="cb20-133"><a href="#cb20-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-134"><a href="#cb20-134" aria-hidden="true" tabindex="-1"></a>Assim, **vamos estimar a função de sobrevivência pelo estimador de Kaplan-Meier a partir dos dados de Hepatite** utilizando um **intervalo com 95% de confiança sem transformação**:</span>
+<span id="cb20-135"><a href="#cb20-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-136"><a href="#cb20-136" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
+<span id="cb20-137"><a href="#cb20-137" aria-hidden="true" tabindex="-1"></a>ekm<span class="ot">&lt;-</span> <span class="fu">survfit2</span>(<span class="at">data=</span>Dados1,</span>
+<span id="cb20-138"><a href="#cb20-138" aria-hidden="true" tabindex="-1"></a>              <span class="at">formula =</span> <span class="fu">Surv</span>(tempos,cens)<span class="sc">~</span>grupos,</span>
+<span id="cb20-139"><a href="#cb20-139" aria-hidden="true" tabindex="-1"></a>              <span class="at">conf.type =</span> <span class="st">"plain"</span>, </span>
+<span id="cb20-140"><a href="#cb20-140" aria-hidden="true" tabindex="-1"></a>              <span class="at">conf.int=</span><span class="fl">0.95</span>)</span>
+<span id="cb20-141"><a href="#cb20-141" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ekm)</span>
+<span id="cb20-142"><a href="#cb20-142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-143"><a href="#cb20-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-144"><a href="#cb20-144" aria-hidden="true" tabindex="-1"></a>Agora **vamos estimar a função de sobrevivência pelo estimador de Kaplan-Meier a partir dos dados de Hepatite** utilizando **um intervalo com 95% de confiança com a transformação log**:</span>
+<span id="cb20-145"><a href="#cb20-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-146"><a href="#cb20-146" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
+<span id="cb20-147"><a href="#cb20-147" aria-hidden="true" tabindex="-1"></a>ekm2<span class="ot">&lt;-</span> <span class="fu">survfit2</span>(<span class="at">data=</span>Dados1,</span>
+<span id="cb20-148"><a href="#cb20-148" aria-hidden="true" tabindex="-1"></a>               <span class="at">formula =</span> <span class="fu">Surv</span>(tempos,cens)<span class="sc">~</span>grupos,</span>
+<span id="cb20-149"><a href="#cb20-149" aria-hidden="true" tabindex="-1"></a>               <span class="at">conf.type =</span> <span class="st">"log"</span>, </span>
+<span id="cb20-150"><a href="#cb20-150" aria-hidden="true" tabindex="-1"></a>               <span class="at">conf.int=</span><span class="fl">0.95</span>)</span>
+<span id="cb20-151"><a href="#cb20-151" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ekm2)</span>
+<span id="cb20-152"><a href="#cb20-152" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-153"><a href="#cb20-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-154"><a href="#cb20-154" aria-hidden="true" tabindex="-1"></a>Agora **vamos estimar a função de sobrevivência pelo estimador de Kaplan-Meier a partir dos dados de Hepatite** utilizando um **intervalo com 95% de confiança com a transformação** log-log:</span>
+<span id="cb20-155"><a href="#cb20-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-156"><a href="#cb20-156" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
+<span id="cb20-157"><a href="#cb20-157" aria-hidden="true" tabindex="-1"></a>ekm3<span class="ot">&lt;-</span> <span class="fu">survfit2</span>(<span class="at">data=</span>Dados1,</span>
+<span id="cb20-158"><a href="#cb20-158" aria-hidden="true" tabindex="-1"></a>               <span class="at">formula =</span> <span class="fu">Surv</span>(tempos,cens)<span class="sc">~</span>grupos,</span>
+<span id="cb20-159"><a href="#cb20-159" aria-hidden="true" tabindex="-1"></a>               <span class="at">conf.type =</span> <span class="st">"log-log"</span>, </span>
+<span id="cb20-160"><a href="#cb20-160" aria-hidden="true" tabindex="-1"></a>               <span class="at">conf.int=</span><span class="fl">0.95</span>)</span>
+<span id="cb20-161"><a href="#cb20-161" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ekm3)</span>
+<span id="cb20-162"><a href="#cb20-162" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-163"><a href="#cb20-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-164"><a href="#cb20-164" aria-hidden="true" tabindex="-1"></a>Para todas as saídas, observe que:</span>
+<span id="cb20-165"><a href="#cb20-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-166"><a href="#cb20-166" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`time`</span>: Os **tempos distintos de ocorrência do evento** ($t_j$)</span>
+<span id="cb20-167"><a href="#cb20-167" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`n.risk`</span>: $n_j$</span>
+<span id="cb20-168"><a href="#cb20-168" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`n.event`</span>: $d_j$</span>
+<span id="cb20-169"><a href="#cb20-169" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`survival`</span>: **Estimativa de Kaplan-Meier para** $S(t_j)$</span>
+<span id="cb20-170"><a href="#cb20-170" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`std.error`</span>: **Desvio padrão associado à estimativa de Kaplan-Meier (raiz quadrada da variância de Greenwood)**</span>
+<span id="cb20-171"><a href="#cb20-171" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`lower CI`</span> e <span class="in">`upper CI`</span>: **limites do intervalo de confiança solicitado e com a confiança especificada**.</span>
+<span id="cb20-172"><a href="#cb20-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-173"><a href="#cb20-173" aria-hidden="true" tabindex="-1"></a>Para **visualizar o gráfico com a função de sobrevivência estimada, vamos usar o objeto `ekm3`** (transformação log-log). O gráfico é feito com a função <span class="in">`ggsurvplot()`</span> do pacote <span class="in">`ggsurvfit`</span> com os comandos:</span>
+<span id="cb20-174"><a href="#cb20-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-175"><a href="#cb20-175" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
+<span id="cb20-176"><a href="#cb20-176" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsurvfit</span>(ekm3, <span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb20-177"><a href="#cb20-177" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_risktable</span>() <span class="sc">+</span></span>
+<span id="cb20-178"><a href="#cb20-178" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_censor_mark</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb20-179"><a href="#cb20-179" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_ggsurvfit</span>() <span class="sc">+</span></span>
+<span id="cb20-180"><a href="#cb20-180" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb20-181"><a href="#cb20-181" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Tempo (semanas)"</span>,</span>
+<span id="cb20-182"><a href="#cb20-182" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Sobrevivência estimada"</span></span>
+<span id="cb20-183"><a href="#cb20-183" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb20-184"><a href="#cb20-184" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">16</span>) </span>
+<span id="cb20-185"><a href="#cb20-185" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-186"><a href="#cb20-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-187"><a href="#cb20-187" aria-hidden="true" tabindex="-1"></a>Para **incluir o intervalo de confiança**, basta **acrescentar o comando** <span class="in">`add_confidence_interval()`</span></span>
+<span id="cb20-188"><a href="#cb20-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-189"><a href="#cb20-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-190"><a href="#cb20-190" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
+<span id="cb20-191"><a href="#cb20-191" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsurvfit</span>(ekm3, <span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb20-192"><a href="#cb20-192" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_confidence_interval</span>() <span class="sc">+</span></span>
+<span id="cb20-193"><a href="#cb20-193" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_risktable</span>() <span class="sc">+</span></span>
+<span id="cb20-194"><a href="#cb20-194" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_ggsurvfit</span>() <span class="sc">+</span></span>
+<span id="cb20-195"><a href="#cb20-195" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb20-196"><a href="#cb20-196" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Tempo (semanas)"</span>,</span>
+<span id="cb20-197"><a href="#cb20-197" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Sobrevivência estimada"</span></span>
+<span id="cb20-198"><a href="#cb20-198" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb20-199"><a href="#cb20-199" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">16</span>)</span>
+<span id="cb20-200"><a href="#cb20-200" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-201"><a href="#cb20-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-202"><a href="#cb20-202" aria-hidden="true" tabindex="-1"></a>Os comandos para realizar estes gráficos são descritos a seguir</span>
+<span id="cb20-203"><a href="#cb20-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-204"><a href="#cb20-204" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`ggsurvfit(ekm3, linewidth = 1.2)`</span>  </span>
+<span id="cb20-205"><a href="#cb20-205" aria-hidden="true" tabindex="-1"></a>  → gera a curva de sobrevivência (Kaplan–Meier)  </span>
+<span id="cb20-206"><a href="#cb20-206" aria-hidden="true" tabindex="-1"></a>  → <span class="in">`linewidth`</span>: espessura da linha  </span>
+<span id="cb20-207"><a href="#cb20-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-208"><a href="#cb20-208" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`add_risktable()`</span>  </span>
+<span id="cb20-209"><a href="#cb20-209" aria-hidden="true" tabindex="-1"></a>  → adiciona a tabela de indivíduos sob risco ao longo do tempo  </span>
+<span id="cb20-210"><a href="#cb20-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-211"><a href="#cb20-211" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`add_censor_mark(size = 2, alpha = 1)`</span>  </span>
+<span id="cb20-212"><a href="#cb20-212" aria-hidden="true" tabindex="-1"></a>  → adiciona marcas de censura na curva  </span>
+<span id="cb20-213"><a href="#cb20-213" aria-hidden="true" tabindex="-1"></a>  → <span class="in">`size`</span>: tamanho  </span>
+<span id="cb20-214"><a href="#cb20-214" aria-hidden="true" tabindex="-1"></a>  → <span class="in">`alpha`</span>: transparência  </span>
+<span id="cb20-215"><a href="#cb20-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-216"><a href="#cb20-216" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`add_confidence_interval()`</span>  </span>
+<span id="cb20-217"><a href="#cb20-217" aria-hidden="true" tabindex="-1"></a>  → adiciona o intervalo de confiança da curva (faixa sombreada)  </span>
+<span id="cb20-218"><a href="#cb20-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-219"><a href="#cb20-219" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`scale_ggsurvfit()`</span>  </span>
+<span id="cb20-220"><a href="#cb20-220" aria-hidden="true" tabindex="-1"></a>  → coloca o eixo y em porcentagem.</span>
+<span id="cb20-221"><a href="#cb20-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-222"><a href="#cb20-222" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`labs(x = ..., y = ...)`</span>  </span>
+<span id="cb20-223"><a href="#cb20-223" aria-hidden="true" tabindex="-1"></a>  → define os rótulos dos eixos  </span>
+<span id="cb20-224"><a href="#cb20-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-225"><a href="#cb20-225" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`theme_classic(base_size = 16)`</span>  </span>
+<span id="cb20-226"><a href="#cb20-226" aria-hidden="true" tabindex="-1"></a>  → aplica um tema limpo  </span>
+<span id="cb20-227"><a href="#cb20-227" aria-hidden="true" tabindex="-1"></a>  → <span class="in">`base_size`</span>: tamanho da fonte  </span>
+<span id="cb20-228"><a href="#cb20-228" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-229"><a href="#cb20-229" aria-hidden="true" tabindex="-1"></a>Para mais **detalhes** sobre o a função `ggsurvfitt`, basta **consultar o site** <span class="co">[</span><span class="ot">ggsurvfit</span><span class="co">](https://www.danieldsjoberg.com/ggsurvfit/)</span></span>
+<span id="cb20-230"><a href="#cb20-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-231"><a href="#cb20-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-232"><a href="#cb20-232" aria-hidden="true" tabindex="-1"></a><span class="fu">## **ESTIMANDO O PERCENTIL $T_p$**</span></span>
+<span id="cb20-233"><a href="#cb20-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-234"><a href="#cb20-234" aria-hidden="true" tabindex="-1"></a>Na aula **teórica**, vimos os seguintes:</span>
+<span id="cb20-235"><a href="#cb20-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-236"><a href="#cb20-236" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>A estimativa não paramétrica do percentil $t_p$ é </span>
+<span id="cb20-237"><a href="#cb20-237" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-238"><a href="#cb20-238" aria-hidden="true" tabindex="-1"></a>\hat{t_p} = \min <span class="sc">\{</span> t_j \mid \hat{S}(t_j) \leq 1-\frac{p}{100} <span class="sc">\}</span></span>
+<span id="cb20-239"><a href="#cb20-239" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-240"><a href="#cb20-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-241"><a href="#cb20-241" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Os intervalos de confiança para o percentil $t_p$ são obtidos de maneira gráfica traçando uma linha horizontal no eixo da probabilidade de sobrevivência no valor correspondente ao quantil desejado.</span>
+<span id="cb20-242"><a href="#cb20-242" aria-hidden="true" tabindex="-1"></a><span class="ss"> * </span>Encontre a interseção dessa linha horizontal com as três curvas: a curva de sobrevivência estimada, o limite inferior do IC e o limite superior do IC.</span>
+<span id="cb20-243"><a href="#cb20-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-244"><a href="#cb20-244" aria-hidden="true" tabindex="-1"></a>A partir da função <span class="in">`quantile`</span> do <span class="in">`R`</span>, é possível estimar qualquer percentil dos tempos de ocorrência do evento de interesse. Essa função também apresenta o intervalo de confiança de 95\% atrelado a essa estimativa. Utilize o seguinte esquema:</span>
+<span id="cb20-245"><a href="#cb20-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-246"><a href="#cb20-246" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb20-247"><a href="#cb20-247" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(<span class="st">"Objeto_surv"</span>,<span class="st">"percentil"</span>)</span>
+<span id="cb20-248"><a href="#cb20-248" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-249"><a href="#cb20-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-250"><a href="#cb20-250" aria-hidden="true" tabindex="-1"></a>Por exemplo, para os dados de pacientes com hepatite, tem-se as seguintes estimativas e intervalos de confiança para o $t_{10}$, avaliado em cada grupo:</span>
+<span id="cb20-251"><a href="#cb20-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-254"><a href="#cb20-254" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-255"><a href="#cb20-255" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(ekm3,<span class="fl">0.1</span>)</span>
+<span id="cb20-256"><a href="#cb20-256" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-257"><a href="#cb20-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-258"><a href="#cb20-258" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Para o grupo controle, $\hat{t_{10}}=3$ e o intervalo com 95\% de confiança é $IC_{95\%}(t_{10})=[3,NA)$</span>
+<span id="cb20-259"><a href="#cb20-259" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Para o grupo esteroide, $\hat{t_{10}}=1$ e o intervalo com 95\% de confiança é $IC_{95\%}(t_{10})=<span class="co">[</span><span class="ot">1,5</span><span class="co">]</span>$</span>
+<span id="cb20-260"><a href="#cb20-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-261"><a href="#cb20-261" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Note que algumas estimativas no </span><span class="in">`R`</span><span class="at"> não podem ser obtidas. Isso se deve, no nosso caso, ao pequeno tamanho de amostra e excesso de censuras.</span></span>
+<span id="cb20-262"><a href="#cb20-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-263"><a href="#cb20-263" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Note que como o intervalo calculado herda as especificações da função </span><span class="in">`survfit2`</span><span class="at">.</span></span>
+<span id="cb20-264"><a href="#cb20-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-265"><a href="#cb20-265" aria-hidden="true" tabindex="-1"></a>Graficamente, podemos acrescentar esse percentil no gráfico adicionando o comando <span class="in">`add_quantile("1-probabilidade(s)")`</span></span>
+<span id="cb20-266"><a href="#cb20-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-269"><a href="#cb20-269" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-270"><a href="#cb20-270" aria-hidden="true" tabindex="-1"></a>p<span class="ot">=</span><span class="fl">0.1</span></span>
+<span id="cb20-271"><a href="#cb20-271" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsurvfit</span>(ekm3, <span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb20-272"><a href="#cb20-272" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_confidence_interval</span>() <span class="sc">+</span></span>
+<span id="cb20-273"><a href="#cb20-273" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_quantile</span>(<span class="dv">1</span><span class="sc">-</span>p)<span class="sc">+</span></span>
+<span id="cb20-274"><a href="#cb20-274" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_risktable</span>() <span class="sc">+</span></span>
+<span id="cb20-275"><a href="#cb20-275" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_ggsurvfit</span>() <span class="sc">+</span></span>
+<span id="cb20-276"><a href="#cb20-276" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb20-277"><a href="#cb20-277" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Tempo (semanas)"</span>,</span>
+<span id="cb20-278"><a href="#cb20-278" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Sobrevivência estimada"</span></span>
+<span id="cb20-279"><a href="#cb20-279" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb20-280"><a href="#cb20-280" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">16</span>)</span>
+<span id="cb20-281"><a href="#cb20-281" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-282"><a href="#cb20-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-283"><a href="#cb20-283" aria-hidden="true" tabindex="-1"></a>Agora considere as seguintes estimativas e intervalos de confiança para o $t_{50}$, avaliado em cada grupo:</span>
+<span id="cb20-284"><a href="#cb20-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-287"><a href="#cb20-287" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-288"><a href="#cb20-288" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(ekm3,<span class="fl">0.5</span>)</span>
+<span id="cb20-289"><a href="#cb20-289" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-290"><a href="#cb20-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-291"><a href="#cb20-291" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Para o grupo controle, $\hat{t_{10}}=NA$ e o intervalo com 95\% de confiança é $IC_{95\%}(t_{10})=(NA,NA)$</span>
+<span id="cb20-292"><a href="#cb20-292" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Para o grupo esteroide, $\hat{t_{10}}=10$ e o intervalo com 95\% de confiança é $IC_{95\%}(t_{10})=<span class="co">[</span><span class="ot">1,NA</span><span class="co">]</span>$</span>
+<span id="cb20-293"><a href="#cb20-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-294"><a href="#cb20-294" aria-hidden="true" tabindex="-1"></a>Graficamente:</span>
+<span id="cb20-295"><a href="#cb20-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-298"><a href="#cb20-298" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-299"><a href="#cb20-299" aria-hidden="true" tabindex="-1"></a>p<span class="ot">=</span><span class="fl">0.5</span></span>
+<span id="cb20-300"><a href="#cb20-300" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsurvfit</span>(ekm3, <span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb20-301"><a href="#cb20-301" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_confidence_interval</span>() <span class="sc">+</span></span>
+<span id="cb20-302"><a href="#cb20-302" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_quantile</span>(<span class="dv">1</span><span class="sc">-</span>p)<span class="sc">+</span></span>
+<span id="cb20-303"><a href="#cb20-303" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_risktable</span>() <span class="sc">+</span></span>
+<span id="cb20-304"><a href="#cb20-304" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_ggsurvfit</span>() <span class="sc">+</span></span>
+<span id="cb20-305"><a href="#cb20-305" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb20-306"><a href="#cb20-306" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Tempo (semanas)"</span>,</span>
+<span id="cb20-307"><a href="#cb20-307" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Sobrevivência estimada"</span></span>
+<span id="cb20-308"><a href="#cb20-308" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb20-309"><a href="#cb20-309" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">16</span>)</span>
+<span id="cb20-310"><a href="#cb20-310" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-311"><a href="#cb20-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-312"><a href="#cb20-312" aria-hidden="true" tabindex="-1"></a><span class="fu">## **ESTIMANDO A FUNÇÃO $\lambda(t)$**</span></span>
+<span id="cb20-313"><a href="#cb20-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-314"><a href="#cb20-314" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb20-315"><a href="#cb20-315" aria-hidden="true" tabindex="-1"></a><span class="co"># 🔹 Separando os grupos</span></span>
+<span id="cb20-316"><a href="#cb20-316" aria-hidden="true" tabindex="-1"></a>dados_controle <span class="ot">&lt;-</span> Dados1 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(grupos <span class="sc">==</span> <span class="st">"Controle"</span>)</span>
+<span id="cb20-317"><a href="#cb20-317" aria-hidden="true" tabindex="-1"></a>dados_esteroide <span class="ot">&lt;-</span> Dados1 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(grupos <span class="sc">==</span> <span class="st">"Esteroide"</span>)</span>
+<span id="cb20-318"><a href="#cb20-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-319"><a href="#cb20-319" aria-hidden="true" tabindex="-1"></a><span class="co"># 🔹 Estimando hazard (muhaz)</span></span>
+<span id="cb20-320"><a href="#cb20-320" aria-hidden="true" tabindex="-1"></a>haz_controle <span class="ot">&lt;-</span> <span class="fu">muhaz</span>(</span>
+<span id="cb20-321"><a href="#cb20-321" aria-hidden="true" tabindex="-1"></a>  <span class="at">max.time =</span> <span class="dv">16</span>,</span>
+<span id="cb20-322"><a href="#cb20-322" aria-hidden="true" tabindex="-1"></a>  <span class="at">times =</span> dados_controle<span class="sc">$</span>tempos,</span>
+<span id="cb20-323"><a href="#cb20-323" aria-hidden="true" tabindex="-1"></a>  <span class="at">delta =</span> dados_controle<span class="sc">$</span>cens</span>
+<span id="cb20-324"><a href="#cb20-324" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb20-325"><a href="#cb20-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-326"><a href="#cb20-326" aria-hidden="true" tabindex="-1"></a>haz_esteroide <span class="ot">&lt;-</span> <span class="fu">muhaz</span>(</span>
+<span id="cb20-327"><a href="#cb20-327" aria-hidden="true" tabindex="-1"></a>  <span class="at">max.time =</span> <span class="dv">16</span>,</span>
+<span id="cb20-328"><a href="#cb20-328" aria-hidden="true" tabindex="-1"></a>  <span class="at">times =</span> dados_esteroide<span class="sc">$</span>tempos,</span>
+<span id="cb20-329"><a href="#cb20-329" aria-hidden="true" tabindex="-1"></a>  <span class="at">delta =</span> dados_esteroide<span class="sc">$</span>cens</span>
+<span id="cb20-330"><a href="#cb20-330" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb20-331"><a href="#cb20-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-332"><a href="#cb20-332" aria-hidden="true" tabindex="-1"></a><span class="co"># 🔹 Organizando resultados</span></span>
+<span id="cb20-333"><a href="#cb20-333" aria-hidden="true" tabindex="-1"></a>df_controle <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb20-334"><a href="#cb20-334" aria-hidden="true" tabindex="-1"></a>  <span class="at">tempo =</span> haz_controle<span class="sc">$</span>est.grid,</span>
+<span id="cb20-335"><a href="#cb20-335" aria-hidden="true" tabindex="-1"></a>  <span class="at">hazard =</span> haz_controle<span class="sc">$</span>haz.est,</span>
+<span id="cb20-336"><a href="#cb20-336" aria-hidden="true" tabindex="-1"></a>  <span class="at">grupo =</span> <span class="st">"Controle"</span></span>
+<span id="cb20-337"><a href="#cb20-337" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb20-338"><a href="#cb20-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-339"><a href="#cb20-339" aria-hidden="true" tabindex="-1"></a>df_esteroide <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb20-340"><a href="#cb20-340" aria-hidden="true" tabindex="-1"></a>  <span class="at">tempo =</span> haz_esteroide<span class="sc">$</span>est.grid,</span>
+<span id="cb20-341"><a href="#cb20-341" aria-hidden="true" tabindex="-1"></a>  <span class="at">hazard =</span> haz_esteroide<span class="sc">$</span>haz.est,</span>
+<span id="cb20-342"><a href="#cb20-342" aria-hidden="true" tabindex="-1"></a>  <span class="at">grupo =</span> <span class="st">"Esteroide"</span></span>
+<span id="cb20-343"><a href="#cb20-343" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb20-344"><a href="#cb20-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-345"><a href="#cb20-345" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(df_controle, df_esteroide)</span>
+<span id="cb20-346"><a href="#cb20-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-347"><a href="#cb20-347" aria-hidden="true" tabindex="-1"></a><span class="co"># 🔹 Gráfico</span></span>
+<span id="cb20-348"><a href="#cb20-348" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> tempo, <span class="at">y =</span> hazard, <span class="at">color =</span> grupo)) <span class="sc">+</span></span>
+<span id="cb20-349"><a href="#cb20-349" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb20-350"><a href="#cb20-350" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb20-351"><a href="#cb20-351" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Tempo (semanas)"</span>,</span>
+<span id="cb20-352"><a href="#cb20-352" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">lambda</span>(t)),</span>
+<span id="cb20-353"><a href="#cb20-353" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Grupo"</span></span>
+<span id="cb20-354"><a href="#cb20-354" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb20-355"><a href="#cb20-355" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">16</span>)</span>
+<span id="cb20-356"><a href="#cb20-356" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-357"><a href="#cb20-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-358"><a href="#cb20-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-359"><a href="#cb20-359" aria-hidden="true" tabindex="-1"></a><span class="fu">## **ESTIMANDO A FUNÇÃO $\Lambda(t)$**</span></span>
+<span id="cb20-360"><a href="#cb20-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-363"><a href="#cb20-363" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-364"><a href="#cb20-364" aria-hidden="true" tabindex="-1"></a>fit_na <span class="ot">&lt;-</span> <span class="fu">survfit2</span>(</span>
+<span id="cb20-365"><a href="#cb20-365" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Surv</span>(tempos, cens) <span class="sc">~</span> grupos,</span>
+<span id="cb20-366"><a href="#cb20-366" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> Dados1,</span>
+<span id="cb20-367"><a href="#cb20-367" aria-hidden="true" tabindex="-1"></a>  <span class="at">conf.type =</span> <span class="st">"log"</span>, </span>
+<span id="cb20-368"><a href="#cb20-368" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"fh"</span>  </span>
+<span id="cb20-369"><a href="#cb20-369" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb20-370"><a href="#cb20-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-371"><a href="#cb20-371" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsurvfit</span>(fit_na, </span>
+<span id="cb20-372"><a href="#cb20-372" aria-hidden="true" tabindex="-1"></a>          <span class="at">linewidth =</span> <span class="fl">1.2</span>,</span>
+<span id="cb20-373"><a href="#cb20-373" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">"cumhaz"</span>) <span class="sc">+</span></span>
+<span id="cb20-374"><a href="#cb20-374" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_confidence_interval</span>() <span class="sc">+</span></span>
+<span id="cb20-375"><a href="#cb20-375" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb20-376"><a href="#cb20-376" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Tempo (semanas)"</span>,</span>
+<span id="cb20-377"><a href="#cb20-377" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Função de risco acumulada estimada"</span></span>
+<span id="cb20-378"><a href="#cb20-378" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb20-379"><a href="#cb20-379" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">16</span>)</span>
+<span id="cb20-380"><a href="#cb20-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-381"><a href="#cb20-381" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-382"><a href="#cb20-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-383"><a href="#cb20-383" aria-hidden="true" tabindex="-1"></a><span class="fu">## **ESTIMANDO OS TEMPOS MÉDIOS $t_m$ E $vmr(t)$**</span></span>
+<span id="cb20-384"><a href="#cb20-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-385"><a href="#cb20-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-386"><a href="#cb20-386" aria-hidden="true" tabindex="-1"></a><span class="fu">## **EXERCÍCIOS**</span></span>
+<span id="cb20-387"><a href="#cb20-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-388"><a href="#cb20-388" aria-hidden="true" tabindex="-1"></a>*Utilize a transformação log-log, quando necessário*</span>
+<span id="cb20-389"><a href="#cb20-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-390"><a href="#cb20-390" aria-hidden="true" tabindex="-1"></a>1- **Base de dados Isolantes Elétricos**.</span>
+<span id="cb20-391"><a href="#cb20-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-392"><a href="#cb20-392" aria-hidden="true" tabindex="-1"></a>a) A partir da descrição dos dados, construa a base de dados e guarde em um objeto chamado <span class="in">`Dados2`</span>.</span>
+<span id="cb20-393"><a href="#cb20-393" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-394"><a href="#cb20-394" aria-hidden="true" tabindex="-1"></a>b) Obtenha as estimativas para as funções de sobrevivência a partir do estimador de Kaplan-Meier. Faça um gráfico com o intervalo construído.</span>
+<span id="cb20-395"><a href="#cb20-395" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-396"><a href="#cb20-396" aria-hidden="true" tabindex="-1"></a>2- **Base de dados AIDS**.</span>
+<span id="cb20-397"><a href="#cb20-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-398"><a href="#cb20-398" aria-hidden="true" tabindex="-1"></a>a) Leia a base de dados e guarde em um objeto <span class="in">`Dados3`</span>.</span>
+<span id="cb20-399"><a href="#cb20-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-400"><a href="#cb20-400" aria-hidden="true" tabindex="-1"></a>b) Considerando os dados completos (sem estratificar por sexo), obtenha as estimativas para a função de sobrevivência a partir do estimador de Kaplan-Meier e faça um gráfico com o intervalo construído.</span>
+<span id="cb20-401"><a href="#cb20-401" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Qual a probabilidade estimada de um paciente sobreviver por mais de 1000 dias?</span>
+<span id="cb20-402"><a href="#cb20-402" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Qual a probabilidade estimada de um paciente morrer antes de 1750 dias?</span>
+<span id="cb20-403"><a href="#cb20-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-404"><a href="#cb20-404" aria-hidden="true" tabindex="-1"></a>c) Considerando o sexo, obtenha as estimativas para as funções de sobrevivência a partir do estimador de Kaplan-Meier e faça um gráfico com o intervalo construído. </span>
+<span id="cb20-405"><a href="#cb20-405" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Para cada sexo, qual a probabilidade estimada de um paciente sobreviver por mais de 1000 dias?</span>
+<span id="cb20-406"><a href="#cb20-406" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Para cada sexo, qual a probabilidade estimada de um paciente morrer antes de 1750 dias?</span>
+<span id="cb20-407"><a href="#cb20-407" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-408"><a href="#cb20-408" aria-hidden="true" tabindex="-1"></a>d) Você acha que as funções de sobrevivência de homens e mulheres são diferentes?</span>
+<span id="cb20-409"><a href="#cb20-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-410"><a href="#cb20-410" aria-hidden="true" tabindex="-1"></a>e) Encontre uma estimativa pontual e intervalar para os tempos em dias tal que 20\% dos pacientes do sexo masculino e do sexo feminino já morreram.</span>
+<span id="cb20-411"><a href="#cb20-411" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Represente graficamente essas estimativas pontuais.</span>
+<span id="cb20-412"><a href="#cb20-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-413"><a href="#cb20-413" aria-hidden="true" tabindex="-1"></a>f) Encontre uma estimativa pontual e intervalar para os tempos medianos de sobrevivência dos pacientes do sexo masculino e do sexo feminino.</span>
+<span id="cb20-414"><a href="#cb20-414" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Represente graficamente essas estimativas pontuais.</span>
+<span id="cb20-415"><a href="#cb20-415" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-416"><a href="#cb20-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-417"><a href="#cb20-417" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-418"><a href="#cb20-418" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-419"><a href="#cb20-419" aria-hidden="true" tabindex="-1"></a></span>
+</code><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
