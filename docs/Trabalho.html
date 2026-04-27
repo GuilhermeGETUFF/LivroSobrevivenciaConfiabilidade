@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>13&nbsp; TRABALHO – ANÁLISE DE SOBREVIVÊNCIA E CONFIABILIDADE</title>
+<title>14&nbsp; TRABALHO – ANÁLISE DE SOBREVIVÊNCIA E CONFIABILIDADE</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Cap9.html" rel="prev">
+<link href="./Cap10.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -121,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Trabalho.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><strong>TRABALHO</strong></span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Trabalho.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><strong>TRABALHO</strong></span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
@@ -209,19 +209,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Cap8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title"><strong>ESTIMAÇÃO E ESCOLHA DO MODELO PARAMÉTRICO (TEORIA)</strong></span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title"><strong>ESTIMAÇÃO DOS MODELOS PARAMÉTRICOS (TEORIA)</strong></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Cap9.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title"><strong>ESTIMAÇÃO E ESCOLHA DO MODELO PARAMÉTRICO (PRÁTICA)</strong></span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title"><strong>ESCOLHA DO MODELO PARAMÉTRICO (TEORIA)</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cap10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><strong>ESTIMAÇÃO E ESCOLHA DO MODELO PARAMÉTRICO (PRÁTICA)</strong></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Trabalho.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><strong>TRABALHO</strong></span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><strong>TRABALHO</strong></span></span></a>
   </div>
 </li>
     </ul>
@@ -234,27 +240,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Índice</h2>
    
   <ul>
-  <li><a href="#bases-de-dados" id="toc-bases-de-dados" class="nav-link active" data-scroll-target="#bases-de-dados"><span class="header-section-number">13.1</span> <strong>BASES DE DADOS</strong></a>
+  <li><a href="#bases-de-dados" id="toc-bases-de-dados" class="nav-link active" data-scroll-target="#bases-de-dados"><span class="header-section-number">14.1</span> <strong>BASES DE DADOS</strong></a>
   <ul>
-  <li><a href="#câncer-de-pulmão" id="toc-câncer-de-pulmão" class="nav-link" data-scroll-target="#câncer-de-pulmão"><span class="header-section-number">13.1.1</span> <strong>CÂNCER DE PULMÃO</strong></a></li>
-  <li><a href="#cirrose-parte-i" id="toc-cirrose-parte-i" class="nav-link" data-scroll-target="#cirrose-parte-i"><span class="header-section-number">13.1.2</span> <strong>CIRROSE (PARTE I)</strong></a></li>
-  <li><a href="#câncer-de-cólon" id="toc-câncer-de-cólon" class="nav-link" data-scroll-target="#câncer-de-cólon"><span class="header-section-number">13.1.3</span> <strong>CÂNCER DE CÓLON</strong></a></li>
-  <li><a href="#cirrose-parte-ii" id="toc-cirrose-parte-ii" class="nav-link" data-scroll-target="#cirrose-parte-ii"><span class="header-section-number">13.1.4</span> <strong>CIRROSE (PARTE II)</strong></a></li>
-  <li><a href="#câncer-de-pulmão-avançado" id="toc-câncer-de-pulmão-avançado" class="nav-link" data-scroll-target="#câncer-de-pulmão-avançado"><span class="header-section-number">13.1.5</span> <strong>CÂNCER DE PULMÃO AVANÇADO</strong></a></li>
-  <li><a href="#câncer-de-mama" id="toc-câncer-de-mama" class="nav-link" data-scroll-target="#câncer-de-mama"><span class="header-section-number">13.1.6</span> <strong>CÂNCER DE MAMA</strong></a></li>
-  <li><a href="#transplante-de-coração" id="toc-transplante-de-coração" class="nav-link" data-scroll-target="#transplante-de-coração"><span class="header-section-number">13.1.7</span> <strong>TRANSPLANTE DE CORAÇÃO</strong></a></li>
-  <li><a href="#reincidência-no-crime" id="toc-reincidência-no-crime" class="nav-link" data-scroll-target="#reincidência-no-crime"><span class="header-section-number">13.1.8</span> <strong>REINCIDÊNCIA NO CRIME</strong></a></li>
+  <li><a href="#câncer-de-pulmão" id="toc-câncer-de-pulmão" class="nav-link" data-scroll-target="#câncer-de-pulmão"><span class="header-section-number">14.1.1</span> <strong>CÂNCER DE PULMÃO</strong></a></li>
+  <li><a href="#cirrose-parte-i" id="toc-cirrose-parte-i" class="nav-link" data-scroll-target="#cirrose-parte-i"><span class="header-section-number">14.1.2</span> <strong>CIRROSE (PARTE I)</strong></a></li>
+  <li><a href="#câncer-de-cólon" id="toc-câncer-de-cólon" class="nav-link" data-scroll-target="#câncer-de-cólon"><span class="header-section-number">14.1.3</span> <strong>CÂNCER DE CÓLON</strong></a></li>
+  <li><a href="#cirrose-parte-ii" id="toc-cirrose-parte-ii" class="nav-link" data-scroll-target="#cirrose-parte-ii"><span class="header-section-number">14.1.4</span> <strong>CIRROSE (PARTE II)</strong></a></li>
+  <li><a href="#câncer-de-pulmão-avançado" id="toc-câncer-de-pulmão-avançado" class="nav-link" data-scroll-target="#câncer-de-pulmão-avançado"><span class="header-section-number">14.1.5</span> <strong>CÂNCER DE PULMÃO AVANÇADO</strong></a></li>
+  <li><a href="#câncer-de-mama" id="toc-câncer-de-mama" class="nav-link" data-scroll-target="#câncer-de-mama"><span class="header-section-number">14.1.6</span> <strong>CÂNCER DE MAMA</strong></a></li>
+  <li><a href="#transplante-de-coração" id="toc-transplante-de-coração" class="nav-link" data-scroll-target="#transplante-de-coração"><span class="header-section-number">14.1.7</span> <strong>TRANSPLANTE DE CORAÇÃO</strong></a></li>
+  <li><a href="#reincidência-no-crime" id="toc-reincidência-no-crime" class="nav-link" data-scroll-target="#reincidência-no-crime"><span class="header-section-number">14.1.8</span> <strong>REINCIDÊNCIA NO CRIME</strong></a></li>
   </ul></li>
-  <li><a href="#sorteio-da-base-de-dados" id="toc-sorteio-da-base-de-dados" class="nav-link" data-scroll-target="#sorteio-da-base-de-dados"><span class="header-section-number">13.2</span> <strong>SORTEIO DA BASE DE DADOS</strong></a></li>
-  <li><a href="#parte-i---análise-não-paramétrica" id="toc-parte-i---análise-não-paramétrica" class="nav-link" data-scroll-target="#parte-i---análise-não-paramétrica"><span class="header-section-number">13.3</span> <strong>PARTE I - ANÁLISE NÃO PARAMÉTRICA</strong></a>
+  <li><a href="#sorteio-da-base-de-dados" id="toc-sorteio-da-base-de-dados" class="nav-link" data-scroll-target="#sorteio-da-base-de-dados"><span class="header-section-number">14.2</span> <strong>SORTEIO DA BASE DE DADOS</strong></a></li>
+  <li><a href="#parte-i---análise-não-paramétrica" id="toc-parte-i---análise-não-paramétrica" class="nav-link" data-scroll-target="#parte-i---análise-não-paramétrica"><span class="header-section-number">14.3</span> <strong>PARTE I - ANÁLISE NÃO PARAMÉTRICA</strong></a>
   <ul>
-  <li><a href="#introdução" id="toc-introdução" class="nav-link" data-scroll-target="#introdução"><span class="header-section-number">13.3.1</span> <strong>INTRODUÇÃO</strong></a></li>
-  <li><a href="#metodologia" id="toc-metodologia" class="nav-link" data-scroll-target="#metodologia"><span class="header-section-number">13.3.2</span> <strong>METODOLOGIA</strong></a></li>
-  <li><a href="#resultados" id="toc-resultados" class="nav-link" data-scroll-target="#resultados"><span class="header-section-number">13.3.3</span> <strong>RESULTADOS</strong></a></li>
-  <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão"><span class="header-section-number">13.3.4</span> <strong>CONCLUSÃO</strong></a></li>
+  <li><a href="#introdução" id="toc-introdução" class="nav-link" data-scroll-target="#introdução"><span class="header-section-number">14.3.1</span> <strong>INTRODUÇÃO</strong></a></li>
+  <li><a href="#metodologia" id="toc-metodologia" class="nav-link" data-scroll-target="#metodologia"><span class="header-section-number">14.3.2</span> <strong>METODOLOGIA</strong></a></li>
+  <li><a href="#resultados" id="toc-resultados" class="nav-link" data-scroll-target="#resultados"><span class="header-section-number">14.3.3</span> <strong>RESULTADOS</strong></a></li>
+  <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão"><span class="header-section-number">14.3.4</span> <strong>CONCLUSÃO</strong></a></li>
   </ul></li>
-  <li><a href="#parte-ii---modelos-paramétricos" id="toc-parte-ii---modelos-paramétricos" class="nav-link" data-scroll-target="#parte-ii---modelos-paramétricos"><span class="header-section-number">13.4</span> <strong>PARTE II - MODELOS PARAMÉTRICOS</strong></a></li>
-  <li><a href="#parte-iii---modelo-de-cox-e-extensões" id="toc-parte-iii---modelo-de-cox-e-extensões" class="nav-link" data-scroll-target="#parte-iii---modelo-de-cox-e-extensões"><span class="header-section-number">13.5</span> <strong>PARTE III - MODELO DE COX E EXTENSÕES</strong></a></li>
+  <li><a href="#parte-ii---modelos-paramétricos" id="toc-parte-ii---modelos-paramétricos" class="nav-link" data-scroll-target="#parte-ii---modelos-paramétricos"><span class="header-section-number">14.4</span> <strong>PARTE II - MODELOS PARAMÉTRICOS</strong></a></li>
+  <li><a href="#parte-iii---modelo-de-cox-e-extensões" id="toc-parte-iii---modelo-de-cox-e-extensões" class="nav-link" data-scroll-target="#parte-iii---modelo-de-cox-e-extensões"><span class="header-section-number">14.5</span> <strong>PARTE III - MODELO DE COX E EXTENSÕES</strong></a></li>
   </ul>
 </nav>
     </div>
@@ -263,7 +269,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><strong>TRABALHO</strong></span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Código</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Mostrar o código</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Esconder o código</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Ver o código fonte</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><strong>TRABALHO</strong></span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Código</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Mostrar o código</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Esconder o código</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Ver o código fonte</a></li></ul></div></div>
 </div>
 
 
@@ -282,12 +288,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>Este trabalho tem como objetivo aplicar, de forma integrada, os principais métodos de <strong>análise de sobrevivência</strong> em um contexto <strong>real de dados</strong>. Ao longo do desenvolvimento, vocês irão percorrer todas as etapas de uma <strong>análise estatística completa</strong>: desde a <strong>compreensão do problema</strong> e <strong>exploração inicial dos dados</strong> até a <strong>modelagem</strong> e <strong>interpretação dos resultados</strong>.</p>
 <p>A proposta é que vocês não apenas executem técnicas, mas desenvolvam uma <strong>leitura crítica</strong> sobre os dados e os modelos utilizados, entendendo <strong>quando e por que cada método é adequado</strong>, bem como suas <strong>limitações</strong>. O foco está na construção de uma análise <strong>bem estruturada</strong>, <strong>coerente</strong> e <strong>interpretável</strong>.</p>
-<section id="bases-de-dados" class="level2" data-number="13.1">
-<h2 data-number="13.1" class="anchored" data-anchor-id="bases-de-dados"><span class="header-section-number">13.1</span> <strong>BASES DE DADOS</strong></h2>
+<section id="bases-de-dados" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="bases-de-dados"><span class="header-section-number">14.1</span> <strong>BASES DE DADOS</strong></h2>
 <p>Cada aluno receberá uma base de dados distinta, previamente selecionada, contendo informações de <strong>tempo até a ocorrência de um evento de interesse</strong>, que inclui <strong>observações censuradas</strong>. Essas bases abrangem diferentes <strong>contextos práticos</strong>, permitindo explorar a <strong>ampla aplicabilidade</strong> dos métodos de sobrevivência.</p>
 <p>A partir da base atribuída, vocês deverão conduzir toda a análise proposta no trabalho, respeitando as <strong>particularidades dos dados</strong> e do <strong>problema em estudo</strong>. É fundamental, neste momento inicial, dedicar atenção à <strong>compreensão das variáveis</strong>, à identificação do <strong>evento de interesse</strong> e à presença de <strong>censura</strong>, pois essas definições serão essenciais para todas as etapas seguintes. A seguir, são apresentadas as 8 bases de dados:</p>
-<section id="câncer-de-pulmão" class="level3" data-number="13.1.1">
-<h3 data-number="13.1.1" class="anchored" data-anchor-id="câncer-de-pulmão"><span class="header-section-number">13.1.1</span> <strong>CÂNCER DE PULMÃO</strong></h3>
+<section id="câncer-de-pulmão" class="level3" data-number="14.1.1">
+<h3 data-number="14.1.1" class="anchored" data-anchor-id="câncer-de-pulmão"><span class="header-section-number">14.1.1</span> <strong>CÂNCER DE PULMÃO</strong></h3>
 <p><img src="images/CancerPulmao1.png" class="img-fluid"></p>
 <p>A base de dados de <strong>câncer de pulmão</strong>, oriunda de um estudo clínico real conduzido pelo <em>North Central Cancer Treatment Group</em> (NCCTG), um consórcio multicêntrico de pesquisa em oncologia nos <strong>Estados Unidos</strong>. O estudo incluiu pacientes com diagnóstico de <strong>câncer de pulmão</strong> e teve como objetivo identificar <strong>fatores prognósticos associados à sobrevivência</strong>.</p>
 <p>Trata-se de um estudo <strong>observacional com seguimento prospectivo</strong>. Os indivíduos foram incluídos no <strong>tempo inicial correspondente à entrada no acompanhamento clínico</strong>, momento em que suas <strong>características basais foram registradas</strong>, sendo então acompanhados ao longo do tempo até a ocorrência do <strong>evento de interesse</strong> (óbito), com o tempo mensurado em dias.</p>
@@ -350,8 +356,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="cirrose-parte-i" class="level3" data-number="13.1.2">
-<h3 data-number="13.1.2" class="anchored" data-anchor-id="cirrose-parte-i"><span class="header-section-number">13.1.2</span> <strong>CIRROSE (PARTE I)</strong></h3>
+<section id="cirrose-parte-i" class="level3" data-number="14.1.2">
+<h3 data-number="14.1.2" class="anchored" data-anchor-id="cirrose-parte-i"><span class="header-section-number">14.1.2</span> <strong>CIRROSE (PARTE I)</strong></h3>
 <p><img src="images/Cirrose.png" class="img-fluid"></p>
 <p>Considere a base de dados de <strong>cirrose hepática</strong>, proveniente de um estudo clínico conduzido pela <strong>Mayo Clinic</strong>, nos Estados Unidos, envolvendo pacientes diagnosticados com <strong>cirrose biliar primária (Primary Biliary Cirrhosis – PBC)</strong>. O objetivo do estudo foi investigar <strong>fatores prognósticos associados à sobrevivência</strong> e à progressão da doença ao longo do tempo.</p>
 <p>Trata-se de um estudo <strong>observacional com seguimento longitudinal</strong>, no qual os indivíduos foram acompanhados a partir do momento de sua inclusão no estudo, quando suas <strong>características clínicas e laboratoriais basais</strong> foram registradas. O tempo de acompanhamento foi mensurado até a ocorrência de um dos possíveis desfechos, sendo o principal evento de interesse o <strong>óbito</strong>.</p>
@@ -424,8 +430,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="câncer-de-cólon" class="level3" data-number="13.1.3">
-<h3 data-number="13.1.3" class="anchored" data-anchor-id="câncer-de-cólon"><span class="header-section-number">13.1.3</span> <strong>CÂNCER DE CÓLON</strong></h3>
+<section id="câncer-de-cólon" class="level3" data-number="14.1.3">
+<h3 data-number="14.1.3" class="anchored" data-anchor-id="câncer-de-cólon"><span class="header-section-number">14.1.3</span> <strong>CÂNCER DE CÓLON</strong></h3>
 <p><img src="images/Colon.png" class="img-fluid"></p>
 <p>Considere a base de dados de <strong>câncer de cólon</strong>, amplamente utilizada em estudos de <strong>análise de sobrevivência</strong>. Os dados são provenientes de um <strong>ensaio clínico randomizado</strong>, cujo objetivo foi avaliar a eficácia de diferentes <strong>tratamentos adjuvantes</strong> administrados após a ressecção cirúrgica de tumores em pacientes com câncer de cólon em estágios II e III.</p>
 <p>Trata-se de um estudo <strong>experimental</strong>, no qual os pacientes foram alocados a diferentes grupos de tratamento, permitindo a investigação de relações causais entre as intervenções e os desfechos observados. Após a inclusão no estudo, os indivíduos foram acompanhados ao longo do tempo, com registro de eventos relevantes relacionados à progressão da doença.</p>
@@ -498,8 +504,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="cirrose-parte-ii" class="level3" data-number="13.1.4">
-<h3 data-number="13.1.4" class="anchored" data-anchor-id="cirrose-parte-ii"><span class="header-section-number">13.1.4</span> <strong>CIRROSE (PARTE II)</strong></h3>
+<section id="cirrose-parte-ii" class="level3" data-number="14.1.4">
+<h3 data-number="14.1.4" class="anchored" data-anchor-id="cirrose-parte-ii"><span class="header-section-number">14.1.4</span> <strong>CIRROSE (PARTE II)</strong></h3>
 <p><img src="images/CirroseBiliar.png" class="img-fluid"></p>
 <p>Para esta avaliação, considere a base de dados de <strong>cirrose biliar primária (PBC)</strong>, oriunda de um estudo clínico conduzido pela , uma das principais instituições médicas dos Estados Unidos. A doença em questão é uma condição hepática <strong>crônica, progressiva e autoimune</strong>, caracterizada pela destruição gradual dos ductos biliares no fígado, podendo evoluir para insuficiência hepática.</p>
 <p>O estudo possui características de um <strong>ensaio clínico com seguimento prospectivo</strong>, no qual pacientes foram acompanhados ao longo do tempo com o objetivo de avaliar a progressão da doença e identificar <strong>fatores prognósticos associados à sobrevivência</strong>. Parte dos indivíduos recebeu tratamento com <strong>D-penicilamina</strong>, enquanto outros compuseram o grupo controle, permitindo análises comparativas.</p>
@@ -578,8 +584,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="câncer-de-pulmão-avançado" class="level3" data-number="13.1.5">
-<h3 data-number="13.1.5" class="anchored" data-anchor-id="câncer-de-pulmão-avançado"><span class="header-section-number">13.1.5</span> <strong>CÂNCER DE PULMÃO AVANÇADO</strong></h3>
+<section id="câncer-de-pulmão-avançado" class="level3" data-number="14.1.5">
+<h3 data-number="14.1.5" class="anchored" data-anchor-id="câncer-de-pulmão-avançado"><span class="header-section-number">14.1.5</span> <strong>CÂNCER DE PULMÃO AVANÇADO</strong></h3>
 <p><img src="images/CancerPulmao2.png" class="img-fluid"></p>
 <p>A base de dados de <strong>câncer de pulmão</strong>, oriunda de um estudo clínico real conduzido pelo <em>Veterans Administration Cooperative Study Group on Lung Cancer</em>, nos <strong>Estados Unidos</strong>, é um dos conjuntos de dados clássicos da literatura em análise de sobrevivência.</p>
 <p>O estudo consistiu em um <strong>ensaio clínico randomizado</strong> envolvendo pacientes com diagnóstico de <strong>câncer de pulmão avançado</strong>, com o objetivo de comparar diferentes abordagens terapêuticas e investigar fatores associados à sobrevivência.</p>
@@ -643,8 +649,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="câncer-de-mama" class="level3" data-number="13.1.6">
-<h3 data-number="13.1.6" class="anchored" data-anchor-id="câncer-de-mama"><span class="header-section-number">13.1.6</span> <strong>CÂNCER DE MAMA</strong></h3>
+<section id="câncer-de-mama" class="level3" data-number="14.1.6">
+<h3 data-number="14.1.6" class="anchored" data-anchor-id="câncer-de-mama"><span class="header-section-number">14.1.6</span> <strong>CÂNCER DE MAMA</strong></h3>
 <p><img src="images/CancerMama.png" class="img-fluid"></p>
 <p>A base de dados de <strong>câncer de mama</strong>, disponibilizada em repositórios públicos e amplamente utilizada na literatura estatística, foi empregada em estudos clássicos de modelagem prognóstica conduzidos por <em>Royston e Altman</em>, com dados oriundos de registros clínicos europeus.</p>
 <p>O estudo envolve pacientes diagnosticados com <strong>câncer de mama</strong>, acompanhados ao longo do tempo com o objetivo de investigar <strong>fatores prognósticos associados à sobrevivência ou recorrência da doença</strong>.</p>
@@ -718,8 +724,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="transplante-de-coração" class="level3" data-number="13.1.7">
-<h3 data-number="13.1.7" class="anchored" data-anchor-id="transplante-de-coração"><span class="header-section-number">13.1.7</span> <strong>TRANSPLANTE DE CORAÇÃO</strong></h3>
+<section id="transplante-de-coração" class="level3" data-number="14.1.7">
+<h3 data-number="14.1.7" class="anchored" data-anchor-id="transplante-de-coração"><span class="header-section-number">14.1.7</span> <strong>TRANSPLANTE DE CORAÇÃO</strong></h3>
 <p><img src="images/Transplante.png" class="img-fluid"></p>
 <p>A base de dados de <strong>transplante cardíaco</strong>, disponibilizada em repositórios públicos, é derivada de estudos clínicos clássicos conduzidos em centros especializados, como o programa de transplante cardíaco da Universidade de Stanford, nos <strong>Estados Unidos</strong>, amplamente utilizados na literatura de análise de sobrevivência.</p>
 <p>O estudo envolve pacientes com <strong>insuficiência cardíaca avançada</strong>, elegíveis para transplante, acompanhados ao longo do tempo com o objetivo de investigar <strong>fatores associados à sobrevivência após o transplante cardíaco</strong>.</p>
@@ -803,8 +809,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="reincidência-no-crime" class="level3" data-number="13.1.8">
-<h3 data-number="13.1.8" class="anchored" data-anchor-id="reincidência-no-crime"><span class="header-section-number">13.1.8</span> <strong>REINCIDÊNCIA NO CRIME</strong></h3>
+<section id="reincidência-no-crime" class="level3" data-number="14.1.8">
+<h3 data-number="14.1.8" class="anchored" data-anchor-id="reincidência-no-crime"><span class="header-section-number">14.1.8</span> <strong>REINCIDÊNCIA NO CRIME</strong></h3>
 <p><img src="images/Crime.png" class="img-fluid"></p>
 <p>A base de dados de reincidência no crime é amplamente utilizada em estudos de <strong>análise de sobrevivência</strong> aplicados às <strong>ciências sociais</strong>. Ela tem origem em um estudo conduzido pelo sociólogo <strong>Peter H. Rossi</strong>, cujo objetivo foi investigar o <strong>comportamento de indivíduos</strong> após sua <strong>liberação do sistema prisional</strong>.</p>
 <p>O foco principal da base está na análise do <strong>tempo até a reincidência criminal</strong>, isto é, o <strong>tempo decorrido</strong> até que um indivíduo volte a ser <strong>preso</strong>. Esse tipo de abordagem se encaixa naturalmente no contexto da <strong>análise de sobrevivência</strong>, em que o interesse está no <strong>tempo até a ocorrência de um evento de interesse</strong>.</p>
@@ -884,8 +890,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="sorteio-da-base-de-dados" class="level2" data-number="13.2">
-<h2 data-number="13.2" class="anchored" data-anchor-id="sorteio-da-base-de-dados"><span class="header-section-number">13.2</span> <strong>SORTEIO DA BASE DE DADOS</strong></h2>
+<section id="sorteio-da-base-de-dados" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="sorteio-da-base-de-dados"><span class="header-section-number">14.2</span> <strong>SORTEIO DA BASE DE DADOS</strong></h2>
 <p>O <strong>sorteio das bases</strong> de dados foi feito de acordo com o seguinte **sorteio*:**</p>
 <div class="cell">
 <details class="code-fold">
@@ -983,39 +989,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="parte-i---análise-não-paramétrica" class="level2" data-number="13.3">
-<h2 data-number="13.3" class="anchored" data-anchor-id="parte-i---análise-não-paramétrica"><span class="header-section-number">13.3</span> <strong>PARTE I - ANÁLISE NÃO PARAMÉTRICA</strong></h2>
+<section id="parte-i---análise-não-paramétrica" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="parte-i---análise-não-paramétrica"><span class="header-section-number">14.3</span> <strong>PARTE I - ANÁLISE NÃO PARAMÉTRICA</strong></h2>
 <p>Para esta parte, vocês deverão <strong>criar uma apresentação em slides dividida nos seguintes capítulos</strong>:</p>
-<section id="introdução" class="level3" data-number="13.3.1">
-<h3 data-number="13.3.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">13.3.1</span> <strong>INTRODUÇÃO</strong></h3>
+<section id="introdução" class="level3" data-number="14.3.1">
+<h3 data-number="14.3.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">14.3.1</span> <strong>INTRODUÇÃO</strong></h3>
 <p>A <strong>apresentação deve iniciar com a contextualização</strong> do problema, situando a base de dados em seu <strong>contexto aplicado</strong> e destacando a relevância da análise. É <strong>fundamental explicar claramente qual</strong> é o <strong>evento de interesse</strong>, o significado do <strong>tempo até o evento</strong> e a presença de <strong>censura</strong>, quando houver.</p>
 <p>Na sequência, deve-se apresentar e descrever as <strong>variáveis da base de dados</strong>, identificando explicitamente a variável de <strong>tempo</strong>, a variável indicadora de <strong>evento/censura</strong>, bem como as <strong>covariáveis qualitativas</strong> e <strong>quantitativas</strong>. É importante discutir o <strong>significado prático</strong> dessas variáveis no contexto do estudo.</p>
 </section>
-<section id="metodologia" class="level3" data-number="13.3.2">
-<h3 data-number="13.3.2" class="anchored" data-anchor-id="metodologia"><span class="header-section-number">13.3.2</span> <strong>METODOLOGIA</strong></h3>
+<section id="metodologia" class="level3" data-number="14.3.2">
+<h3 data-number="14.3.2" class="anchored" data-anchor-id="metodologia"><span class="header-section-number">14.3.2</span> <strong>METODOLOGIA</strong></h3>
 <p>Nesta seção, os alunos devem descrever de forma objetiva os <strong>procedimentos estatísticos</strong> adotados na análise. Por questões de tempo, esse trabalho terá como foco o <strong>estimador de Kaplan-Meier</strong>, a obtenção do <strong>tempo mediano de sobrevivência</strong>, além de <strong>testes de comparação entre curvas</strong> (Log-Rank e Peto-Peto) e eventuais <strong>procedimentos de comparações múltiplas</strong> (Correção de Holm-Bonferroni).</p>
 <p>Particularmente, para as <strong>variáveis quantitativas</strong>, descrevam as <strong>medidas resumo utilizadas</strong>.</p>
 <blockquote class="blockquote">
 <p>Não precisam trazer fórmulas das metodologias aplicadas. Apenas descreva os métodos utilizados e detalhes de como e por qual razão eles foram utilizados.</p>
 </blockquote>
 </section>
-<section id="resultados" class="level3" data-number="13.3.3">
-<h3 data-number="13.3.3" class="anchored" data-anchor-id="resultados"><span class="header-section-number">13.3.3</span> <strong>RESULTADOS</strong></h3>
+<section id="resultados" class="level3" data-number="14.3.3">
+<h3 data-number="14.3.3" class="anchored" data-anchor-id="resultados"><span class="header-section-number">14.3.3</span> <strong>RESULTADOS</strong></h3>
 <p>A apresentação dos resultados deve ser organizada de acordo com <strong>três blocos</strong>.</p>
 <p>Inicialmente, na análise <strong>sem covariáveis</strong>, devem ser apresentadas as estimativas da <strong>curva de sobrevivência global</strong>, bem como o <strong>tempo mediano de sobrevivência</strong> e intervalo de confiança, acompanhados de interpretação no contexto do problema.</p>
 <p>Em seguida, na análise com <strong>covariáveis qualitativas</strong>, devem ser apresentadas as <strong>curvas de sobrevivência estratificadas por grupo</strong>, as estimativas dos <strong>tempos medianos para cada grupo</strong> com intervalos de confiança e os resultados dos <strong>testes de comparação entre curvas</strong> (Log-Rank e Peto-Peto). Caso haja mais de dois grupos, devem ser incluídas <strong>comparações múltiplas</strong>, quando necessário, com a correção de Holm-Bonferroni.</p>
 <p>Por fim, na análise com <strong>covariáveis quantitativas</strong>, devem ser apresentadas <strong>medidas resumo</strong>, tanto para o conjunto total de indivíduos quanto estratificadas por <strong>ocorrência do evento</strong> e <strong>censura</strong>. A interpretação deve destacar possíveis padrões ou diferenças relevantes entre os grupos.</p>
 </section>
-<section id="conclusão" class="level3" data-number="13.3.4">
-<h3 data-number="13.3.4" class="anchored" data-anchor-id="conclusão"><span class="header-section-number">13.3.4</span> <strong>CONCLUSÃO</strong></h3>
+<section id="conclusão" class="level3" data-number="14.3.4">
+<h3 data-number="14.3.4" class="anchored" data-anchor-id="conclusão"><span class="header-section-number">14.3.4</span> <strong>CONCLUSÃO</strong></h3>
 <p>A apresentação deve ser finalizada com uma síntese dos principais resultados obtidos na análise não paramétrica. Os alunos devem destacar os achados mais relevantes, discutir possíveis <strong>implicações práticas</strong> e comentar eventuais <strong>limitações dos dados ou da análise</strong>.</p>
 </section>
 </section>
-<section id="parte-ii---modelos-paramétricos" class="level2" data-number="13.4">
-<h2 data-number="13.4" class="anchored" data-anchor-id="parte-ii---modelos-paramétricos"><span class="header-section-number">13.4</span> <strong>PARTE II - MODELOS PARAMÉTRICOS</strong></h2>
+<section id="parte-ii---modelos-paramétricos" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="parte-ii---modelos-paramétricos"><span class="header-section-number">14.4</span> <strong>PARTE II - MODELOS PARAMÉTRICOS</strong></h2>
 </section>
-<section id="parte-iii---modelo-de-cox-e-extensões" class="level2" data-number="13.5">
-<h2 data-number="13.5" class="anchored" data-anchor-id="parte-iii---modelo-de-cox-e-extensões"><span class="header-section-number">13.5</span> <strong>PARTE III - MODELO DE COX E EXTENSÕES</strong></h2>
+<section id="parte-iii---modelo-de-cox-e-extensões" class="level2" data-number="14.5">
+<h2 data-number="14.5" class="anchored" data-anchor-id="parte-iii---modelo-de-cox-e-extensões"><span class="header-section-number">14.5</span> <strong>PARTE III - MODELO DE COX E EXTENSÕES</strong></h2>
 
 
 <!-- -->
@@ -1482,8 +1488,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Cap9.html" class="pagination-link" aria-label="**ESTIMAÇÃO E ESCOLHA DO MODELO PARAMÉTRICO (PRÁTICA)**">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title"><strong>ESTIMAÇÃO E ESCOLHA DO MODELO PARAMÉTRICO (PRÁTICA)</strong></span></span>
+      <a href="./Cap10.html" class="pagination-link" aria-label="**ESTIMAÇÃO E ESCOLHA DO MODELO PARAMÉTRICO (PRÁTICA)**">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><strong>ESTIMAÇÃO E ESCOLHA DO MODELO PARAMÉTRICO (PRÁTICA)</strong></span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
