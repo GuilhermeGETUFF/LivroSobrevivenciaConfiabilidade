@@ -353,9 +353,8 @@ window.Quarto = {
 </section>
 <section id="isolante-elétrico" class="level3" data-number="13.2.3">
 <h3 data-number="13.2.3" class="anchored" data-anchor-id="isolante-elétrico"><span class="header-section-number">13.2.3</span> <strong>ISOLANTE ELÉTRICO</strong></h3>
-<center>
-<img src="images/isolante.png" class="img-fluid">
-</center>
+<p><img src="images/Cirrose.png" class="img-fluid"></p>
+<p><img src="images/isolante.png" class="img-fluid"></p>
 <p>0 <strong>fabricante de um tipo de isolante elétrico</strong> quer conhecer o comportamento de seu produto funcionando <strong>a uma temperatura de 200Cº</strong>. Um teste de vida foi realizado nestas condições uasando-se <strong>60 isoladores elétricos</strong>. <strong>O teste terminou quando 45 deles havia falhado (censura do tipo II)</strong>. As <strong>15 unidades que não haviam falhado</strong> ao final do teste foram, desta forma, <strong>censuradas no tempo</strong> t= 2729 horas:</p>
 <p>151, 164, 336, 365, 403, 454, 455, 473, 538, 577, 592, 628, 632, 647, 675, 727, 785, 801, 811, 816, 867, 893, 930, 937, 976, 1008, 1040, 1051, 1060, 1183, 1329, 1334, 1379, 1380, 1633, 1769, 1827, 1831, 1849, 2016, 2282, 2415, 2430, 2686, 2729, 2729+, 2729+, 2729+, 2729+, 2729+, 2729+, 2729+, 2729+, 2729+, 2729+, 2729+, 2729+, 2729+, 2729+, 2729+,</p>
 <p>em que <strong>o símbolo + indica a censura</strong>.</p>
@@ -363,9 +362,7 @@ window.Quarto = {
 </section>
 <section id="aids" class="level2" data-number="13.3">
 <h2 data-number="13.3" class="anchored" data-anchor-id="aids"><span class="header-section-number">13.3</span> <strong>AIDS</strong></h2>
-<center>
-<img src="Images/Aids.png" class="img-fluid">
-</center>
+<p><img src="images/Aids.png" class="img-fluid"></p>
 <p>O estudo <strong>é constituído de pacientes portadores de HIV atendidos entre 1986 e 2000</strong> no Instituto de Pesquisa Clínica Evandro Chagas (Ipec/Fiocruz). <strong>Dessa coorte, obteve-se uma amostra de 193 indivíduos que foram diagnosticados como portadores de AIDS</strong> (critério CDC 1993) durante o período de acompanhamento. O objetivo é <strong>mensurar o tempo, em dias, do diagnóstico até a morte dos pacientes</strong>. <strong>Essa base de dados está armazenada no objeto</strong> <code>DadosAIDS.csv</code></p>
 </section>
 <section id="ajuste-dos-modelos-paramétricos" class="level2" data-number="13.4">
@@ -513,7 +510,7 @@ AIC = 138.5478</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
        est      lcl      ucl       se
-1 20.41176 12.92787 33.25739 5.310288</code></pre>
+1 20.41176 12.80615 33.75916 5.346323</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -522,7 +519,7 @@ AIC = 138.5478</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
        est      lcl      ucl       se
-1 14.14836 8.903714 22.42049 3.568605</code></pre>
+1 14.14836 8.830095 21.79416 3.423862</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -531,7 +528,7 @@ AIC = 138.5478</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
   quantile      est      lcl      ucl       se
-1      0.8 32.85147 20.83243 50.23683 8.289507</code></pre>
+1      0.8 32.85147 20.45838 52.60053 8.400824</code></pre>
 </div>
 </div>
 <p>Já o <strong>comando a seguir fornece o tempo médio residual de ocorrência do evento de interesse no instante <code>t=20</code> meses</strong>.</p>
@@ -623,7 +620,7 @@ AIC = 136.2667</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
        est      lcl      ucl       se
-1 19.20078 14.42732 26.47478 3.094319</code></pre>
+1 19.20078 13.98319 26.17311 3.106783</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -631,8 +628,8 @@ AIC = 136.2667</code></pre>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
-       est      lcl      ucl      se
-1 16.82823 11.70018 23.95755 3.09189</code></pre>
+       est      lcl      ucl       se
+1 16.82823 11.83652 23.48036 3.020379</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -640,8 +637,8 @@ AIC = 136.2667</code></pre>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
-  quantile      est     lcl     ucl      se
-1      0.8 29.04556 20.9641 39.9697 4.73962</code></pre>
+  quantile      est      lcl      ucl       se
+1      0.8 29.04556 21.13515 40.00932 4.830873</code></pre>
 </div>
 </div>
 <p>Já o comando a seguir fornece <strong>o tempo médio residual de ocorrência do evento de interesse no instante <code>t=20</code> meses</strong>.</p>
@@ -733,8 +730,8 @@ AIC = 135.4798</code></pre>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
-       est      lcl     ucl       se
-1 20.28026 13.78706 32.6446 4.768454</code></pre>
+       est      lcl      ucl       se
+1 20.28026 13.70099 31.39042 4.642521</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -743,7 +740,7 @@ AIC = 135.4798</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
        est      lcl      ucl       se
-1 15.13751 10.88179 21.01665 2.656336</code></pre>
+1 15.13751 10.66323 21.27222 2.749529</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -752,7 +749,7 @@ AIC = 135.4798</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
   quantile    est      lcl      ucl       se
-1      0.8 28.814 19.31993 44.65628 6.610973</code></pre>
+1      0.8 28.814 18.86058 43.57666 6.560558</code></pre>
 </div>
 </div>
 <p>Já o comando a seguir fornece o <strong>tempo médio residual</strong> de ocorrência do evento de interesse no instante <code>t=20</code> meses.</p>
@@ -845,7 +842,7 @@ AIC = 135.6951</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
        est      lcl      ucl       se
-1 19.22915 14.24799 26.11545 3.174893</code></pre>
+1 19.22915 14.17506 26.66448 3.247957</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -854,7 +851,7 @@ AIC = 135.6951</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
        est      lcl      ucl       se
-1 16.33618 11.94619 22.48643 2.770507</code></pre>
+1 16.33618 11.63502 22.14916 2.721841</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -862,8 +859,8 @@ AIC = 135.6951</code></pre>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
-  quantile      est    lcl      ucl       se
-1      0.8 28.55305 20.477 38.98646 4.837199</code></pre>
+  quantile      est      lcl      ucl       se
+1      0.8 28.55305 20.51461 39.60216 4.874649</code></pre>
 </div>
 </div>
 <p>Já o comando a seguir fornece <strong>o tempo médio residual de ocorrência do evento de interesse no instante <code>t=20</code> meses.</strong></p>
@@ -977,8 +974,8 @@ AIC = 137.387</code></pre>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
-  quantile      est lcl ucl  se
-1      0.8 28.55103   0 Inf NaN</code></pre>
+  quantile      est      lcl ucl  se
+1      0.8 28.55103 27.62213 Inf NaN</code></pre>
 </div>
 </div>
 <p>Já o comando a seguir fornece <strong>o tempo médio residual de ocorrência do evento de interesse no instante <code>t=20</code> meses.</strong></p>
@@ -1641,399 +1638,401 @@ Gama Generalizada NA       15.6301  28.55103     14.38189      </code></pre>
 <span id="cb75-45"><a href="#cb75-45" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb75-46"><a href="#cb75-46" aria-hidden="true" tabindex="-1"></a><span class="fu">### **ISOLANTE ELÉTRICO**</span></span>
 <span id="cb75-47"><a href="#cb75-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-48"><a href="#cb75-48" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">center</span><span class="dt">&gt;</span></span>
-<span id="cb75-49"><a href="#cb75-49" aria-hidden="true" tabindex="-1"></a><span class="al">![ ](images/isolante.png)</span></span>
-<span id="cb75-50"><a href="#cb75-50" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">center</span><span class="dt">&gt;</span></span>
-<span id="cb75-51"><a href="#cb75-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-52"><a href="#cb75-52" aria-hidden="true" tabindex="-1"></a>0 **fabricante de um tipo de isolante elétrico** quer conhecer o comportamento de seu produto funcionando **a uma temperatura de 200Cº**. Um teste de vida foi realizado nestas condições uasando-se **60 isoladores elétricos**. **O teste terminou quando 45 deles havia falhado (censura do tipo II)**. As **15 unidades que não haviam falhado** ao final do teste foram, desta forma, **censuradas no tempo** t= 2729 horas: </span>
+<span id="cb75-48"><a href="#cb75-48" aria-hidden="true" tabindex="-1"></a><span class="al">![ ](images/Cirrose.png)</span></span>
+<span id="cb75-49"><a href="#cb75-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-50"><a href="#cb75-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-51"><a href="#cb75-51" aria-hidden="true" tabindex="-1"></a><span class="al">![ ](images/isolante.png)</span></span>
+<span id="cb75-52"><a href="#cb75-52" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb75-53"><a href="#cb75-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-54"><a href="#cb75-54" aria-hidden="true" tabindex="-1"></a>151, 164, 336, 365, 403, 454, 455, 473, 538, 577, 592, 628, 632, 647, 675, 727, 785, </span>
-<span id="cb75-55"><a href="#cb75-55" aria-hidden="true" tabindex="-1"></a>801, 811, 816, 867, 893, 930, 937, 976, 1008, 1040, 1051, 1060, 1183, 1329, 1334, </span>
-<span id="cb75-56"><a href="#cb75-56" aria-hidden="true" tabindex="-1"></a>1379, 1380, 1633, 1769, 1827, 1831, 1849, 2016, 2282, 2415, 2430, 2686, 2729, </span>
-<span id="cb75-57"><a href="#cb75-57" aria-hidden="true" tabindex="-1"></a>2729+, 2729+, 2729+, 2729+, 2729+, 2729+, 2729+, 2729+, 2729+, 2729+, </span>
-<span id="cb75-58"><a href="#cb75-58" aria-hidden="true" tabindex="-1"></a>2729+, 2729+, 2729+, 2729+, 2729+,</span>
-<span id="cb75-59"><a href="#cb75-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-60"><a href="#cb75-60" aria-hidden="true" tabindex="-1"></a>em que **o símbolo + indica a censura**.</span>
+<span id="cb75-54"><a href="#cb75-54" aria-hidden="true" tabindex="-1"></a>0 **fabricante de um tipo de isolante elétrico** quer conhecer o comportamento de seu produto funcionando **a uma temperatura de 200Cº**. Um teste de vida foi realizado nestas condições uasando-se **60 isoladores elétricos**. **O teste terminou quando 45 deles havia falhado (censura do tipo II)**. As **15 unidades que não haviam falhado** ao final do teste foram, desta forma, **censuradas no tempo** t= 2729 horas: </span>
+<span id="cb75-55"><a href="#cb75-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-56"><a href="#cb75-56" aria-hidden="true" tabindex="-1"></a>151, 164, 336, 365, 403, 454, 455, 473, 538, 577, 592, 628, 632, 647, 675, 727, 785, </span>
+<span id="cb75-57"><a href="#cb75-57" aria-hidden="true" tabindex="-1"></a>801, 811, 816, 867, 893, 930, 937, 976, 1008, 1040, 1051, 1060, 1183, 1329, 1334, </span>
+<span id="cb75-58"><a href="#cb75-58" aria-hidden="true" tabindex="-1"></a>1379, 1380, 1633, 1769, 1827, 1831, 1849, 2016, 2282, 2415, 2430, 2686, 2729, </span>
+<span id="cb75-59"><a href="#cb75-59" aria-hidden="true" tabindex="-1"></a>2729+, 2729+, 2729+, 2729+, 2729+, 2729+, 2729+, 2729+, 2729+, 2729+, </span>
+<span id="cb75-60"><a href="#cb75-60" aria-hidden="true" tabindex="-1"></a>2729+, 2729+, 2729+, 2729+, 2729+,</span>
 <span id="cb75-61"><a href="#cb75-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-62"><a href="#cb75-62" aria-hidden="true" tabindex="-1"></a><span class="fu">## **AIDS**</span></span>
-<span id="cb75-63"><a href="#cb75-63" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">center</span><span class="dt">&gt;</span></span>
-<span id="cb75-64"><a href="#cb75-64" aria-hidden="true" tabindex="-1"></a><span class="al">![ ](Images/Aids.png)</span></span>
-<span id="cb75-65"><a href="#cb75-65" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">center</span><span class="dt">&gt;</span></span>
-<span id="cb75-66"><a href="#cb75-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-67"><a href="#cb75-67" aria-hidden="true" tabindex="-1"></a>O estudo **é constituído de pacientes portadores de HIV atendidos entre 1986 e 2000** no Instituto de Pesquisa Clínica Evandro Chagas (Ipec/Fiocruz). **Dessa coorte, obteve-se uma amostra de 193 indivíduos que foram diagnosticados como portadores de AIDS** (critério CDC 1993) durante o período de acompanhamento. O objetivo é **mensurar o tempo, em dias, do diagnóstico até a morte dos pacientes**. **Essa base de dados está armazenada no objeto** <span class="in">`DadosAIDS.csv`</span></span>
+<span id="cb75-62"><a href="#cb75-62" aria-hidden="true" tabindex="-1"></a>em que **o símbolo + indica a censura**.</span>
+<span id="cb75-63"><a href="#cb75-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-64"><a href="#cb75-64" aria-hidden="true" tabindex="-1"></a><span class="fu">## **AIDS**</span></span>
+<span id="cb75-65"><a href="#cb75-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-66"><a href="#cb75-66" aria-hidden="true" tabindex="-1"></a><span class="al">![ ](images/Aids.png)</span></span>
+<span id="cb75-67"><a href="#cb75-67" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb75-68"><a href="#cb75-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-69"><a href="#cb75-69" aria-hidden="true" tabindex="-1"></a><span class="fu">## **AJUSTE DOS MODELOS PARAMÉTRICOS**</span></span>
+<span id="cb75-69"><a href="#cb75-69" aria-hidden="true" tabindex="-1"></a>O estudo **é constituído de pacientes portadores de HIV atendidos entre 1986 e 2000** no Instituto de Pesquisa Clínica Evandro Chagas (Ipec/Fiocruz). **Dessa coorte, obteve-se uma amostra de 193 indivíduos que foram diagnosticados como portadores de AIDS** (critério CDC 1993) durante o período de acompanhamento. O objetivo é **mensurar o tempo, em dias, do diagnóstico até a morte dos pacientes**. **Essa base de dados está armazenada no objeto** <span class="in">`DadosAIDS.csv`</span></span>
 <span id="cb75-70"><a href="#cb75-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-71"><a href="#cb75-71" aria-hidden="true" tabindex="-1"></a>Nesta seção, aprenderemos **como ajustar todos os modelos paramétricos** vistos em sala de aula. Mas antes de fazer esses **ajustes**, vamos carregar a **base de dados dos pacientes com câncer de bexiga**:</span>
+<span id="cb75-71"><a href="#cb75-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## **AJUSTE DOS MODELOS PARAMÉTRICOS**</span></span>
 <span id="cb75-72"><a href="#cb75-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-73"><a href="#cb75-73" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
-<span id="cb75-74"><a href="#cb75-74" aria-hidden="true" tabindex="-1"></a>tempos<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">12</span>,<span class="dv">15</span>,<span class="dv">15</span>,<span class="dv">18</span>,<span class="dv">19</span>,<span class="dv">20</span>,<span class="dv">22</span>,<span class="dv">25</span>,<span class="dv">28</span>,<span class="dv">30</span>,<span class="dv">40</span>,<span class="dv">45</span>)</span>
-<span id="cb75-75"><a href="#cb75-75" aria-hidden="true" tabindex="-1"></a>cens<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>)</span>
-<span id="cb75-76"><a href="#cb75-76" aria-hidden="true" tabindex="-1"></a>dados1<span class="ot">&lt;-</span><span class="fu">data.frame</span>(tempos,cens)</span>
-<span id="cb75-77"><a href="#cb75-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-78"><a href="#cb75-78" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
+<span id="cb75-73"><a href="#cb75-73" aria-hidden="true" tabindex="-1"></a>Nesta seção, aprenderemos **como ajustar todos os modelos paramétricos** vistos em sala de aula. Mas antes de fazer esses **ajustes**, vamos carregar a **base de dados dos pacientes com câncer de bexiga**:</span>
+<span id="cb75-74"><a href="#cb75-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-75"><a href="#cb75-75" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
+<span id="cb75-76"><a href="#cb75-76" aria-hidden="true" tabindex="-1"></a>tempos<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">12</span>,<span class="dv">15</span>,<span class="dv">15</span>,<span class="dv">18</span>,<span class="dv">19</span>,<span class="dv">20</span>,<span class="dv">22</span>,<span class="dv">25</span>,<span class="dv">28</span>,<span class="dv">30</span>,<span class="dv">40</span>,<span class="dv">45</span>)</span>
+<span id="cb75-77"><a href="#cb75-77" aria-hidden="true" tabindex="-1"></a>cens<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>)</span>
+<span id="cb75-78"><a href="#cb75-78" aria-hidden="true" tabindex="-1"></a>dados1<span class="ot">&lt;-</span><span class="fu">data.frame</span>(tempos,cens)</span>
 <span id="cb75-79"><a href="#cb75-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-80"><a href="#cb75-80" aria-hidden="true" tabindex="-1"></a><span class="fu">### **COMANDOS IMPORTANTES**</span></span>
+<span id="cb75-80"><a href="#cb75-80" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
 <span id="cb75-81"><a href="#cb75-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-82"><a href="#cb75-82" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **AJUSTE DOS MODELOS PARAMÉTRICOS**</span></span>
+<span id="cb75-82"><a href="#cb75-82" aria-hidden="true" tabindex="-1"></a><span class="fu">### **COMANDOS IMPORTANTES**</span></span>
 <span id="cb75-83"><a href="#cb75-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-84"><a href="#cb75-84" aria-hidden="true" tabindex="-1"></a>O **ajuste de todos os modelos paramétricos** será feito a partir da **função `flexsurvreg`**. Essa função possui, basicamente, os **seguintes argumentos:**</span>
-<span id="cb75-85"><a href="#cb75-85" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb75-86"><a href="#cb75-86" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span><span class="in">`formula`</span>: a **fórmula do modelo**. No caso de modelos **sem covariáveis**, a sua estrutura é, por exemplo, <span class="in">`Surv(tempos, cens) ~ 1`</span></span>
-<span id="cb75-87"><a href="#cb75-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-88"><a href="#cb75-88" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`dist`</span>: a **distribuição utilizada**. Pode ser uma das **seguintes**: <span class="in">`gengamma.orig`</span>, <span class="in">`weibull`</span>, <span class="in">`gamma`</span>, <span class="in">`exp`</span> e <span class="in">`lnorm`</span>.</span>
+<span id="cb75-84"><a href="#cb75-84" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **AJUSTE DOS MODELOS PARAMÉTRICOS**</span></span>
+<span id="cb75-85"><a href="#cb75-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-86"><a href="#cb75-86" aria-hidden="true" tabindex="-1"></a>O **ajuste de todos os modelos paramétricos** será feito a partir da **função `flexsurvreg`**. Essa função possui, basicamente, os **seguintes argumentos:**</span>
+<span id="cb75-87"><a href="#cb75-87" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-88"><a href="#cb75-88" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span><span class="in">`formula`</span>: a **fórmula do modelo**. No caso de modelos **sem covariáveis**, a sua estrutura é, por exemplo, <span class="in">`Surv(tempos, cens) ~ 1`</span></span>
 <span id="cb75-89"><a href="#cb75-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-90"><a href="#cb75-90" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`data`</span>: a **base de dados**.</span>
+<span id="cb75-90"><a href="#cb75-90" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`dist`</span>: a **distribuição utilizada**. Pode ser uma das **seguintes**: <span class="in">`gengamma.orig`</span>, <span class="in">`weibull`</span>, <span class="in">`gamma`</span>, <span class="in">`exp`</span> e <span class="in">`lnorm`</span>.</span>
 <span id="cb75-91"><a href="#cb75-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-92"><a href="#cb75-92" aria-hidden="true" tabindex="-1"></a>Em todos os **modelos ajustados**, a função `flexsurvreg` **estima os parâmetros** do modelo pelo método da **máxima verossimilhança**, utilizando **métodos numéricos**. Além disso, a função reporta um **intervalo de confiança** para os parâmetros e também uma **estimativa para os respectivos erros padrões**. Na saída, são também reportados os seguintes: </span>
-<span id="cb75-93"><a href="#cb75-93" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb75-94"><a href="#cb75-94" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`N`</span>: **tamanho da amostra**.</span>
-<span id="cb75-95"><a href="#cb75-95" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`Events`</span>: **número de ocorrências do evento**.</span>
-<span id="cb75-96"><a href="#cb75-96" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`Censored`</span>: **número de observações censuradas**.</span>
-<span id="cb75-97"><a href="#cb75-97" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`Total time at risk`</span>: **soma de todos os tempos observados (censurados ou não)**.</span>
-<span id="cb75-98"><a href="#cb75-98" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`Log-likelihood`</span>: **valor da função de log-verossimilhança**.</span>
-<span id="cb75-99"><a href="#cb75-99" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`AIC`</span>: **Critério de Informação de Akaike**</span>
-<span id="cb75-100"><a href="#cb75-100" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb75-101"><a href="#cb75-101" aria-hidden="true" tabindex="-1"></a>Para **mais informações e detalhes** sobre essa função, **utilize o comando** <span class="in">`?flexsurvreg()`</span></span>
-<span id="cb75-102"><a href="#cb75-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-103"><a href="#cb75-103" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **GRÁFICOS DE FUNÇÕES BÁSICAS**</span></span>
+<span id="cb75-92"><a href="#cb75-92" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`data`</span>: a **base de dados**.</span>
+<span id="cb75-93"><a href="#cb75-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-94"><a href="#cb75-94" aria-hidden="true" tabindex="-1"></a>Em todos os **modelos ajustados**, a função `flexsurvreg` **estima os parâmetros** do modelo pelo método da **máxima verossimilhança**, utilizando **métodos numéricos**. Além disso, a função reporta um **intervalo de confiança** para os parâmetros e também uma **estimativa para os respectivos erros padrões**. Na saída, são também reportados os seguintes: </span>
+<span id="cb75-95"><a href="#cb75-95" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-96"><a href="#cb75-96" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`N`</span>: **tamanho da amostra**.</span>
+<span id="cb75-97"><a href="#cb75-97" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`Events`</span>: **número de ocorrências do evento**.</span>
+<span id="cb75-98"><a href="#cb75-98" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`Censored`</span>: **número de observações censuradas**.</span>
+<span id="cb75-99"><a href="#cb75-99" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`Total time at risk`</span>: **soma de todos os tempos observados (censurados ou não)**.</span>
+<span id="cb75-100"><a href="#cb75-100" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`Log-likelihood`</span>: **valor da função de log-verossimilhança**.</span>
+<span id="cb75-101"><a href="#cb75-101" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`AIC`</span>: **Critério de Informação de Akaike**</span>
+<span id="cb75-102"><a href="#cb75-102" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-103"><a href="#cb75-103" aria-hidden="true" tabindex="-1"></a>Para **mais informações e detalhes** sobre essa função, **utilize o comando** <span class="in">`?flexsurvreg()`</span></span>
 <span id="cb75-104"><a href="#cb75-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-105"><a href="#cb75-105" aria-hidden="true" tabindex="-1"></a>Em todos os **modelos ajustados**, a função <span class="in">`plot`</span> faz o gráfico com as estimativas das funções básicas em análise de sobrevivência e confiabilidade. Além disso o gráfico das funções estimadas é feito em comparação com estimativas não paramétricas para diagnosticar a qualidade do ajuste. </span>
+<span id="cb75-105"><a href="#cb75-105" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **GRÁFICOS DE FUNÇÕES BÁSICAS**</span></span>
 <span id="cb75-106"><a href="#cb75-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-107"><a href="#cb75-107" aria-hidden="true" tabindex="-1"></a>Os argumentos da função <span class="in">`plot`</span> são, basicamente:</span>
+<span id="cb75-107"><a href="#cb75-107" aria-hidden="true" tabindex="-1"></a>Em todos os **modelos ajustados**, a função <span class="in">`plot`</span> faz o gráfico com as estimativas das funções básicas em análise de sobrevivência e confiabilidade. Além disso o gráfico das funções estimadas é feito em comparação com estimativas não paramétricas para diagnosticar a qualidade do ajuste. </span>
 <span id="cb75-108"><a href="#cb75-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-109"><a href="#cb75-109" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`x`</span> = objeto que armazena o ajuste <span class="in">`flexsurvreg`</span>.</span>
-<span id="cb75-110"><a href="#cb75-110" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`type`</span> = tipo de gráfico a ser construido:</span>
-<span id="cb75-111"><a href="#cb75-111" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`"survival"`</span> para a função de sobrevivência, a ser comparada com as estimativas de Kaplan-Meier obtidas via <span class="in">`plot.survfit`</span>.</span>
-<span id="cb75-112"><a href="#cb75-112" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`"cumhaz"`</span> para o risco acumulado, comparado com as estimativas de Kaplan-Meier transformadas a partir de <span class="in">`plot.survfit`</span>.</span>
-<span id="cb75-113"><a href="#cb75-113" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`"hazard"`</span> para a função de risco, a ser comparada com estimativas não paramétricas suavizadas obtidas com <span class="in">`muhaz`</span>.  </span>
-<span id="cb75-114"><a href="#cb75-114" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb75-115"><a href="#cb75-115" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; As estimativas não paramétricas tendem a ser instáveis, e esses gráficos servem apenas para indicar aproximadamente o formato da função de risco ao longo do tempo. As opções </span><span class="in">`min.time`</span><span class="at"> e </span><span class="in">`max.time`</span><span class="at"> do </span><span class="in">`muhaz`</span><span class="at"> podem, em alguns casos, precisar ser passadas como argumentos para </span><span class="in">`plot.flexsurvreg`</span><span class="at"> para evitar erros.</span></span>
-<span id="cb75-116"><a href="#cb75-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-117"><a href="#cb75-117" aria-hidden="true" tabindex="-1"></a>Para **mais informações e detalhes** sobre essa função, **utilize o comando** <span class="in">`?plot.flexsurvreg()`</span></span>
+<span id="cb75-109"><a href="#cb75-109" aria-hidden="true" tabindex="-1"></a>Os argumentos da função <span class="in">`plot`</span> são, basicamente:</span>
+<span id="cb75-110"><a href="#cb75-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-111"><a href="#cb75-111" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`x`</span> = objeto que armazena o ajuste <span class="in">`flexsurvreg`</span>.</span>
+<span id="cb75-112"><a href="#cb75-112" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`type`</span> = tipo de gráfico a ser construido:</span>
+<span id="cb75-113"><a href="#cb75-113" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`"survival"`</span> para a função de sobrevivência, a ser comparada com as estimativas de Kaplan-Meier obtidas via <span class="in">`plot.survfit`</span>.</span>
+<span id="cb75-114"><a href="#cb75-114" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`"cumhaz"`</span> para o risco acumulado, comparado com as estimativas de Kaplan-Meier transformadas a partir de <span class="in">`plot.survfit`</span>.</span>
+<span id="cb75-115"><a href="#cb75-115" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`"hazard"`</span> para a função de risco, a ser comparada com estimativas não paramétricas suavizadas obtidas com <span class="in">`muhaz`</span>.  </span>
+<span id="cb75-116"><a href="#cb75-116" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-117"><a href="#cb75-117" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; As estimativas não paramétricas tendem a ser instáveis, e esses gráficos servem apenas para indicar aproximadamente o formato da função de risco ao longo do tempo. As opções </span><span class="in">`min.time`</span><span class="at"> e </span><span class="in">`max.time`</span><span class="at"> do </span><span class="in">`muhaz`</span><span class="at"> podem, em alguns casos, precisar ser passadas como argumentos para </span><span class="in">`plot.flexsurvreg`</span><span class="at"> para evitar erros.</span></span>
 <span id="cb75-118"><a href="#cb75-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-119"><a href="#cb75-119" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **MEDIDAS-RESUMO**</span></span>
+<span id="cb75-119"><a href="#cb75-119" aria-hidden="true" tabindex="-1"></a>Para **mais informações e detalhes** sobre essa função, **utilize o comando** <span class="in">`?plot.flexsurvreg()`</span></span>
 <span id="cb75-120"><a href="#cb75-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-121"><a href="#cb75-121" aria-hidden="true" tabindex="-1"></a>Já as **medidas de interesse** com respeito à análise de sobrevivência e confiabilidade, como os **tempos médio e mediano de ocorrência do evento de interesse e percentis**, são obtidos a partir da **função** `summary`. Essa função recebe como **argumento o modelo criado** e os **outros argumentos** dessa função são:</span>
-<span id="cb75-122"><a href="#cb75-122" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb75-123"><a href="#cb75-123" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`type = "mean"`</span>: **fornece o tempo médio de ocorrência do evento de interesse**.</span>
-<span id="cb75-124"><a href="#cb75-124" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`type = "median"`</span>: **fornece o tempo mediano de ocorrência do evento de interesse**.</span>
-<span id="cb75-125"><a href="#cb75-125" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`type = "quantile"`</span>: **fornece um percentil do tempo de ocorrência do evento de interesse**. Para escolher o percentil, **acrescente o argumento ** <span class="in">`quantiles = 0,8`</span>, por exemplo.</span>
-<span id="cb75-126"><a href="#cb75-126" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`type = "survival"`</span>: **fornece a função de sobrevivencia**.</span>
-<span id="cb75-127"><a href="#cb75-127" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`type = "cumhaz"`</span>: **fornece a função de risco acumulado**.</span>
-<span id="cb75-128"><a href="#cb75-128" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`type = "hazard"`</span>: **fornece a função de risco**.</span>
-<span id="cb75-129"><a href="#cb75-129" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`type = "rmst"`</span>: **fornece a vida média restrita**.</span>
-<span id="cb75-130"><a href="#cb75-130" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`t`</span>:  **tempos para serem calculados as medidas de interesse**</span>
-<span id="cb75-131"><a href="#cb75-131" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`cl=0.95`</span> = **nível de confiança** usado nos intervalos.</span>
-<span id="cb75-132"><a href="#cb75-132" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`se=T`</span> = **reporta o erro padrão atrelado à estimativa**.</span>
-<span id="cb75-133"><a href="#cb75-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-134"><a href="#cb75-134" aria-hidden="true" tabindex="-1"></a>Para mais **informações e detalhes sobre essa função**, utilize o **comando** <span class="in">`?summary.flexsurvreg()`</span></span>
+<span id="cb75-121"><a href="#cb75-121" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **MEDIDAS-RESUMO**</span></span>
+<span id="cb75-122"><a href="#cb75-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-123"><a href="#cb75-123" aria-hidden="true" tabindex="-1"></a>Já as **medidas de interesse** com respeito à análise de sobrevivência e confiabilidade, como os **tempos médio e mediano de ocorrência do evento de interesse e percentis**, são obtidos a partir da **função** `summary`. Essa função recebe como **argumento o modelo criado** e os **outros argumentos** dessa função são:</span>
+<span id="cb75-124"><a href="#cb75-124" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-125"><a href="#cb75-125" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`type = "mean"`</span>: **fornece o tempo médio de ocorrência do evento de interesse**.</span>
+<span id="cb75-126"><a href="#cb75-126" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`type = "median"`</span>: **fornece o tempo mediano de ocorrência do evento de interesse**.</span>
+<span id="cb75-127"><a href="#cb75-127" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`type = "quantile"`</span>: **fornece um percentil do tempo de ocorrência do evento de interesse**. Para escolher o percentil, **acrescente o argumento ** <span class="in">`quantiles = 0,8`</span>, por exemplo.</span>
+<span id="cb75-128"><a href="#cb75-128" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`type = "survival"`</span>: **fornece a função de sobrevivencia**.</span>
+<span id="cb75-129"><a href="#cb75-129" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`type = "cumhaz"`</span>: **fornece a função de risco acumulado**.</span>
+<span id="cb75-130"><a href="#cb75-130" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`type = "hazard"`</span>: **fornece a função de risco**.</span>
+<span id="cb75-131"><a href="#cb75-131" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`type = "rmst"`</span>: **fornece a vida média restrita**.</span>
+<span id="cb75-132"><a href="#cb75-132" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`t`</span>:  **tempos para serem calculados as medidas de interesse**</span>
+<span id="cb75-133"><a href="#cb75-133" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`cl=0.95`</span> = **nível de confiança** usado nos intervalos.</span>
+<span id="cb75-134"><a href="#cb75-134" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`se=T`</span> = **reporta o erro padrão atrelado à estimativa**.</span>
 <span id="cb75-135"><a href="#cb75-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-136"><a href="#cb75-136" aria-hidden="true" tabindex="-1"></a>O **tempo médio residual de ocorrência do evento de interesse no tempo t** é o tempo médio para a ocorrência do evento dado que o elemento não apresentou o evento até o instante t. No `R`, essa quantidade **é calculada com a função** `reslifefsr` do **pacote** `reslife`. A sintaxe é simples, basta digitar `reslifefsr(ajuste1,20)`, que **retorna o tempo médio residual de ocorrência do evento de interesse atrelado ao modelo `ajuste1` no tempo `t=20`**.</span>
+<span id="cb75-136"><a href="#cb75-136" aria-hidden="true" tabindex="-1"></a>Para mais **informações e detalhes sobre essa função**, utilize o **comando** <span class="in">`?summary.flexsurvreg()`</span></span>
 <span id="cb75-137"><a href="#cb75-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-138"><a href="#cb75-138" aria-hidden="true" tabindex="-1"></a>Para mais **informações e detalhes** sobre essa **função**, utilize o **comando** <span class="in">`?reslifefsr()`</span></span>
+<span id="cb75-138"><a href="#cb75-138" aria-hidden="true" tabindex="-1"></a>O **tempo médio residual de ocorrência do evento de interesse no tempo t** é o tempo médio para a ocorrência do evento dado que o elemento não apresentou o evento até o instante t. No `R`, essa quantidade **é calculada com a função** `reslifefsr` do **pacote** `reslife`. A sintaxe é simples, basta digitar `reslifefsr(ajuste1,20)`, que **retorna o tempo médio residual de ocorrência do evento de interesse atrelado ao modelo `ajuste1` no tempo `t=20`**.</span>
 <span id="cb75-139"><a href="#cb75-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-140"><a href="#cb75-140" aria-hidden="true" tabindex="-1"></a><span class="fu">### **DISTRIBUIÇÃO EXPONENCIAL**</span></span>
+<span id="cb75-140"><a href="#cb75-140" aria-hidden="true" tabindex="-1"></a>Para mais **informações e detalhes** sobre essa **função**, utilize o **comando** <span class="in">`?reslifefsr()`</span></span>
 <span id="cb75-141"><a href="#cb75-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-142"><a href="#cb75-142" aria-hidden="true" tabindex="-1"></a>Relembrando, no contexto em que $T\sim \text{Exp}(\alpha)$, a função densidade de probabilidade é:</span>
-<span id="cb75-143"><a href="#cb75-143" aria-hidden="true" tabindex="-1"></a>   $$f(t) = \alpha e^{-\alpha t},$$</span>
-<span id="cb75-144"><a href="#cb75-144" aria-hidden="true" tabindex="-1"></a>onde $\alpha &gt; 0$ é o **parâmetro de taxa**. Para o **ajuste do modelo exponencial**, vamos utilizar a função <span class="in">`flexsurvreg`</span> com <span class="in">`dist="exp"`</span>:</span>
-<span id="cb75-145"><a href="#cb75-145" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb75-146"><a href="#cb75-146" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
-<span id="cb75-147"><a href="#cb75-147" aria-hidden="true" tabindex="-1"></a>ajuste_exp<span class="ot">&lt;-</span><span class="fu">flexsurvreg</span>(<span class="fu">Surv</span>(tempos, cens) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">dist =</span> <span class="st">"exp"</span>, <span class="at">data=</span>dados1)</span>
-<span id="cb75-148"><a href="#cb75-148" aria-hidden="true" tabindex="-1"></a>ajuste_exp</span>
-<span id="cb75-149"><a href="#cb75-149" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-150"><a href="#cb75-150" aria-hidden="true" tabindex="-1"></a>Assim, $\hat{\alpha}=0,0490$ é o **estimador de máxima verossimilhança** para $\alpha$. </span>
-<span id="cb75-151"><a href="#cb75-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-152"><a href="#cb75-152" aria-hidden="true" tabindex="-1"></a>Os comandos a seguir fazem **os gráficos das funções de sobrevivência, risco e risco acumulado para este modelo**, comparando com a **estimação não-paramétrica**:</span>
-<span id="cb75-153"><a href="#cb75-153" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb75-154"><a href="#cb75-154" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
-<span id="cb75-155"><a href="#cb75-155" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_exp,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(S)(t)))</span>
-<span id="cb75-156"><a href="#cb75-156" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_exp,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(lambda)(t)),<span class="at">type=</span><span class="st">"hazard"</span>)</span>
-<span id="cb75-157"><a href="#cb75-157" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_exp,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(Lambda)(t)),<span class="at">type=</span><span class="st">"cumhaz"</span>)</span>
-<span id="cb75-158"><a href="#cb75-158" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-159"><a href="#cb75-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-160"><a href="#cb75-160" aria-hidden="true" tabindex="-1"></a>Nota-se que os gráficos ajustados não acompanham muito bem as estimativas não-paramétricas. </span>
+<span id="cb75-142"><a href="#cb75-142" aria-hidden="true" tabindex="-1"></a><span class="fu">### **DISTRIBUIÇÃO EXPONENCIAL**</span></span>
+<span id="cb75-143"><a href="#cb75-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-144"><a href="#cb75-144" aria-hidden="true" tabindex="-1"></a>Relembrando, no contexto em que $T\sim \text{Exp}(\alpha)$, a função densidade de probabilidade é:</span>
+<span id="cb75-145"><a href="#cb75-145" aria-hidden="true" tabindex="-1"></a>   $$f(t) = \alpha e^{-\alpha t},$$</span>
+<span id="cb75-146"><a href="#cb75-146" aria-hidden="true" tabindex="-1"></a>onde $\alpha &gt; 0$ é o **parâmetro de taxa**. Para o **ajuste do modelo exponencial**, vamos utilizar a função <span class="in">`flexsurvreg`</span> com <span class="in">`dist="exp"`</span>:</span>
+<span id="cb75-147"><a href="#cb75-147" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-148"><a href="#cb75-148" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
+<span id="cb75-149"><a href="#cb75-149" aria-hidden="true" tabindex="-1"></a>ajuste_exp<span class="ot">&lt;-</span><span class="fu">flexsurvreg</span>(<span class="fu">Surv</span>(tempos, cens) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">dist =</span> <span class="st">"exp"</span>, <span class="at">data=</span>dados1)</span>
+<span id="cb75-150"><a href="#cb75-150" aria-hidden="true" tabindex="-1"></a>ajuste_exp</span>
+<span id="cb75-151"><a href="#cb75-151" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-152"><a href="#cb75-152" aria-hidden="true" tabindex="-1"></a>Assim, $\hat{\alpha}=0,0490$ é o **estimador de máxima verossimilhança** para $\alpha$. </span>
+<span id="cb75-153"><a href="#cb75-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-154"><a href="#cb75-154" aria-hidden="true" tabindex="-1"></a>Os comandos a seguir fazem **os gráficos das funções de sobrevivência, risco e risco acumulado para este modelo**, comparando com a **estimação não-paramétrica**:</span>
+<span id="cb75-155"><a href="#cb75-155" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-156"><a href="#cb75-156" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
+<span id="cb75-157"><a href="#cb75-157" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_exp,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(S)(t)))</span>
+<span id="cb75-158"><a href="#cb75-158" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_exp,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(lambda)(t)),<span class="at">type=</span><span class="st">"hazard"</span>)</span>
+<span id="cb75-159"><a href="#cb75-159" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_exp,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(Lambda)(t)),<span class="at">type=</span><span class="st">"cumhaz"</span>)</span>
+<span id="cb75-160"><a href="#cb75-160" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-161"><a href="#cb75-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-162"><a href="#cb75-162" aria-hidden="true" tabindex="-1"></a>Os **comandos** a seguir calculam, na sequência, **o tempo médio de ocorrência do evento de interesse, o tempo mediano de ocorrência do evento de interesse e o percentil 80 do tempo de ocorrência do evento de interesse**</span>
-<span id="cb75-163"><a href="#cb75-163" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb75-164"><a href="#cb75-164" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
-<span id="cb75-165"><a href="#cb75-165" aria-hidden="true" tabindex="-1"></a>Mean_exp<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_exp,<span class="at">type=</span><span class="st">"mean"</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
-<span id="cb75-166"><a href="#cb75-166" aria-hidden="true" tabindex="-1"></a>Median_exp<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_exp,<span class="at">type=</span><span class="st">"median"</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
-<span id="cb75-167"><a href="#cb75-167" aria-hidden="true" tabindex="-1"></a>quantile80_exp<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_exp,<span class="at">type=</span><span class="st">"quantile"</span>,</span>
-<span id="cb75-168"><a href="#cb75-168" aria-hidden="true" tabindex="-1"></a>                        <span class="at">quantiles=</span><span class="fl">0.8</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
-<span id="cb75-169"><a href="#cb75-169" aria-hidden="true" tabindex="-1"></a>Mean_exp</span>
-<span id="cb75-170"><a href="#cb75-170" aria-hidden="true" tabindex="-1"></a>Median_exp</span>
-<span id="cb75-171"><a href="#cb75-171" aria-hidden="true" tabindex="-1"></a>quantile80_exp</span>
-<span id="cb75-172"><a href="#cb75-172" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-173"><a href="#cb75-173" aria-hidden="true" tabindex="-1"></a>Já o **comando a seguir fornece o tempo médio residual de ocorrência do evento de interesse no instante `t=20` meses**.</span>
-<span id="cb75-174"><a href="#cb75-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-175"><a href="#cb75-175" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
-<span id="cb75-176"><a href="#cb75-176" aria-hidden="true" tabindex="-1"></a>Resid20_exp<span class="ot">&lt;-</span><span class="fu">reslifefsr</span>(ajuste_exp,<span class="dv">20</span>)</span>
-<span id="cb75-177"><a href="#cb75-177" aria-hidden="true" tabindex="-1"></a>Resid20_exp</span>
-<span id="cb75-178"><a href="#cb75-178" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-179"><a href="#cb75-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-180"><a href="#cb75-180" aria-hidden="true" tabindex="-1"></a><span class="fu">### **DISTRIBUIÇÃO WEIBULL**</span></span>
+<span id="cb75-162"><a href="#cb75-162" aria-hidden="true" tabindex="-1"></a>Nota-se que os gráficos ajustados não acompanham muito bem as estimativas não-paramétricas. </span>
+<span id="cb75-163"><a href="#cb75-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-164"><a href="#cb75-164" aria-hidden="true" tabindex="-1"></a>Os **comandos** a seguir calculam, na sequência, **o tempo médio de ocorrência do evento de interesse, o tempo mediano de ocorrência do evento de interesse e o percentil 80 do tempo de ocorrência do evento de interesse**</span>
+<span id="cb75-165"><a href="#cb75-165" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-166"><a href="#cb75-166" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
+<span id="cb75-167"><a href="#cb75-167" aria-hidden="true" tabindex="-1"></a>Mean_exp<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_exp,<span class="at">type=</span><span class="st">"mean"</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
+<span id="cb75-168"><a href="#cb75-168" aria-hidden="true" tabindex="-1"></a>Median_exp<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_exp,<span class="at">type=</span><span class="st">"median"</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
+<span id="cb75-169"><a href="#cb75-169" aria-hidden="true" tabindex="-1"></a>quantile80_exp<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_exp,<span class="at">type=</span><span class="st">"quantile"</span>,</span>
+<span id="cb75-170"><a href="#cb75-170" aria-hidden="true" tabindex="-1"></a>                        <span class="at">quantiles=</span><span class="fl">0.8</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
+<span id="cb75-171"><a href="#cb75-171" aria-hidden="true" tabindex="-1"></a>Mean_exp</span>
+<span id="cb75-172"><a href="#cb75-172" aria-hidden="true" tabindex="-1"></a>Median_exp</span>
+<span id="cb75-173"><a href="#cb75-173" aria-hidden="true" tabindex="-1"></a>quantile80_exp</span>
+<span id="cb75-174"><a href="#cb75-174" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-175"><a href="#cb75-175" aria-hidden="true" tabindex="-1"></a>Já o **comando a seguir fornece o tempo médio residual de ocorrência do evento de interesse no instante `t=20` meses**.</span>
+<span id="cb75-176"><a href="#cb75-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-177"><a href="#cb75-177" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
+<span id="cb75-178"><a href="#cb75-178" aria-hidden="true" tabindex="-1"></a>Resid20_exp<span class="ot">&lt;-</span><span class="fu">reslifefsr</span>(ajuste_exp,<span class="dv">20</span>)</span>
+<span id="cb75-179"><a href="#cb75-179" aria-hidden="true" tabindex="-1"></a>Resid20_exp</span>
+<span id="cb75-180"><a href="#cb75-180" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-181"><a href="#cb75-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-182"><a href="#cb75-182" aria-hidden="true" tabindex="-1"></a>Relembrando, no contexto em que $T \sim \text{Weibull}(\kappa, \gamma)$, a função densidade de probabilidade é:</span>
+<span id="cb75-182"><a href="#cb75-182" aria-hidden="true" tabindex="-1"></a><span class="fu">### **DISTRIBUIÇÃO WEIBULL**</span></span>
 <span id="cb75-183"><a href="#cb75-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-184"><a href="#cb75-184" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb75-185"><a href="#cb75-185" aria-hidden="true" tabindex="-1"></a>f(t) = \frac{\gamma}{\kappa} \left(\frac{t}{\kappa}\right)^{\gamma - 1} e^{-(t/\kappa)^\gamma}</span>
+<span id="cb75-184"><a href="#cb75-184" aria-hidden="true" tabindex="-1"></a>Relembrando, no contexto em que $T \sim \text{Weibull}(\kappa, \gamma)$, a função densidade de probabilidade é:</span>
+<span id="cb75-185"><a href="#cb75-185" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb75-186"><a href="#cb75-186" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb75-187"><a href="#cb75-187" aria-hidden="true" tabindex="-1"></a>onde $\kappa &gt; 0$ é o **parâmetro de escala** e $\gamma &gt; 0$ é o **parâmetro de forma**. Para o ajuste do modelo Weibull, vamos utilizar a função <span class="in">`flexsurvreg`</span> com <span class="in">`dist="weibull"`</span>:</span>
-<span id="cb75-188"><a href="#cb75-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-189"><a href="#cb75-189" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
-<span id="cb75-190"><a href="#cb75-190" aria-hidden="true" tabindex="-1"></a>ajuste_wei<span class="ot">&lt;-</span><span class="fu">flexsurvreg</span>(<span class="fu">Surv</span>(tempos, cens) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">dist =</span> <span class="st">"weibull"</span>, <span class="at">data=</span>dados1)</span>
-<span id="cb75-191"><a href="#cb75-191" aria-hidden="true" tabindex="-1"></a>ajuste_wei</span>
-<span id="cb75-192"><a href="#cb75-192" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-193"><a href="#cb75-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-194"><a href="#cb75-194" aria-hidden="true" tabindex="-1"></a>Assim, $\hat{\gamma}=1,543$ **é o estimador de máxima verossimilhança** para $\gamma$ e $\hat{\alpha}=21,339$ é **o estimador de máxima verossimilhança** para $\alpha$.</span>
+<span id="cb75-187"><a href="#cb75-187" aria-hidden="true" tabindex="-1"></a>f(t) = \frac{\gamma}{\kappa} \left(\frac{t}{\kappa}\right)^{\gamma - 1} e^{-(t/\kappa)^\gamma}</span>
+<span id="cb75-188"><a href="#cb75-188" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb75-189"><a href="#cb75-189" aria-hidden="true" tabindex="-1"></a>onde $\kappa &gt; 0$ é o **parâmetro de escala** e $\gamma &gt; 0$ é o **parâmetro de forma**. Para o ajuste do modelo Weibull, vamos utilizar a função <span class="in">`flexsurvreg`</span> com <span class="in">`dist="weibull"`</span>:</span>
+<span id="cb75-190"><a href="#cb75-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-191"><a href="#cb75-191" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
+<span id="cb75-192"><a href="#cb75-192" aria-hidden="true" tabindex="-1"></a>ajuste_wei<span class="ot">&lt;-</span><span class="fu">flexsurvreg</span>(<span class="fu">Surv</span>(tempos, cens) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">dist =</span> <span class="st">"weibull"</span>, <span class="at">data=</span>dados1)</span>
+<span id="cb75-193"><a href="#cb75-193" aria-hidden="true" tabindex="-1"></a>ajuste_wei</span>
+<span id="cb75-194"><a href="#cb75-194" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-195"><a href="#cb75-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-196"><a href="#cb75-196" aria-hidden="true" tabindex="-1"></a>Os **comandos** a seguir fazem **os gráficos das funções de sobrevivência, risco e risco acumulado para este modelo**, comparando com a estimação não-paramétrica:</span>
+<span id="cb75-196"><a href="#cb75-196" aria-hidden="true" tabindex="-1"></a>Assim, $\hat{\gamma}=1,543$ **é o estimador de máxima verossimilhança** para $\gamma$ e $\hat{\alpha}=21,339$ é **o estimador de máxima verossimilhança** para $\alpha$.</span>
 <span id="cb75-197"><a href="#cb75-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-198"><a href="#cb75-198" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
-<span id="cb75-199"><a href="#cb75-199" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_wei,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(S)(t)))</span>
-<span id="cb75-200"><a href="#cb75-200" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_wei,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(lambda)(t)),<span class="at">type=</span><span class="st">"hazard"</span>)</span>
-<span id="cb75-201"><a href="#cb75-201" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_wei,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(Lambda)(t)),<span class="at">type=</span><span class="st">"cumhaz"</span>)</span>
-<span id="cb75-202"><a href="#cb75-202" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-203"><a href="#cb75-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-204"><a href="#cb75-204" aria-hidden="true" tabindex="-1"></a>Comparado ao modelo exponencial, o modelo weibull acompanha **melhor** as estimativas não paramétricas. Os comandos a seguir calculam, na sequência, **o tempo médio de ocorrência do evento de interesse, o tempo mediano de ocorrência do evento de interesse e o percentil 80 do tempo de ocorrência do evento de interesse:**</span>
-<span id="cb75-205"><a href="#cb75-205" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb75-206"><a href="#cb75-206" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
-<span id="cb75-207"><a href="#cb75-207" aria-hidden="true" tabindex="-1"></a>Mean_wei<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_wei,<span class="at">type=</span><span class="st">"mean"</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
-<span id="cb75-208"><a href="#cb75-208" aria-hidden="true" tabindex="-1"></a>Median_wei<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_wei,<span class="at">type=</span><span class="st">"median"</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
-<span id="cb75-209"><a href="#cb75-209" aria-hidden="true" tabindex="-1"></a>quantile80_wei<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_wei,<span class="at">type=</span><span class="st">"quantile"</span>,<span class="at">quantiles=</span><span class="fl">0.8</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
-<span id="cb75-210"><a href="#cb75-210" aria-hidden="true" tabindex="-1"></a>Mean_wei</span>
-<span id="cb75-211"><a href="#cb75-211" aria-hidden="true" tabindex="-1"></a>Median_wei</span>
-<span id="cb75-212"><a href="#cb75-212" aria-hidden="true" tabindex="-1"></a>quantile80_wei</span>
-<span id="cb75-213"><a href="#cb75-213" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-214"><a href="#cb75-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-215"><a href="#cb75-215" aria-hidden="true" tabindex="-1"></a>Já o comando a seguir fornece **o tempo médio residual de ocorrência do evento de interesse no instante `t=20` meses**.</span>
+<span id="cb75-198"><a href="#cb75-198" aria-hidden="true" tabindex="-1"></a>Os **comandos** a seguir fazem **os gráficos das funções de sobrevivência, risco e risco acumulado para este modelo**, comparando com a estimação não-paramétrica:</span>
+<span id="cb75-199"><a href="#cb75-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-200"><a href="#cb75-200" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
+<span id="cb75-201"><a href="#cb75-201" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_wei,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(S)(t)))</span>
+<span id="cb75-202"><a href="#cb75-202" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_wei,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(lambda)(t)),<span class="at">type=</span><span class="st">"hazard"</span>)</span>
+<span id="cb75-203"><a href="#cb75-203" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_wei,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(Lambda)(t)),<span class="at">type=</span><span class="st">"cumhaz"</span>)</span>
+<span id="cb75-204"><a href="#cb75-204" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-205"><a href="#cb75-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-206"><a href="#cb75-206" aria-hidden="true" tabindex="-1"></a>Comparado ao modelo exponencial, o modelo weibull acompanha **melhor** as estimativas não paramétricas. Os comandos a seguir calculam, na sequência, **o tempo médio de ocorrência do evento de interesse, o tempo mediano de ocorrência do evento de interesse e o percentil 80 do tempo de ocorrência do evento de interesse:**</span>
+<span id="cb75-207"><a href="#cb75-207" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-208"><a href="#cb75-208" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
+<span id="cb75-209"><a href="#cb75-209" aria-hidden="true" tabindex="-1"></a>Mean_wei<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_wei,<span class="at">type=</span><span class="st">"mean"</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
+<span id="cb75-210"><a href="#cb75-210" aria-hidden="true" tabindex="-1"></a>Median_wei<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_wei,<span class="at">type=</span><span class="st">"median"</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
+<span id="cb75-211"><a href="#cb75-211" aria-hidden="true" tabindex="-1"></a>quantile80_wei<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_wei,<span class="at">type=</span><span class="st">"quantile"</span>,<span class="at">quantiles=</span><span class="fl">0.8</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
+<span id="cb75-212"><a href="#cb75-212" aria-hidden="true" tabindex="-1"></a>Mean_wei</span>
+<span id="cb75-213"><a href="#cb75-213" aria-hidden="true" tabindex="-1"></a>Median_wei</span>
+<span id="cb75-214"><a href="#cb75-214" aria-hidden="true" tabindex="-1"></a>quantile80_wei</span>
+<span id="cb75-215"><a href="#cb75-215" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-216"><a href="#cb75-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-217"><a href="#cb75-217" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
-<span id="cb75-218"><a href="#cb75-218" aria-hidden="true" tabindex="-1"></a>Resid20_wei<span class="ot">&lt;-</span><span class="fu">reslifefsr</span>(ajuste_wei,<span class="dv">20</span>)</span>
-<span id="cb75-219"><a href="#cb75-219" aria-hidden="true" tabindex="-1"></a>Resid20_wei</span>
-<span id="cb75-220"><a href="#cb75-220" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-221"><a href="#cb75-221" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-222"><a href="#cb75-222" aria-hidden="true" tabindex="-1"></a><span class="fu">### **DISTRIBUIÇÃO LOGNORMAL**</span></span>
+<span id="cb75-217"><a href="#cb75-217" aria-hidden="true" tabindex="-1"></a>Já o comando a seguir fornece **o tempo médio residual de ocorrência do evento de interesse no instante `t=20` meses**.</span>
+<span id="cb75-218"><a href="#cb75-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-219"><a href="#cb75-219" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
+<span id="cb75-220"><a href="#cb75-220" aria-hidden="true" tabindex="-1"></a>Resid20_wei<span class="ot">&lt;-</span><span class="fu">reslifefsr</span>(ajuste_wei,<span class="dv">20</span>)</span>
+<span id="cb75-221"><a href="#cb75-221" aria-hidden="true" tabindex="-1"></a>Resid20_wei</span>
+<span id="cb75-222"><a href="#cb75-222" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-223"><a href="#cb75-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-224"><a href="#cb75-224" aria-hidden="true" tabindex="-1"></a>Relembrando, no contexto em que $T \sim \text{LogNormal}(\kappa, \gamma)$, a função densidade de probabilidade é:</span>
+<span id="cb75-224"><a href="#cb75-224" aria-hidden="true" tabindex="-1"></a><span class="fu">### **DISTRIBUIÇÃO LOGNORMAL**</span></span>
 <span id="cb75-225"><a href="#cb75-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-226"><a href="#cb75-226" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb75-227"><a href="#cb75-227" aria-hidden="true" tabindex="-1"></a>f(t) = \frac{1}{t \, \sigma \sqrt{2\pi}} \exp\left(-\frac{(\log t - \mu)^2}{2\sigma^2}\right)</span>
+<span id="cb75-226"><a href="#cb75-226" aria-hidden="true" tabindex="-1"></a>Relembrando, no contexto em que $T \sim \text{LogNormal}(\kappa, \gamma)$, a função densidade de probabilidade é:</span>
+<span id="cb75-227"><a href="#cb75-227" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb75-228"><a href="#cb75-228" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb75-229"><a href="#cb75-229" aria-hidden="true" tabindex="-1"></a>Onde: $\mu \in \mathbb{R}$ controla a **posição (escala logarítmica)** e $\sigma &gt; 0$ controla a **dispersão (assimetria)**. Para o ajuste do modelo LogNormal, vamos utilizar a função <span class="in">`flexsurvreg`</span> com <span class="in">`dist="lnorm"`</span>:</span>
-<span id="cb75-230"><a href="#cb75-230" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb75-231"><a href="#cb75-231" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
-<span id="cb75-232"><a href="#cb75-232" aria-hidden="true" tabindex="-1"></a>ajuste_lognorm<span class="ot">&lt;-</span><span class="fu">flexsurvreg</span>(<span class="fu">Surv</span>(tempos, cens) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">dist =</span> <span class="st">"lnorm"</span>, <span class="at">data=</span>dados1)</span>
-<span id="cb75-233"><a href="#cb75-233" aria-hidden="true" tabindex="-1"></a>ajuste_lognorm</span>
-<span id="cb75-234"><a href="#cb75-234" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-235"><a href="#cb75-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-236"><a href="#cb75-236" aria-hidden="true" tabindex="-1"></a>Assim, $\hat{\mu}=2,717$ é o **estimador de máxima verossimilhança** para $\mu$ e $\hat{\sigma}=0,765$ é o estimador de máxima verossimilhança para $\sigma$.</span>
+<span id="cb75-229"><a href="#cb75-229" aria-hidden="true" tabindex="-1"></a>f(t) = \frac{1}{t \, \sigma \sqrt{2\pi}} \exp\left(-\frac{(\log t - \mu)^2}{2\sigma^2}\right)</span>
+<span id="cb75-230"><a href="#cb75-230" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb75-231"><a href="#cb75-231" aria-hidden="true" tabindex="-1"></a>Onde: $\mu \in \mathbb{R}$ controla a **posição (escala logarítmica)** e $\sigma &gt; 0$ controla a **dispersão (assimetria)**. Para o ajuste do modelo LogNormal, vamos utilizar a função <span class="in">`flexsurvreg`</span> com <span class="in">`dist="lnorm"`</span>:</span>
+<span id="cb75-232"><a href="#cb75-232" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-233"><a href="#cb75-233" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
+<span id="cb75-234"><a href="#cb75-234" aria-hidden="true" tabindex="-1"></a>ajuste_lognorm<span class="ot">&lt;-</span><span class="fu">flexsurvreg</span>(<span class="fu">Surv</span>(tempos, cens) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">dist =</span> <span class="st">"lnorm"</span>, <span class="at">data=</span>dados1)</span>
+<span id="cb75-235"><a href="#cb75-235" aria-hidden="true" tabindex="-1"></a>ajuste_lognorm</span>
+<span id="cb75-236"><a href="#cb75-236" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-237"><a href="#cb75-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-238"><a href="#cb75-238" aria-hidden="true" tabindex="-1"></a>Os **comandos** a seguir **fazem os gráficos das funções de sobrevivência, risco e risco acumulado para este modelo, comparando com a estimação não-paramétrica**:</span>
-<span id="cb75-239"><a href="#cb75-239" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb75-240"><a href="#cb75-240" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
-<span id="cb75-241"><a href="#cb75-241" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_lognorm,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(S)(t)))</span>
-<span id="cb75-242"><a href="#cb75-242" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_lognorm,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(lambda)(t)),<span class="at">type=</span><span class="st">"hazard"</span>)</span>
-<span id="cb75-243"><a href="#cb75-243" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_lognorm,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(Lambda)(t)),<span class="at">type=</span><span class="st">"cumhaz"</span>)</span>
-<span id="cb75-244"><a href="#cb75-244" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-245"><a href="#cb75-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-246"><a href="#cb75-246" aria-hidden="true" tabindex="-1"></a>Comparado ao modelo exponencial, o modelo lognormal acompanha **melhor** as estimativas não paramétricas. Um comportamento mais **diferente entre as duas estimativas** é detectado na função de risco.</span>
+<span id="cb75-238"><a href="#cb75-238" aria-hidden="true" tabindex="-1"></a>Assim, $\hat{\mu}=2,717$ é o **estimador de máxima verossimilhança** para $\mu$ e $\hat{\sigma}=0,765$ é o estimador de máxima verossimilhança para $\sigma$.</span>
+<span id="cb75-239"><a href="#cb75-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-240"><a href="#cb75-240" aria-hidden="true" tabindex="-1"></a>Os **comandos** a seguir **fazem os gráficos das funções de sobrevivência, risco e risco acumulado para este modelo, comparando com a estimação não-paramétrica**:</span>
+<span id="cb75-241"><a href="#cb75-241" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-242"><a href="#cb75-242" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
+<span id="cb75-243"><a href="#cb75-243" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_lognorm,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(S)(t)))</span>
+<span id="cb75-244"><a href="#cb75-244" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_lognorm,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(lambda)(t)),<span class="at">type=</span><span class="st">"hazard"</span>)</span>
+<span id="cb75-245"><a href="#cb75-245" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_lognorm,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(Lambda)(t)),<span class="at">type=</span><span class="st">"cumhaz"</span>)</span>
+<span id="cb75-246"><a href="#cb75-246" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-247"><a href="#cb75-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-248"><a href="#cb75-248" aria-hidden="true" tabindex="-1"></a>Os comandos a seguir calculam, na sequência, **o tempo médio de ocorrência do evento de interesse, o tempo mediano de ocorrência do evento de interesse e o percentil 80 do tempo de ocorrência do evento de interesse**</span>
-<span id="cb75-249"><a href="#cb75-249" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb75-250"><a href="#cb75-250" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
-<span id="cb75-251"><a href="#cb75-251" aria-hidden="true" tabindex="-1"></a>Mean_lognorm<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_lognorm,<span class="at">type=</span><span class="st">"mean"</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
-<span id="cb75-252"><a href="#cb75-252" aria-hidden="true" tabindex="-1"></a>Median_lognorm<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_lognorm,<span class="at">type=</span><span class="st">"median"</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
-<span id="cb75-253"><a href="#cb75-253" aria-hidden="true" tabindex="-1"></a>quantile80_lognorm<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_lognorm,<span class="at">type=</span><span class="st">"quantile"</span>,<span class="at">quantiles=</span><span class="fl">0.8</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
-<span id="cb75-254"><a href="#cb75-254" aria-hidden="true" tabindex="-1"></a>Mean_lognorm</span>
-<span id="cb75-255"><a href="#cb75-255" aria-hidden="true" tabindex="-1"></a>Median_lognorm</span>
-<span id="cb75-256"><a href="#cb75-256" aria-hidden="true" tabindex="-1"></a>quantile80_lognorm</span>
-<span id="cb75-257"><a href="#cb75-257" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-258"><a href="#cb75-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-259"><a href="#cb75-259" aria-hidden="true" tabindex="-1"></a>Já o comando a seguir fornece o **tempo médio residual** de ocorrência do evento de interesse no instante <span class="in">`t=20`</span> meses.</span>
+<span id="cb75-248"><a href="#cb75-248" aria-hidden="true" tabindex="-1"></a>Comparado ao modelo exponencial, o modelo lognormal acompanha **melhor** as estimativas não paramétricas. Um comportamento mais **diferente entre as duas estimativas** é detectado na função de risco.</span>
+<span id="cb75-249"><a href="#cb75-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-250"><a href="#cb75-250" aria-hidden="true" tabindex="-1"></a>Os comandos a seguir calculam, na sequência, **o tempo médio de ocorrência do evento de interesse, o tempo mediano de ocorrência do evento de interesse e o percentil 80 do tempo de ocorrência do evento de interesse**</span>
+<span id="cb75-251"><a href="#cb75-251" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-252"><a href="#cb75-252" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
+<span id="cb75-253"><a href="#cb75-253" aria-hidden="true" tabindex="-1"></a>Mean_lognorm<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_lognorm,<span class="at">type=</span><span class="st">"mean"</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
+<span id="cb75-254"><a href="#cb75-254" aria-hidden="true" tabindex="-1"></a>Median_lognorm<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_lognorm,<span class="at">type=</span><span class="st">"median"</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
+<span id="cb75-255"><a href="#cb75-255" aria-hidden="true" tabindex="-1"></a>quantile80_lognorm<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_lognorm,<span class="at">type=</span><span class="st">"quantile"</span>,<span class="at">quantiles=</span><span class="fl">0.8</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
+<span id="cb75-256"><a href="#cb75-256" aria-hidden="true" tabindex="-1"></a>Mean_lognorm</span>
+<span id="cb75-257"><a href="#cb75-257" aria-hidden="true" tabindex="-1"></a>Median_lognorm</span>
+<span id="cb75-258"><a href="#cb75-258" aria-hidden="true" tabindex="-1"></a>quantile80_lognorm</span>
+<span id="cb75-259"><a href="#cb75-259" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-260"><a href="#cb75-260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-261"><a href="#cb75-261" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
-<span id="cb75-262"><a href="#cb75-262" aria-hidden="true" tabindex="-1"></a>Resid20_lognorm<span class="ot">&lt;-</span><span class="fu">reslifefsr</span>(ajuste_lognorm,<span class="dv">20</span>)</span>
-<span id="cb75-263"><a href="#cb75-263" aria-hidden="true" tabindex="-1"></a>Resid20_lognorm</span>
-<span id="cb75-264"><a href="#cb75-264" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-265"><a href="#cb75-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-266"><a href="#cb75-266" aria-hidden="true" tabindex="-1"></a><span class="fu">### **DISTRIBUIÇÃO GAMA**</span></span>
+<span id="cb75-261"><a href="#cb75-261" aria-hidden="true" tabindex="-1"></a>Já o comando a seguir fornece o **tempo médio residual** de ocorrência do evento de interesse no instante <span class="in">`t=20`</span> meses.</span>
+<span id="cb75-262"><a href="#cb75-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-263"><a href="#cb75-263" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
+<span id="cb75-264"><a href="#cb75-264" aria-hidden="true" tabindex="-1"></a>Resid20_lognorm<span class="ot">&lt;-</span><span class="fu">reslifefsr</span>(ajuste_lognorm,<span class="dv">20</span>)</span>
+<span id="cb75-265"><a href="#cb75-265" aria-hidden="true" tabindex="-1"></a>Resid20_lognorm</span>
+<span id="cb75-266"><a href="#cb75-266" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-267"><a href="#cb75-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-268"><a href="#cb75-268" aria-hidden="true" tabindex="-1"></a>Relembrando, no contexto em que $T \sim \text{Gama}(\alpha, \beta)$, a função densidade de probabilidade é:</span>
+<span id="cb75-268"><a href="#cb75-268" aria-hidden="true" tabindex="-1"></a><span class="fu">### **DISTRIBUIÇÃO GAMA**</span></span>
 <span id="cb75-269"><a href="#cb75-269" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-270"><a href="#cb75-270" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb75-271"><a href="#cb75-271" aria-hidden="true" tabindex="-1"></a>f(t) = \frac{\beta^\alpha}{\Gamma(\alpha)} t^{\alpha - 1} e^{-\beta t}</span>
+<span id="cb75-270"><a href="#cb75-270" aria-hidden="true" tabindex="-1"></a>Relembrando, no contexto em que $T \sim \text{Gama}(\alpha, \beta)$, a função densidade de probabilidade é:</span>
+<span id="cb75-271"><a href="#cb75-271" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb75-272"><a href="#cb75-272" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb75-273"><a href="#cb75-273" aria-hidden="true" tabindex="-1"></a>Onde $\alpha &gt; 0$ controla a **forma** e $\beta &gt; 0$ controla a **taxa**. Para o **ajuste do modelo gama**, vamos utilizar a função <span class="in">`flexsurvreg`</span> com <span class="in">`dist="gama"`</span>:</span>
-<span id="cb75-274"><a href="#cb75-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-275"><a href="#cb75-275" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
-<span id="cb75-276"><a href="#cb75-276" aria-hidden="true" tabindex="-1"></a>ajuste_gama<span class="ot">&lt;-</span><span class="fu">flexsurvreg</span>(<span class="fu">Surv</span>(tempos, cens) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">dist =</span> <span class="st">"gamma"</span>, <span class="at">data=</span>dados1)</span>
-<span id="cb75-277"><a href="#cb75-277" aria-hidden="true" tabindex="-1"></a>ajuste_gama</span>
-<span id="cb75-278"><a href="#cb75-278" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-279"><a href="#cb75-279" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-280"><a href="#cb75-280" aria-hidden="true" tabindex="-1"></a>Assim, $\hat{\alpha}=2,14$ é o **estimador de máxima verossimilhança** para $\alpha$ e $\hat{\beta}=0,11$ é o **estimador de máxima verossimilhança** para $\beta$.</span>
+<span id="cb75-273"><a href="#cb75-273" aria-hidden="true" tabindex="-1"></a>f(t) = \frac{\beta^\alpha}{\Gamma(\alpha)} t^{\alpha - 1} e^{-\beta t}</span>
+<span id="cb75-274"><a href="#cb75-274" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb75-275"><a href="#cb75-275" aria-hidden="true" tabindex="-1"></a>Onde $\alpha &gt; 0$ controla a **forma** e $\beta &gt; 0$ controla a **taxa**. Para o **ajuste do modelo gama**, vamos utilizar a função <span class="in">`flexsurvreg`</span> com <span class="in">`dist="gama"`</span>:</span>
+<span id="cb75-276"><a href="#cb75-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-277"><a href="#cb75-277" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
+<span id="cb75-278"><a href="#cb75-278" aria-hidden="true" tabindex="-1"></a>ajuste_gama<span class="ot">&lt;-</span><span class="fu">flexsurvreg</span>(<span class="fu">Surv</span>(tempos, cens) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">dist =</span> <span class="st">"gamma"</span>, <span class="at">data=</span>dados1)</span>
+<span id="cb75-279"><a href="#cb75-279" aria-hidden="true" tabindex="-1"></a>ajuste_gama</span>
+<span id="cb75-280"><a href="#cb75-280" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-281"><a href="#cb75-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-282"><a href="#cb75-282" aria-hidden="true" tabindex="-1"></a>Os comandos a seguir fazem os **gráficos das funções de sobrevivência, risco e risco acumulado para este modelo, comparando com a estimação não-paramétrica**:</span>
-<span id="cb75-283"><a href="#cb75-283" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb75-284"><a href="#cb75-284" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
-<span id="cb75-285"><a href="#cb75-285" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_gama,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(S)(t)))</span>
-<span id="cb75-286"><a href="#cb75-286" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_gama,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(lambda)(t)),<span class="at">type=</span><span class="st">"hazard"</span>)</span>
-<span id="cb75-287"><a href="#cb75-287" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_gama,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(Lambda)(t)),<span class="at">type=</span><span class="st">"cumhaz"</span>)</span>
-<span id="cb75-288"><a href="#cb75-288" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-289"><a href="#cb75-289" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-290"><a href="#cb75-290" aria-hidden="true" tabindex="-1"></a>Comparado ao modelo exponencial, o modelo gama acompanha **melhor** as estimativas não paramétricas. Os comandos a seguir calculam, na sequência, **o tempo médio de ocorrência do evento de interesse, o tempo mediano de ocorrência do evento de interesse e o percentil 80 do tempo de ocorrência do evento de interesse**:</span>
-<span id="cb75-291"><a href="#cb75-291" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb75-292"><a href="#cb75-292" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
-<span id="cb75-293"><a href="#cb75-293" aria-hidden="true" tabindex="-1"></a>Mean_gama<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_gama,<span class="at">type=</span><span class="st">"mean"</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
-<span id="cb75-294"><a href="#cb75-294" aria-hidden="true" tabindex="-1"></a>Median_gama<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_gama,<span class="at">type=</span><span class="st">"median"</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
-<span id="cb75-295"><a href="#cb75-295" aria-hidden="true" tabindex="-1"></a>quantile80_gama<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_gama,<span class="at">type=</span><span class="st">"quantile"</span>,</span>
-<span id="cb75-296"><a href="#cb75-296" aria-hidden="true" tabindex="-1"></a>                         <span class="at">quantiles=</span><span class="fl">0.8</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
-<span id="cb75-297"><a href="#cb75-297" aria-hidden="true" tabindex="-1"></a>Mean_gama</span>
-<span id="cb75-298"><a href="#cb75-298" aria-hidden="true" tabindex="-1"></a>Median_gama</span>
-<span id="cb75-299"><a href="#cb75-299" aria-hidden="true" tabindex="-1"></a>quantile80_gama</span>
-<span id="cb75-300"><a href="#cb75-300" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-301"><a href="#cb75-301" aria-hidden="true" tabindex="-1"></a>Já o comando a seguir fornece **o tempo médio residual de ocorrência do evento de interesse no instante `t=20` meses.**</span>
-<span id="cb75-302"><a href="#cb75-302" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb75-303"><a href="#cb75-303" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
-<span id="cb75-304"><a href="#cb75-304" aria-hidden="true" tabindex="-1"></a>Resid20_gama<span class="ot">&lt;-</span><span class="fu">reslifefsr</span>(ajuste_gama,<span class="dv">20</span>)</span>
-<span id="cb75-305"><a href="#cb75-305" aria-hidden="true" tabindex="-1"></a>Resid20_gama</span>
-<span id="cb75-306"><a href="#cb75-306" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-307"><a href="#cb75-307" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-308"><a href="#cb75-308" aria-hidden="true" tabindex="-1"></a><span class="fu">### **DISTRIBUIÇÃO GAMA GENERALIZADA**</span></span>
+<span id="cb75-282"><a href="#cb75-282" aria-hidden="true" tabindex="-1"></a>Assim, $\hat{\alpha}=2,14$ é o **estimador de máxima verossimilhança** para $\alpha$ e $\hat{\beta}=0,11$ é o **estimador de máxima verossimilhança** para $\beta$.</span>
+<span id="cb75-283"><a href="#cb75-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-284"><a href="#cb75-284" aria-hidden="true" tabindex="-1"></a>Os comandos a seguir fazem os **gráficos das funções de sobrevivência, risco e risco acumulado para este modelo, comparando com a estimação não-paramétrica**:</span>
+<span id="cb75-285"><a href="#cb75-285" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-286"><a href="#cb75-286" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
+<span id="cb75-287"><a href="#cb75-287" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_gama,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(S)(t)))</span>
+<span id="cb75-288"><a href="#cb75-288" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_gama,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(lambda)(t)),<span class="at">type=</span><span class="st">"hazard"</span>)</span>
+<span id="cb75-289"><a href="#cb75-289" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_gama,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(Lambda)(t)),<span class="at">type=</span><span class="st">"cumhaz"</span>)</span>
+<span id="cb75-290"><a href="#cb75-290" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-291"><a href="#cb75-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-292"><a href="#cb75-292" aria-hidden="true" tabindex="-1"></a>Comparado ao modelo exponencial, o modelo gama acompanha **melhor** as estimativas não paramétricas. Os comandos a seguir calculam, na sequência, **o tempo médio de ocorrência do evento de interesse, o tempo mediano de ocorrência do evento de interesse e o percentil 80 do tempo de ocorrência do evento de interesse**:</span>
+<span id="cb75-293"><a href="#cb75-293" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-294"><a href="#cb75-294" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
+<span id="cb75-295"><a href="#cb75-295" aria-hidden="true" tabindex="-1"></a>Mean_gama<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_gama,<span class="at">type=</span><span class="st">"mean"</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
+<span id="cb75-296"><a href="#cb75-296" aria-hidden="true" tabindex="-1"></a>Median_gama<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_gama,<span class="at">type=</span><span class="st">"median"</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
+<span id="cb75-297"><a href="#cb75-297" aria-hidden="true" tabindex="-1"></a>quantile80_gama<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_gama,<span class="at">type=</span><span class="st">"quantile"</span>,</span>
+<span id="cb75-298"><a href="#cb75-298" aria-hidden="true" tabindex="-1"></a>                         <span class="at">quantiles=</span><span class="fl">0.8</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
+<span id="cb75-299"><a href="#cb75-299" aria-hidden="true" tabindex="-1"></a>Mean_gama</span>
+<span id="cb75-300"><a href="#cb75-300" aria-hidden="true" tabindex="-1"></a>Median_gama</span>
+<span id="cb75-301"><a href="#cb75-301" aria-hidden="true" tabindex="-1"></a>quantile80_gama</span>
+<span id="cb75-302"><a href="#cb75-302" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-303"><a href="#cb75-303" aria-hidden="true" tabindex="-1"></a>Já o comando a seguir fornece **o tempo médio residual de ocorrência do evento de interesse no instante `t=20` meses.**</span>
+<span id="cb75-304"><a href="#cb75-304" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-305"><a href="#cb75-305" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
+<span id="cb75-306"><a href="#cb75-306" aria-hidden="true" tabindex="-1"></a>Resid20_gama<span class="ot">&lt;-</span><span class="fu">reslifefsr</span>(ajuste_gama,<span class="dv">20</span>)</span>
+<span id="cb75-307"><a href="#cb75-307" aria-hidden="true" tabindex="-1"></a>Resid20_gama</span>
+<span id="cb75-308"><a href="#cb75-308" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-309"><a href="#cb75-309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-310"><a href="#cb75-310" aria-hidden="true" tabindex="-1"></a>Relembrando, no contexto em que $T \sim \text{Gama Generalizada}(a,b,\kappa)$, a função densidade de probabilidade é:</span>
+<span id="cb75-310"><a href="#cb75-310" aria-hidden="true" tabindex="-1"></a><span class="fu">### **DISTRIBUIÇÃO GAMA GENERALIZADA**</span></span>
 <span id="cb75-311"><a href="#cb75-311" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-312"><a href="#cb75-312" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb75-313"><a href="#cb75-313" aria-hidden="true" tabindex="-1"></a>f(t \mid a,b,k) = \frac{b}{\Gamma(k)\, a^{bk}} \, t^{bk - 1} \exp\left<span class="co">[</span><span class="ot">-\left(\frac{t}{a}\right)^b\right</span><span class="co">]</span></span>
+<span id="cb75-312"><a href="#cb75-312" aria-hidden="true" tabindex="-1"></a>Relembrando, no contexto em que $T \sim \text{Gama Generalizada}(a,b,\kappa)$, a função densidade de probabilidade é:</span>
+<span id="cb75-313"><a href="#cb75-313" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb75-314"><a href="#cb75-314" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb75-315"><a href="#cb75-315" aria-hidden="true" tabindex="-1"></a>em que $a &gt; 0$ é o parâmetro de **escala**, $b &gt; 0$ é parâmetro de **forma** e $k &gt; 0$ é o **parâmetro adicional de forma**. Para o **ajuste do modelo gama generalizado**, vamos utilizar a função <span class="in">`flexsurvreg`</span> com <span class="in">`dist="gengamma.orig"`</span>:</span>
-<span id="cb75-316"><a href="#cb75-316" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb75-317"><a href="#cb75-317" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
-<span id="cb75-318"><a href="#cb75-318" aria-hidden="true" tabindex="-1"></a>ajuste_gengama<span class="ot">&lt;-</span><span class="fu">flexsurvreg</span>(<span class="fu">Surv</span>(tempos, cens) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">dist =</span> <span class="st">"gengamma.orig"</span>, <span class="at">data=</span>dados1)</span>
-<span id="cb75-319"><a href="#cb75-319" aria-hidden="true" tabindex="-1"></a>ajuste_gengama</span>
-<span id="cb75-320"><a href="#cb75-320" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-321"><a href="#cb75-321" aria-hidden="true" tabindex="-1"></a>Assim, $\hat{a}=0,052$ é o **estimador de máxima verossimilhança para** $a$, $\hat{b}=0,414$ é o estimador de máxima verossimilhança para $b$ e $\hat{\kappa}=1,07$ é o estimador de máxima verossimilhança para $\kappa$.</span>
-<span id="cb75-322"><a href="#cb75-322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-323"><a href="#cb75-323" aria-hidden="true" tabindex="-1"></a>Os comandos a seguir fazem **os gráficos das funções de sobrevivência, risco e risco acumulado para este modelo, comparando com a estimação não-paramétrica:**</span>
-<span id="cb75-324"><a href="#cb75-324" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb75-325"><a href="#cb75-325" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
-<span id="cb75-326"><a href="#cb75-326" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_gengama,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(S)(t)))</span>
-<span id="cb75-327"><a href="#cb75-327" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_gengama,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(lambda)(t)),<span class="at">type=</span><span class="st">"hazard"</span>)</span>
-<span id="cb75-328"><a href="#cb75-328" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_gengama,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(Lambda)(t)),<span class="at">type=</span><span class="st">"cumhaz"</span>)</span>
-<span id="cb75-329"><a href="#cb75-329" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-330"><a href="#cb75-330" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-331"><a href="#cb75-331" aria-hidden="true" tabindex="-1"></a>Comparado ao modelo exponencial, o modelo gama generalizado acompanha **melhor** as estimativas não paramétricas. Entretanto, **os intervalos de confiança ficaram imprecisos nos gráficos**. </span>
+<span id="cb75-315"><a href="#cb75-315" aria-hidden="true" tabindex="-1"></a>f(t \mid a,b,k) = \frac{b}{\Gamma(k)\, a^{bk}} \, t^{bk - 1} \exp\left<span class="co">[</span><span class="ot">-\left(\frac{t}{a}\right)^b\right</span><span class="co">]</span></span>
+<span id="cb75-316"><a href="#cb75-316" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb75-317"><a href="#cb75-317" aria-hidden="true" tabindex="-1"></a>em que $a &gt; 0$ é o parâmetro de **escala**, $b &gt; 0$ é parâmetro de **forma** e $k &gt; 0$ é o **parâmetro adicional de forma**. Para o **ajuste do modelo gama generalizado**, vamos utilizar a função <span class="in">`flexsurvreg`</span> com <span class="in">`dist="gengamma.orig"`</span>:</span>
+<span id="cb75-318"><a href="#cb75-318" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-319"><a href="#cb75-319" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
+<span id="cb75-320"><a href="#cb75-320" aria-hidden="true" tabindex="-1"></a>ajuste_gengama<span class="ot">&lt;-</span><span class="fu">flexsurvreg</span>(<span class="fu">Surv</span>(tempos, cens) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">dist =</span> <span class="st">"gengamma.orig"</span>, <span class="at">data=</span>dados1)</span>
+<span id="cb75-321"><a href="#cb75-321" aria-hidden="true" tabindex="-1"></a>ajuste_gengama</span>
+<span id="cb75-322"><a href="#cb75-322" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-323"><a href="#cb75-323" aria-hidden="true" tabindex="-1"></a>Assim, $\hat{a}=0,052$ é o **estimador de máxima verossimilhança para** $a$, $\hat{b}=0,414$ é o estimador de máxima verossimilhança para $b$ e $\hat{\kappa}=1,07$ é o estimador de máxima verossimilhança para $\kappa$.</span>
+<span id="cb75-324"><a href="#cb75-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-325"><a href="#cb75-325" aria-hidden="true" tabindex="-1"></a>Os comandos a seguir fazem **os gráficos das funções de sobrevivência, risco e risco acumulado para este modelo, comparando com a estimação não-paramétrica:**</span>
+<span id="cb75-326"><a href="#cb75-326" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-327"><a href="#cb75-327" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
+<span id="cb75-328"><a href="#cb75-328" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_gengama,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(S)(t)))</span>
+<span id="cb75-329"><a href="#cb75-329" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_gengama,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(lambda)(t)),<span class="at">type=</span><span class="st">"hazard"</span>)</span>
+<span id="cb75-330"><a href="#cb75-330" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_gengama,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(Lambda)(t)),<span class="at">type=</span><span class="st">"cumhaz"</span>)</span>
+<span id="cb75-331"><a href="#cb75-331" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-332"><a href="#cb75-332" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-333"><a href="#cb75-333" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Isso se deve à parametrização adotada pela distribuição </span><span class="in">`gengamma.orig`</span><span class="at"> na função </span><span class="in">`flexsurvreg`</span><span class="at">. Apesar de ser uma parametrização mais simples, ela traz alguns problemas computacionais. A alternativa seria utilizar a distribuição </span><span class="in">`gengamma`</span><span class="at">. Ela apresenta uma parametrização mais complexa, porém bastante estável computacionalmente.</span></span>
+<span id="cb75-333"><a href="#cb75-333" aria-hidden="true" tabindex="-1"></a>Comparado ao modelo exponencial, o modelo gama generalizado acompanha **melhor** as estimativas não paramétricas. Entretanto, **os intervalos de confiança ficaram imprecisos nos gráficos**. </span>
 <span id="cb75-334"><a href="#cb75-334" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-335"><a href="#cb75-335" aria-hidden="true" tabindex="-1"></a>Os comandos a seguir calculam, na sequência, **o tempo médio de ocorrência do evento de interesse, o tempo mediano de ocorrência do evento de interesse e o percentil 80 do tempo de ocorrência do evento de interesse**:</span>
-<span id="cb75-336"><a href="#cb75-336" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb75-337"><a href="#cb75-337" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
-<span id="cb75-338"><a href="#cb75-338" aria-hidden="true" tabindex="-1"></a><span class="co"># A média não é calculada</span></span>
-<span id="cb75-339"><a href="#cb75-339" aria-hidden="true" tabindex="-1"></a><span class="co"># Mean_gengama&lt;-summary(ajuste_gengama,type="mean",cl=0.95,se=T)</span></span>
-<span id="cb75-340"><a href="#cb75-340" aria-hidden="true" tabindex="-1"></a>Mean_gengama <span class="ot">=</span> <span class="cn">NA</span></span>
-<span id="cb75-341"><a href="#cb75-341" aria-hidden="true" tabindex="-1"></a>Median_gengama<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_gengama,<span class="at">type=</span><span class="st">"median"</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
-<span id="cb75-342"><a href="#cb75-342" aria-hidden="true" tabindex="-1"></a>quantile80_gengama<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_gengama,<span class="at">type=</span><span class="st">"quantile"</span>,<span class="at">quantiles=</span><span class="fl">0.8</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
-<span id="cb75-343"><a href="#cb75-343" aria-hidden="true" tabindex="-1"></a>Mean_gengama</span>
-<span id="cb75-344"><a href="#cb75-344" aria-hidden="true" tabindex="-1"></a>Median_gengama</span>
-<span id="cb75-345"><a href="#cb75-345" aria-hidden="true" tabindex="-1"></a>quantile80_gengama</span>
-<span id="cb75-346"><a href="#cb75-346" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-347"><a href="#cb75-347" aria-hidden="true" tabindex="-1"></a>Já o comando a seguir fornece **o tempo médio residual de ocorrência do evento de interesse no instante `t=20` meses.**</span>
-<span id="cb75-348"><a href="#cb75-348" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb75-349"><a href="#cb75-349" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
-<span id="cb75-350"><a href="#cb75-350" aria-hidden="true" tabindex="-1"></a>Resid20_gengama<span class="ot">&lt;-</span><span class="fu">reslifefsr</span>(ajuste_gengama,<span class="dv">20</span>)</span>
-<span id="cb75-351"><a href="#cb75-351" aria-hidden="true" tabindex="-1"></a>Resid20_gengama</span>
-<span id="cb75-352"><a href="#cb75-352" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-353"><a href="#cb75-353" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-354"><a href="#cb75-354" aria-hidden="true" tabindex="-1"></a><span class="fu">### **COMPARAÇÃO ENTRE OS MODELOS**</span></span>
+<span id="cb75-335"><a href="#cb75-335" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Isso se deve à parametrização adotada pela distribuição </span><span class="in">`gengamma.orig`</span><span class="at"> na função </span><span class="in">`flexsurvreg`</span><span class="at">. Apesar de ser uma parametrização mais simples, ela traz alguns problemas computacionais. A alternativa seria utilizar a distribuição </span><span class="in">`gengamma`</span><span class="at">. Ela apresenta uma parametrização mais complexa, porém bastante estável computacionalmente.</span></span>
+<span id="cb75-336"><a href="#cb75-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-337"><a href="#cb75-337" aria-hidden="true" tabindex="-1"></a>Os comandos a seguir calculam, na sequência, **o tempo médio de ocorrência do evento de interesse, o tempo mediano de ocorrência do evento de interesse e o percentil 80 do tempo de ocorrência do evento de interesse**:</span>
+<span id="cb75-338"><a href="#cb75-338" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-339"><a href="#cb75-339" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
+<span id="cb75-340"><a href="#cb75-340" aria-hidden="true" tabindex="-1"></a><span class="co"># A média não é calculada</span></span>
+<span id="cb75-341"><a href="#cb75-341" aria-hidden="true" tabindex="-1"></a><span class="co"># Mean_gengama&lt;-summary(ajuste_gengama,type="mean",cl=0.95,se=T)</span></span>
+<span id="cb75-342"><a href="#cb75-342" aria-hidden="true" tabindex="-1"></a>Mean_gengama <span class="ot">=</span> <span class="cn">NA</span></span>
+<span id="cb75-343"><a href="#cb75-343" aria-hidden="true" tabindex="-1"></a>Median_gengama<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_gengama,<span class="at">type=</span><span class="st">"median"</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
+<span id="cb75-344"><a href="#cb75-344" aria-hidden="true" tabindex="-1"></a>quantile80_gengama<span class="ot">&lt;-</span><span class="fu">summary</span>(ajuste_gengama,<span class="at">type=</span><span class="st">"quantile"</span>,<span class="at">quantiles=</span><span class="fl">0.8</span>,<span class="at">cl=</span><span class="fl">0.95</span>,<span class="at">se=</span>T)</span>
+<span id="cb75-345"><a href="#cb75-345" aria-hidden="true" tabindex="-1"></a>Mean_gengama</span>
+<span id="cb75-346"><a href="#cb75-346" aria-hidden="true" tabindex="-1"></a>Median_gengama</span>
+<span id="cb75-347"><a href="#cb75-347" aria-hidden="true" tabindex="-1"></a>quantile80_gengama</span>
+<span id="cb75-348"><a href="#cb75-348" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-349"><a href="#cb75-349" aria-hidden="true" tabindex="-1"></a>Já o comando a seguir fornece **o tempo médio residual de ocorrência do evento de interesse no instante `t=20` meses.**</span>
+<span id="cb75-350"><a href="#cb75-350" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-351"><a href="#cb75-351" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
+<span id="cb75-352"><a href="#cb75-352" aria-hidden="true" tabindex="-1"></a>Resid20_gengama<span class="ot">&lt;-</span><span class="fu">reslifefsr</span>(ajuste_gengama,<span class="dv">20</span>)</span>
+<span id="cb75-353"><a href="#cb75-353" aria-hidden="true" tabindex="-1"></a>Resid20_gengama</span>
+<span id="cb75-354"><a href="#cb75-354" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-355"><a href="#cb75-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-356"><a href="#cb75-356" aria-hidden="true" tabindex="-1"></a>Para resumir o ajuste de todos os modelos, vamos **comparar, graficamente, as funções de sobrevivência, risco e risco acumulado**. </span>
+<span id="cb75-356"><a href="#cb75-356" aria-hidden="true" tabindex="-1"></a><span class="fu">### **COMPARAÇÃO ENTRE OS MODELOS**</span></span>
 <span id="cb75-357"><a href="#cb75-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-358"><a href="#cb75-358" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T, fig.height = 8} </span></span>
-<span id="cb75-359"><a href="#cb75-359" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_exp,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(S)(t)),<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"red"</span>)</span>
-<span id="cb75-360"><a href="#cb75-360" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(ajuste_wei,<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"blue"</span>)</span>
-<span id="cb75-361"><a href="#cb75-361" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(ajuste_lognorm,<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"green"</span>)</span>
-<span id="cb75-362"><a href="#cb75-362" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(ajuste_gama,<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"orange"</span>)</span>
-<span id="cb75-363"><a href="#cb75-363" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(ajuste_gengama,<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"purple"</span>)</span>
-<span id="cb75-364"><a href="#cb75-364" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="dv">30</span>,<span class="dv">1</span>,<span class="at">legend=</span><span class="fu">c</span>(<span class="st">"Exponencial"</span>,<span class="st">"Weibull"</span>,<span class="st">"Log-Normal"</span>,<span class="st">"Gama"</span>,<span class="st">"Gama-Generalizada"</span>),<span class="at">fill=</span><span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"blue"</span>,<span class="st">"green"</span>,<span class="st">"orange"</span>,<span class="st">"purple"</span>))</span>
-<span id="cb75-365"><a href="#cb75-365" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-366"><a href="#cb75-366" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-367"><a href="#cb75-367" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T, fig.height = 8} </span></span>
-<span id="cb75-368"><a href="#cb75-368" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_exp,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(lambda)(t)),<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"red"</span>,<span class="at">type=</span><span class="st">"hazard"</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.2</span>))</span>
-<span id="cb75-369"><a href="#cb75-369" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(ajuste_wei,<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"blue"</span>,<span class="at">type=</span><span class="st">"hazard"</span>)</span>
-<span id="cb75-370"><a href="#cb75-370" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(ajuste_lognorm,<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"green"</span>,<span class="at">type=</span><span class="st">"hazard"</span>)</span>
-<span id="cb75-371"><a href="#cb75-371" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(ajuste_gama,<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"orange"</span>,<span class="at">type=</span><span class="st">"hazard"</span>)</span>
-<span id="cb75-372"><a href="#cb75-372" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(ajuste_gengama,<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"purple"</span>,<span class="at">type=</span><span class="st">"hazard"</span>)</span>
-<span id="cb75-373"><a href="#cb75-373" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="dv">0</span>,<span class="fl">0.2</span>,<span class="at">legend=</span><span class="fu">c</span>(<span class="st">"Exponencial"</span>,<span class="st">"Weibull"</span>,<span class="st">"Log-Normal"</span>,<span class="st">"Gama"</span>,<span class="st">"Gama-Generalizada"</span>),<span class="at">fill=</span><span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"blue"</span>,<span class="st">"green"</span>,<span class="st">"orange"</span>,<span class="st">"purple"</span>))</span>
-<span id="cb75-374"><a href="#cb75-374" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-375"><a href="#cb75-375" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-376"><a href="#cb75-376" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T,fig.height = 8} </span></span>
-<span id="cb75-377"><a href="#cb75-377" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_exp,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(Lambda)(t)),<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"red"</span>,<span class="at">type=</span><span class="st">"cumhaz"</span>)</span>
-<span id="cb75-378"><a href="#cb75-378" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(ajuste_wei,<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"blue"</span>,<span class="at">type=</span><span class="st">"cumhaz"</span>)</span>
-<span id="cb75-379"><a href="#cb75-379" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(ajuste_lognorm,<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"green"</span>,<span class="at">type=</span><span class="st">"cumhaz"</span>)</span>
-<span id="cb75-380"><a href="#cb75-380" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(ajuste_gama,<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"orange"</span>,<span class="at">type=</span><span class="st">"cumhaz"</span>)</span>
-<span id="cb75-381"><a href="#cb75-381" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(ajuste_gengama,<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"purple"</span>,<span class="at">type=</span><span class="st">"cumhaz"</span>)</span>
-<span id="cb75-382"><a href="#cb75-382" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="dv">0</span>,<span class="dv">4</span>,<span class="at">legend=</span><span class="fu">c</span>(<span class="st">"Exponencial"</span>,<span class="st">"Weibull"</span>,<span class="st">"Log-Normal"</span>,<span class="st">"Gama"</span>,<span class="st">"Gama-Generalizada"</span>),<span class="at">fill=</span><span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"blue"</span>,<span class="st">"green"</span>,<span class="st">"orange"</span>,<span class="st">"purple"</span>))</span>
-<span id="cb75-383"><a href="#cb75-383" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-384"><a href="#cb75-384" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-385"><a href="#cb75-385" aria-hidden="true" tabindex="-1"></a>É notório como o modelo exponencial se distancia dos demais em todos os gráficos. Entretanto, **precisaremos de mais medidas de qualidade de ajuste para tomarmos nossa decisão no próximo capítulo**.</span>
+<span id="cb75-358"><a href="#cb75-358" aria-hidden="true" tabindex="-1"></a>Para resumir o ajuste de todos os modelos, vamos **comparar, graficamente, as funções de sobrevivência, risco e risco acumulado**. </span>
+<span id="cb75-359"><a href="#cb75-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-360"><a href="#cb75-360" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T, fig.height = 8} </span></span>
+<span id="cb75-361"><a href="#cb75-361" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_exp,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(S)(t)),<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"red"</span>)</span>
+<span id="cb75-362"><a href="#cb75-362" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(ajuste_wei,<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"blue"</span>)</span>
+<span id="cb75-363"><a href="#cb75-363" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(ajuste_lognorm,<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"green"</span>)</span>
+<span id="cb75-364"><a href="#cb75-364" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(ajuste_gama,<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"orange"</span>)</span>
+<span id="cb75-365"><a href="#cb75-365" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(ajuste_gengama,<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"purple"</span>)</span>
+<span id="cb75-366"><a href="#cb75-366" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="dv">30</span>,<span class="dv">1</span>,<span class="at">legend=</span><span class="fu">c</span>(<span class="st">"Exponencial"</span>,<span class="st">"Weibull"</span>,<span class="st">"Log-Normal"</span>,<span class="st">"Gama"</span>,<span class="st">"Gama-Generalizada"</span>),<span class="at">fill=</span><span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"blue"</span>,<span class="st">"green"</span>,<span class="st">"orange"</span>,<span class="st">"purple"</span>))</span>
+<span id="cb75-367"><a href="#cb75-367" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-368"><a href="#cb75-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-369"><a href="#cb75-369" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T, fig.height = 8} </span></span>
+<span id="cb75-370"><a href="#cb75-370" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_exp,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(lambda)(t)),<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"red"</span>,<span class="at">type=</span><span class="st">"hazard"</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.2</span>))</span>
+<span id="cb75-371"><a href="#cb75-371" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(ajuste_wei,<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"blue"</span>,<span class="at">type=</span><span class="st">"hazard"</span>)</span>
+<span id="cb75-372"><a href="#cb75-372" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(ajuste_lognorm,<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"green"</span>,<span class="at">type=</span><span class="st">"hazard"</span>)</span>
+<span id="cb75-373"><a href="#cb75-373" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(ajuste_gama,<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"orange"</span>,<span class="at">type=</span><span class="st">"hazard"</span>)</span>
+<span id="cb75-374"><a href="#cb75-374" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(ajuste_gengama,<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"purple"</span>,<span class="at">type=</span><span class="st">"hazard"</span>)</span>
+<span id="cb75-375"><a href="#cb75-375" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="dv">0</span>,<span class="fl">0.2</span>,<span class="at">legend=</span><span class="fu">c</span>(<span class="st">"Exponencial"</span>,<span class="st">"Weibull"</span>,<span class="st">"Log-Normal"</span>,<span class="st">"Gama"</span>,<span class="st">"Gama-Generalizada"</span>),<span class="at">fill=</span><span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"blue"</span>,<span class="st">"green"</span>,<span class="st">"orange"</span>,<span class="st">"purple"</span>))</span>
+<span id="cb75-376"><a href="#cb75-376" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-377"><a href="#cb75-377" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-378"><a href="#cb75-378" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T,fig.height = 8} </span></span>
+<span id="cb75-379"><a href="#cb75-379" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ajuste_exp,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>,<span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(Lambda)(t)),<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"red"</span>,<span class="at">type=</span><span class="st">"cumhaz"</span>)</span>
+<span id="cb75-380"><a href="#cb75-380" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(ajuste_wei,<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"blue"</span>,<span class="at">type=</span><span class="st">"cumhaz"</span>)</span>
+<span id="cb75-381"><a href="#cb75-381" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(ajuste_lognorm,<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"green"</span>,<span class="at">type=</span><span class="st">"cumhaz"</span>)</span>
+<span id="cb75-382"><a href="#cb75-382" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(ajuste_gama,<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"orange"</span>,<span class="at">type=</span><span class="st">"cumhaz"</span>)</span>
+<span id="cb75-383"><a href="#cb75-383" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(ajuste_gengama,<span class="at">lwd.ci=</span><span class="dv">0</span>, <span class="at">lty.ci=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"purple"</span>,<span class="at">type=</span><span class="st">"cumhaz"</span>)</span>
+<span id="cb75-384"><a href="#cb75-384" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="dv">0</span>,<span class="dv">4</span>,<span class="at">legend=</span><span class="fu">c</span>(<span class="st">"Exponencial"</span>,<span class="st">"Weibull"</span>,<span class="st">"Log-Normal"</span>,<span class="st">"Gama"</span>,<span class="st">"Gama-Generalizada"</span>),<span class="at">fill=</span><span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"blue"</span>,<span class="st">"green"</span>,<span class="st">"orange"</span>,<span class="st">"purple"</span>))</span>
+<span id="cb75-385"><a href="#cb75-385" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-386"><a href="#cb75-386" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-387"><a href="#cb75-387" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-388"><a href="#cb75-388" aria-hidden="true" tabindex="-1"></a>Na sequência, **os comandos a seguir trazem uma comparação de resumos numéricos atrelados à algumas quantidades de interesse:**</span>
-<span id="cb75-389"><a href="#cb75-389" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb75-390"><a href="#cb75-390" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
-<span id="cb75-391"><a href="#cb75-391" aria-hidden="true" tabindex="-1"></a>Resumo<span class="ot">&lt;-</span><span class="fu">cbind</span>(<span class="fu">c</span>(Mean_exp[[<span class="dv">1</span>]][<span class="dv">1</span>],Mean_wei[[<span class="dv">1</span>]][<span class="dv">1</span>],Mean_lognorm[[<span class="dv">1</span>]][<span class="dv">1</span>],Mean_gama[[<span class="dv">1</span>]][<span class="dv">1</span>],Mean_gengama[[<span class="dv">1</span>]][<span class="dv">1</span>]),</span>
-<span id="cb75-392"><a href="#cb75-392" aria-hidden="true" tabindex="-1"></a>              <span class="fu">c</span>(Median_exp[[<span class="dv">1</span>]][<span class="dv">1</span>],Median_wei[[<span class="dv">1</span>]][<span class="dv">1</span>],Median_lognorm[[<span class="dv">1</span>]][<span class="dv">1</span>],Median_gama[[<span class="dv">1</span>]][<span class="dv">1</span>],Median_gengama[[<span class="dv">1</span>]][<span class="dv">1</span>]),</span>
-<span id="cb75-393"><a href="#cb75-393" aria-hidden="true" tabindex="-1"></a>              <span class="fu">c</span>(quantile80_exp[[<span class="dv">1</span>]][<span class="dv">2</span>],quantile80_wei[[<span class="dv">1</span>]][<span class="dv">2</span>],quantile80_lognorm[[<span class="dv">1</span>]][<span class="dv">2</span>],quantile80_gama[[<span class="dv">1</span>]][<span class="dv">2</span>],quantile80_gengama[[<span class="dv">1</span>]][<span class="dv">2</span>]),</span>
-<span id="cb75-394"><a href="#cb75-394" aria-hidden="true" tabindex="-1"></a>              <span class="fu">c</span>(Resid20_exp,Resid20_wei,Resid20_lognorm,Resid20_gama,Resid20_gengama))</span>
-<span id="cb75-395"><a href="#cb75-395" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Resumo)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Média"</span>,<span class="st">"Mediana"</span>,<span class="st">"Percentil 80"</span>,<span class="st">"Residual em 20"</span>)</span>
-<span id="cb75-396"><a href="#cb75-396" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(Resumo)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Exponencial"</span>,<span class="st">"Weibull"</span>,<span class="st">"Log-Normal"</span>,<span class="st">"Gama"</span>,<span class="st">"Gama Generalizada"</span>)</span>
-<span id="cb75-397"><a href="#cb75-397" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-398"><a href="#cb75-398" aria-hidden="true" tabindex="-1"></a>Resumo</span>
-<span id="cb75-399"><a href="#cb75-399" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-400"><a href="#cb75-400" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-401"><a href="#cb75-401" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-402"><a href="#cb75-402" aria-hidden="true" tabindex="-1"></a><span class="fu">## **EXERCÍCIOS**</span></span>
+<span id="cb75-387"><a href="#cb75-387" aria-hidden="true" tabindex="-1"></a>É notório como o modelo exponencial se distancia dos demais em todos os gráficos. Entretanto, **precisaremos de mais medidas de qualidade de ajuste para tomarmos nossa decisão no próximo capítulo**.</span>
+<span id="cb75-388"><a href="#cb75-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-389"><a href="#cb75-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-390"><a href="#cb75-390" aria-hidden="true" tabindex="-1"></a>Na sequência, **os comandos a seguir trazem uma comparação de resumos numéricos atrelados à algumas quantidades de interesse:**</span>
+<span id="cb75-391"><a href="#cb75-391" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-392"><a href="#cb75-392" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T} </span></span>
+<span id="cb75-393"><a href="#cb75-393" aria-hidden="true" tabindex="-1"></a>Resumo<span class="ot">&lt;-</span><span class="fu">cbind</span>(<span class="fu">c</span>(Mean_exp[[<span class="dv">1</span>]][<span class="dv">1</span>],Mean_wei[[<span class="dv">1</span>]][<span class="dv">1</span>],Mean_lognorm[[<span class="dv">1</span>]][<span class="dv">1</span>],Mean_gama[[<span class="dv">1</span>]][<span class="dv">1</span>],Mean_gengama[[<span class="dv">1</span>]][<span class="dv">1</span>]),</span>
+<span id="cb75-394"><a href="#cb75-394" aria-hidden="true" tabindex="-1"></a>              <span class="fu">c</span>(Median_exp[[<span class="dv">1</span>]][<span class="dv">1</span>],Median_wei[[<span class="dv">1</span>]][<span class="dv">1</span>],Median_lognorm[[<span class="dv">1</span>]][<span class="dv">1</span>],Median_gama[[<span class="dv">1</span>]][<span class="dv">1</span>],Median_gengama[[<span class="dv">1</span>]][<span class="dv">1</span>]),</span>
+<span id="cb75-395"><a href="#cb75-395" aria-hidden="true" tabindex="-1"></a>              <span class="fu">c</span>(quantile80_exp[[<span class="dv">1</span>]][<span class="dv">2</span>],quantile80_wei[[<span class="dv">1</span>]][<span class="dv">2</span>],quantile80_lognorm[[<span class="dv">1</span>]][<span class="dv">2</span>],quantile80_gama[[<span class="dv">1</span>]][<span class="dv">2</span>],quantile80_gengama[[<span class="dv">1</span>]][<span class="dv">2</span>]),</span>
+<span id="cb75-396"><a href="#cb75-396" aria-hidden="true" tabindex="-1"></a>              <span class="fu">c</span>(Resid20_exp,Resid20_wei,Resid20_lognorm,Resid20_gama,Resid20_gengama))</span>
+<span id="cb75-397"><a href="#cb75-397" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Resumo)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Média"</span>,<span class="st">"Mediana"</span>,<span class="st">"Percentil 80"</span>,<span class="st">"Residual em 20"</span>)</span>
+<span id="cb75-398"><a href="#cb75-398" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(Resumo)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Exponencial"</span>,<span class="st">"Weibull"</span>,<span class="st">"Log-Normal"</span>,<span class="st">"Gama"</span>,<span class="st">"Gama Generalizada"</span>)</span>
+<span id="cb75-399"><a href="#cb75-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-400"><a href="#cb75-400" aria-hidden="true" tabindex="-1"></a>Resumo</span>
+<span id="cb75-401"><a href="#cb75-401" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-402"><a href="#cb75-402" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb75-403"><a href="#cb75-403" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-404"><a href="#cb75-404" aria-hidden="true" tabindex="-1"></a>1- Para a base de dados do **tratamento quimioterápico**, ajuste todos os 6 modelos vistos hoje.</span>
+<span id="cb75-404"><a href="#cb75-404" aria-hidden="true" tabindex="-1"></a><span class="fu">## **EXERCÍCIOS**</span></span>
 <span id="cb75-405"><a href="#cb75-405" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-406"><a href="#cb75-406" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
-<span id="cb75-407"><a href="#cb75-407" aria-hidden="true" tabindex="-1"></a>tempos<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">19</span>, <span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">26</span>, <span class="dv">27</span>, </span>
-<span id="cb75-408"><a href="#cb75-408" aria-hidden="true" tabindex="-1"></a>          <span class="dv">31</span>, <span class="dv">31</span>, <span class="dv">49</span>, <span class="dv">59</span>, <span class="dv">64</span>, <span class="dv">87</span>, <span class="dv">89</span>, <span class="dv">107</span>, <span class="dv">117</span>, <span class="dv">119</span>, </span>
-<span id="cb75-409"><a href="#cb75-409" aria-hidden="true" tabindex="-1"></a>          <span class="dv">230</span>, <span class="dv">233</span>, <span class="dv">130</span>, <span class="dv">148</span>, <span class="dv">153</span>, <span class="dv">156</span>, <span class="dv">159</span>, <span class="dv">191</span>, <span class="dv">222</span>, </span>
-<span id="cb75-410"><a href="#cb75-410" aria-hidden="true" tabindex="-1"></a>          <span class="dv">200</span>, <span class="dv">203</span>, <span class="dv">210</span>, <span class="dv">220</span>, <span class="dv">220</span>, <span class="dv">228</span>, <span class="dv">235</span>, <span class="dv">240</span>, <span class="dv">240</span>,</span>
-<span id="cb75-411"><a href="#cb75-411" aria-hidden="true" tabindex="-1"></a>          <span class="dv">240</span>, <span class="dv">241</span>, <span class="dv">245</span>, <span class="dv">247</span>, <span class="dv">248</span>, <span class="dv">250</span>)</span>
-<span id="cb75-412"><a href="#cb75-412" aria-hidden="true" tabindex="-1"></a>cens<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,</span>
-<span id="cb75-413"><a href="#cb75-413" aria-hidden="true" tabindex="-1"></a>        <span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>)</span>
-<span id="cb75-414"><a href="#cb75-414" aria-hidden="true" tabindex="-1"></a>dados1<span class="ot">&lt;-</span><span class="fu">data.frame</span>(tempos,cens)</span>
-<span id="cb75-415"><a href="#cb75-415" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-416"><a href="#cb75-416" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-417"><a href="#cb75-417" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Faça um gráfico comparando todas funções de sobrevivência, risco e risco acumulado com as respectivas versões não paramétricas. Descritivamente, algum modelo se ajusta melhor aos dados?</span>
-<span id="cb75-418"><a href="#cb75-418" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Compare os tempos medianos de ocorrência de alterações indesejadas após o tratamento quimioterápico entre os modelos.</span>
-<span id="cb75-419"><a href="#cb75-419" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-420"><a href="#cb75-420" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-421"><a href="#cb75-421" aria-hidden="true" tabindex="-1"></a>2- Para a base de dados de **isolante elétrico**, ajuste todos os 6 modelos vistos hoje.</span>
+<span id="cb75-406"><a href="#cb75-406" aria-hidden="true" tabindex="-1"></a>1- Para a base de dados do **tratamento quimioterápico**, ajuste todos os 6 modelos vistos hoje.</span>
+<span id="cb75-407"><a href="#cb75-407" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-408"><a href="#cb75-408" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
+<span id="cb75-409"><a href="#cb75-409" aria-hidden="true" tabindex="-1"></a>tempos<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">19</span>, <span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">26</span>, <span class="dv">27</span>, </span>
+<span id="cb75-410"><a href="#cb75-410" aria-hidden="true" tabindex="-1"></a>          <span class="dv">31</span>, <span class="dv">31</span>, <span class="dv">49</span>, <span class="dv">59</span>, <span class="dv">64</span>, <span class="dv">87</span>, <span class="dv">89</span>, <span class="dv">107</span>, <span class="dv">117</span>, <span class="dv">119</span>, </span>
+<span id="cb75-411"><a href="#cb75-411" aria-hidden="true" tabindex="-1"></a>          <span class="dv">230</span>, <span class="dv">233</span>, <span class="dv">130</span>, <span class="dv">148</span>, <span class="dv">153</span>, <span class="dv">156</span>, <span class="dv">159</span>, <span class="dv">191</span>, <span class="dv">222</span>, </span>
+<span id="cb75-412"><a href="#cb75-412" aria-hidden="true" tabindex="-1"></a>          <span class="dv">200</span>, <span class="dv">203</span>, <span class="dv">210</span>, <span class="dv">220</span>, <span class="dv">220</span>, <span class="dv">228</span>, <span class="dv">235</span>, <span class="dv">240</span>, <span class="dv">240</span>,</span>
+<span id="cb75-413"><a href="#cb75-413" aria-hidden="true" tabindex="-1"></a>          <span class="dv">240</span>, <span class="dv">241</span>, <span class="dv">245</span>, <span class="dv">247</span>, <span class="dv">248</span>, <span class="dv">250</span>)</span>
+<span id="cb75-414"><a href="#cb75-414" aria-hidden="true" tabindex="-1"></a>cens<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,</span>
+<span id="cb75-415"><a href="#cb75-415" aria-hidden="true" tabindex="-1"></a>        <span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>)</span>
+<span id="cb75-416"><a href="#cb75-416" aria-hidden="true" tabindex="-1"></a>dados1<span class="ot">&lt;-</span><span class="fu">data.frame</span>(tempos,cens)</span>
+<span id="cb75-417"><a href="#cb75-417" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-418"><a href="#cb75-418" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-419"><a href="#cb75-419" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Faça um gráfico comparando todas funções de sobrevivência, risco e risco acumulado com as respectivas versões não paramétricas. Descritivamente, algum modelo se ajusta melhor aos dados?</span>
+<span id="cb75-420"><a href="#cb75-420" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Compare os tempos medianos de ocorrência de alterações indesejadas após o tratamento quimioterápico entre os modelos.</span>
+<span id="cb75-421"><a href="#cb75-421" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb75-422"><a href="#cb75-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-423"><a href="#cb75-423" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
-<span id="cb75-424"><a href="#cb75-424" aria-hidden="true" tabindex="-1"></a>tempos<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">151</span>, <span class="dv">164</span>, <span class="dv">336</span>, <span class="dv">365</span>, <span class="dv">403</span>, <span class="dv">454</span>, <span class="dv">455</span>, <span class="dv">473</span>, <span class="dv">538</span>, </span>
-<span id="cb75-425"><a href="#cb75-425" aria-hidden="true" tabindex="-1"></a>          <span class="dv">577</span>, <span class="dv">592</span>, <span class="dv">628</span>, <span class="dv">632</span>, <span class="dv">647</span>, <span class="dv">675</span>, <span class="dv">727</span>, <span class="dv">785</span>, <span class="dv">801</span>, </span>
-<span id="cb75-426"><a href="#cb75-426" aria-hidden="true" tabindex="-1"></a>          <span class="dv">811</span>, <span class="dv">816</span>, <span class="dv">867</span>, <span class="dv">893</span>, <span class="dv">930</span>, <span class="dv">937</span>, <span class="dv">976</span>, <span class="dv">1008</span>, <span class="dv">1040</span>, </span>
-<span id="cb75-427"><a href="#cb75-427" aria-hidden="true" tabindex="-1"></a>          <span class="dv">1051</span>, <span class="dv">1060</span>, <span class="dv">1183</span>, <span class="dv">1329</span>, <span class="dv">1334</span>, <span class="dv">1379</span>, <span class="dv">1380</span>, <span class="dv">1633</span>, </span>
-<span id="cb75-428"><a href="#cb75-428" aria-hidden="true" tabindex="-1"></a>          <span class="dv">1769</span>, <span class="dv">1827</span>, <span class="dv">1831</span>, <span class="dv">1849</span>, <span class="dv">2016</span>, <span class="dv">2282</span>, <span class="dv">2415</span>, <span class="dv">2430</span>, </span>
-<span id="cb75-429"><a href="#cb75-429" aria-hidden="true" tabindex="-1"></a>          <span class="dv">2686</span>, <span class="dv">2729</span>, <span class="fu">rep</span>(<span class="dv">2729</span>,<span class="dv">15</span>))</span>
-<span id="cb75-430"><a href="#cb75-430" aria-hidden="true" tabindex="-1"></a>cens<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">45</span>),<span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">15</span>))</span>
-<span id="cb75-431"><a href="#cb75-431" aria-hidden="true" tabindex="-1"></a>dados1<span class="ot">&lt;-</span><span class="fu">data.frame</span>(tempos,cens)</span>
-<span id="cb75-432"><a href="#cb75-432" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-433"><a href="#cb75-433" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-434"><a href="#cb75-434" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Faça um gráfico comparando todas funções de confiabilidade, risco e risco acumulado com as respectivas versões não paramétricas. Descritivamente, algum modelo se ajusta melhor aos dados?</span>
-<span id="cb75-435"><a href="#cb75-435" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Se a garantia é de 500 horas, compare as estimativas das probabilidades de falha até este instante.</span>
-<span id="cb75-436"><a href="#cb75-436" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-437"><a href="#cb75-437" aria-hidden="true" tabindex="-1"></a>3- Para os dados de **AIDS**:</span>
+<span id="cb75-423"><a href="#cb75-423" aria-hidden="true" tabindex="-1"></a>2- Para a base de dados de **isolante elétrico**, ajuste todos os 6 modelos vistos hoje.</span>
+<span id="cb75-424"><a href="#cb75-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-425"><a href="#cb75-425" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
+<span id="cb75-426"><a href="#cb75-426" aria-hidden="true" tabindex="-1"></a>tempos<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">151</span>, <span class="dv">164</span>, <span class="dv">336</span>, <span class="dv">365</span>, <span class="dv">403</span>, <span class="dv">454</span>, <span class="dv">455</span>, <span class="dv">473</span>, <span class="dv">538</span>, </span>
+<span id="cb75-427"><a href="#cb75-427" aria-hidden="true" tabindex="-1"></a>          <span class="dv">577</span>, <span class="dv">592</span>, <span class="dv">628</span>, <span class="dv">632</span>, <span class="dv">647</span>, <span class="dv">675</span>, <span class="dv">727</span>, <span class="dv">785</span>, <span class="dv">801</span>, </span>
+<span id="cb75-428"><a href="#cb75-428" aria-hidden="true" tabindex="-1"></a>          <span class="dv">811</span>, <span class="dv">816</span>, <span class="dv">867</span>, <span class="dv">893</span>, <span class="dv">930</span>, <span class="dv">937</span>, <span class="dv">976</span>, <span class="dv">1008</span>, <span class="dv">1040</span>, </span>
+<span id="cb75-429"><a href="#cb75-429" aria-hidden="true" tabindex="-1"></a>          <span class="dv">1051</span>, <span class="dv">1060</span>, <span class="dv">1183</span>, <span class="dv">1329</span>, <span class="dv">1334</span>, <span class="dv">1379</span>, <span class="dv">1380</span>, <span class="dv">1633</span>, </span>
+<span id="cb75-430"><a href="#cb75-430" aria-hidden="true" tabindex="-1"></a>          <span class="dv">1769</span>, <span class="dv">1827</span>, <span class="dv">1831</span>, <span class="dv">1849</span>, <span class="dv">2016</span>, <span class="dv">2282</span>, <span class="dv">2415</span>, <span class="dv">2430</span>, </span>
+<span id="cb75-431"><a href="#cb75-431" aria-hidden="true" tabindex="-1"></a>          <span class="dv">2686</span>, <span class="dv">2729</span>, <span class="fu">rep</span>(<span class="dv">2729</span>,<span class="dv">15</span>))</span>
+<span id="cb75-432"><a href="#cb75-432" aria-hidden="true" tabindex="-1"></a>cens<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">45</span>),<span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">15</span>))</span>
+<span id="cb75-433"><a href="#cb75-433" aria-hidden="true" tabindex="-1"></a>dados1<span class="ot">&lt;-</span><span class="fu">data.frame</span>(tempos,cens)</span>
+<span id="cb75-434"><a href="#cb75-434" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-435"><a href="#cb75-435" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-436"><a href="#cb75-436" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Faça um gráfico comparando todas funções de confiabilidade, risco e risco acumulado com as respectivas versões não paramétricas. Descritivamente, algum modelo se ajusta melhor aos dados?</span>
+<span id="cb75-437"><a href="#cb75-437" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Se a garantia é de 500 horas, compare as estimativas das probabilidades de falha até este instante.</span>
 <span id="cb75-438"><a href="#cb75-438" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-439"><a href="#cb75-439" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Faça um gráfico comparando todas funções de sobrevivência, risco e risco acumulado com as respectivas versões não paramétricas. Descritivamente, algum modelo se ajusta melhor aos dados?</span>
-<span id="cb75-440"><a href="#cb75-440" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Compare as probabilidades do paciente morrer antes de 800 dias em cada um dos modelos ajustados</span></code><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb75-439"><a href="#cb75-439" aria-hidden="true" tabindex="-1"></a>3- Para os dados de **AIDS**:</span>
+<span id="cb75-440"><a href="#cb75-440" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-441"><a href="#cb75-441" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Faça um gráfico comparando todas funções de sobrevivência, risco e risco acumulado com as respectivas versões não paramétricas. Descritivamente, algum modelo se ajusta melhor aos dados?</span>
+<span id="cb75-442"><a href="#cb75-442" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Compare as probabilidades do paciente morrer antes de 800 dias em cada um dos modelos ajustados</span></code><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
