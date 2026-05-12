@@ -945,7 +945,7 @@ log10_wbc 6.925002e-01 1.179612e+00</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>log10_wbc=3 
       est      lcl      ucl
-1 153.423 56.02086 418.6461</code></pre>
+1 153.423 55.09579 404.5926</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -954,7 +954,7 @@ log10_wbc 6.925002e-01 1.179612e+00</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>log10_wbc=4 
        est      lcl      ucl
-1 59.72382 36.70743 97.65716</code></pre>
+1 59.72382 38.24891 96.01974</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -963,7 +963,7 @@ log10_wbc 6.925002e-01 1.179612e+00</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>log10_wbc=3 
        est      lcl      ucl
-1 106.3447 37.06876 298.2038</code></pre>
+1 106.3447 40.83806 289.4188</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -972,7 +972,7 @@ log10_wbc 6.925002e-01 1.179612e+00</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>log10_wbc=4 
       est      lcl      ucl
-1 41.3974 24.18973 64.39868</code></pre>
+1 41.3974 25.60262 66.46121</code></pre>
 </div>
 </div>
 </section>
@@ -1573,6 +1573,8 @@ gruposGrupo 3 1.107056e+00 1.171266e+00</code></pre>
 <li>Ajuste os 5 modelos paramétricos considerando a variável <code>tratam</code>.</li>
 <li>Utilize os critérios de comparação de modelos para definir qual modelo paramétrico melhor se ajusta aos dados.</li>
 <li>Complemente sua análise com a verificação dos resíduos CoxSnell e Quantílico Aleatorizado.</li>
+<li>Para o modelo final escolhido, qual é a distribuição aproximada do tempo de vida dos pacientes?</li>
+<li>Para o modelo final escolhido, qual é a interpretação das razões de tempos medianos?</li>
 <li>Para o modelo final escolhido, faça os gráficos da função de sobrevivência e de risco para cada tratamento.</li>
 <li>Para o modelo final escolhido, calcule os tempos médio e mediano de sobrevivência para os pacientes de cada grupo.</li>
 </ul>
@@ -2997,8 +2999,10 @@ gruposGrupo 3 1.107056e+00 1.171266e+00</code></pre>
 <span id="cb97-1013"><a href="#cb97-1013" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Ajuste os 5 modelos paramétricos considerando a variável <span class="in">`tratam`</span>.</span>
 <span id="cb97-1014"><a href="#cb97-1014" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Utilize os critérios de comparação de modelos para definir qual modelo paramétrico melhor se ajusta aos dados.</span>
 <span id="cb97-1015"><a href="#cb97-1015" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Complemente sua análise com a verificação dos resíduos CoxSnell e Quantílico Aleatorizado.</span>
-<span id="cb97-1016"><a href="#cb97-1016" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Para o modelo final escolhido, faça os gráficos da função de sobrevivência e de risco para cada tratamento.</span>
-<span id="cb97-1017"><a href="#cb97-1017" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Para o modelo final escolhido, calcule os tempos médio e mediano de sobrevivência para os pacientes de cada grupo.</span>
+<span id="cb97-1016"><a href="#cb97-1016" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Para o modelo final escolhido, qual é a distribuição aproximada do tempo de vida dos pacientes?</span>
+<span id="cb97-1017"><a href="#cb97-1017" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Para o modelo final escolhido, qual é a interpretação das razões de tempos medianos?</span>
+<span id="cb97-1018"><a href="#cb97-1018" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Para o modelo final escolhido, faça os gráficos da função de sobrevivência e de risco para cada tratamento.</span>
+<span id="cb97-1019"><a href="#cb97-1019" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Para o modelo final escolhido, calcule os tempos médio e mediano de sobrevivência para os pacientes de cada grupo.</span>
 </code><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
