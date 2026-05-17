@@ -609,7 +609,7 @@ log10_wbc  0.1583048 9.332239e-01</code></pre>
 <li><span class="math inline">\(\hat{\sigma}\)</span> = 1,22</li>
 </ul>
 <p>Portanto, cada tempo de sobrevivência <span class="math inline">\(T_i\)</span> possui a seguinte distribuição:</p>
-<p><span class="math display">\[T_i\sim LogNormal(\hat{\mu_i}=e^{10,8 - 1,82x_i};\hat{\sigma}=1,22)\]</span></p>
+<p><span class="math display">\[T_i\sim LogNormal(\hat{\mu_i}=10,8 - 1,82x_i;\hat{\sigma}=1,22)\]</span></p>
 <p>Com essa distribuição estimada, podemos obter todas as quantidades de interesse em sobrevivência (funções básicas e medidas-resumo), para cada indivíduo.</p>
 <p>Nesse modelo:</p>
 <ul>
@@ -687,7 +687,7 @@ log10_wbc   0.06186302 4.271834e-01</code></pre>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>       shape         rate    log10_wbc 
-   1.0727668 2689.0679699    0.3931854 </code></pre>
+   1.0727668 2689.0679700    0.3931854 </code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -696,7 +696,7 @@ log10_wbc   0.06186302 4.271834e-01</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>                 2.5 %     97.5 %
 shape     1.971914e+00  0.5836099
-rate      9.646890e+04 74.9576940
+rate      9.646890e+04 74.9576935
 log10_wbc 9.475344e-01  0.1631548</code></pre>
 </div>
 </div>
@@ -730,7 +730,7 @@ log10_wbc 9.475344e-01  0.1631548</code></pre>
 <li><span class="math inline">\(\hat{Q}\)</span> =15,3</li>
 </ul>
 <p>Portanto, cada tempo de sobrevivência <span class="math inline">\(T_i\)</span> possui a seguinte distribuição:</p>
-<p><span class="math display">\[T_i\sim GG(\hat{\mu_i}=e^{5,34 - 0,101x_i};\hat{Q}=15,3;\hat{\sigma}=0,101)\]</span></p>
+<p><span class="math display">\[T_i\sim GG(\hat{\mu_i}=5,34 - 0,101x_i;\hat{Q}=15,3;\hat{\sigma}=0,101)\]</span></p>
 <p>Com essa distribuição estimada, podemos obter todas as quantidades de interesse em sobrevivência (funções básicas e medidas-resumo), para cada individuo</p>
 <p>Nesse modelo:</p>
 <ul>
@@ -952,8 +952,8 @@ log10_wbc 6.925002e-01 1.179612e+00</code></pre>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>log10_wbc=3 
-      est      lcl      ucl
-1 153.423 54.25699 407.5936</code></pre>
+      est      lcl     ucl
+1 153.423 57.79903 415.106</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -962,7 +962,7 @@ log10_wbc 6.925002e-01 1.179612e+00</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>log10_wbc=4 
        est      lcl      ucl
-1 59.72382 36.98102 99.85444</code></pre>
+1 59.72382 35.64379 97.14547</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -971,7 +971,7 @@ log10_wbc 6.925002e-01 1.179612e+00</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>log10_wbc=3 
        est      lcl      ucl
-1 106.3447 40.42302 300.3366</code></pre>
+1 106.3447 39.93718 287.6116</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -980,7 +980,7 @@ log10_wbc 6.925002e-01 1.179612e+00</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>log10_wbc=4 
       est      lcl      ucl
-1 41.3974 26.16755 68.40262</code></pre>
+1 41.3974 25.31889 67.72577</code></pre>
 </div>
 </div>
 </section>
@@ -1205,7 +1205,7 @@ gruposGrupo 3  0.2944916  0.5942916</code></pre>
 <li><span class="math inline">\(\hat{\sigma}\)</span> = 0,502</li>
 </ul>
 <p>Portanto, cada tempo de sobrevivência <span class="math inline">\(T_i\)</span> possui a seguinte distribuição:</p>
-<p><span class="math display">\[T_i\sim LogNormal(\hat{\mu_i}=e^{2,88 - 0,180x_{i1}- 0,586x_{i2}},\hat{\sigma}=0,502)\]</span></p>
+<p><span class="math display">\[T_i\sim LogNormal(\hat{\mu_i}=2,88 - 0,180x_{i1}- 0,586x_{i2},\hat{\sigma}=0,502)\]</span></p>
 <p>Com essa distribuição estimada, podemos obter todas as quantidades de interesse em sobrevivência (funções básicas e medidas-resumo), para qualquer indivíduo</p>
 <p>Nesse modelo:</p>
 <ul>
@@ -1319,11 +1319,11 @@ gruposGrupo 3 0.6855075 0.3265474</code></pre>
 <pre><code># A tibble: 5 × 5
   term          estimate std.error statistic   p.value
   &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-1 mu              1.95     0.0107      NA    NA       
-2 sigma           0.0361   0.00248     NA    NA       
-3 Q             -18.4      0.0533      NA    NA       
-4 gruposGrupo 2   0.132    0.0140       9.47  2.71e-21
-5 gruposGrupo 3   0.130    0.0144       9.03  1.70e-19</code></pre>
+1 mu              1.95     0.00873     NA    NA       
+2 sigma           0.0362   0.00183     NA    NA       
+3 Q             -18.3      0.0855      NA    NA       
+4 gruposGrupo 2   0.132    0.0124      10.7   1.67e-26
+5 gruposGrupo 3   0.130    0.0132       9.83  8.06e-23</code></pre>
 </div>
 </div>
 <p>De <strong>acordo com o modelo ajustado, temos que</strong>:</p>
@@ -1335,7 +1335,7 @@ gruposGrupo 3 0.6855075 0.3265474</code></pre>
 <li><span class="math inline">\(\hat{Q}\)</span> = -18,4</li>
 </ul>
 <p>Portanto, cada tempo de sobrevivência <span class="math inline">\(T_i\)</span> possui a seguinte distribuição:</p>
-<p><span class="math display">\[T_i\sim GG(\hat{\mu_i}=e^{1,95 + 0,132x_{i1}+ 0,13x_{i2}};\hat{\sigma}=0,0361;\hat{Q}=-18,4)\]</span></p>
+<p><span class="math display">\[T_i\sim GG(\hat{\mu_i}=1,95 + 0,132x_{i1}+ 0,13x_{i2};\hat{\sigma}=0,0361;\hat{Q}=-18,4)\]</span></p>
 <p>Com essa distribuição estimada, podemos obter todas as quantidades de interesse em sobrevivência (funções básicas e medidas-resumo), para qualquer indivíduo</p>
 <p>Nesse modelo:</p>
 <ul>
@@ -1353,7 +1353,7 @@ gruposGrupo 3 0.6855075 0.3265474</code></pre>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>           mu         sigma             Q gruposGrupo 2 gruposGrupo 3 
- 7.036543e+00  3.613945e-02  1.068059e-08  1.141543e+00  1.138709e+00 </code></pre>
+ 7.038237e+00  3.618796e-02  1.074244e-08  1.141256e+00  1.138275e+00 </code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -1361,11 +1361,11 @@ gruposGrupo 3 0.6855075 0.3265474</code></pre>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>                     2.5 %       97.5 %
-mu            6.889957e+00 7.186246e+00
-sigma         3.159839e-02 4.133312e-02
-Q             9.620588e-09 1.185739e-08
-gruposGrupo 2 1.110702e+00 1.173241e+00
-gruposGrupo 3 1.107056e+00 1.171266e+00</code></pre>
+mu            6.918770e+00 7.159767e+00
+sigma         3.276963e-02 3.996286e-02
+Q             9.085133e-09 1.270206e-08
+gruposGrupo 2 1.113849e+00 1.169337e+00
+gruposGrupo 3 1.109268e+00 1.168040e+00</code></pre>
 </div>
 </div>
 <p>Assim:</p>
@@ -1406,7 +1406,7 @@ gruposGrupo 3 1.107056e+00 1.171266e+00</code></pre>
 2           Modelo Weibull 266.4886 273.6254
 3        Modelo Log-Normal 265.0179 272.1546
 4              Modelo Gama 265.7907 272.9274
-5 Modelo Gama Generalizado 244.6449 253.5658</code></pre>
+5 Modelo Gama Generalizado 244.6460 253.5669</code></pre>
 </div>
 </div>
 <p>Por estes critérios, o modelo Gama Generalizado e, na sequência, o modelo lognormal apresentaram os melhores ajustes.</p>
@@ -1433,10 +1433,10 @@ gruposGrupo 3 1.107056e+00 1.171266e+00</code></pre>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>        Comparacao      P_valor
-1 Exponencial x GG 2.967457e-12
-2     Weibull x GG 1.044815e-06
-3   LogNormal x GG 2.245066e-06
-4        Gama x GG 1.501705e-06</code></pre>
+1 Exponencial x GG 2.969126e-12
+2     Weibull x GG 1.045425e-06
+3   LogNormal x GG 2.246381e-06
+4        Gama x GG 1.502583e-06</code></pre>
 </div>
 </div>
 <p>De acordo com os valores-p do teste TRV, nenhum modelo mais simples é preferível para o ajuste aos dados.</p>
@@ -2320,7 +2320,7 @@ gruposGrupo 3 1.107056e+00 1.171266e+00</code></pre>
 <span id="cb97-268"><a href="#cb97-268" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb97-269"><a href="#cb97-269" aria-hidden="true" tabindex="-1"></a>Portanto, cada tempo de sobrevivência $T_i$ possui a seguinte distribuição:</span>
 <span id="cb97-270"><a href="#cb97-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb97-271"><a href="#cb97-271" aria-hidden="true" tabindex="-1"></a>$$T_i\sim LogNormal(\hat{\mu_i}=e^{10,8 - 1,82x_i};\hat{\sigma}=1,22)$$</span>
+<span id="cb97-271"><a href="#cb97-271" aria-hidden="true" tabindex="-1"></a>$$T_i\sim LogNormal(\hat{\mu_i}=10,8 - 1,82x_i;\hat{\sigma}=1,22)$$</span>
 <span id="cb97-272"><a href="#cb97-272" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb97-273"><a href="#cb97-273" aria-hidden="true" tabindex="-1"></a>Com essa distribuição estimada, podemos obter todas as quantidades de interesse em sobrevivência (funções básicas e medidas-resumo), para cada indivíduo.</span>
 <span id="cb97-274"><a href="#cb97-274" aria-hidden="true" tabindex="-1"></a></span>
@@ -2401,7 +2401,7 @@ gruposGrupo 3 1.107056e+00 1.171266e+00</code></pre>
 <span id="cb97-357"><a href="#cb97-357" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb97-358"><a href="#cb97-358" aria-hidden="true" tabindex="-1"></a>Portanto, cada tempo de sobrevivência $T_i$ possui a seguinte distribuição:</span>
 <span id="cb97-359"><a href="#cb97-359" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb97-360"><a href="#cb97-360" aria-hidden="true" tabindex="-1"></a>$$T_i\sim GG(\hat{\mu_i}=e^{5,34 - 0,101x_i};\hat{Q}=15,3;\hat{\sigma}=0,101)$$</span>
+<span id="cb97-360"><a href="#cb97-360" aria-hidden="true" tabindex="-1"></a>$$T_i\sim GG(\hat{\mu_i}=5,34 - 0,101x_i;\hat{Q}=15,3;\hat{\sigma}=0,101)$$</span>
 <span id="cb97-361"><a href="#cb97-361" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb97-362"><a href="#cb97-362" aria-hidden="true" tabindex="-1"></a>Com essa distribuição estimada, podemos obter todas as quantidades de interesse em sobrevivência (funções básicas e medidas-resumo), para cada individuo</span>
 <span id="cb97-363"><a href="#cb97-363" aria-hidden="true" tabindex="-1"></a></span>
@@ -2731,7 +2731,7 @@ gruposGrupo 3 1.107056e+00 1.171266e+00</code></pre>
 <span id="cb97-715"><a href="#cb97-715" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb97-716"><a href="#cb97-716" aria-hidden="true" tabindex="-1"></a>Portanto, cada tempo de sobrevivência $T_i$ possui a seguinte distribuição:</span>
 <span id="cb97-717"><a href="#cb97-717" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb97-718"><a href="#cb97-718" aria-hidden="true" tabindex="-1"></a>$$T_i\sim LogNormal(\hat{\mu_i}=e^{2,88 - 0,180x_{i1}- 0,586x_{i2}},\hat{\sigma}=0,502)$$</span>
+<span id="cb97-718"><a href="#cb97-718" aria-hidden="true" tabindex="-1"></a>$$T_i\sim LogNormal(\hat{\mu_i}=2,88 - 0,180x_{i1}- 0,586x_{i2},\hat{\sigma}=0,502)$$</span>
 <span id="cb97-719"><a href="#cb97-719" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb97-720"><a href="#cb97-720" aria-hidden="true" tabindex="-1"></a>Com essa distribuição estimada, podemos obter todas as quantidades de interesse em sobrevivência (funções básicas e medidas-resumo), para qualquer indivíduo</span>
 <span id="cb97-721"><a href="#cb97-721" aria-hidden="true" tabindex="-1"></a></span>
@@ -2819,7 +2819,7 @@ gruposGrupo 3 1.107056e+00 1.171266e+00</code></pre>
 <span id="cb97-811"><a href="#cb97-811" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb97-812"><a href="#cb97-812" aria-hidden="true" tabindex="-1"></a>Portanto, cada tempo de sobrevivência $T_i$ possui a seguinte distribuição:</span>
 <span id="cb97-813"><a href="#cb97-813" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb97-814"><a href="#cb97-814" aria-hidden="true" tabindex="-1"></a>$$T_i\sim GG(\hat{\mu_i}=e^{1,95 + 0,132x_{i1}+ 0,13x_{i2}};\hat{\sigma}=0,0361;\hat{Q}=-18,4)$$</span>
+<span id="cb97-814"><a href="#cb97-814" aria-hidden="true" tabindex="-1"></a>$$T_i\sim GG(\hat{\mu_i}=1,95 + 0,132x_{i1}+ 0,13x_{i2};\hat{\sigma}=0,0361;\hat{Q}=-18,4)$$</span>
 <span id="cb97-815"><a href="#cb97-815" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb97-816"><a href="#cb97-816" aria-hidden="true" tabindex="-1"></a>Com essa distribuição estimada, podemos obter todas as quantidades de interesse em sobrevivência (funções básicas e medidas-resumo), para qualquer indivíduo</span>
 <span id="cb97-817"><a href="#cb97-817" aria-hidden="true" tabindex="-1"></a></span>
