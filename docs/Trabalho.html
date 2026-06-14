@@ -300,7 +300,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#etapa-i-modelos-paramétricos-sem-covariáveis" id="toc-etapa-i-modelos-paramétricos-sem-covariáveis" class="nav-link" data-scroll-target="#etapa-i-modelos-paramétricos-sem-covariáveis"><span class="header-section-number">20.4.1</span> <strong>ETAPA I — MODELOS PARAMÉTRICOS SEM COVARIÁVEIS</strong></a></li>
   <li><a href="#etapa-ii-modelos-paramétricos-com-covariáveis" id="toc-etapa-ii-modelos-paramétricos-com-covariáveis" class="nav-link" data-scroll-target="#etapa-ii-modelos-paramétricos-com-covariáveis"><span class="header-section-number">20.4.2</span> <strong>ETAPA II — MODELOS PARAMÉTRICOS COM COVARIÁVEIS</strong></a></li>
   </ul></li>
-  <li><a href="#parte-iii---modelo-de-cox-e-extensões" id="toc-parte-iii---modelo-de-cox-e-extensões" class="nav-link" data-scroll-target="#parte-iii---modelo-de-cox-e-extensões"><span class="header-section-number">20.5</span> <strong>PARTE III - MODELO DE COX E EXTENSÕES</strong></a></li>
+  <li><a href="#parte-iii---modelo-de-cox" id="toc-parte-iii---modelo-de-cox" class="nav-link" data-scroll-target="#parte-iii---modelo-de-cox"><span class="header-section-number">20.5</span> <strong>PARTE III - MODELO DE COX</strong></a>
+  <ul>
+  <li><a href="#etapa-i-seleção-de-variáveis-no-modelo-de-cox" id="toc-etapa-i-seleção-de-variáveis-no-modelo-de-cox" class="nav-link" data-scroll-target="#etapa-i-seleção-de-variáveis-no-modelo-de-cox"><span class="header-section-number">20.5.1</span> <strong>ETAPA I — SELEÇÃO DE VARIÁVEIS NO MODELO DE COX</strong></a></li>
+  <li><a href="#etapa-ii-avaliação-do-modelo-final" id="toc-etapa-ii-avaliação-do-modelo-final" class="nav-link" data-scroll-target="#etapa-ii-avaliação-do-modelo-final"><span class="header-section-number">20.5.2</span> <strong>ETAPA II — AVALIAÇÃO DO MODELO FINAL</strong></a></li>
+  <li><a href="#etapa-iii-interpretação-e-comparação-com-a-abordagem-paramétrica" id="toc-etapa-iii-interpretação-e-comparação-com-a-abordagem-paramétrica" class="nav-link" data-scroll-target="#etapa-iii-interpretação-e-comparação-com-a-abordagem-paramétrica"><span class="header-section-number">20.5.3</span> <strong>ETAPA III — INTERPRETAÇÃO E COMPARAÇÃO COM A ABORDAGEM PARAMÉTRICA</strong></a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1114,12 +1119,81 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 </section>
-<section id="parte-iii---modelo-de-cox-e-extensões" class="level2" data-number="20.5">
-<h2 data-number="20.5" class="anchored" data-anchor-id="parte-iii---modelo-de-cox-e-extensões"><span class="header-section-number">20.5</span> <strong>PARTE III - MODELO DE COX E EXTENSÕES</strong></h2>
+<section id="parte-iii---modelo-de-cox" class="level2" data-number="20.5">
+<h2 data-number="20.5" class="anchored" data-anchor-id="parte-iii---modelo-de-cox"><span class="header-section-number">20.5</span> <strong>PARTE III - MODELO DE COX</strong></h2>
+<p>Nesta terceira etapa do trabalho, os alunos deverão aprofundar a análise de sobrevivência por meio do ajuste de <strong>modelos de regressão de Cox</strong>, explorando procedimentos de seleção de variáveis, avaliação dos pressupostos do modelo e interpretação dos efeitos das covariáveis.</p>
+<p>O objetivo desta parte é desenvolver a capacidade de:</p>
+<ul>
+<li>investigar fatores associados ao tempo de sobrevivência;</li>
+<li>selecionar covariáveis relevantes para o modelo;</li>
+<li>verificar a adequação dos pressupostos do modelo de Cox;</li>
+<li>avaliar a qualidade do ajuste;</li>
+<li>interpretar os efeitos das covariáveis no contexto aplicado do problema;</li>
+<li>comparar os resultados obtidos com aqueles provenientes da abordagem paramétrica.</li>
+</ul>
+<p>A análise deverá ser organizada em três etapas.</p>
+<section id="etapa-i-seleção-de-variáveis-no-modelo-de-cox" class="level3" data-number="20.5.1">
+<h3 data-number="20.5.1" class="anchored" data-anchor-id="etapa-i-seleção-de-variáveis-no-modelo-de-cox"><span class="header-section-number">20.5.1</span> <strong>ETAPA I — SELEÇÃO DE VARIÁVEIS NO MODELO DE COX</strong></h3>
+<p>Nesta etapa, os alunos deverão ajustar modelos de regressão de Cox considerando as covariáveis disponíveis na base de dados.</p>
+<p>A seleção de variáveis deverá seguir o procedimento descrito no Capítulo 19. Os alunos deverão apresentar uma breve descrição da estratégia de seleção adotada e justificar as decisões tomadas ao longo do processo.</p>
+<blockquote class="blockquote">
+<p>Não é necessário apresentar demonstrações matemáticas. O foco deve estar na descrição dos procedimentos utilizados e na justificativa das decisões tomadas durante a modelagem.</p>
+</blockquote>
+<p>Ao final desta etapa, os alunos deverão apresentar:</p>
+<ul>
+<li>o modelo final selecionado;</li>
+<li>as variáveis mantidas no modelo;</li>
+<li>os critérios utilizados para inclusão ou exclusão de covariáveis;</li>
+<li>uma breve discussão sobre a relevância das variáveis selecionadas.</li>
+</ul>
+</section>
+<section id="etapa-ii-avaliação-do-modelo-final" class="level3" data-number="20.5.2">
+<h3 data-number="20.5.2" class="anchored" data-anchor-id="etapa-ii-avaliação-do-modelo-final"><span class="header-section-number">20.5.2</span> <strong>ETAPA II — AVALIAÇÃO DO MODELO FINAL</strong></h3>
+<p>Após a seleção das covariáveis, os alunos deverão avaliar a adequação do modelo final obtido.</p>
+<p>A análise deverá contemplar os seguintes aspectos.</p>
+<p>Os alunos deverão investigar a validade da hipótese de riscos proporcionais utilizando métodos apropriados, tais como:</p>
+<ul>
+<li>resíduos de Schoenfeld;</li>
+<li>teste de proporcionalidade dos riscos;</li>
+<li>gráficos diagnósticos pertinentes.</li>
+</ul>
+<p>Os resultados deverão ser interpretados e discutidos, destacando possíveis evidências favoráveis ou contrárias ao pressuposto de riscos proporcionais.</p>
+<p>Além da verificação dos riscos proporcionais, os alunos deverão avaliar a qualidade global do ajuste do modelo utilizando:</p>
+<ul>
+<li>resíduos de Cox-Snell;</li>
+</ul>
+<p>Os alunos deverão apresentar:</p>
+<ul>
+<li>os gráficos diagnósticos correspondentes;</li>
+<li>a interpretação dos padrões observados;</li>
+<li>evidências que sustentem a adequação ou inadequação do modelo ajustado.</li>
+</ul>
+</section>
+<section id="etapa-iii-interpretação-e-comparação-com-a-abordagem-paramétrica" class="level3" data-number="20.5.3">
+<h3 data-number="20.5.3" class="anchored" data-anchor-id="etapa-iii-interpretação-e-comparação-com-a-abordagem-paramétrica"><span class="header-section-number">20.5.3</span> <strong>ETAPA III — INTERPRETAÇÃO E COMPARAÇÃO COM A ABORDAGEM PARAMÉTRICA</strong></h3>
+<p>Para o modelo final selecionado, os alunos deverão interpretar os efeitos das covariáveis significativas utilizando as <strong>razões de risco (Hazard Ratios)</strong>.</p>
+<p>As interpretações devem ser realizadas no contexto aplicado da base de dados, discutindo:</p>
+<ul>
+<li>direção dos efeitos;</li>
+<li>magnitude das associações;</li>
+<li>relevância prática dos resultados.</li>
+</ul>
+<p>Em seguida, os alunos deverão comparar os resultados obtidos com aqueles provenientes da modelagem paramétrica desenvolvida anteriormente.</p>
+<p>A discussão deverá abordar, sempre que possível:</p>
+<ul>
+<li>concordâncias e divergências entre os fatores identificados como relevantes nas duas abordagens;</li>
+<li>diferenças na interpretação dos parâmetros;</li>
+<li>vantagens e limitações dos modelos paramétricos e do modelo de Cox;</li>
+<li>adequação dos pressupostos exigidos por cada metodologia;</li>
+<li>capacidade de descrição dos dados observados.</li>
+</ul>
+<p>Não é necessário realizar uma comparação baseada exclusivamente em medidas numéricas. O objetivo principal é promover uma discussão crítica sobre os resultados obtidos e sobre as diferenças conceituais entre a modelagem paramétrica e a modelagem semiparamétrica.</p>
+<p>Ao final do trabalho, os alunos deverão apresentar uma conclusão geral indicando qual abordagem consideram mais adequada para o conjunto de dados analisado, justificando sua posição com base nas evidências encontradas ao longo do estudo.</p>
 
 
 <!-- -->
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -2208,9 +2282,84 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-619"><a href="#cb2-619" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>magnitude das associações;</span>
 <span id="cb2-620"><a href="#cb2-620" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>implicações práticas dos resultados.</span>
 <span id="cb2-621"><a href="#cb2-621" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-622"><a href="#cb2-622" aria-hidden="true" tabindex="-1"></a><span class="fu">## **PARTE III - MODELO DE COX E EXTENSÕES**</span></span>
+<span id="cb2-622"><a href="#cb2-622" aria-hidden="true" tabindex="-1"></a><span class="fu">## **PARTE III - MODELO DE COX**</span></span>
 <span id="cb2-623"><a href="#cb2-623" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-624"><a href="#cb2-624" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-625"><a href="#cb2-625" aria-hidden="true" tabindex="-1"></a>Nesta terceira etapa do trabalho, os alunos deverão aprofundar a análise de sobrevivência por meio do ajuste de **modelos de regressão de Cox**, explorando procedimentos de seleção de variáveis, avaliação dos pressupostos do modelo e interpretação dos efeitos das covariáveis.</span>
+<span id="cb2-626"><a href="#cb2-626" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-627"><a href="#cb2-627" aria-hidden="true" tabindex="-1"></a>O objetivo desta parte é desenvolver a capacidade de:</span>
+<span id="cb2-628"><a href="#cb2-628" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-629"><a href="#cb2-629" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>investigar fatores associados ao tempo de sobrevivência;</span>
+<span id="cb2-630"><a href="#cb2-630" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>selecionar covariáveis relevantes para o modelo;</span>
+<span id="cb2-631"><a href="#cb2-631" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>verificar a adequação dos pressupostos do modelo de Cox;</span>
+<span id="cb2-632"><a href="#cb2-632" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>avaliar a qualidade do ajuste;</span>
+<span id="cb2-633"><a href="#cb2-633" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>interpretar os efeitos das covariáveis no contexto aplicado do problema;</span>
+<span id="cb2-634"><a href="#cb2-634" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>comparar os resultados obtidos com aqueles provenientes da abordagem paramétrica.</span>
+<span id="cb2-635"><a href="#cb2-635" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-636"><a href="#cb2-636" aria-hidden="true" tabindex="-1"></a>A análise deverá ser organizada em três etapas.</span>
+<span id="cb2-637"><a href="#cb2-637" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-638"><a href="#cb2-638" aria-hidden="true" tabindex="-1"></a><span class="fu">### **ETAPA I — SELEÇÃO DE VARIÁVEIS NO MODELO DE COX**</span></span>
+<span id="cb2-639"><a href="#cb2-639" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-640"><a href="#cb2-640" aria-hidden="true" tabindex="-1"></a>Nesta etapa, os alunos deverão ajustar modelos de regressão de Cox considerando as covariáveis disponíveis na base de dados.</span>
+<span id="cb2-641"><a href="#cb2-641" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-642"><a href="#cb2-642" aria-hidden="true" tabindex="-1"></a>A seleção de variáveis deverá seguir o procedimento descrito no Capítulo 19. Os alunos deverão apresentar uma breve descrição da estratégia de seleção adotada e justificar as decisões tomadas ao longo do processo.</span>
+<span id="cb2-643"><a href="#cb2-643" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-644"><a href="#cb2-644" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Não é necessário apresentar demonstrações matemáticas. O foco deve estar na descrição dos procedimentos utilizados e na justificativa das decisões tomadas durante a modelagem.</span></span>
+<span id="cb2-645"><a href="#cb2-645" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-646"><a href="#cb2-646" aria-hidden="true" tabindex="-1"></a>Ao final desta etapa, os alunos deverão apresentar:</span>
+<span id="cb2-647"><a href="#cb2-647" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-648"><a href="#cb2-648" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>o modelo final selecionado;</span>
+<span id="cb2-649"><a href="#cb2-649" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>as variáveis mantidas no modelo;</span>
+<span id="cb2-650"><a href="#cb2-650" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>os critérios utilizados para inclusão ou exclusão de covariáveis;</span>
+<span id="cb2-651"><a href="#cb2-651" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>uma breve discussão sobre a relevância das variáveis selecionadas.</span>
+<span id="cb2-652"><a href="#cb2-652" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-653"><a href="#cb2-653" aria-hidden="true" tabindex="-1"></a><span class="fu">### **ETAPA II — AVALIAÇÃO DO MODELO FINAL**</span></span>
+<span id="cb2-654"><a href="#cb2-654" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-655"><a href="#cb2-655" aria-hidden="true" tabindex="-1"></a>Após a seleção das covariáveis, os alunos deverão avaliar a adequação do modelo final obtido.</span>
+<span id="cb2-656"><a href="#cb2-656" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-657"><a href="#cb2-657" aria-hidden="true" tabindex="-1"></a>A análise deverá contemplar os seguintes aspectos.</span>
+<span id="cb2-658"><a href="#cb2-658" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-659"><a href="#cb2-659" aria-hidden="true" tabindex="-1"></a>Os alunos deverão investigar a validade da hipótese de riscos proporcionais utilizando métodos apropriados, tais como:</span>
+<span id="cb2-660"><a href="#cb2-660" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-661"><a href="#cb2-661" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>resíduos de Schoenfeld;</span>
+<span id="cb2-662"><a href="#cb2-662" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>teste de proporcionalidade dos riscos;</span>
+<span id="cb2-663"><a href="#cb2-663" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>gráficos diagnósticos pertinentes.</span>
+<span id="cb2-664"><a href="#cb2-664" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-665"><a href="#cb2-665" aria-hidden="true" tabindex="-1"></a>Os resultados deverão ser interpretados e discutidos, destacando possíveis evidências favoráveis ou contrárias ao pressuposto de riscos proporcionais.</span>
+<span id="cb2-666"><a href="#cb2-666" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-667"><a href="#cb2-667" aria-hidden="true" tabindex="-1"></a>Além da verificação dos riscos proporcionais, os alunos deverão avaliar a qualidade global do ajuste do modelo utilizando:</span>
+<span id="cb2-668"><a href="#cb2-668" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-669"><a href="#cb2-669" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>resíduos de Cox-Snell;</span>
+<span id="cb2-670"><a href="#cb2-670" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-671"><a href="#cb2-671" aria-hidden="true" tabindex="-1"></a>Os alunos deverão apresentar:</span>
+<span id="cb2-672"><a href="#cb2-672" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-673"><a href="#cb2-673" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>os gráficos diagnósticos correspondentes;</span>
+<span id="cb2-674"><a href="#cb2-674" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>a interpretação dos padrões observados;</span>
+<span id="cb2-675"><a href="#cb2-675" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>evidências que sustentem a adequação ou inadequação do modelo ajustado.</span>
+<span id="cb2-676"><a href="#cb2-676" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-677"><a href="#cb2-677" aria-hidden="true" tabindex="-1"></a><span class="fu">### **ETAPA III — INTERPRETAÇÃO E COMPARAÇÃO COM A ABORDAGEM PARAMÉTRICA**</span></span>
+<span id="cb2-678"><a href="#cb2-678" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-679"><a href="#cb2-679" aria-hidden="true" tabindex="-1"></a>Para o modelo final selecionado, os alunos deverão interpretar os efeitos das covariáveis significativas utilizando as **razões de risco (Hazard Ratios)**.</span>
+<span id="cb2-680"><a href="#cb2-680" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-681"><a href="#cb2-681" aria-hidden="true" tabindex="-1"></a>As interpretações devem ser realizadas no contexto aplicado da base de dados, discutindo:</span>
+<span id="cb2-682"><a href="#cb2-682" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-683"><a href="#cb2-683" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>direção dos efeitos;</span>
+<span id="cb2-684"><a href="#cb2-684" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>magnitude das associações;</span>
+<span id="cb2-685"><a href="#cb2-685" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>relevância prática dos resultados.</span>
+<span id="cb2-686"><a href="#cb2-686" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-687"><a href="#cb2-687" aria-hidden="true" tabindex="-1"></a>Em seguida, os alunos deverão comparar os resultados obtidos com aqueles provenientes da modelagem paramétrica desenvolvida anteriormente.</span>
+<span id="cb2-688"><a href="#cb2-688" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-689"><a href="#cb2-689" aria-hidden="true" tabindex="-1"></a>A discussão deverá abordar, sempre que possível:</span>
+<span id="cb2-690"><a href="#cb2-690" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-691"><a href="#cb2-691" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>concordâncias e divergências entre os fatores identificados como relevantes nas duas abordagens;</span>
+<span id="cb2-692"><a href="#cb2-692" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>diferenças na interpretação dos parâmetros;</span>
+<span id="cb2-693"><a href="#cb2-693" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>vantagens e limitações dos modelos paramétricos e do modelo de Cox;</span>
+<span id="cb2-694"><a href="#cb2-694" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>adequação dos pressupostos exigidos por cada metodologia;</span>
+<span id="cb2-695"><a href="#cb2-695" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>capacidade de descrição dos dados observados.</span>
+<span id="cb2-696"><a href="#cb2-696" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-697"><a href="#cb2-697" aria-hidden="true" tabindex="-1"></a>Não é necessário realizar uma comparação baseada exclusivamente em medidas numéricas. O objetivo principal é promover uma discussão crítica sobre os resultados obtidos e sobre as diferenças conceituais entre a modelagem paramétrica e a modelagem semiparamétrica.</span>
+<span id="cb2-698"><a href="#cb2-698" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-699"><a href="#cb2-699" aria-hidden="true" tabindex="-1"></a>Ao final do trabalho, os alunos deverão apresentar uma conclusão geral indicando qual abordagem consideram mais adequada para o conjunto de dados analisado, justificando sua posição com base nas evidências encontradas ao longo do estudo.</span>
 </code><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
