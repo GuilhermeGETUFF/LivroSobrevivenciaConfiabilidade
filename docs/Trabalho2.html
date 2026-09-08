@@ -1,0 +1,2297 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>10&nbsp; TRABALHO – ANÁLISE DE SOBREVIVÊNCIA E CONFIABILIDADE</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Cap6.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e4fbaa5b9575d7f6de7c906568c40117.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-8a59843ec0555538ab0b16a047bb1442.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Trabalho2.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title"><strong>TRABALHO</strong></span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">ANÁLISE DE SOBREVIVÊNCIA E CONFIABILIDADE</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Procurar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title"><strong>CAPA</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Introducao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title"><strong>INTRODUÇÃO</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./CronogramaOrganizacao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title"><strong>ORGANIZAÇÃO E CRONOGRAMA DA DISCIPLINA</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cap1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title"><strong>CONCEITOS INICIAIS</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cap2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title"><strong>FUNÇÕES BÁSICAS</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cap3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><strong>ESTIMAÇÃO NÃO PARAMÉTRICA (TEORIA)</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cap4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><strong>ESTIMAÇÃO NÃO PARAMÉTRICA (PRÁTICA)</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cap5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title"><strong>COMPARAÇÃO DE CURVAS DE SOBREVIVÊNCIA/CONFIABILIDADE (TEORIA)</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Cap6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title"><strong>COMPARAÇÃO DE CURVAS DE SOBREVIVÊNCIA/CONFIABILIDADE (PRÁTICA)</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Trabalho2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title"><strong>TRABALHO</strong></span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul>
+  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">10.1</span> <strong>INTRODUÇÃO</strong></a>
+  <ul>
+  <li><a href="#o-que-é-um-registro-hospitalar-de-câncer" id="toc-o-que-é-um-registro-hospitalar-de-câncer" class="nav-link" data-scroll-target="#o-que-é-um-registro-hospitalar-de-câncer"><span class="header-section-number">10.1.1</span> <strong>O QUE É UM REGISTRO HOSPITALAR DE CÂNCER?</strong></a></li>
+  <li><a href="#rhc-não-é-um-registro-de-base-populacional" id="toc-rhc-não-é-um-registro-de-base-populacional" class="nav-link" data-scroll-target="#rhc-não-é-um-registro-de-base-populacional"><span class="header-section-number">10.1.2</span> <strong>RHC NÃO É UM REGISTRO DE BASE POPULACIONAL</strong></a>
+  <ul class="collapse">
+  <li><a href="#registro-hospitalar-de-câncer" id="toc-registro-hospitalar-de-câncer" class="nav-link" data-scroll-target="#registro-hospitalar-de-câncer"><span class="header-section-number">10.1.2.1</span> <strong>REGISTRO HOSPITALAR DE CÂNCER</strong></a></li>
+  <li><a href="#registro-de-câncer-de-base-populacional" id="toc-registro-de-câncer-de-base-populacional" class="nav-link" data-scroll-target="#registro-de-câncer-de-base-populacional"><span class="header-section-number">10.1.2.2</span> <strong>REGISTRO DE CÂNCER DE BASE POPULACIONAL</strong></a></li>
+  </ul></li>
+  <li><a href="#o-que-representa-uma-observação-da-base" id="toc-o-que-representa-uma-observação-da-base" class="nav-link" data-scroll-target="#o-que-representa-uma-observação-da-base"><span class="header-section-number">10.1.3</span> <strong>O QUE REPRESENTA UMA OBSERVAÇÃO DA BASE?</strong></a></li>
+  <li><a href="#dados-observacionais" id="toc-dados-observacionais" class="nav-link" data-scroll-target="#dados-observacionais"><span class="header-section-number">10.1.4</span> <strong>DADOS OBSERVACIONAIS</strong></a></li>
+  <li><a href="#dimensão-temporal" id="toc-dimensão-temporal" class="nav-link" data-scroll-target="#dimensão-temporal"><span class="header-section-number">10.1.5</span> <strong>DIMENSÃO TEMPORAL</strong></a></li>
+  <li><a href="#acompanhamento-dos-pacientes" id="toc-acompanhamento-dos-pacientes" class="nav-link" data-scroll-target="#acompanhamento-dos-pacientes"><span class="header-section-number">10.1.6</span> <strong>ACOMPANHAMENTO DOS PACIENTES</strong></a></li>
+  <li><a href="#potencialidades-do-rhcsp" id="toc-potencialidades-do-rhcsp" class="nav-link" data-scroll-target="#potencialidades-do-rhcsp"><span class="header-section-number">10.1.7</span> <strong>POTENCIALIDADES DO RHC/SP</strong></a></li>
+  <li><a href="#principais-limitações" id="toc-principais-limitações" class="nav-link" data-scroll-target="#principais-limitações"><span class="header-section-number">10.1.8</span> <strong>PRINCIPAIS LIMITAÇÕES</strong></a>
+  <ul class="collapse">
+  <li><a href="#representatividade" id="toc-representatividade" class="nav-link" data-scroll-target="#representatividade"><span class="header-section-number">10.1.8.1</span> <strong>REPRESENTATIVIDADE</strong></a></li>
+  <li><a href="#dados-ausentes" id="toc-dados-ausentes" class="nav-link" data-scroll-target="#dados-ausentes"><span class="header-section-number">10.1.8.2</span> <strong>DADOS AUSENTES</strong></a></li>
+  <li><a href="#mudanças-ao-longo-do-tempo" id="toc-mudanças-ao-longo-do-tempo" class="nav-link" data-scroll-target="#mudanças-ao-longo-do-tempo"><span class="header-section-number">10.1.8.3</span> <strong>MUDANÇAS AO LONGO DO TEMPO</strong></a></li>
+  <li><a href="#qualidade-do-seguimento" id="toc-qualidade-do-seguimento" class="nav-link" data-scroll-target="#qualidade-do-seguimento"><span class="header-section-number">10.1.8.4</span> <strong>QUALIDADE DO SEGUIMENTO</strong></a></li>
+  </ul></li>
+  <li><a href="#acesso-e-obtenção-da-base-de-dados" id="toc-acesso-e-obtenção-da-base-de-dados" class="nav-link" data-scroll-target="#acesso-e-obtenção-da-base-de-dados"><span class="header-section-number">10.1.9</span> <strong>ACESSO E OBTENÇÃO DA BASE DE DADOS</strong></a>
+  <ul class="collapse">
+  <li><a href="#arquivos-disponíveis" id="toc-arquivos-disponíveis" class="nav-link" data-scroll-target="#arquivos-disponíveis"><span class="header-section-number">10.1.9.1</span> <strong>ARQUIVOS DISPONÍVEIS</strong></a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#primeiros-passos" id="toc-primeiros-passos" class="nav-link" data-scroll-target="#primeiros-passos"><span class="header-section-number">10.2</span> <strong>PRIMEIROS PASSOS</strong></a>
+  <ul>
+  <li><a href="#leitura-da-base" id="toc-leitura-da-base" class="nav-link" data-scroll-target="#leitura-da-base"><span class="header-section-number">10.2.1</span> <strong>LEITURA DA BASE</strong></a></li>
+  <li><a href="#principais-variáveis" id="toc-principais-variáveis" class="nav-link" data-scroll-target="#principais-variáveis"><span class="header-section-number">10.2.2</span> <strong>PRINCIPAIS VARIÁVEIS</strong></a></li>
+  <li><a href="#escolha-das-neoplasias" id="toc-escolha-das-neoplasias" class="nav-link" data-scroll-target="#escolha-das-neoplasias"><span class="header-section-number">10.2.3</span> <strong>ESCOLHA DAS NEOPLASIAS</strong></a></li>
+  <li><a href="#sorteio-das-neoplasias" id="toc-sorteio-das-neoplasias" class="nav-link" data-scroll-target="#sorteio-das-neoplasias"><span class="header-section-number">10.2.4</span> <strong>SORTEIO DAS NEOPLASIAS</strong></a></li>
+  <li><a href="#critérios-de-exclusão" id="toc-critérios-de-exclusão" class="nav-link" data-scroll-target="#critérios-de-exclusão"><span class="header-section-number">10.2.5</span> <strong>CRITÉRIOS DE EXCLUSÃO</strong></a></li>
+  <li><a href="#variáveis-selecionadas" id="toc-variáveis-selecionadas" class="nav-link" data-scroll-target="#variáveis-selecionadas"><span class="header-section-number">10.2.6</span> <strong>VARIÁVEIS SELECIONADAS</strong></a></li>
+  <li><a href="#construção-da-variável-resposta" id="toc-construção-da-variável-resposta" class="nav-link" data-scroll-target="#construção-da-variável-resposta"><span class="header-section-number">10.2.7</span> <strong>CONSTRUÇÃO DA VARIÁVEL RESPOSTA</strong></a></li>
+  </ul></li>
+  <li><a href="#parte-i-análise-não-paramétrica" id="toc-parte-i-análise-não-paramétrica" class="nav-link" data-scroll-target="#parte-i-análise-não-paramétrica"><span class="header-section-number">10.3</span> <strong>PARTE I — ANÁLISE NÃO PARAMÉTRICA</strong></a>
+  <ul>
+  <li><a href="#introdução-1" id="toc-introdução-1" class="nav-link" data-scroll-target="#introdução-1"><span class="header-section-number">10.3.1</span> <strong>INTRODUÇÃO</strong></a></li>
+  <li><a href="#metodologia" id="toc-metodologia" class="nav-link" data-scroll-target="#metodologia"><span class="header-section-number">10.3.2</span> <strong>METODOLOGIA</strong></a></li>
+  <li><a href="#resultados" id="toc-resultados" class="nav-link" data-scroll-target="#resultados"><span class="header-section-number">10.3.3</span> <strong>RESULTADOS</strong></a>
+  <ul class="collapse">
+  <li><a href="#análise-sem-covariáveis" id="toc-análise-sem-covariáveis" class="nav-link" data-scroll-target="#análise-sem-covariáveis"><span class="header-section-number">10.3.3.1</span> <strong>ANÁLISE SEM COVARIÁVEIS</strong></a></li>
+  <li><a href="#covariáveis-qualitativas" id="toc-covariáveis-qualitativas" class="nav-link" data-scroll-target="#covariáveis-qualitativas"><span class="header-section-number">10.3.3.2</span> <strong>COVARIÁVEIS QUALITATIVAS</strong></a></li>
+  <li><a href="#covariáveis-quantitativas" id="toc-covariáveis-quantitativas" class="nav-link" data-scroll-target="#covariáveis-quantitativas"><span class="header-section-number">10.3.3.3</span> <strong>COVARIÁVEIS QUANTITATIVAS</strong></a></li>
+  </ul></li>
+  <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão"><span class="header-section-number">10.3.4</span> <strong>CONCLUSÃO</strong></a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title"><strong>TRABALHO</strong></span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Código</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Mostrar o código</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Esconder o código</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Ver o código fonte</a></li></ul></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Nesta atividade, será desenvolvido um estudo utilizando dados dos <strong>Registros Hospitalares de Câncer do Estado de São Paulo (RHC/SP)</strong>, disponibilizados pela <strong>Fundação Oncocentro de São Paulo (FOSP)</strong>.</p>
+<section id="introdução" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">10.1</span> <strong>INTRODUÇÃO</strong></h2>
+<p>A <strong>Fundação Oncocentro de São Paulo (FOSP)</strong> é uma instituição vinculada à <strong>Secretaria de Estado da Saúde de São Paulo</strong>, com atuação na área de oncologia.</p>
+<p>Entre suas atividades está a coordenação dos <strong>Registros Hospitalares de Câncer (RHC)</strong> no Estado de São Paulo.</p>
+<p>Os registros hospitalares permitem:</p>
+<ul>
+<li><strong>reunir</strong> informações sobre pacientes com câncer;</li>
+<li><strong>organizar</strong> dados provenientes das instituições participantes;</li>
+<li><strong>acompanhar</strong> diferentes aspectos relacionados ao diagnóstico, tratamento e evolução dos casos;</li>
+<li>produzir informações úteis para estudos <strong>epidemiológicos e estatísticos</strong>.</li>
+</ul>
+<hr>
+<section id="o-que-é-um-registro-hospitalar-de-câncer" class="level3" data-number="10.1.1">
+<h3 data-number="10.1.1" class="anchored" data-anchor-id="o-que-é-um-registro-hospitalar-de-câncer"><span class="header-section-number">10.1.1</span> <strong>O QUE É UM REGISTRO HOSPITALAR DE CÂNCER?</strong></h3>
+<p>Um <strong>Registro Hospitalar de Câncer (RHC)</strong> é um sistema destinado à coleta e ao armazenamento de informações sobre pacientes com diagnóstico de câncer atendidos em instituições hospitalares.</p>
+<p>Os registros podem reunir informações relacionadas a:</p>
+<ul>
+<li><strong>características do paciente</strong>;</li>
+<li><strong>características do tumor</strong>;</li>
+<li><strong>diagnóstico</strong>;</li>
+<li><strong>extensão da doença</strong>;</li>
+<li><strong>tratamento</strong>;</li>
+<li><strong>instituição de atendimento</strong>;</li>
+<li><strong>acompanhamento</strong>;</li>
+<li><strong>situação do paciente na última informação disponível</strong>.</li>
+</ul>
+<p>Portanto, o RHC não registra apenas a ocorrência do câncer. Ele permite acompanhar diferentes aspectos da <strong>trajetória do paciente dentro do serviço de saúde</strong>.</p>
+<hr>
+</section>
+<section id="rhc-não-é-um-registro-de-base-populacional" class="level3" data-number="10.1.2">
+<h3 data-number="10.1.2" class="anchored" data-anchor-id="rhc-não-é-um-registro-de-base-populacional"><span class="header-section-number">10.1.2</span> <strong>RHC NÃO É UM REGISTRO DE BASE POPULACIONAL</strong></h3>
+<p>Uma distinção fundamental é compreender a diferença entre um <strong>Registro Hospitalar de Câncer</strong> e um <strong>Registro de Câncer de Base Populacional</strong>.</p>
+<section id="registro-hospitalar-de-câncer" class="level4" data-number="10.1.2.1">
+<h4 data-number="10.1.2.1" class="anchored" data-anchor-id="registro-hospitalar-de-câncer"><span class="header-section-number">10.1.2.1</span> <strong>REGISTRO HOSPITALAR DE CÂNCER</strong></h4>
+<p>Tem como referência os:</p>
+<blockquote class="blockquote">
+<p><strong>pacientes atendidos nas instituições participantes do sistema de registro.</strong></p>
+</blockquote>
+<p>Portanto, sua população é formada pelos pacientes que chegaram aos hospitais incluídos no RHC.</p>
+</section>
+<section id="registro-de-câncer-de-base-populacional" class="level4" data-number="10.1.2.2">
+<h4 data-number="10.1.2.2" class="anchored" data-anchor-id="registro-de-câncer-de-base-populacional"><span class="header-section-number">10.1.2.2</span> <strong>REGISTRO DE CÂNCER DE BASE POPULACIONAL</strong></h4>
+<p>Tem como objetivo identificar casos de câncer ocorridos em uma:</p>
+<blockquote class="blockquote">
+<p><strong>população geograficamente definida</strong>, independentemente do hospital em que o paciente tenha sido atendido.</p>
+</blockquote>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Aviso
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>ATENÇÃO</strong></p>
+<p>Os dados do RHC/SP <strong>não representam automaticamente todos os casos de câncer ocorridos no Estado de São Paulo</strong>.</p>
+<p>Consequentemente, não devem ser interpretados como uma amostra populacional nem utilizados diretamente para estimar <strong>taxas de incidência populacional de câncer</strong>.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="o-que-representa-uma-observação-da-base" class="level3" data-number="10.1.3">
+<h3 data-number="10.1.3" class="anchored" data-anchor-id="o-que-representa-uma-observação-da-base"><span class="header-section-number">10.1.3</span> <strong>O QUE REPRESENTA UMA OBSERVAÇÃO DA BASE?</strong></h3>
+<p>Uma pergunta essencial ao receber qualquer banco de dados é:</p>
+<blockquote class="blockquote">
+<p><strong>O que representa uma linha da base?</strong></p>
+</blockquote>
+<p>No RHC/SP, os registros estão associados aos <strong>casos de câncer registrados pelos hospitais participantes</strong>.</p>
+<p>Antes da análise, será necessário compreender a relação entre:</p>
+<ul>
+<li><strong>paciente</strong>;</li>
+<li><strong>diagnóstico</strong>;</li>
+<li><strong>tumor</strong>;</li>
+<li><strong>atendimento</strong>;</li>
+<li><strong>tratamento</strong>;</li>
+<li><strong>seguimento</strong>.</li>
+</ul>
+<p>A unidade analítica definitiva do estudo será estabelecida posteriormente, após a inspeção dos <strong>identificadores</strong> e da estrutura do banco.</p>
+<hr>
+</section>
+<section id="dados-observacionais" class="level3" data-number="10.1.4">
+<h3 data-number="10.1.4" class="anchored" data-anchor-id="dados-observacionais"><span class="header-section-number">10.1.4</span> <strong>DADOS OBSERVACIONAIS</strong></h3>
+<p>Os dados da FOSP são provenientes da <strong>assistência e do acompanhamento dos pacientes nos serviços de saúde</strong>.</p>
+<p>Portanto, trata-se de uma base de <strong>dados observacionais</strong>.</p>
+<p>Não existe, por exemplo, alocação aleatória dos pacientes segundo:</p>
+<ul>
+<li>tratamento;</li>
+<li>estádio da doença;</li>
+<li>hospital;</li>
+<li>características clínicas.</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>INTERPRETAÇÃO</strong></p>
+<p>As associações identificadas posteriormente pelos modelos estatísticos deverão ser interpretadas dentro do contexto de um <strong>estudo observacional</strong>.</p>
+<p><strong>Associação não implica necessariamente causalidade.</strong></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="dimensão-temporal" class="level3" data-number="10.1.5">
+<h3 data-number="10.1.5" class="anchored" data-anchor-id="dimensão-temporal"><span class="header-section-number">10.1.5</span> <strong>DIMENSÃO TEMPORAL</strong></h3>
+<p>Uma característica especialmente importante do RHC/SP é sua <strong>dimensão temporal</strong>.</p>
+<p>Os registros permitem acompanhar diferentes momentos da trajetória do paciente, como:</p>
+<ul>
+<li><strong>diagnóstico</strong>;</li>
+<li><strong>tratamento</strong>;</li>
+<li><strong>acompanhamento posterior</strong>;</li>
+<li><strong>situação na última informação registrada</strong>.</li>
+</ul>
+<p>Isso possibilita formular perguntas que envolvem não apenas <strong>se um evento ocorreu</strong>, mas também:</p>
+<blockquote class="blockquote">
+<p><strong>quanto tempo foi necessário até sua ocorrência?</strong></p>
+</blockquote>
+<p>Esse tipo de estrutura torna a base particularmente interessante para estudos de <strong>análise de sobrevivência</strong>.</p>
+<hr>
+</section>
+<section id="acompanhamento-dos-pacientes" class="level3" data-number="10.1.6">
+<h3 data-number="10.1.6" class="anchored" data-anchor-id="acompanhamento-dos-pacientes"><span class="header-section-number">10.1.6</span> <strong>ACOMPANHAMENTO DOS PACIENTES</strong></h3>
+<p>Os pacientes não necessariamente apresentam o mesmo período de acompanhamento.</p>
+<p>Podemos encontrar, por exemplo:</p>
+<ul>
+<li>pacientes acompanhados durante <strong>vários anos</strong>;</li>
+<li>pacientes com <strong>seguimento curto</strong>;</li>
+<li>pacientes que apresentam o evento de interesse;</li>
+<li>pacientes que permanecem sem o evento até sua última informação disponível.</li>
+</ul>
+<p>Dessa forma, o <strong>tempo observado pode ser diferente entre os indivíduos</strong>.</p>
+<p>Essa característica será fundamental posteriormente para a definição de:</p>
+<ul>
+<li><strong>tempo até o evento</strong>;</li>
+<li><strong>evento de interesse</strong>;</li>
+<li><strong>censura</strong>.</li>
+</ul>
+<hr>
+</section>
+<section id="potencialidades-do-rhcsp" class="level3" data-number="10.1.7">
+<h3 data-number="10.1.7" class="anchored" data-anchor-id="potencialidades-do-rhcsp"><span class="header-section-number">10.1.7</span> <strong>POTENCIALIDADES DO RHC/SP</strong></h3>
+<p>A base apresenta características particularmente interessantes para estudos estatísticos:</p>
+<ul>
+<li><strong>grande quantidade de registros</strong>;</li>
+<li>presença de informações relacionadas ao <strong>diagnóstico e tratamento</strong>;</li>
+<li>acompanhamento dos casos <strong>ao longo do tempo</strong>;</li>
+<li>possibilidade de estudar diferentes <strong>localizações tumorais</strong>;</li>
+<li>informações sobre características dos <strong>pacientes e tumores</strong>;</li>
+<li>possibilidade de investigar diferentes <strong>desfechos</strong>;</li>
+<li>possibilidade de estudar fatores associados ao <strong>prognóstico</strong>;</li>
+<li>estrutura adequada para aplicação de diferentes métodos de <strong>análise de sobrevivência</strong>.</li>
+</ul>
+<p>Essas características permitem desenvolver análises que vão desde uma <strong>descrição epidemiológica</strong> até modelos estatísticos mais complexos.</p>
+<hr>
+</section>
+<section id="principais-limitações" class="level3" data-number="10.1.8">
+<h3 data-number="10.1.8" class="anchored" data-anchor-id="principais-limitações"><span class="header-section-number">10.1.8</span> <strong>PRINCIPAIS LIMITAÇÕES</strong></h3>
+<section id="representatividade" class="level4" data-number="10.1.8.1">
+<h4 data-number="10.1.8.1" class="anchored" data-anchor-id="representatividade"><span class="header-section-number">10.1.8.1</span> <strong>REPRESENTATIVIDADE</strong></h4>
+<p>Os registros correspondem aos pacientes atendidos nos <strong>hospitais participantes</strong>.</p>
+<p>Portanto:</p>
+<ul>
+<li>os resultados descrevem a população registrada no RHC;</li>
+<li>não devem ser automaticamente generalizados para toda a população do Estado de São Paulo.</li>
+</ul>
+<hr>
+</section>
+<section id="dados-ausentes" class="level4" data-number="10.1.8.2">
+<h4 data-number="10.1.8.2" class="anchored" data-anchor-id="dados-ausentes"><span class="header-section-number">10.1.8.2</span> <strong>DADOS AUSENTES</strong></h4>
+<p>Nem todas as informações estarão necessariamente disponíveis para todos os pacientes.</p>
+<p>Será necessário investigar:</p>
+<ul>
+<li><strong>percentual de dados ausentes</strong>;</li>
+<li>quais variáveis apresentam maior ausência;</li>
+<li>possíveis diferenças no preenchimento ao longo do tempo;</li>
+<li>impacto das ausências sobre as análises.</li>
+</ul>
+<hr>
+</section>
+<section id="mudanças-ao-longo-do-tempo" class="level4" data-number="10.1.8.3">
+<h4 data-number="10.1.8.3" class="anchored" data-anchor-id="mudanças-ao-longo-do-tempo"><span class="header-section-number">10.1.8.3</span> <strong>MUDANÇAS AO LONGO DO TEMPO</strong></h4>
+<p>Por se tratar de uma base histórica, podem ocorrer mudanças relacionadas a:</p>
+<ul>
+<li><strong>sistemas de classificação</strong>;</li>
+<li><strong>práticas de registro</strong>;</li>
+<li><strong>protocolos clínicos</strong>;</li>
+<li><strong>tratamentos disponíveis</strong>;</li>
+<li><strong>estrutura da rede hospitalar</strong>.</li>
+</ul>
+<p>Por isso, a escolha do <strong>recorte temporal</strong> não deve considerar apenas o tamanho da amostra.</p>
+<hr>
+</section>
+<section id="qualidade-do-seguimento" class="level4" data-number="10.1.8.4">
+<h4 data-number="10.1.8.4" class="anchored" data-anchor-id="qualidade-do-seguimento"><span class="header-section-number">10.1.8.4</span> <strong>QUALIDADE DO SEGUIMENTO</strong></h4>
+<p>O acompanhamento pode variar entre:</p>
+<ul>
+<li>pacientes;</li>
+<li>hospitais;</li>
+<li>períodos do banco.</li>
+</ul>
+<p>Esse aspecto deverá ser considerado especialmente nas análises que utilizarem <strong>tempo até o evento</strong>.</p>
+<hr>
+</section>
+</section>
+<section id="acesso-e-obtenção-da-base-de-dados" class="level3" data-number="10.1.9">
+<h3 data-number="10.1.9" class="anchored" data-anchor-id="acesso-e-obtenção-da-base-de-dados"><span class="header-section-number">10.1.9</span> <strong>ACESSO E OBTENÇÃO DA BASE DE DADOS</strong></h3>
+<p>Os dados do <strong>Registro Hospitalar de Câncer do Estado de São Paulo (RHC/SP)</strong> são disponibilizados pela <strong>Fundação Oncocentro de São Paulo (FOSP)</strong>.</p>
+<p>As informações gerais sobre o banco podem ser consultadas no <a href="https://fosp.saude.sp.gov.br/fosp/diretoria-adjunta-de-informacao-e-epidemiologia/rhc-registro-hospitalar-de-cancer/banco-de-dados-do-rhc/"><strong>portal do RHC/SP</strong></a>, enquanto os arquivos estão disponíveis na página de <a href="https://fosp.saude.sp.gov.br/fosp/diretoria-adjunta-de-informacao-e-epidemiologia/rhc-registro-hospitalar-de-cancer/download-de-arquivos/"><strong>download da FOSP</strong></a>.</p>
+<hr>
+<section id="arquivos-disponíveis" class="level4" data-number="10.1.9.1">
+<h4 data-number="10.1.9.1" class="anchored" data-anchor-id="arquivos-disponíveis"><span class="header-section-number">10.1.9.1</span> <strong>ARQUIVOS DISPONÍVEIS</strong></h4>
+<p>Entre os arquivos disponibilizados pela FOSP encontram-se:</p>
+<ul>
+<li>o <strong>Dicionário de Dados do RHC/SP</strong>;</li>
+<li>o <strong>Banco RHC/SP completo</strong>;</li>
+<li>bases organizadas segundo o <strong>ano de diagnóstico do tumor</strong>.</li>
+</ul>
+<p>O <strong>Banco RHC/SP completo</strong> reúne os registros dos diferentes anos disponíveis em um único arquivo. As bases anuais, por sua vez, permitem trabalhar separadamente com os registros segundo o <strong>ano de diagnóstico do tumor</strong>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>BASE UTILIZADA NESTE PROJETO</strong></p>
+<p>Neste projeto será utilizado inicialmente o <strong>Banco RHC/SP completo</strong>.</p>
+<p>A partir dessa base serão posteriormente definidos:</p>
+<ul>
+<li>os <strong>tipos de câncer</strong> de interesse;</li>
+<li>o <strong>período do estudo</strong>;</li>
+<li>os <strong>critérios de inclusão e exclusão</strong>;</li>
+<li>a <strong>população analítica final</strong>.</li>
+</ul>
+<p>A definição do período de análise será realizada de acordo com os objetivos do estudo e com a qualidade e completude dos registros, e não apenas com base na disponibilidade temporal dos dados.</p>
+<hr>
+<section id="download-dos-dados" class="level4" data-number="10.1.9.2">
+<h4 data-number="10.1.9.2" class="anchored" data-anchor-id="download-dos-dados"><span class="header-section-number">10.1.9.2</span> <strong>DOWNLOAD DOS DADOS</strong></h4>
+<p>Para preparar os arquivos que serão utilizados no projeto:</p>
+<ol type="1">
+<li>acesse a página de <a href="https://fosp.saude.sp.gov.br/fosp/diretoria-adjunta-de-informacao-e-epidemiologia/rhc-registro-hospitalar-de-cancer/download-de-arquivos/"><strong>download do RHC/SP</strong></a>;</li>
+<li>realize o cadastro solicitado pela FOSP;</li>
+<li>faça o download do <strong>Banco RHC/SP completo</strong>;</li>
+<li>faça o download do <strong>Dicionário de Dados do RHC/SP</strong>;</li>
+<li>armazene os dois arquivos na pasta destinada aos dados do projeto.</li>
+</ol>
+</section>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="primeiros-passos" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="primeiros-passos"><span class="header-section-number">10.2</span> <strong>PRIMEIROS PASSOS</strong></h2>
+<p>Para aplicarmos nossos critérios de exclusão na base de dados original, precisaremos dos seguintes pacotes:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arrow)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Para facilitar a manipulação da base, o arquivo original disponibilizado pela FOSP foi previamente <strong>exportado e convertido para o formato Parquet</strong>.</p>
+<p>O formato <strong>Parquet</strong> é particularmente adequado para bases de grande porte, pois permite:</p>
+<ul>
+<li><strong>reduzir o espaço ocupado em disco</strong>;</li>
+<li>tornar a <strong>leitura dos dados mais rápida</strong>;</li>
+<li>facilitar procedimentos de <strong>seleção, filtragem e manipulação</strong>;</li>
+<li>evitar algumas limitações associadas ao formato original da base.</li>
+</ul>
+<section id="leitura-da-base" class="level3" data-number="10.2.1">
+<h3 data-number="10.2.1" class="anchored" data-anchor-id="leitura-da-base"><span class="header-section-number">10.2.1</span> <strong>LEITURA DA BASE</strong></h3>
+<p>Para realizar a leitura do arquivo no <code>R</code>, utilizaremos o pacote <code>arrow</code>:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Dados <span class="ot">&lt;-</span> <span class="fu">read_parquet</span>(<span class="st">"FOSP.parquet"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Após a leitura, algumas informações textuais podem apresentar problemas de <strong>codificação de caracteres</strong>, especialmente em palavras contendo <strong>acentos e cedilha</strong>.</p>
+<p>Para padronizar os campos textuais em <strong>UTF-8</strong>, utilizaremos:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Dados <span class="ot">&lt;-</span> Dados <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">where</span>(is.character),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span> <span class="fu">iconv</span>(.x, <span class="at">from =</span> <span class="st">"latin1"</span>, <span class="at">to =</span> <span class="st">"UTF-8"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="principais-variáveis" class="level3" data-number="10.2.2">
+<h3 data-number="10.2.2" class="anchored" data-anchor-id="principais-variáveis"><span class="header-section-number">10.2.2</span> <strong>PRINCIPAIS VARIÁVEIS</strong></h3>
+<p>A base do RHC/SP reúne informações de diferentes naturezas. Para este estudo, as principais variáveis podem ser organizadas nos seguintes <strong>grandes grupos</strong>:</p>
+<ul>
+<li><p><strong>Características sociodemográficas:</strong> informações relacionadas ao perfil do paciente, como <strong>idade, sexo, escolaridade, raça/cor, estado civil e local de residência</strong>.</p></li>
+<li><p><strong>Características do tumor:</strong> informações sobre <strong>localização e morfologia do tumor, estadiamento clínico, classificação TNM e presença de metástases</strong>.</p></li>
+<li><p><strong>Diagnóstico:</strong> informações relacionadas ao <strong>diagnóstico da doença</strong>, incluindo sua data e base utilizada para confirmação.</p></li>
+<li><p><strong>Tratamento:</strong> informações sobre o <strong>início e os tipos de tratamento realizados</strong>, como cirurgia, radioterapia, quimioterapia e hormonioterapia.</p></li>
+<li><p><strong>Seguimento e desfecho:</strong> informações referentes ao <strong>acompanhamento do paciente</strong>, incluindo a data da última informação e sua situação nesse momento, permitindo identificar <strong>óbito por câncer, óbito por outras causas ou censura</strong>.</p></li>
+</ul>
+</section>
+<section id="escolha-das-neoplasias" class="level3" data-number="10.2.3">
+<h3 data-number="10.2.3" class="anchored" data-anchor-id="escolha-das-neoplasias"><span class="header-section-number">10.2.3</span> <strong>ESCOLHA DAS NEOPLASIAS</strong></h3>
+<p>Para o desenvolvimento do estudo, foram selecionadas quatro <strong>neoplasias do trato gastrointestinal e órgãos associados</strong>:</p>
+<ul>
+<li><strong>Esôfago — C15</strong></li>
+<li><strong>Estômago — C16</strong></li>
+<li><strong>Fígado e vias biliares intra-hepáticas — C22</strong></li>
+<li><strong>Pâncreas — C25</strong></li>
+</ul>
+<p>Na base da FOSP, a identificação da localização do tumor pode ser realizada por meio das variáveis de <strong>topografia</strong>, especialmente <code>TOPO</code> e <code>TOPOGRUP</code>, estruturadas segundo a <strong>CID-O</strong>.</p>
+<p>A escolha desses quatro cânceres foi realizada considerando alguns aspectos importantes para a aplicação dos métodos de <strong>análise de sobrevivência</strong>:</p>
+<ul>
+<li>pertencem a um conjunto de neoplasias com características clínicas relativamente próximas, permitindo trabalhar com um <strong>núcleo semelhante de covariáveis</strong>;</li>
+<li>apresentam diferentes padrões de prognóstico e sobrevivência, tornando interessante a comparação entre <strong>modelos paramétricos</strong> e o <strong>modelo semiparamétrico de Cox</strong>;</li>
+<li>permitem explorar variáveis comuns relacionadas ao <strong>perfil do paciente, estadiamento, metástase e tratamento</strong>;</li>
+<li>apresentam ocorrência suficiente de eventos para possibilitar o estudo do <strong>tempo até o óbito por câncer</strong>;</li>
+<li>possibilitam avaliar se diferentes distribuições paramétricas apresentam melhor ajuste para diferentes tipos de neoplasia.</li>
+</ul>
+<p>A utilização de neoplasias relacionadas, mas com diferentes comportamentos de sobrevivência, permitirá comparar os resultados entre os alunos mantendo uma <strong>estrutura metodológica semelhante</strong>.</p>
+<hr>
+</section>
+<section id="sorteio-das-neoplasias" class="level3" data-number="10.2.4">
+<h3 data-number="10.2.4" class="anchored" data-anchor-id="sorteio-das-neoplasias"><span class="header-section-number">10.2.4</span> <strong>SORTEIO DAS NEOPLASIAS</strong></h3>
+<p>Cada aluno ficará responsável pela análise de uma das quatro neoplasias selecionadas.</p>
+<p>O sorteio será realizado no <code>R</code>, garantindo que <strong>cada câncer seja atribuído a apenas um aluno</strong>.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Alunos</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>alunos <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"CAIO VINICIUS ARAUJO DE OLIVEIRA SALVIANO"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"EDERSON MACEDO DE CARVALHO MORAES"</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"FENICIO PORTO CARVALHO GULLO GIGLIO"</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"JOAO VICTOR OLIVEIRA HONORATO"</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Neoplasias selecionadas</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>neoplasias <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Esôfago (C15)"</span>,</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Estômago (C16)"</span>,</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Fígado e vias biliares intra-hepáticas (C22)"</span>,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Pâncreas (C25)"</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Sorteio</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>sorteio <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">Aluno =</span> alunos,</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">Neoplasia =</span> <span class="fu">sample</span>(</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    neoplasias,</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fu">length</span>(neoplasias),</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">replace =</span> <span class="cn">FALSE</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Apresentação do resultado</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>sorteio <span class="sc">|&gt;</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Resultado do sorteio das neoplasias"</span>,</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>, <span class="st">"l"</span>),</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">booktabs =</span> <span class="cn">TRUE</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>),</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">full_width =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">"center"</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">bold =</span> <span class="cn">TRUE</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small" data-quarto-postprocess="true">
+<caption>Resultado do sorteio das neoplasias</caption>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;">Aluno</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;">Neoplasia</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">CAIO VINICIUS ARAUJO DE OLIVEIRA SALVIANO</td>
+<td style="text-align: left;">Fígado e vias biliares intra-hepáticas (C22)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">EDERSON MACEDO DE CARVALHO MORAES</td>
+<td style="text-align: left;">Pâncreas (C25)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FENICIO PORTO CARVALHO GULLO GIGLIO</td>
+<td style="text-align: left;">Esôfago (C15)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">JOAO VICTOR OLIVEIRA HONORATO</td>
+<td style="text-align: left;">Estômago (C16)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="critérios-de-exclusão" class="level3" data-number="10.2.5">
+<h3 data-number="10.2.5" class="anchored" data-anchor-id="critérios-de-exclusão"><span class="header-section-number">10.2.5</span> <strong>CRITÉRIOS DE EXCLUSÃO</strong></h3>
+<p>Antes da construção da base analítica, serão aplicados critérios de elegibilidade com o objetivo de obter uma população mais homogênea e garantir informações adequadas para a análise de sobrevivência.</p>
+<p>Serão adotados os seguintes critérios:</p>
+<ul>
+<li><p><strong>Neoplasia de interesse:</strong> serão mantidos apenas pacientes diagnosticados com a neoplasia sorteada para cada aluno: <strong>C15 (esôfago)</strong>, <strong>C16 (estômago)</strong>, <strong>C22 (fígado e vias biliares intra-hepáticas)</strong> ou <strong>C25 (pâncreas)</strong>.</p></li>
+<li><p><strong>Período de diagnóstico:</strong> serão incluídos pacientes diagnosticados entre <strong>2014 e 2019</strong>. O limite inferior permite trabalhar com um período relativamente recente e homogêneo da base, enquanto o limite superior evita a inclusão de diagnósticos muito próximos ao final do período disponível de acompanhamento. Dessa forma, reduz-se a presença de pacientes com <strong>tempo potencial de seguimento muito curto</strong>.</p></li>
+<li><p><strong>Idade:</strong> serão incluídos apenas pacientes com <strong>18 anos ou mais no momento do diagnóstico</strong>, restringindo o estudo à população adulta.</p></li>
+<li><p><strong>Diagnóstico e tratamento prévios:</strong> serão mantidos pacientes que chegaram à instituição <strong>sem tratamento oncológico prévio</strong>, correspondentes às categorias <code>DIAGPREV = 1</code> (sem diagnóstico e sem tratamento) e <code>DIAGPREV = 2</code> (com diagnóstico e sem tratamento). Esse critério permite acompanhar o paciente a partir de uma condição mais comparável em relação ao início do tratamento.</p></li>
+<li><p><strong>Erros de admissão:</strong> serão excluídos registros identificados pela FOSP como contendo <strong>erro de admissão</strong> (<code>ERRO != 0</code>).</p></li>
+<li><p><strong>Datas de acompanhamento:</strong> serão excluídos pacientes sem informação sobre a <strong>data do diagnóstico</strong> (<code>DTDIAG</code>) ou a <strong>data da última informação</strong> (<code>DTULTINFO</code>), pois essas datas são necessárias para determinar o tempo de sobrevivência ou censura.</p></li>
+<li><p><strong>Situação na última informação:</strong> serão mantidos apenas pacientes classificados como <strong>vivos com câncer</strong>, <strong>vivos sem outra especificação (SOE)</strong>, <strong>óbito por câncer</strong> ou <strong>óbito por outras causas/SOE</strong> (<code>ULTINFO</code> de 1 a 4). Registros com outras situações não serão utilizados na definição inicial do desfecho.</p></li>
+<li><p><strong>Consistência temporal:</strong> serão excluídos registros em que a <strong>data da última informação seja anterior à data do diagnóstico</strong>, uma vez que esses casos resultariam em tempos de acompanhamento negativos e representam inconsistências para a análise de sobrevivência.</p></li>
+</ul>
+<p>Para aplicar estes critérios de exclusão, seguem os comandos:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>DadosF <span class="ot">&lt;-</span> Dados <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Seleciona uma das quatro neoplasias estudadas:</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># C15 = Esôfago</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># C16 = Estômago</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># C22 = Fígado e vias biliares intra-hepáticas</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># C25 = Pâncreas</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    TOPOGRUP <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"C25"</span>),</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Mantém apenas pacientes diagnosticados entre 2014 e 2019</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    ANODIAG <span class="sc">&gt;=</span> <span class="dv">2014</span>,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    ANODIAG <span class="sc">&lt;=</span> <span class="dv">2019</span>,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Restringe a análise aos adultos</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    IDADE <span class="sc">&gt;=</span> <span class="dv">18</span>,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Mantém pacientes que chegaram à instituição</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># sem tratamento oncológico prévio:</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 1 = sem diagnóstico e sem tratamento</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 2 = com diagnóstico e sem tratamento</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    DIAGPREV <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Mantém apenas registros sem erro de admissão</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    ERRO <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Exclui pacientes sem as datas necessárias</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># para calcular o tempo de acompanhamento</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    <span class="sc">!</span><span class="fu">is.na</span>(DTDIAG),</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    <span class="sc">!</span><span class="fu">is.na</span>(DTULTINFO),</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Mantém apenas situações finais válidas:</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 1 = vivo, com câncer</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 2 = vivo, SOE</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 3 = óbito por câncer</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 4 = óbito por outras causas, SOE</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    ULTINFO <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>),</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Exclui inconsistências temporais:</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># a última informação não pode ocorrer antes do diagnóstico</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>    DTULTINFO <span class="sc">&gt;=</span> DTDIAG</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>  ) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Ao final dessa etapa, a base <code>DadosF</code> contém apenas os pacientes que atendem aos critérios estabelecidos e as variáveis que serão consideradas nas análises posteriores.</p>
+</section>
+<section id="variáveis-selecionadas" class="level3" data-number="10.2.6">
+<h3 data-number="10.2.6" class="anchored" data-anchor-id="variáveis-selecionadas"><span class="header-section-number">10.2.6</span> <strong>VARIÁVEIS SELECIONADAS</strong></h3>
+<p>Após a aplicação dos critérios de exclusão, serão consideradas as seguintes variáveis para a caracterização dos pacientes e para as análises de sobrevivência:</p>
+<ul>
+<li><p><strong><code>TOPOGRUP</code> — Grupo de topografia da neoplasia</strong></p>
+<p>Identifica a localização primária da neoplasia. Neste trabalho, cada aluno analisará uma das seguintes neoplasias:</p>
+<ul>
+<li><code>C15</code> — Esôfago</li>
+<li><code>C16</code> — Estômago</li>
+<li><code>C22</code> — Fígado e vias biliares intra-hepáticas</li>
+<li><code>C25</code> — Pâncreas</li>
+</ul></li>
+<li><p><strong><code>IDADE</code> — Idade do paciente</strong></p>
+<p>Idade, em anos, no momento do diagnóstico. Será utilizada como uma variável quantitativa. Neste estudo serão considerados apenas pacientes com <strong>18 anos ou mais</strong>.</p></li>
+<li><p><strong><code>SEXO</code> — Sexo do paciente</strong></p>
+<ul>
+<li><code>1</code> — Masculino</li>
+<li><code>2</code> — Feminino</li>
+</ul></li>
+<li><p><strong><code>ESCOLARI</code> — Escolaridade do paciente</strong></p>
+<ul>
+<li><code>1</code> — Analfabeto</li>
+<li><code>2</code> — Ensino fundamental incompleto</li>
+<li><code>3</code> — Ensino fundamental completo</li>
+<li><code>4</code> — Ensino médio</li>
+<li><code>5</code> — Ensino superior</li>
+<li><code>9</code> — Sem informação</li>
+</ul></li>
+<li><p><strong><code>ECGRUP</code> — Grupo do estadiamento clínico</strong></p>
+<p>Representa o estágio de evolução da neoplasia:</p>
+<ul>
+<li><code>0</code> — Carcinoma <em>in situ</em></li>
+<li><code>I</code> — Estágio I</li>
+<li><code>II</code> — Estágio II</li>
+<li><code>III</code> — Estágio III</li>
+<li><code>IV</code> — Estágio IV</li>
+<li><code>X</code> — Sem informação / não foi estadiado</li>
+<li><code>Y</code> — Não se aplica (neoplasia não estadiável pelo sistema TNM)</li>
+</ul></li>
+<li><p><strong><code>CATEATEND</code> — Categoria de atendimento</strong></p>
+<p>Identifica a categoria na qual o caso foi registrado:</p>
+<ul>
+<li><code>1</code> — SUS</li>
+<li><code>2</code> — Convênio</li>
+<li><code>3</code> — Particular</li>
+</ul></li>
+<li><p><strong><code>CIRURGIA</code> — Cirurgia realizada no hospital</strong></p>
+<ul>
+<li><code>0</code> — Não</li>
+<li><code>1</code> — Sim</li>
+</ul></li>
+<li><p><strong><code>RADIO</code> — Radioterapia realizada no hospital</strong></p>
+<ul>
+<li><code>0</code> — Não</li>
+<li><code>1</code> — Sim</li>
+</ul></li>
+<li><p><strong><code>QUIMIO</code> — Quimioterapia realizada no hospital</strong></p>
+<ul>
+<li><code>0</code> — Não</li>
+<li><code>1</code> — Sim</li>
+</ul></li>
+<li><p><strong><code>DTDIAG</code> — Data do diagnóstico</strong></p>
+<p>Data em que foi estabelecido o diagnóstico da neoplasia. Será utilizada como o <strong>início do acompanhamento</strong> na análise de sobrevivência.</p></li>
+<li><p><strong><code>DTULTINFO</code> — Data da última informação</strong></p>
+<p>Data correspondente à última informação disponível sobre o paciente. Será utilizada para determinar o <strong>final do período de acompanhamento</strong>.</p></li>
+<li><p><strong><code>ULTINFO</code> — Situação na última informação</strong></p>
+<p>Identifica a situação do paciente na última informação disponível:</p>
+<ul>
+<li><code>1</code> — Vivo, com câncer</li>
+<li><code>2</code> — Vivo, SOE</li>
+<li><code>3</code> — Óbito por câncer</li>
+<li><code>4</code> — Óbito por outras causas, SOE</li>
+</ul>
+<p>Para este trabalho, o <strong>óbito por câncer (<code>3</code>) será considerado o evento de interesse</strong>. As demais situações serão consideradas censuras.</p></li>
+</ul>
+<p>Os comandos a seguir fazem a seleção dessas variáveis:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>DadosF <span class="ot">=</span> DadosF <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Identificação da neoplasia</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    TOPOGRUP,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Variáveis sociodemográficas</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    IDADE,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    SEXO,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    ESCOLARI,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Características do câncer</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    ECGRUP,</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Tratamento</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    CATEATEND,</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    CIRURGIA,</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    RADIO,</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    QUIMIO,</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Seguimento e desfecho</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    DTDIAG,</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    DTULTINFO,</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    ULTINFO</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="construção-da-variável-resposta" class="level3" data-number="10.2.7">
+<h3 data-number="10.2.7" class="anchored" data-anchor-id="construção-da-variável-resposta"><span class="header-section-number">10.2.7</span> <strong>CONSTRUÇÃO DA VARIÁVEL RESPOSTA</strong></h3>
+<p>Em uma análise de sobrevivência, a variável resposta é formada por duas informações:</p>
+<ul>
+<li>o <strong>tempo até a ocorrência do evento ou censura</strong>;</li>
+<li>um <strong>indicador da ocorrência do evento</strong>.</li>
+</ul>
+<p>Neste estudo, o evento de interesse será o <strong>óbito por câncer</strong>.</p>
+<p>O tempo de acompanhamento será contado a partir da <strong>data do diagnóstico</strong> até a <strong>data da última informação disponível</strong>, sendo expresso em meses.</p>
+<p>Serão considerados censurados os pacientes que estiverem vivos na última informação disponível ou que tenham apresentado óbito por outras causas.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>DadosF <span class="ot">&lt;-</span> DadosF <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calcula o tempo de acompanhamento em meses.</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># O acompanhamento começa na data do diagnóstico (DTDIAG)</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># e termina na data da última informação disponível (DTULTINFO).</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># A diferença entre as datas é inicialmente obtida em dias</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># e convertida para meses utilizando 30,44 dias por mês.</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">tempo =</span> <span class="fu">as.numeric</span>(DTULTINFO <span class="sc">-</span> DTDIAG) <span class="sc">/</span> <span class="fl">30.44</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define o indicador do evento:</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 1 = óbito por câncer</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 0 = censura</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">#</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ULTINFO:</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 1 = vivo, com câncer       -&gt; censura</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 2 = vivo, SOE              -&gt; censura</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 3 = óbito por câncer       -&gt; evento</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 4 = óbito por outras causas -&gt; censura</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">cens =</span> <span class="fu">ifelse</span>(ULTINFO <span class="sc">==</span> <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>A variável <code>tempo</code> representa, portanto, o <strong>tempo desde o diagnóstico até o óbito por câncer ou até a censura</strong>, enquanto <code>cens</code> indica se o evento de interesse foi observado.</p>
+<p>A resposta utilizada nas análises de sobrevivência será:</p>
+</section>
+</section>
+<section id="parte-i-análise-não-paramétrica" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="parte-i-análise-não-paramétrica"><span class="header-section-number">10.3</span> <strong>PARTE I — ANÁLISE NÃO PARAMÉTRICA</strong></h2>
+<p>Nesta primeira etapa, deverá ser construída uma <strong>apresentação em slides</strong> com os resultados da análise não paramétrica de sobrevivência.</p>
+<p>A apresentação deverá ser organizada nos seguintes capítulos:</p>
+<ul>
+<li><strong>Introdução</strong>;</li>
+<li><strong>Metodologia</strong>;</li>
+<li><strong>Resultados</strong>;</li>
+<li><strong>Conclusão</strong>.</li>
+</ul>
+<section id="introdução-1" class="level3" data-number="10.3.1">
+<h3 data-number="10.3.1" class="anchored" data-anchor-id="introdução-1"><span class="header-section-number">10.3.1</span> <strong>INTRODUÇÃO</strong></h3>
+<p>A apresentação deverá iniciar com a <strong>contextualização do problema</strong>, destacando:</p>
+<ul>
+<li>a <strong>fonte dos dados</strong>;</li>
+<li>a população analisada;</li>
+<li>o <strong>tipo de câncer estudado</strong>;</li>
+<li>o período considerado;</li>
+<li>a relevância da investigação.</li>
+</ul>
+<p>Também deverão ser claramente definidos:</p>
+<ul>
+<li><strong>evento de interesse</strong>;</li>
+<li><strong>tempo até o evento</strong>;</li>
+<li>significado da <strong>censura</strong>.</li>
+</ul>
+<p>Na sequência, devem ser apresentadas as principais variáveis utilizadas, identificando:</p>
+<ul>
+<li>variável de <strong>tempo</strong>;</li>
+<li>variável de <strong>evento/censura</strong>;</li>
+<li><strong>covariáveis qualitativas</strong>;</li>
+<li><strong>covariáveis quantitativas</strong>.</li>
+</ul>
+<p>O foco deve estar principalmente no <strong>significado prático das variáveis no contexto do câncer estudado</strong>.</p>
+<hr>
+</section>
+<section id="metodologia" class="level3" data-number="10.3.2">
+<h3 data-number="10.3.2" class="anchored" data-anchor-id="metodologia"><span class="header-section-number">10.3.2</span> <strong>METODOLOGIA</strong></h3>
+<p>A metodologia deve apresentar de forma objetiva os procedimentos estatísticos utilizados.</p>
+<p>Nesta etapa serão considerados:</p>
+<ul>
+<li><strong>estimador de Kaplan-Meier</strong>;</li>
+<li><strong>tempo mediano de sobrevivência</strong>;</li>
+<li>respectivos <strong>intervalos de confiança</strong>;</li>
+<li><strong>teste de Log-Rank</strong>;</li>
+<li><strong>teste de Peto-Peto</strong>;</li>
+<li><strong>comparações múltiplas</strong>, quando necessárias;</li>
+<li>correção de <strong>Holm-Bonferroni</strong>;</li>
+<li><strong>medidas resumo</strong> para as covariáveis quantitativas.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>ORIENTAÇÃO</strong></p>
+<p>Não é necessário apresentar <strong>fórmulas ou demonstrações matemáticas</strong>.</p>
+<p>A metodologia deve explicar de maneira objetiva:</p>
+<ul>
+<li><strong>qual método foi utilizado</strong>;</li>
+<li><strong>para qual finalidade</strong>;</li>
+<li><strong>por que ele é adequado à análise realizada</strong>.</li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+<section id="resultados" class="level3" data-number="10.3.3">
+<h3 data-number="10.3.3" class="anchored" data-anchor-id="resultados"><span class="header-section-number">10.3.3</span> <strong>RESULTADOS</strong></h3>
+<p>Os resultados deverão ser organizados em <strong>três blocos</strong>.</p>
+<section id="análise-sem-covariáveis" class="level4" data-number="10.3.3.1">
+<h4 data-number="10.3.3.1" class="anchored" data-anchor-id="análise-sem-covariáveis"><span class="header-section-number">10.3.3.1</span> <strong>ANÁLISE SEM COVARIÁVEIS</strong></h4>
+<p>Apresentar:</p>
+<ul>
+<li><strong>curva de sobrevivência global</strong> estimada por Kaplan-Meier;</li>
+<li>respectivo <strong>intervalo de confiança</strong>;</li>
+<li><strong>tempo mediano de sobrevivência</strong>;</li>
+<li>intervalo de confiança para a mediana;</li>
+<li>interpretação dos resultados no contexto do estudo.</li>
+</ul>
+<hr>
+</section>
+<section id="covariáveis-qualitativas" class="level4" data-number="10.3.3.2">
+<h4 data-number="10.3.3.2" class="anchored" data-anchor-id="covariáveis-qualitativas"><span class="header-section-number">10.3.3.2</span> <strong>COVARIÁVEIS QUALITATIVAS</strong></h4>
+<p>Para cada covariável qualitativa selecionada, apresentar:</p>
+<ul>
+<li><strong>curvas de sobrevivência por grupo</strong>;</li>
+<li><strong>tempos medianos de sobrevivência</strong>;</li>
+<li>respectivos <strong>intervalos de confiança</strong>;</li>
+<li>resultado do <strong>teste de Log-Rank</strong>;</li>
+<li>resultado do <strong>teste de Peto-Peto</strong>.</li>
+</ul>
+<p>Quando houver <strong>mais de dois grupos</strong> e evidência de diferença entre as curvas, realizar:</p>
+<ul>
+<li><strong>comparações múltiplas</strong>;</li>
+<li>ajuste dos valores-p pela correção de <strong>Holm-Bonferroni</strong>.</li>
+</ul>
+<p>A interpretação deve identificar quais grupos apresentam <strong>maior ou menor sobrevivência</strong> e se as diferenças possuem evidência estatística.</p>
+<hr>
+</section>
+<section id="covariáveis-quantitativas" class="level4" data-number="10.3.3.3">
+<h4 data-number="10.3.3.3" class="anchored" data-anchor-id="covariáveis-quantitativas"><span class="header-section-number">10.3.3.3</span> <strong>COVARIÁVEIS QUANTITATIVAS</strong></h4>
+<p>Para as covariáveis quantitativas, apresentar medidas resumo:</p>
+<ul>
+<li>para o <strong>conjunto total de pacientes</strong>;</li>
+<li>entre pacientes que apresentaram o <strong>evento</strong>;</li>
+<li>entre pacientes <strong>censurados</strong>.</li>
+</ul>
+<p>A escolha das medidas deve considerar a <strong>distribuição dos dados</strong>.</p>
+<p>A interpretação deve destacar possíveis diferenças entre os grupos e padrões que possam ser relevantes para as etapas posteriores da análise.</p>
+<hr>
+</section>
+</section>
+<section id="conclusão" class="level3" data-number="10.3.4">
+<h3 data-number="10.3.4" class="anchored" data-anchor-id="conclusão"><span class="header-section-number">10.3.4</span> <strong>CONCLUSÃO</strong></h3>
+<p>A apresentação deverá terminar com uma síntese dos principais resultados da análise não paramétrica.</p>
+<p>Destacar:</p>
+<ul>
+<li>principais características da população;</li>
+<li>comportamento da <strong>sobrevivência global</strong>;</li>
+<li>grupos com <strong>maior e menor sobrevivência</strong>;</li>
+<li>covariáveis que apresentaram diferenças relevantes;</li>
+<li>possíveis <strong>implicações práticas</strong>;</li>
+<li>principais <strong>limitações da análise</strong>.</li>
+</ul>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Cap6.html" class="pagination-link" aria-label="**COMPARAÇÃO DE CURVAS DE SOBREVIVÊNCIA/CONFIABILIDADE (PRÁTICA)**">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title"><strong>COMPARAÇÃO DE CURVAS DE SOBREVIVÊNCIA/CONFIABILIDADE (PRÁTICA)</strong></span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Código fonte</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># **TRABALHO**</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>Nesta atividade, será desenvolvido um estudo utilizando dados dos **Registros Hospitalares de Câncer do Estado de São Paulo (RHC/SP)**, disponibilizados pela **Fundação Oncocentro de São Paulo (FOSP)**.</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## **INTRODUÇÃO**</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>A **Fundação Oncocentro de São Paulo (FOSP)** é uma instituição vinculada à **Secretaria de Estado da Saúde de São Paulo**, com atuação na área de oncologia.</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>Entre suas atividades está a coordenação dos **Registros Hospitalares de Câncer (RHC)** no Estado de São Paulo.</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>Os registros hospitalares permitem:</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**reunir** informações sobre pacientes com câncer;</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**organizar** dados provenientes das instituições participantes;</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**acompanhar** diferentes aspectos relacionados ao diagnóstico, tratamento e evolução dos casos;</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>produzir informações úteis para estudos **epidemiológicos e estatísticos**.</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="fu">### **O QUE É UM REGISTRO HOSPITALAR DE CÂNCER?**</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>Um **Registro Hospitalar de Câncer (RHC)** é um sistema destinado à coleta e ao armazenamento de informações sobre pacientes com diagnóstico de câncer atendidos em instituições hospitalares.</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>Os registros podem reunir informações relacionadas a:</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**características do paciente**;</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**características do tumor**;</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**diagnóstico**;</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**extensão da doença**;</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**tratamento**;</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**instituição de atendimento**;</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**acompanhamento**;</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**situação do paciente na última informação disponível**.</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>Portanto, o RHC não registra apenas a ocorrência do câncer. Ele permite acompanhar diferentes aspectos da **trajetória do paciente dentro do serviço de saúde**.</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a><span class="fu">### **RHC NÃO É UM REGISTRO DE BASE POPULACIONAL**</span></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>Uma distinção fundamental é compreender a diferença entre um **Registro Hospitalar de Câncer** e um **Registro de Câncer de Base Populacional**.</span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **REGISTRO HOSPITALAR DE CÂNCER**</span></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>Tem como referência os:</span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **pacientes atendidos nas instituições participantes do sistema de registro.**</span></span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>Portanto, sua população é formada pelos pacientes que chegaram aos hospitais incluídos no RHC.</span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **REGISTRO DE CÂNCER DE BASE POPULACIONAL**</span></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>Tem como objetivo identificar casos de câncer ocorridos em uma:</span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **população geograficamente definida**, independentemente do hospital em que o paciente tenha sido atendido.</span></span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>**ATENÇÃO**</span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>Os dados do RHC/SP **não representam automaticamente todos os casos de câncer ocorridos no Estado de São Paulo**.</span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>Consequentemente, não devem ser interpretados como uma amostra populacional nem utilizados diretamente para estimar **taxas de incidência populacional de câncer**.</span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a><span class="fu">### **O QUE REPRESENTA UMA OBSERVAÇÃO DA BASE?**</span></span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a>Uma pergunta essencial ao receber qualquer banco de dados é:</span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **O que representa uma linha da base?**</span></span>
+<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a>No RHC/SP, os registros estão associados aos **casos de câncer registrados pelos hospitais participantes**.</span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a>Antes da análise, será necessário compreender a relação entre:</span>
+<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**paciente**;</span>
+<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**diagnóstico**;</span>
+<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**tumor**;</span>
+<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**atendimento**;</span>
+<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**tratamento**;</span>
+<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**seguimento**.</span>
+<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a>A unidade analítica definitiva do estudo será estabelecida posteriormente, após a inspeção dos **identificadores** e da estrutura do banco.</span>
+<span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a><span class="fu">### **DADOS OBSERVACIONAIS**</span></span>
+<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a>Os dados da FOSP são provenientes da **assistência e do acompanhamento dos pacientes nos serviços de saúde**.</span>
+<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-93"><a href="#cb8-93" aria-hidden="true" tabindex="-1"></a>Portanto, trata-se de uma base de **dados observacionais**.</span>
+<span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a>Não existe, por exemplo, alocação aleatória dos pacientes segundo:</span>
+<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>tratamento;</span>
+<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>estádio da doença;</span>
+<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>hospital;</span>
+<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>características clínicas.</span>
+<span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-102"><a href="#cb8-102" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
+<span id="cb8-103"><a href="#cb8-103" aria-hidden="true" tabindex="-1"></a>**INTERPRETAÇÃO**</span>
+<span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a>As associações identificadas posteriormente pelos modelos estatísticos deverão ser interpretadas dentro do contexto de um **estudo observacional**.</span>
+<span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a>**Associação não implica necessariamente causalidade.**</span>
+<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a><span class="fu">### **DIMENSÃO TEMPORAL**</span></span>
+<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a>Uma característica especialmente importante do RHC/SP é sua **dimensão temporal**.</span>
+<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a>Os registros permitem acompanhar diferentes momentos da trajetória do paciente, como:</span>
+<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**diagnóstico**;</span>
+<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**tratamento**;</span>
+<span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**acompanhamento posterior**;</span>
+<span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**situação na última informação registrada**.</span>
+<span id="cb8-122"><a href="#cb8-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-123"><a href="#cb8-123" aria-hidden="true" tabindex="-1"></a>Isso possibilita formular perguntas que envolvem não apenas **se um evento ocorreu**, mas também:</span>
+<span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-125"><a href="#cb8-125" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **quanto tempo foi necessário até sua ocorrência?**</span></span>
+<span id="cb8-126"><a href="#cb8-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-127"><a href="#cb8-127" aria-hidden="true" tabindex="-1"></a>Esse tipo de estrutura torna a base particularmente interessante para estudos de **análise de sobrevivência**.</span>
+<span id="cb8-128"><a href="#cb8-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-129"><a href="#cb8-129" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb8-130"><a href="#cb8-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-131"><a href="#cb8-131" aria-hidden="true" tabindex="-1"></a><span class="fu">### **ACOMPANHAMENTO DOS PACIENTES**</span></span>
+<span id="cb8-132"><a href="#cb8-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-133"><a href="#cb8-133" aria-hidden="true" tabindex="-1"></a>Os pacientes não necessariamente apresentam o mesmo período de acompanhamento.</span>
+<span id="cb8-134"><a href="#cb8-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-135"><a href="#cb8-135" aria-hidden="true" tabindex="-1"></a>Podemos encontrar, por exemplo:</span>
+<span id="cb8-136"><a href="#cb8-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-137"><a href="#cb8-137" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>pacientes acompanhados durante **vários anos**;</span>
+<span id="cb8-138"><a href="#cb8-138" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>pacientes com **seguimento curto**;</span>
+<span id="cb8-139"><a href="#cb8-139" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>pacientes que apresentam o evento de interesse;</span>
+<span id="cb8-140"><a href="#cb8-140" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>pacientes que permanecem sem o evento até sua última informação disponível.</span>
+<span id="cb8-141"><a href="#cb8-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-142"><a href="#cb8-142" aria-hidden="true" tabindex="-1"></a>Dessa forma, o **tempo observado pode ser diferente entre os indivíduos**.</span>
+<span id="cb8-143"><a href="#cb8-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-144"><a href="#cb8-144" aria-hidden="true" tabindex="-1"></a>Essa característica será fundamental posteriormente para a definição de:</span>
+<span id="cb8-145"><a href="#cb8-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-146"><a href="#cb8-146" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**tempo até o evento**;</span>
+<span id="cb8-147"><a href="#cb8-147" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**evento de interesse**;</span>
+<span id="cb8-148"><a href="#cb8-148" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**censura**.</span>
+<span id="cb8-149"><a href="#cb8-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-150"><a href="#cb8-150" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb8-151"><a href="#cb8-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-152"><a href="#cb8-152" aria-hidden="true" tabindex="-1"></a><span class="fu">### **POTENCIALIDADES DO RHC/SP**</span></span>
+<span id="cb8-153"><a href="#cb8-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-154"><a href="#cb8-154" aria-hidden="true" tabindex="-1"></a>A base apresenta características particularmente interessantes para estudos estatísticos:</span>
+<span id="cb8-155"><a href="#cb8-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-156"><a href="#cb8-156" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**grande quantidade de registros**;</span>
+<span id="cb8-157"><a href="#cb8-157" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>presença de informações relacionadas ao **diagnóstico e tratamento**;</span>
+<span id="cb8-158"><a href="#cb8-158" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>acompanhamento dos casos **ao longo do tempo**;</span>
+<span id="cb8-159"><a href="#cb8-159" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>possibilidade de estudar diferentes **localizações tumorais**;</span>
+<span id="cb8-160"><a href="#cb8-160" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>informações sobre características dos **pacientes e tumores**;</span>
+<span id="cb8-161"><a href="#cb8-161" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>possibilidade de investigar diferentes **desfechos**;</span>
+<span id="cb8-162"><a href="#cb8-162" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>possibilidade de estudar fatores associados ao **prognóstico**;</span>
+<span id="cb8-163"><a href="#cb8-163" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>estrutura adequada para aplicação de diferentes métodos de **análise de sobrevivência**.</span>
+<span id="cb8-164"><a href="#cb8-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-165"><a href="#cb8-165" aria-hidden="true" tabindex="-1"></a>Essas características permitem desenvolver análises que vão desde uma **descrição epidemiológica** até modelos estatísticos mais complexos.</span>
+<span id="cb8-166"><a href="#cb8-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-167"><a href="#cb8-167" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb8-168"><a href="#cb8-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-169"><a href="#cb8-169" aria-hidden="true" tabindex="-1"></a><span class="fu">### **PRINCIPAIS LIMITAÇÕES**</span></span>
+<span id="cb8-170"><a href="#cb8-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-171"><a href="#cb8-171" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **REPRESENTATIVIDADE**</span></span>
+<span id="cb8-172"><a href="#cb8-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-173"><a href="#cb8-173" aria-hidden="true" tabindex="-1"></a>Os registros correspondem aos pacientes atendidos nos **hospitais participantes**.</span>
+<span id="cb8-174"><a href="#cb8-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-175"><a href="#cb8-175" aria-hidden="true" tabindex="-1"></a>Portanto:</span>
+<span id="cb8-176"><a href="#cb8-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-177"><a href="#cb8-177" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>os resultados descrevem a população registrada no RHC;</span>
+<span id="cb8-178"><a href="#cb8-178" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>não devem ser automaticamente generalizados para toda a população do Estado de São Paulo.</span>
+<span id="cb8-179"><a href="#cb8-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-180"><a href="#cb8-180" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb8-181"><a href="#cb8-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-182"><a href="#cb8-182" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **DADOS AUSENTES**</span></span>
+<span id="cb8-183"><a href="#cb8-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-184"><a href="#cb8-184" aria-hidden="true" tabindex="-1"></a>Nem todas as informações estarão necessariamente disponíveis para todos os pacientes.</span>
+<span id="cb8-185"><a href="#cb8-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-186"><a href="#cb8-186" aria-hidden="true" tabindex="-1"></a>Será necessário investigar:</span>
+<span id="cb8-187"><a href="#cb8-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-188"><a href="#cb8-188" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**percentual de dados ausentes**;</span>
+<span id="cb8-189"><a href="#cb8-189" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>quais variáveis apresentam maior ausência;</span>
+<span id="cb8-190"><a href="#cb8-190" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>possíveis diferenças no preenchimento ao longo do tempo;</span>
+<span id="cb8-191"><a href="#cb8-191" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>impacto das ausências sobre as análises.</span>
+<span id="cb8-192"><a href="#cb8-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-193"><a href="#cb8-193" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb8-194"><a href="#cb8-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-195"><a href="#cb8-195" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **MUDANÇAS AO LONGO DO TEMPO**</span></span>
+<span id="cb8-196"><a href="#cb8-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-197"><a href="#cb8-197" aria-hidden="true" tabindex="-1"></a>Por se tratar de uma base histórica, podem ocorrer mudanças relacionadas a:</span>
+<span id="cb8-198"><a href="#cb8-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-199"><a href="#cb8-199" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**sistemas de classificação**;</span>
+<span id="cb8-200"><a href="#cb8-200" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**práticas de registro**;</span>
+<span id="cb8-201"><a href="#cb8-201" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**protocolos clínicos**;</span>
+<span id="cb8-202"><a href="#cb8-202" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**tratamentos disponíveis**;</span>
+<span id="cb8-203"><a href="#cb8-203" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**estrutura da rede hospitalar**.</span>
+<span id="cb8-204"><a href="#cb8-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-205"><a href="#cb8-205" aria-hidden="true" tabindex="-1"></a>Por isso, a escolha do **recorte temporal** não deve considerar apenas o tamanho da amostra.</span>
+<span id="cb8-206"><a href="#cb8-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-207"><a href="#cb8-207" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb8-208"><a href="#cb8-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-209"><a href="#cb8-209" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **QUALIDADE DO SEGUIMENTO**</span></span>
+<span id="cb8-210"><a href="#cb8-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-211"><a href="#cb8-211" aria-hidden="true" tabindex="-1"></a>O acompanhamento pode variar entre:</span>
+<span id="cb8-212"><a href="#cb8-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-213"><a href="#cb8-213" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>pacientes;</span>
+<span id="cb8-214"><a href="#cb8-214" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>hospitais;</span>
+<span id="cb8-215"><a href="#cb8-215" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>períodos do banco.</span>
+<span id="cb8-216"><a href="#cb8-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-217"><a href="#cb8-217" aria-hidden="true" tabindex="-1"></a>Esse aspecto deverá ser considerado especialmente nas análises que utilizarem **tempo até o evento**.</span>
+<span id="cb8-218"><a href="#cb8-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-219"><a href="#cb8-219" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb8-220"><a href="#cb8-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-221"><a href="#cb8-221" aria-hidden="true" tabindex="-1"></a><span class="fu">### **ACESSO E OBTENÇÃO DA BASE DE DADOS**</span></span>
+<span id="cb8-222"><a href="#cb8-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-223"><a href="#cb8-223" aria-hidden="true" tabindex="-1"></a>Os dados do **Registro Hospitalar de Câncer do Estado de São Paulo (RHC/SP)** são disponibilizados pela **Fundação Oncocentro de São Paulo (FOSP)**.</span>
+<span id="cb8-224"><a href="#cb8-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-225"><a href="#cb8-225" aria-hidden="true" tabindex="-1"></a>As informações gerais sobre o banco podem ser consultadas no <span class="co">[</span><span class="ot">**portal do RHC/SP**</span><span class="co">](https://fosp.saude.sp.gov.br/fosp/diretoria-adjunta-de-informacao-e-epidemiologia/rhc-registro-hospitalar-de-cancer/banco-de-dados-do-rhc/)</span>, enquanto os arquivos estão disponíveis na página de <span class="co">[</span><span class="ot">**download da FOSP**</span><span class="co">](https://fosp.saude.sp.gov.br/fosp/diretoria-adjunta-de-informacao-e-epidemiologia/rhc-registro-hospitalar-de-cancer/download-de-arquivos/)</span>.</span>
+<span id="cb8-226"><a href="#cb8-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-227"><a href="#cb8-227" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb8-228"><a href="#cb8-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-229"><a href="#cb8-229" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **ARQUIVOS DISPONÍVEIS**</span></span>
+<span id="cb8-230"><a href="#cb8-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-231"><a href="#cb8-231" aria-hidden="true" tabindex="-1"></a>Entre os arquivos disponibilizados pela FOSP encontram-se:</span>
+<span id="cb8-232"><a href="#cb8-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-233"><a href="#cb8-233" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>o **Dicionário de Dados do RHC/SP**;</span>
+<span id="cb8-234"><a href="#cb8-234" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>o **Banco RHC/SP completo**;</span>
+<span id="cb8-235"><a href="#cb8-235" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>bases organizadas segundo o **ano de diagnóstico do tumor**.</span>
+<span id="cb8-236"><a href="#cb8-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-237"><a href="#cb8-237" aria-hidden="true" tabindex="-1"></a>O **Banco RHC/SP completo** reúne os registros dos diferentes anos disponíveis em um único arquivo. As bases anuais, por sua vez, permitem trabalhar separadamente com os registros segundo o **ano de diagnóstico do tumor**.</span>
+<span id="cb8-238"><a href="#cb8-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-239"><a href="#cb8-239" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb8-240"><a href="#cb8-240" aria-hidden="true" tabindex="-1"></a>**BASE UTILIZADA NESTE PROJETO**</span>
+<span id="cb8-241"><a href="#cb8-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-242"><a href="#cb8-242" aria-hidden="true" tabindex="-1"></a>Neste projeto será utilizado inicialmente o **Banco RHC/SP completo**.</span>
+<span id="cb8-243"><a href="#cb8-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-244"><a href="#cb8-244" aria-hidden="true" tabindex="-1"></a>A partir dessa base serão posteriormente definidos:</span>
+<span id="cb8-245"><a href="#cb8-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-246"><a href="#cb8-246" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>os **tipos de câncer** de interesse;</span>
+<span id="cb8-247"><a href="#cb8-247" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>o **período do estudo**;</span>
+<span id="cb8-248"><a href="#cb8-248" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>os **critérios de inclusão e exclusão**;</span>
+<span id="cb8-249"><a href="#cb8-249" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>a **população analítica final**.</span>
+<span id="cb8-250"><a href="#cb8-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-251"><a href="#cb8-251" aria-hidden="true" tabindex="-1"></a>A definição do período de análise será realizada de acordo com os objetivos do estudo e com a qualidade e completude dos registros, e não apenas com base na disponibilidade temporal dos dados.</span>
+<span id="cb8-252"><a href="#cb8-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-253"><a href="#cb8-253" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb8-254"><a href="#cb8-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-255"><a href="#cb8-255" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **DOWNLOAD DOS DADOS**</span></span>
+<span id="cb8-256"><a href="#cb8-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-257"><a href="#cb8-257" aria-hidden="true" tabindex="-1"></a>Para preparar os arquivos que serão utilizados no projeto:</span>
+<span id="cb8-258"><a href="#cb8-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-259"><a href="#cb8-259" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>acesse a página de <span class="co">[</span><span class="ot">**download do RHC/SP**</span><span class="co">](https://fosp.saude.sp.gov.br/fosp/diretoria-adjunta-de-informacao-e-epidemiologia/rhc-registro-hospitalar-de-cancer/download-de-arquivos/)</span>;</span>
+<span id="cb8-260"><a href="#cb8-260" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>realize o cadastro solicitado pela FOSP;</span>
+<span id="cb8-261"><a href="#cb8-261" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>faça o download do **Banco RHC/SP completo**;</span>
+<span id="cb8-262"><a href="#cb8-262" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>faça o download do **Dicionário de Dados do RHC/SP**;</span>
+<span id="cb8-263"><a href="#cb8-263" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>armazene os dois arquivos na pasta destinada aos dados do projeto.</span>
+<span id="cb8-264"><a href="#cb8-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-265"><a href="#cb8-265" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-266"><a href="#cb8-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-267"><a href="#cb8-267" aria-hidden="true" tabindex="-1"></a><span class="fu">## **PRIMEIROS PASSOS**</span></span>
+<span id="cb8-268"><a href="#cb8-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-269"><a href="#cb8-269" aria-hidden="true" tabindex="-1"></a>Para aplicarmos nossos critérios de exclusão na base de dados original, precisaremos dos seguintes pacotes: </span>
+<span id="cb8-270"><a href="#cb8-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-271"><a href="#cb8-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-274"><a href="#cb8-274" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-275"><a href="#cb8-275" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arrow)</span>
+<span id="cb8-276"><a href="#cb8-276" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb8-277"><a href="#cb8-277" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-278"><a href="#cb8-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-279"><a href="#cb8-279" aria-hidden="true" tabindex="-1"></a>Para facilitar a manipulação da base, o arquivo original disponibilizado pela FOSP foi previamente **exportado e convertido para o formato Parquet**.</span>
+<span id="cb8-280"><a href="#cb8-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-281"><a href="#cb8-281" aria-hidden="true" tabindex="-1"></a>O formato **Parquet** é particularmente adequado para bases de grande porte, pois permite:</span>
+<span id="cb8-282"><a href="#cb8-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-283"><a href="#cb8-283" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**reduzir o espaço ocupado em disco**;</span>
+<span id="cb8-284"><a href="#cb8-284" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>tornar a **leitura dos dados mais rápida**;</span>
+<span id="cb8-285"><a href="#cb8-285" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>facilitar procedimentos de **seleção, filtragem e manipulação**;</span>
+<span id="cb8-286"><a href="#cb8-286" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>evitar algumas limitações associadas ao formato original da base.</span>
+<span id="cb8-287"><a href="#cb8-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-288"><a href="#cb8-288" aria-hidden="true" tabindex="-1"></a><span class="fu">### **LEITURA DA BASE**</span></span>
+<span id="cb8-289"><a href="#cb8-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-290"><a href="#cb8-290" aria-hidden="true" tabindex="-1"></a>Para realizar a leitura do arquivo no <span class="in">`R`</span>, utilizaremos o pacote <span class="in">`arrow`</span>:</span>
+<span id="cb8-291"><a href="#cb8-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-294"><a href="#cb8-294" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-295"><a href="#cb8-295" aria-hidden="true" tabindex="-1"></a>Dados <span class="ot">&lt;-</span> <span class="fu">read_parquet</span>(<span class="st">"FOSP.parquet"</span>)</span>
+<span id="cb8-296"><a href="#cb8-296" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-297"><a href="#cb8-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-298"><a href="#cb8-298" aria-hidden="true" tabindex="-1"></a>Após a leitura, algumas informações textuais podem apresentar problemas de **codificação de caracteres**, especialmente em palavras contendo **acentos e cedilha**.</span>
+<span id="cb8-299"><a href="#cb8-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-300"><a href="#cb8-300" aria-hidden="true" tabindex="-1"></a>Para padronizar os campos textuais em **UTF-8**, utilizaremos:</span>
+<span id="cb8-301"><a href="#cb8-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-304"><a href="#cb8-304" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-305"><a href="#cb8-305" aria-hidden="true" tabindex="-1"></a>Dados <span class="ot">&lt;-</span> Dados <span class="sc">%&gt;%</span></span>
+<span id="cb8-306"><a href="#cb8-306" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb8-307"><a href="#cb8-307" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(</span>
+<span id="cb8-308"><a href="#cb8-308" aria-hidden="true" tabindex="-1"></a>      <span class="fu">where</span>(is.character),</span>
+<span id="cb8-309"><a href="#cb8-309" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span> <span class="fu">iconv</span>(.x, <span class="at">from =</span> <span class="st">"latin1"</span>, <span class="at">to =</span> <span class="st">"UTF-8"</span>)</span>
+<span id="cb8-310"><a href="#cb8-310" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-311"><a href="#cb8-311" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-312"><a href="#cb8-312" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-313"><a href="#cb8-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-314"><a href="#cb8-314" aria-hidden="true" tabindex="-1"></a><span class="fu">### **PRINCIPAIS VARIÁVEIS**</span></span>
+<span id="cb8-315"><a href="#cb8-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-316"><a href="#cb8-316" aria-hidden="true" tabindex="-1"></a>A base do RHC/SP reúne informações de diferentes naturezas. Para este estudo, as principais variáveis podem ser organizadas nos seguintes **grandes grupos**:</span>
+<span id="cb8-317"><a href="#cb8-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-318"><a href="#cb8-318" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Características sociodemográficas:** informações relacionadas ao perfil do paciente, como **idade, sexo, escolaridade, raça/cor, estado civil e local de residência**.</span>
+<span id="cb8-319"><a href="#cb8-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-320"><a href="#cb8-320" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Características do tumor:** informações sobre **localização e morfologia do tumor, estadiamento clínico, classificação TNM e presença de metástases**.</span>
+<span id="cb8-321"><a href="#cb8-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-322"><a href="#cb8-322" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Diagnóstico:** informações relacionadas ao **diagnóstico da doença**, incluindo sua data e base utilizada para confirmação.</span>
+<span id="cb8-323"><a href="#cb8-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-324"><a href="#cb8-324" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Tratamento:** informações sobre o **início e os tipos de tratamento realizados**, como cirurgia, radioterapia, quimioterapia e hormonioterapia.</span>
+<span id="cb8-325"><a href="#cb8-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-326"><a href="#cb8-326" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Seguimento e desfecho:** informações referentes ao **acompanhamento do paciente**, incluindo a data da última informação e sua situação nesse momento, permitindo identificar **óbito por câncer, óbito por outras causas ou censura**.</span>
+<span id="cb8-327"><a href="#cb8-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-328"><a href="#cb8-328" aria-hidden="true" tabindex="-1"></a><span class="fu">### **ESCOLHA DAS NEOPLASIAS**</span></span>
+<span id="cb8-329"><a href="#cb8-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-330"><a href="#cb8-330" aria-hidden="true" tabindex="-1"></a>Para o desenvolvimento do estudo, foram selecionadas quatro **neoplasias do trato gastrointestinal e órgãos associados**:</span>
+<span id="cb8-331"><a href="#cb8-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-332"><a href="#cb8-332" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Esôfago — C15**</span>
+<span id="cb8-333"><a href="#cb8-333" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Estômago — C16**</span>
+<span id="cb8-334"><a href="#cb8-334" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Fígado e vias biliares intra-hepáticas — C22**</span>
+<span id="cb8-335"><a href="#cb8-335" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Pâncreas — C25**</span>
+<span id="cb8-336"><a href="#cb8-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-337"><a href="#cb8-337" aria-hidden="true" tabindex="-1"></a>Na base da FOSP, a identificação da localização do tumor pode ser realizada por meio das variáveis de **topografia**, especialmente `TOPO` e `TOPOGRUP`, estruturadas segundo a **CID-O**. </span>
+<span id="cb8-338"><a href="#cb8-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-339"><a href="#cb8-339" aria-hidden="true" tabindex="-1"></a>A escolha desses quatro cânceres foi realizada considerando alguns aspectos importantes para a aplicação dos métodos de **análise de sobrevivência**:</span>
+<span id="cb8-340"><a href="#cb8-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-341"><a href="#cb8-341" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>pertencem a um conjunto de neoplasias com características clínicas relativamente próximas, permitindo trabalhar com um **núcleo semelhante de covariáveis**;</span>
+<span id="cb8-342"><a href="#cb8-342" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>apresentam diferentes padrões de prognóstico e sobrevivência, tornando interessante a comparação entre **modelos paramétricos** e o **modelo semiparamétrico de Cox**;</span>
+<span id="cb8-343"><a href="#cb8-343" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>permitem explorar variáveis comuns relacionadas ao **perfil do paciente, estadiamento, metástase e tratamento**;</span>
+<span id="cb8-344"><a href="#cb8-344" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>apresentam ocorrência suficiente de eventos para possibilitar o estudo do **tempo até o óbito por câncer**;</span>
+<span id="cb8-345"><a href="#cb8-345" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>possibilitam avaliar se diferentes distribuições paramétricas apresentam melhor ajuste para diferentes tipos de neoplasia.</span>
+<span id="cb8-346"><a href="#cb8-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-347"><a href="#cb8-347" aria-hidden="true" tabindex="-1"></a>A utilização de neoplasias relacionadas, mas com diferentes comportamentos de sobrevivência, permitirá comparar os resultados entre os alunos mantendo uma **estrutura metodológica semelhante**.</span>
+<span id="cb8-348"><a href="#cb8-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-349"><a href="#cb8-349" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb8-350"><a href="#cb8-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-351"><a href="#cb8-351" aria-hidden="true" tabindex="-1"></a><span class="fu">### **SORTEIO DAS NEOPLASIAS**</span></span>
+<span id="cb8-352"><a href="#cb8-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-353"><a href="#cb8-353" aria-hidden="true" tabindex="-1"></a>Cada aluno ficará responsável pela análise de uma das quatro neoplasias selecionadas.</span>
+<span id="cb8-354"><a href="#cb8-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-355"><a href="#cb8-355" aria-hidden="true" tabindex="-1"></a>O sorteio será realizado no <span class="in">`R`</span>, garantindo que **cada câncer seja atribuído a apenas um aluno**.</span>
+<span id="cb8-356"><a href="#cb8-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-359"><a href="#cb8-359" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-360"><a href="#cb8-360" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb8-361"><a href="#cb8-361" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb8-362"><a href="#cb8-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-363"><a href="#cb8-363" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb8-364"><a href="#cb8-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-365"><a href="#cb8-365" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb8-366"><a href="#cb8-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-367"><a href="#cb8-367" aria-hidden="true" tabindex="-1"></a><span class="co"># Alunos</span></span>
+<span id="cb8-368"><a href="#cb8-368" aria-hidden="true" tabindex="-1"></a>alunos <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb8-369"><a href="#cb8-369" aria-hidden="true" tabindex="-1"></a>  <span class="st">"CAIO VINICIUS ARAUJO DE OLIVEIRA SALVIANO"</span>,</span>
+<span id="cb8-370"><a href="#cb8-370" aria-hidden="true" tabindex="-1"></a>  <span class="st">"EDERSON MACEDO DE CARVALHO MORAES"</span>,</span>
+<span id="cb8-371"><a href="#cb8-371" aria-hidden="true" tabindex="-1"></a>  <span class="st">"FENICIO PORTO CARVALHO GULLO GIGLIO"</span>,</span>
+<span id="cb8-372"><a href="#cb8-372" aria-hidden="true" tabindex="-1"></a>  <span class="st">"JOAO VICTOR OLIVEIRA HONORATO"</span></span>
+<span id="cb8-373"><a href="#cb8-373" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-374"><a href="#cb8-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-375"><a href="#cb8-375" aria-hidden="true" tabindex="-1"></a><span class="co"># Neoplasias selecionadas</span></span>
+<span id="cb8-376"><a href="#cb8-376" aria-hidden="true" tabindex="-1"></a>neoplasias <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb8-377"><a href="#cb8-377" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Esôfago (C15)"</span>,</span>
+<span id="cb8-378"><a href="#cb8-378" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Estômago (C16)"</span>,</span>
+<span id="cb8-379"><a href="#cb8-379" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Fígado e vias biliares intra-hepáticas (C22)"</span>,</span>
+<span id="cb8-380"><a href="#cb8-380" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Pâncreas (C25)"</span></span>
+<span id="cb8-381"><a href="#cb8-381" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-382"><a href="#cb8-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-383"><a href="#cb8-383" aria-hidden="true" tabindex="-1"></a><span class="co"># Sorteio</span></span>
+<span id="cb8-384"><a href="#cb8-384" aria-hidden="true" tabindex="-1"></a>sorteio <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb8-385"><a href="#cb8-385" aria-hidden="true" tabindex="-1"></a>  <span class="at">Aluno =</span> alunos,</span>
+<span id="cb8-386"><a href="#cb8-386" aria-hidden="true" tabindex="-1"></a>  <span class="at">Neoplasia =</span> <span class="fu">sample</span>(</span>
+<span id="cb8-387"><a href="#cb8-387" aria-hidden="true" tabindex="-1"></a>    neoplasias,</span>
+<span id="cb8-388"><a href="#cb8-388" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fu">length</span>(neoplasias),</span>
+<span id="cb8-389"><a href="#cb8-389" aria-hidden="true" tabindex="-1"></a>    <span class="at">replace =</span> <span class="cn">FALSE</span></span>
+<span id="cb8-390"><a href="#cb8-390" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-391"><a href="#cb8-391" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-392"><a href="#cb8-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-393"><a href="#cb8-393" aria-hidden="true" tabindex="-1"></a><span class="co"># Apresentação do resultado</span></span>
+<span id="cb8-394"><a href="#cb8-394" aria-hidden="true" tabindex="-1"></a>sorteio <span class="sc">|&gt;</span></span>
+<span id="cb8-395"><a href="#cb8-395" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(</span>
+<span id="cb8-396"><a href="#cb8-396" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Resultado do sorteio das neoplasias"</span>,</span>
+<span id="cb8-397"><a href="#cb8-397" aria-hidden="true" tabindex="-1"></a>    <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>, <span class="st">"l"</span>),</span>
+<span id="cb8-398"><a href="#cb8-398" aria-hidden="true" tabindex="-1"></a>    <span class="at">booktabs =</span> <span class="cn">TRUE</span></span>
+<span id="cb8-399"><a href="#cb8-399" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb8-400"><a href="#cb8-400" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(</span>
+<span id="cb8-401"><a href="#cb8-401" aria-hidden="true" tabindex="-1"></a>    <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>),</span>
+<span id="cb8-402"><a href="#cb8-402" aria-hidden="true" tabindex="-1"></a>    <span class="at">full_width =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-403"><a href="#cb8-403" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">"center"</span></span>
+<span id="cb8-404"><a href="#cb8-404" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb8-405"><a href="#cb8-405" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(</span>
+<span id="cb8-406"><a href="#cb8-406" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,</span>
+<span id="cb8-407"><a href="#cb8-407" aria-hidden="true" tabindex="-1"></a>    <span class="at">bold =</span> <span class="cn">TRUE</span></span>
+<span id="cb8-408"><a href="#cb8-408" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-409"><a href="#cb8-409" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-410"><a href="#cb8-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-411"><a href="#cb8-411" aria-hidden="true" tabindex="-1"></a><span class="fu">### **CRITÉRIOS DE EXCLUSÃO**</span></span>
+<span id="cb8-412"><a href="#cb8-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-413"><a href="#cb8-413" aria-hidden="true" tabindex="-1"></a>Antes da construção da base analítica, serão aplicados critérios de elegibilidade com o objetivo de obter uma população mais homogênea e garantir informações adequadas para a análise de sobrevivência.</span>
+<span id="cb8-414"><a href="#cb8-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-415"><a href="#cb8-415" aria-hidden="true" tabindex="-1"></a>Serão adotados os seguintes critérios:</span>
+<span id="cb8-416"><a href="#cb8-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-417"><a href="#cb8-417" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Neoplasia de interesse:** serão mantidos apenas pacientes diagnosticados com a neoplasia sorteada para cada aluno: **C15 (esôfago)**, **C16 (estômago)**, **C22 (fígado e vias biliares intra-hepáticas)** ou **C25 (pâncreas)**.</span>
+<span id="cb8-418"><a href="#cb8-418" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-419"><a href="#cb8-419" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Período de diagnóstico:** serão incluídos pacientes diagnosticados entre **2014 e 2019**. O limite inferior permite trabalhar com um período relativamente recente e homogêneo da base, enquanto o limite superior evita a inclusão de diagnósticos muito próximos ao final do período disponível de acompanhamento. Dessa forma, reduz-se a presença de pacientes com **tempo potencial de seguimento muito curto**.</span>
+<span id="cb8-420"><a href="#cb8-420" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-421"><a href="#cb8-421" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Idade:** serão incluídos apenas pacientes com **18 anos ou mais no momento do diagnóstico**, restringindo o estudo à população adulta.</span>
+<span id="cb8-422"><a href="#cb8-422" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-423"><a href="#cb8-423" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Diagnóstico e tratamento prévios:** serão mantidos pacientes que chegaram à instituição **sem tratamento oncológico prévio**, correspondentes às categorias <span class="in">`DIAGPREV = 1`</span> (sem diagnóstico e sem tratamento) e <span class="in">`DIAGPREV = 2`</span> (com diagnóstico e sem tratamento). Esse critério permite acompanhar o paciente a partir de uma condição mais comparável em relação ao início do tratamento.</span>
+<span id="cb8-424"><a href="#cb8-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-425"><a href="#cb8-425" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Erros de admissão:** serão excluídos registros identificados pela FOSP como contendo **erro de admissão** (<span class="in">`ERRO != 0`</span>).</span>
+<span id="cb8-426"><a href="#cb8-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-427"><a href="#cb8-427" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Datas de acompanhamento:** serão excluídos pacientes sem informação sobre a **data do diagnóstico** (`DTDIAG`) ou a **data da última informação** (<span class="in">`DTULTINFO`</span>), pois essas datas são necessárias para determinar o tempo de sobrevivência ou censura.</span>
+<span id="cb8-428"><a href="#cb8-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-429"><a href="#cb8-429" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Situação na última informação:** serão mantidos apenas pacientes classificados como **vivos com câncer**, **vivos sem outra especificação (SOE)**, **óbito por câncer** ou **óbito por outras causas/SOE** (<span class="in">`ULTINFO`</span> de 1 a 4). Registros com outras situações não serão utilizados na definição inicial do desfecho.</span>
+<span id="cb8-430"><a href="#cb8-430" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-431"><a href="#cb8-431" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Consistência temporal:** serão excluídos registros em que a **data da última informação seja anterior à data do diagnóstico**, uma vez que esses casos resultariam em tempos de acompanhamento negativos e representam inconsistências para a análise de sobrevivência.</span>
+<span id="cb8-432"><a href="#cb8-432" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-433"><a href="#cb8-433" aria-hidden="true" tabindex="-1"></a>Para aplicar estes critérios de exclusão, seguem os comandos:</span>
+<span id="cb8-434"><a href="#cb8-434" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-437"><a href="#cb8-437" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-438"><a href="#cb8-438" aria-hidden="true" tabindex="-1"></a>DadosF <span class="ot">&lt;-</span> Dados <span class="sc">%&gt;%</span></span>
+<span id="cb8-439"><a href="#cb8-439" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb8-440"><a href="#cb8-440" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-441"><a href="#cb8-441" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Seleciona uma das quatro neoplasias estudadas:</span></span>
+<span id="cb8-442"><a href="#cb8-442" aria-hidden="true" tabindex="-1"></a>    <span class="co"># C15 = Esôfago</span></span>
+<span id="cb8-443"><a href="#cb8-443" aria-hidden="true" tabindex="-1"></a>    <span class="co"># C16 = Estômago</span></span>
+<span id="cb8-444"><a href="#cb8-444" aria-hidden="true" tabindex="-1"></a>    <span class="co"># C22 = Fígado e vias biliares intra-hepáticas</span></span>
+<span id="cb8-445"><a href="#cb8-445" aria-hidden="true" tabindex="-1"></a>    <span class="co"># C25 = Pâncreas</span></span>
+<span id="cb8-446"><a href="#cb8-446" aria-hidden="true" tabindex="-1"></a>    TOPOGRUP <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"C25"</span>),</span>
+<span id="cb8-447"><a href="#cb8-447" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-448"><a href="#cb8-448" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Mantém apenas pacientes diagnosticados entre 2014 e 2019</span></span>
+<span id="cb8-449"><a href="#cb8-449" aria-hidden="true" tabindex="-1"></a>    ANODIAG <span class="sc">&gt;=</span> <span class="dv">2014</span>,</span>
+<span id="cb8-450"><a href="#cb8-450" aria-hidden="true" tabindex="-1"></a>    ANODIAG <span class="sc">&lt;=</span> <span class="dv">2019</span>,</span>
+<span id="cb8-451"><a href="#cb8-451" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-452"><a href="#cb8-452" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Restringe a análise aos adultos</span></span>
+<span id="cb8-453"><a href="#cb8-453" aria-hidden="true" tabindex="-1"></a>    IDADE <span class="sc">&gt;=</span> <span class="dv">18</span>,</span>
+<span id="cb8-454"><a href="#cb8-454" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-455"><a href="#cb8-455" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Mantém pacientes que chegaram à instituição</span></span>
+<span id="cb8-456"><a href="#cb8-456" aria-hidden="true" tabindex="-1"></a>    <span class="co"># sem tratamento oncológico prévio:</span></span>
+<span id="cb8-457"><a href="#cb8-457" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 1 = sem diagnóstico e sem tratamento</span></span>
+<span id="cb8-458"><a href="#cb8-458" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 2 = com diagnóstico e sem tratamento</span></span>
+<span id="cb8-459"><a href="#cb8-459" aria-hidden="true" tabindex="-1"></a>    DIAGPREV <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb8-460"><a href="#cb8-460" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-461"><a href="#cb8-461" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Mantém apenas registros sem erro de admissão</span></span>
+<span id="cb8-462"><a href="#cb8-462" aria-hidden="true" tabindex="-1"></a>    ERRO <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb8-463"><a href="#cb8-463" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-464"><a href="#cb8-464" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Exclui pacientes sem as datas necessárias</span></span>
+<span id="cb8-465"><a href="#cb8-465" aria-hidden="true" tabindex="-1"></a>    <span class="co"># para calcular o tempo de acompanhamento</span></span>
+<span id="cb8-466"><a href="#cb8-466" aria-hidden="true" tabindex="-1"></a>    <span class="sc">!</span><span class="fu">is.na</span>(DTDIAG),</span>
+<span id="cb8-467"><a href="#cb8-467" aria-hidden="true" tabindex="-1"></a>    <span class="sc">!</span><span class="fu">is.na</span>(DTULTINFO),</span>
+<span id="cb8-468"><a href="#cb8-468" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-469"><a href="#cb8-469" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Mantém apenas situações finais válidas:</span></span>
+<span id="cb8-470"><a href="#cb8-470" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 1 = vivo, com câncer</span></span>
+<span id="cb8-471"><a href="#cb8-471" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 2 = vivo, SOE</span></span>
+<span id="cb8-472"><a href="#cb8-472" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 3 = óbito por câncer</span></span>
+<span id="cb8-473"><a href="#cb8-473" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 4 = óbito por outras causas, SOE</span></span>
+<span id="cb8-474"><a href="#cb8-474" aria-hidden="true" tabindex="-1"></a>    ULTINFO <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>),</span>
+<span id="cb8-475"><a href="#cb8-475" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-476"><a href="#cb8-476" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Exclui inconsistências temporais:</span></span>
+<span id="cb8-477"><a href="#cb8-477" aria-hidden="true" tabindex="-1"></a>    <span class="co"># a última informação não pode ocorrer antes do diagnóstico</span></span>
+<span id="cb8-478"><a href="#cb8-478" aria-hidden="true" tabindex="-1"></a>    DTULTINFO <span class="sc">&gt;=</span> DTDIAG</span>
+<span id="cb8-479"><a href="#cb8-479" aria-hidden="true" tabindex="-1"></a>  ) </span>
+<span id="cb8-480"><a href="#cb8-480" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-481"><a href="#cb8-481" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-482"><a href="#cb8-482" aria-hidden="true" tabindex="-1"></a>Ao final dessa etapa, a base <span class="in">`DadosF`</span> contém apenas os pacientes que atendem aos critérios estabelecidos e as variáveis que serão consideradas nas análises posteriores.</span>
+<span id="cb8-483"><a href="#cb8-483" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-484"><a href="#cb8-484" aria-hidden="true" tabindex="-1"></a><span class="fu">### **VARIÁVEIS SELECIONADAS**</span></span>
+<span id="cb8-485"><a href="#cb8-485" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-486"><a href="#cb8-486" aria-hidden="true" tabindex="-1"></a>Após a aplicação dos critérios de exclusão, serão consideradas as seguintes variáveis para a caracterização dos pacientes e para as análises de sobrevivência:</span>
+<span id="cb8-487"><a href="#cb8-487" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-488"><a href="#cb8-488" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`TOPOGRUP` — Grupo de topografia da neoplasia**</span>
+<span id="cb8-489"><a href="#cb8-489" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-490"><a href="#cb8-490" aria-hidden="true" tabindex="-1"></a>  Identifica a localização primária da neoplasia. Neste trabalho, cada aluno analisará uma das seguintes neoplasias:</span>
+<span id="cb8-491"><a href="#cb8-491" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-492"><a href="#cb8-492" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`C15`</span> — Esôfago</span>
+<span id="cb8-493"><a href="#cb8-493" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`C16`</span> — Estômago</span>
+<span id="cb8-494"><a href="#cb8-494" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`C22`</span> — Fígado e vias biliares intra-hepáticas</span>
+<span id="cb8-495"><a href="#cb8-495" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`C25`</span> — Pâncreas</span>
+<span id="cb8-496"><a href="#cb8-496" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-497"><a href="#cb8-497" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`IDADE` — Idade do paciente**</span>
+<span id="cb8-498"><a href="#cb8-498" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-499"><a href="#cb8-499" aria-hidden="true" tabindex="-1"></a>  Idade, em anos, no momento do diagnóstico. Será utilizada como uma variável quantitativa. Neste estudo serão considerados apenas pacientes com **18 anos ou mais**.</span>
+<span id="cb8-500"><a href="#cb8-500" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-501"><a href="#cb8-501" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`SEXO` — Sexo do paciente**</span>
+<span id="cb8-502"><a href="#cb8-502" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-503"><a href="#cb8-503" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`1`</span> — Masculino</span>
+<span id="cb8-504"><a href="#cb8-504" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`2`</span> — Feminino</span>
+<span id="cb8-505"><a href="#cb8-505" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-506"><a href="#cb8-506" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`ESCOLARI` — Escolaridade do paciente**</span>
+<span id="cb8-507"><a href="#cb8-507" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-508"><a href="#cb8-508" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`1`</span> — Analfabeto</span>
+<span id="cb8-509"><a href="#cb8-509" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`2`</span> — Ensino fundamental incompleto</span>
+<span id="cb8-510"><a href="#cb8-510" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`3`</span> — Ensino fundamental completo</span>
+<span id="cb8-511"><a href="#cb8-511" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`4`</span> — Ensino médio</span>
+<span id="cb8-512"><a href="#cb8-512" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`5`</span> — Ensino superior</span>
+<span id="cb8-513"><a href="#cb8-513" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`9`</span> — Sem informação</span>
+<span id="cb8-514"><a href="#cb8-514" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-515"><a href="#cb8-515" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`ECGRUP` — Grupo do estadiamento clínico**</span>
+<span id="cb8-516"><a href="#cb8-516" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-517"><a href="#cb8-517" aria-hidden="true" tabindex="-1"></a>  Representa o estágio de evolução da neoplasia:</span>
+<span id="cb8-518"><a href="#cb8-518" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-519"><a href="#cb8-519" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`0`</span> — Carcinoma *in situ*</span>
+<span id="cb8-520"><a href="#cb8-520" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`I`</span> — Estágio I</span>
+<span id="cb8-521"><a href="#cb8-521" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`II`</span> — Estágio II</span>
+<span id="cb8-522"><a href="#cb8-522" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`III`</span> — Estágio III</span>
+<span id="cb8-523"><a href="#cb8-523" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`IV`</span> — Estágio IV</span>
+<span id="cb8-524"><a href="#cb8-524" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`X`</span> — Sem informação / não foi estadiado</span>
+<span id="cb8-525"><a href="#cb8-525" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`Y`</span> — Não se aplica (neoplasia não estadiável pelo sistema TNM)</span>
+<span id="cb8-526"><a href="#cb8-526" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-527"><a href="#cb8-527" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`CATEATEND` — Categoria de atendimento**</span>
+<span id="cb8-528"><a href="#cb8-528" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-529"><a href="#cb8-529" aria-hidden="true" tabindex="-1"></a>  Identifica a categoria na qual o caso foi registrado:</span>
+<span id="cb8-530"><a href="#cb8-530" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-531"><a href="#cb8-531" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`1`</span> — SUS</span>
+<span id="cb8-532"><a href="#cb8-532" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`2`</span> — Convênio</span>
+<span id="cb8-533"><a href="#cb8-533" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`3`</span> — Particular</span>
+<span id="cb8-534"><a href="#cb8-534" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-535"><a href="#cb8-535" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`CIRURGIA` — Cirurgia realizada no hospital**</span>
+<span id="cb8-536"><a href="#cb8-536" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-537"><a href="#cb8-537" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`0`</span> — Não</span>
+<span id="cb8-538"><a href="#cb8-538" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`1`</span> — Sim</span>
+<span id="cb8-539"><a href="#cb8-539" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-540"><a href="#cb8-540" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`RADIO` — Radioterapia realizada no hospital**</span>
+<span id="cb8-541"><a href="#cb8-541" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-542"><a href="#cb8-542" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`0`</span> — Não</span>
+<span id="cb8-543"><a href="#cb8-543" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`1`</span> — Sim</span>
+<span id="cb8-544"><a href="#cb8-544" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-545"><a href="#cb8-545" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`QUIMIO` — Quimioterapia realizada no hospital**</span>
+<span id="cb8-546"><a href="#cb8-546" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-547"><a href="#cb8-547" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`0`</span> — Não</span>
+<span id="cb8-548"><a href="#cb8-548" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`1`</span> — Sim</span>
+<span id="cb8-549"><a href="#cb8-549" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-550"><a href="#cb8-550" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`DTDIAG` — Data do diagnóstico**</span>
+<span id="cb8-551"><a href="#cb8-551" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-552"><a href="#cb8-552" aria-hidden="true" tabindex="-1"></a>  Data em que foi estabelecido o diagnóstico da neoplasia. Será utilizada como o **início do acompanhamento** na análise de sobrevivência.</span>
+<span id="cb8-553"><a href="#cb8-553" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-554"><a href="#cb8-554" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`DTULTINFO` — Data da última informação**</span>
+<span id="cb8-555"><a href="#cb8-555" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-556"><a href="#cb8-556" aria-hidden="true" tabindex="-1"></a>  Data correspondente à última informação disponível sobre o paciente. Será utilizada para determinar o **final do período de acompanhamento**.</span>
+<span id="cb8-557"><a href="#cb8-557" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-558"><a href="#cb8-558" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`ULTINFO` — Situação na última informação**</span>
+<span id="cb8-559"><a href="#cb8-559" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-560"><a href="#cb8-560" aria-hidden="true" tabindex="-1"></a>  Identifica a situação do paciente na última informação disponível:</span>
+<span id="cb8-561"><a href="#cb8-561" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-562"><a href="#cb8-562" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`1`</span> — Vivo, com câncer</span>
+<span id="cb8-563"><a href="#cb8-563" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`2`</span> — Vivo, SOE</span>
+<span id="cb8-564"><a href="#cb8-564" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`3`</span> — Óbito por câncer</span>
+<span id="cb8-565"><a href="#cb8-565" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`4`</span> — Óbito por outras causas, SOE</span>
+<span id="cb8-566"><a href="#cb8-566" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-567"><a href="#cb8-567" aria-hidden="true" tabindex="-1"></a>  Para este trabalho, o **óbito por câncer (`3`) será considerado o evento de interesse**. As demais situações serão consideradas censuras.</span>
+<span id="cb8-568"><a href="#cb8-568" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-569"><a href="#cb8-569" aria-hidden="true" tabindex="-1"></a>Os comandos a seguir fazem a seleção dessas variáveis:</span>
+<span id="cb8-570"><a href="#cb8-570" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-573"><a href="#cb8-573" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-574"><a href="#cb8-574" aria-hidden="true" tabindex="-1"></a>DadosF <span class="ot">=</span> DadosF <span class="sc">%&gt;%</span></span>
+<span id="cb8-575"><a href="#cb8-575" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-576"><a href="#cb8-576" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb8-577"><a href="#cb8-577" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-578"><a href="#cb8-578" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Identificação da neoplasia</span></span>
+<span id="cb8-579"><a href="#cb8-579" aria-hidden="true" tabindex="-1"></a>    TOPOGRUP,</span>
+<span id="cb8-580"><a href="#cb8-580" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-581"><a href="#cb8-581" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Variáveis sociodemográficas</span></span>
+<span id="cb8-582"><a href="#cb8-582" aria-hidden="true" tabindex="-1"></a>    IDADE,</span>
+<span id="cb8-583"><a href="#cb8-583" aria-hidden="true" tabindex="-1"></a>    SEXO,</span>
+<span id="cb8-584"><a href="#cb8-584" aria-hidden="true" tabindex="-1"></a>    ESCOLARI,</span>
+<span id="cb8-585"><a href="#cb8-585" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb8-586"><a href="#cb8-586" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Características do câncer</span></span>
+<span id="cb8-587"><a href="#cb8-587" aria-hidden="true" tabindex="-1"></a>    ECGRUP,</span>
+<span id="cb8-588"><a href="#cb8-588" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-589"><a href="#cb8-589" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Tratamento</span></span>
+<span id="cb8-590"><a href="#cb8-590" aria-hidden="true" tabindex="-1"></a>    CATEATEND,</span>
+<span id="cb8-591"><a href="#cb8-591" aria-hidden="true" tabindex="-1"></a>    CIRURGIA,</span>
+<span id="cb8-592"><a href="#cb8-592" aria-hidden="true" tabindex="-1"></a>    RADIO,</span>
+<span id="cb8-593"><a href="#cb8-593" aria-hidden="true" tabindex="-1"></a>    QUIMIO,</span>
+<span id="cb8-594"><a href="#cb8-594" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-595"><a href="#cb8-595" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-596"><a href="#cb8-596" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Seguimento e desfecho</span></span>
+<span id="cb8-597"><a href="#cb8-597" aria-hidden="true" tabindex="-1"></a>    DTDIAG,</span>
+<span id="cb8-598"><a href="#cb8-598" aria-hidden="true" tabindex="-1"></a>    DTULTINFO,</span>
+<span id="cb8-599"><a href="#cb8-599" aria-hidden="true" tabindex="-1"></a>    ULTINFO</span>
+<span id="cb8-600"><a href="#cb8-600" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-601"><a href="#cb8-601" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-602"><a href="#cb8-602" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-603"><a href="#cb8-603" aria-hidden="true" tabindex="-1"></a><span class="fu">### **CONSTRUÇÃO DA VARIÁVEL RESPOSTA**</span></span>
+<span id="cb8-604"><a href="#cb8-604" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-605"><a href="#cb8-605" aria-hidden="true" tabindex="-1"></a>Em uma análise de sobrevivência, a variável resposta é formada por duas informações:</span>
+<span id="cb8-606"><a href="#cb8-606" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-607"><a href="#cb8-607" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>o **tempo até a ocorrência do evento ou censura**;</span>
+<span id="cb8-608"><a href="#cb8-608" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>um **indicador da ocorrência do evento**.</span>
+<span id="cb8-609"><a href="#cb8-609" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-610"><a href="#cb8-610" aria-hidden="true" tabindex="-1"></a>Neste estudo, o evento de interesse será o **óbito por câncer**.</span>
+<span id="cb8-611"><a href="#cb8-611" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-612"><a href="#cb8-612" aria-hidden="true" tabindex="-1"></a>O tempo de acompanhamento será contado a partir da **data do diagnóstico** até a **data da última informação disponível**, sendo expresso em meses.</span>
+<span id="cb8-613"><a href="#cb8-613" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-614"><a href="#cb8-614" aria-hidden="true" tabindex="-1"></a>Serão considerados censurados os pacientes que estiverem vivos na última informação disponível ou que tenham apresentado óbito por outras causas.</span>
+<span id="cb8-615"><a href="#cb8-615" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-618"><a href="#cb8-618" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-619"><a href="#cb8-619" aria-hidden="true" tabindex="-1"></a>DadosF <span class="ot">&lt;-</span> DadosF <span class="sc">%&gt;%</span></span>
+<span id="cb8-620"><a href="#cb8-620" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb8-621"><a href="#cb8-621" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-622"><a href="#cb8-622" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calcula o tempo de acompanhamento em meses.</span></span>
+<span id="cb8-623"><a href="#cb8-623" aria-hidden="true" tabindex="-1"></a>    <span class="co"># O acompanhamento começa na data do diagnóstico (DTDIAG)</span></span>
+<span id="cb8-624"><a href="#cb8-624" aria-hidden="true" tabindex="-1"></a>    <span class="co"># e termina na data da última informação disponível (DTULTINFO).</span></span>
+<span id="cb8-625"><a href="#cb8-625" aria-hidden="true" tabindex="-1"></a>    <span class="co"># A diferença entre as datas é inicialmente obtida em dias</span></span>
+<span id="cb8-626"><a href="#cb8-626" aria-hidden="true" tabindex="-1"></a>    <span class="co"># e convertida para meses utilizando 30,44 dias por mês.</span></span>
+<span id="cb8-627"><a href="#cb8-627" aria-hidden="true" tabindex="-1"></a>    <span class="at">tempo =</span> <span class="fu">as.numeric</span>(DTULTINFO <span class="sc">-</span> DTDIAG) <span class="sc">/</span> <span class="fl">30.44</span>,</span>
+<span id="cb8-628"><a href="#cb8-628" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-629"><a href="#cb8-629" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define o indicador do evento:</span></span>
+<span id="cb8-630"><a href="#cb8-630" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 1 = óbito por câncer</span></span>
+<span id="cb8-631"><a href="#cb8-631" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 0 = censura</span></span>
+<span id="cb8-632"><a href="#cb8-632" aria-hidden="true" tabindex="-1"></a>    <span class="co">#</span></span>
+<span id="cb8-633"><a href="#cb8-633" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ULTINFO:</span></span>
+<span id="cb8-634"><a href="#cb8-634" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 1 = vivo, com câncer       -&gt; censura</span></span>
+<span id="cb8-635"><a href="#cb8-635" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 2 = vivo, SOE              -&gt; censura</span></span>
+<span id="cb8-636"><a href="#cb8-636" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 3 = óbito por câncer       -&gt; evento</span></span>
+<span id="cb8-637"><a href="#cb8-637" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 4 = óbito por outras causas -&gt; censura</span></span>
+<span id="cb8-638"><a href="#cb8-638" aria-hidden="true" tabindex="-1"></a>    <span class="at">cens =</span> <span class="fu">ifelse</span>(ULTINFO <span class="sc">==</span> <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb8-639"><a href="#cb8-639" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-640"><a href="#cb8-640" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-641"><a href="#cb8-641" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-642"><a href="#cb8-642" aria-hidden="true" tabindex="-1"></a>A variável <span class="in">`tempo`</span> representa, portanto, o **tempo desde o diagnóstico até o óbito por câncer ou até a censura**, enquanto <span class="in">`cens`</span> indica se o evento de interesse foi observado.</span>
+<span id="cb8-643"><a href="#cb8-643" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-644"><a href="#cb8-644" aria-hidden="true" tabindex="-1"></a>A resposta utilizada nas análises de sobrevivência será:</span>
+<span id="cb8-645"><a href="#cb8-645" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-646"><a href="#cb8-646" aria-hidden="true" tabindex="-1"></a><span class="fu">## **PARTE I — ANÁLISE NÃO PARAMÉTRICA**</span></span>
+<span id="cb8-647"><a href="#cb8-647" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-648"><a href="#cb8-648" aria-hidden="true" tabindex="-1"></a>Nesta primeira etapa, deverá ser construída uma **apresentação em slides** com os resultados da análise não paramétrica de sobrevivência.</span>
+<span id="cb8-649"><a href="#cb8-649" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-650"><a href="#cb8-650" aria-hidden="true" tabindex="-1"></a>A apresentação deverá ser organizada nos seguintes capítulos:</span>
+<span id="cb8-651"><a href="#cb8-651" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-652"><a href="#cb8-652" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Introdução**;</span>
+<span id="cb8-653"><a href="#cb8-653" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Metodologia**;</span>
+<span id="cb8-654"><a href="#cb8-654" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Resultados**;</span>
+<span id="cb8-655"><a href="#cb8-655" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Conclusão**.</span>
+<span id="cb8-656"><a href="#cb8-656" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-657"><a href="#cb8-657" aria-hidden="true" tabindex="-1"></a><span class="fu">### **INTRODUÇÃO**</span></span>
+<span id="cb8-658"><a href="#cb8-658" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-659"><a href="#cb8-659" aria-hidden="true" tabindex="-1"></a>A apresentação deverá iniciar com a **contextualização do problema**, destacando:</span>
+<span id="cb8-660"><a href="#cb8-660" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-661"><a href="#cb8-661" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>a **fonte dos dados**;</span>
+<span id="cb8-662"><a href="#cb8-662" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>a população analisada;</span>
+<span id="cb8-663"><a href="#cb8-663" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>o **tipo de câncer estudado**;</span>
+<span id="cb8-664"><a href="#cb8-664" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>o período considerado;</span>
+<span id="cb8-665"><a href="#cb8-665" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>a relevância da investigação.</span>
+<span id="cb8-666"><a href="#cb8-666" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-667"><a href="#cb8-667" aria-hidden="true" tabindex="-1"></a>Também deverão ser claramente definidos:</span>
+<span id="cb8-668"><a href="#cb8-668" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-669"><a href="#cb8-669" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**evento de interesse**;</span>
+<span id="cb8-670"><a href="#cb8-670" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**tempo até o evento**;</span>
+<span id="cb8-671"><a href="#cb8-671" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>significado da **censura**.</span>
+<span id="cb8-672"><a href="#cb8-672" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-673"><a href="#cb8-673" aria-hidden="true" tabindex="-1"></a>Na sequência, devem ser apresentadas as principais variáveis utilizadas, identificando:</span>
+<span id="cb8-674"><a href="#cb8-674" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-675"><a href="#cb8-675" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>variável de **tempo**;</span>
+<span id="cb8-676"><a href="#cb8-676" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>variável de **evento/censura**;</span>
+<span id="cb8-677"><a href="#cb8-677" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**covariáveis qualitativas**;</span>
+<span id="cb8-678"><a href="#cb8-678" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**covariáveis quantitativas**.</span>
+<span id="cb8-679"><a href="#cb8-679" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-680"><a href="#cb8-680" aria-hidden="true" tabindex="-1"></a>O foco deve estar principalmente no **significado prático das variáveis no contexto do câncer estudado**.</span>
+<span id="cb8-681"><a href="#cb8-681" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-682"><a href="#cb8-682" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb8-683"><a href="#cb8-683" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-684"><a href="#cb8-684" aria-hidden="true" tabindex="-1"></a><span class="fu">### **METODOLOGIA**</span></span>
+<span id="cb8-685"><a href="#cb8-685" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-686"><a href="#cb8-686" aria-hidden="true" tabindex="-1"></a>A metodologia deve apresentar de forma objetiva os procedimentos estatísticos utilizados.</span>
+<span id="cb8-687"><a href="#cb8-687" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-688"><a href="#cb8-688" aria-hidden="true" tabindex="-1"></a>Nesta etapa serão considerados:</span>
+<span id="cb8-689"><a href="#cb8-689" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-690"><a href="#cb8-690" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**estimador de Kaplan-Meier**;</span>
+<span id="cb8-691"><a href="#cb8-691" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**tempo mediano de sobrevivência**;</span>
+<span id="cb8-692"><a href="#cb8-692" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>respectivos **intervalos de confiança**;</span>
+<span id="cb8-693"><a href="#cb8-693" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**teste de Log-Rank**;</span>
+<span id="cb8-694"><a href="#cb8-694" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**teste de Peto-Peto**;</span>
+<span id="cb8-695"><a href="#cb8-695" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**comparações múltiplas**, quando necessárias;</span>
+<span id="cb8-696"><a href="#cb8-696" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>correção de **Holm-Bonferroni**;</span>
+<span id="cb8-697"><a href="#cb8-697" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**medidas resumo** para as covariáveis quantitativas.</span>
+<span id="cb8-698"><a href="#cb8-698" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-699"><a href="#cb8-699" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb8-700"><a href="#cb8-700" aria-hidden="true" tabindex="-1"></a>**ORIENTAÇÃO**</span>
+<span id="cb8-701"><a href="#cb8-701" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-702"><a href="#cb8-702" aria-hidden="true" tabindex="-1"></a>Não é necessário apresentar **fórmulas ou demonstrações matemáticas**.</span>
+<span id="cb8-703"><a href="#cb8-703" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-704"><a href="#cb8-704" aria-hidden="true" tabindex="-1"></a>A metodologia deve explicar de maneira objetiva:</span>
+<span id="cb8-705"><a href="#cb8-705" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-706"><a href="#cb8-706" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**qual método foi utilizado**;</span>
+<span id="cb8-707"><a href="#cb8-707" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**para qual finalidade**;</span>
+<span id="cb8-708"><a href="#cb8-708" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**por que ele é adequado à análise realizada**.</span>
+<span id="cb8-709"><a href="#cb8-709" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-710"><a href="#cb8-710" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-711"><a href="#cb8-711" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb8-712"><a href="#cb8-712" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-713"><a href="#cb8-713" aria-hidden="true" tabindex="-1"></a><span class="fu">### **RESULTADOS**</span></span>
+<span id="cb8-714"><a href="#cb8-714" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-715"><a href="#cb8-715" aria-hidden="true" tabindex="-1"></a>Os resultados deverão ser organizados em **três blocos**.</span>
+<span id="cb8-716"><a href="#cb8-716" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-717"><a href="#cb8-717" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **ANÁLISE SEM COVARIÁVEIS**</span></span>
+<span id="cb8-718"><a href="#cb8-718" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-719"><a href="#cb8-719" aria-hidden="true" tabindex="-1"></a>Apresentar:</span>
+<span id="cb8-720"><a href="#cb8-720" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-721"><a href="#cb8-721" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**curva de sobrevivência global** estimada por Kaplan-Meier;</span>
+<span id="cb8-722"><a href="#cb8-722" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>respectivo **intervalo de confiança**;</span>
+<span id="cb8-723"><a href="#cb8-723" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**tempo mediano de sobrevivência**;</span>
+<span id="cb8-724"><a href="#cb8-724" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>intervalo de confiança para a mediana;</span>
+<span id="cb8-725"><a href="#cb8-725" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>interpretação dos resultados no contexto do estudo.</span>
+<span id="cb8-726"><a href="#cb8-726" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-727"><a href="#cb8-727" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb8-728"><a href="#cb8-728" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-729"><a href="#cb8-729" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **COVARIÁVEIS QUALITATIVAS**</span></span>
+<span id="cb8-730"><a href="#cb8-730" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-731"><a href="#cb8-731" aria-hidden="true" tabindex="-1"></a>Para cada covariável qualitativa selecionada, apresentar:</span>
+<span id="cb8-732"><a href="#cb8-732" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-733"><a href="#cb8-733" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**curvas de sobrevivência por grupo**;</span>
+<span id="cb8-734"><a href="#cb8-734" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**tempos medianos de sobrevivência**;</span>
+<span id="cb8-735"><a href="#cb8-735" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>respectivos **intervalos de confiança**;</span>
+<span id="cb8-736"><a href="#cb8-736" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>resultado do **teste de Log-Rank**;</span>
+<span id="cb8-737"><a href="#cb8-737" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>resultado do **teste de Peto-Peto**.</span>
+<span id="cb8-738"><a href="#cb8-738" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-739"><a href="#cb8-739" aria-hidden="true" tabindex="-1"></a>Quando houver **mais de dois grupos** e evidência de diferença entre as curvas, realizar:</span>
+<span id="cb8-740"><a href="#cb8-740" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-741"><a href="#cb8-741" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**comparações múltiplas**;</span>
+<span id="cb8-742"><a href="#cb8-742" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>ajuste dos valores-p pela correção de **Holm-Bonferroni**.</span>
+<span id="cb8-743"><a href="#cb8-743" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-744"><a href="#cb8-744" aria-hidden="true" tabindex="-1"></a>A interpretação deve identificar quais grupos apresentam **maior ou menor sobrevivência** e se as diferenças possuem evidência estatística.</span>
+<span id="cb8-745"><a href="#cb8-745" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-746"><a href="#cb8-746" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb8-747"><a href="#cb8-747" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-748"><a href="#cb8-748" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **COVARIÁVEIS QUANTITATIVAS**</span></span>
+<span id="cb8-749"><a href="#cb8-749" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-750"><a href="#cb8-750" aria-hidden="true" tabindex="-1"></a>Para as covariáveis quantitativas, apresentar medidas resumo:</span>
+<span id="cb8-751"><a href="#cb8-751" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-752"><a href="#cb8-752" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>para o **conjunto total de pacientes**;</span>
+<span id="cb8-753"><a href="#cb8-753" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>entre pacientes que apresentaram o **evento**;</span>
+<span id="cb8-754"><a href="#cb8-754" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>entre pacientes **censurados**.</span>
+<span id="cb8-755"><a href="#cb8-755" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-756"><a href="#cb8-756" aria-hidden="true" tabindex="-1"></a>A escolha das medidas deve considerar a **distribuição dos dados**.</span>
+<span id="cb8-757"><a href="#cb8-757" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-758"><a href="#cb8-758" aria-hidden="true" tabindex="-1"></a>A interpretação deve destacar possíveis diferenças entre os grupos e padrões que possam ser relevantes para as etapas posteriores da análise.</span>
+<span id="cb8-759"><a href="#cb8-759" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-760"><a href="#cb8-760" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb8-761"><a href="#cb8-761" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-762"><a href="#cb8-762" aria-hidden="true" tabindex="-1"></a><span class="fu">### **CONCLUSÃO**</span></span>
+<span id="cb8-763"><a href="#cb8-763" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-764"><a href="#cb8-764" aria-hidden="true" tabindex="-1"></a>A apresentação deverá terminar com uma síntese dos principais resultados da análise não paramétrica.</span>
+<span id="cb8-765"><a href="#cb8-765" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-766"><a href="#cb8-766" aria-hidden="true" tabindex="-1"></a>Destacar:</span>
+<span id="cb8-767"><a href="#cb8-767" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-768"><a href="#cb8-768" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>principais características da população;</span>
+<span id="cb8-769"><a href="#cb8-769" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>comportamento da **sobrevivência global**;</span>
+<span id="cb8-770"><a href="#cb8-770" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>grupos com **maior e menor sobrevivência**;</span>
+<span id="cb8-771"><a href="#cb8-771" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>covariáveis que apresentaram diferenças relevantes;</span>
+<span id="cb8-772"><a href="#cb8-772" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>possíveis **implicações práticas**;</span>
+<span id="cb8-773"><a href="#cb8-773" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>principais **limitações da análise**.</span>
+</code><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
