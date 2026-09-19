@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>10&nbsp; TRABALHO – ANÁLISE DE SOBREVIVÊNCIA E CONFIABILIDADE</title>
+<title>11&nbsp; TRABALHO – ANÁLISE DE SOBREVIVÊNCIA E CONFIABILIDADE</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Cap6.html" rel="prev">
+<link href="./Cap7.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -121,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Trabalho2.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title"><strong>TRABALHO</strong></span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Trabalho2.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title"><strong>TRABALHO</strong></span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
@@ -202,8 +202,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Cap7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title"><strong>MODELOS PARAMÉTRICOS EM ANÁLISE DE SOBREVIVÊNCIA/CONFIABILIDADE</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./Trabalho2.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title"><strong>TRABALHO</strong></span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title"><strong>TRABALHO</strong></span></span></a>
   </div>
 </li>
     </ul>
@@ -216,52 +222,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Índice</h2>
    
   <ul>
-  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">10.1</span> <strong>INTRODUÇÃO</strong></a>
+  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">11.1</span> <strong>INTRODUÇÃO</strong></a>
   <ul>
-  <li><a href="#o-que-é-um-registro-hospitalar-de-câncer" id="toc-o-que-é-um-registro-hospitalar-de-câncer" class="nav-link" data-scroll-target="#o-que-é-um-registro-hospitalar-de-câncer"><span class="header-section-number">10.1.1</span> <strong>O QUE É UM REGISTRO HOSPITALAR DE CÂNCER?</strong></a></li>
-  <li><a href="#rhc-não-é-um-registro-de-base-populacional" id="toc-rhc-não-é-um-registro-de-base-populacional" class="nav-link" data-scroll-target="#rhc-não-é-um-registro-de-base-populacional"><span class="header-section-number">10.1.2</span> <strong>RHC NÃO É UM REGISTRO DE BASE POPULACIONAL</strong></a>
+  <li><a href="#o-que-é-um-registro-hospitalar-de-câncer" id="toc-o-que-é-um-registro-hospitalar-de-câncer" class="nav-link" data-scroll-target="#o-que-é-um-registro-hospitalar-de-câncer"><span class="header-section-number">11.1.1</span> <strong>O QUE É UM REGISTRO HOSPITALAR DE CÂNCER?</strong></a></li>
+  <li><a href="#rhc-não-é-um-registro-de-base-populacional" id="toc-rhc-não-é-um-registro-de-base-populacional" class="nav-link" data-scroll-target="#rhc-não-é-um-registro-de-base-populacional"><span class="header-section-number">11.1.2</span> <strong>RHC NÃO É UM REGISTRO DE BASE POPULACIONAL</strong></a>
   <ul class="collapse">
-  <li><a href="#registro-hospitalar-de-câncer" id="toc-registro-hospitalar-de-câncer" class="nav-link" data-scroll-target="#registro-hospitalar-de-câncer"><span class="header-section-number">10.1.2.1</span> <strong>REGISTRO HOSPITALAR DE CÂNCER</strong></a></li>
-  <li><a href="#registro-de-câncer-de-base-populacional" id="toc-registro-de-câncer-de-base-populacional" class="nav-link" data-scroll-target="#registro-de-câncer-de-base-populacional"><span class="header-section-number">10.1.2.2</span> <strong>REGISTRO DE CÂNCER DE BASE POPULACIONAL</strong></a></li>
+  <li><a href="#registro-hospitalar-de-câncer" id="toc-registro-hospitalar-de-câncer" class="nav-link" data-scroll-target="#registro-hospitalar-de-câncer"><span class="header-section-number">11.1.2.1</span> <strong>REGISTRO HOSPITALAR DE CÂNCER</strong></a></li>
+  <li><a href="#registro-de-câncer-de-base-populacional" id="toc-registro-de-câncer-de-base-populacional" class="nav-link" data-scroll-target="#registro-de-câncer-de-base-populacional"><span class="header-section-number">11.1.2.2</span> <strong>REGISTRO DE CÂNCER DE BASE POPULACIONAL</strong></a></li>
   </ul></li>
-  <li><a href="#o-que-representa-uma-observação-da-base" id="toc-o-que-representa-uma-observação-da-base" class="nav-link" data-scroll-target="#o-que-representa-uma-observação-da-base"><span class="header-section-number">10.1.3</span> <strong>O QUE REPRESENTA UMA OBSERVAÇÃO DA BASE?</strong></a></li>
-  <li><a href="#dados-observacionais" id="toc-dados-observacionais" class="nav-link" data-scroll-target="#dados-observacionais"><span class="header-section-number">10.1.4</span> <strong>DADOS OBSERVACIONAIS</strong></a></li>
-  <li><a href="#dimensão-temporal" id="toc-dimensão-temporal" class="nav-link" data-scroll-target="#dimensão-temporal"><span class="header-section-number">10.1.5</span> <strong>DIMENSÃO TEMPORAL</strong></a></li>
-  <li><a href="#acompanhamento-dos-pacientes" id="toc-acompanhamento-dos-pacientes" class="nav-link" data-scroll-target="#acompanhamento-dos-pacientes"><span class="header-section-number">10.1.6</span> <strong>ACOMPANHAMENTO DOS PACIENTES</strong></a></li>
-  <li><a href="#potencialidades-do-rhcsp" id="toc-potencialidades-do-rhcsp" class="nav-link" data-scroll-target="#potencialidades-do-rhcsp"><span class="header-section-number">10.1.7</span> <strong>POTENCIALIDADES DO RHC/SP</strong></a></li>
-  <li><a href="#principais-limitações" id="toc-principais-limitações" class="nav-link" data-scroll-target="#principais-limitações"><span class="header-section-number">10.1.8</span> <strong>PRINCIPAIS LIMITAÇÕES</strong></a>
+  <li><a href="#o-que-representa-uma-observação-da-base" id="toc-o-que-representa-uma-observação-da-base" class="nav-link" data-scroll-target="#o-que-representa-uma-observação-da-base"><span class="header-section-number">11.1.3</span> <strong>O QUE REPRESENTA UMA OBSERVAÇÃO DA BASE?</strong></a></li>
+  <li><a href="#dados-observacionais" id="toc-dados-observacionais" class="nav-link" data-scroll-target="#dados-observacionais"><span class="header-section-number">11.1.4</span> <strong>DADOS OBSERVACIONAIS</strong></a></li>
+  <li><a href="#dimensão-temporal" id="toc-dimensão-temporal" class="nav-link" data-scroll-target="#dimensão-temporal"><span class="header-section-number">11.1.5</span> <strong>DIMENSÃO TEMPORAL</strong></a></li>
+  <li><a href="#acompanhamento-dos-pacientes" id="toc-acompanhamento-dos-pacientes" class="nav-link" data-scroll-target="#acompanhamento-dos-pacientes"><span class="header-section-number">11.1.6</span> <strong>ACOMPANHAMENTO DOS PACIENTES</strong></a></li>
+  <li><a href="#potencialidades-do-rhcsp" id="toc-potencialidades-do-rhcsp" class="nav-link" data-scroll-target="#potencialidades-do-rhcsp"><span class="header-section-number">11.1.7</span> <strong>POTENCIALIDADES DO RHC/SP</strong></a></li>
+  <li><a href="#principais-limitações" id="toc-principais-limitações" class="nav-link" data-scroll-target="#principais-limitações"><span class="header-section-number">11.1.8</span> <strong>PRINCIPAIS LIMITAÇÕES</strong></a>
   <ul class="collapse">
-  <li><a href="#representatividade" id="toc-representatividade" class="nav-link" data-scroll-target="#representatividade"><span class="header-section-number">10.1.8.1</span> <strong>REPRESENTATIVIDADE</strong></a></li>
-  <li><a href="#dados-ausentes" id="toc-dados-ausentes" class="nav-link" data-scroll-target="#dados-ausentes"><span class="header-section-number">10.1.8.2</span> <strong>DADOS AUSENTES</strong></a></li>
-  <li><a href="#mudanças-ao-longo-do-tempo" id="toc-mudanças-ao-longo-do-tempo" class="nav-link" data-scroll-target="#mudanças-ao-longo-do-tempo"><span class="header-section-number">10.1.8.3</span> <strong>MUDANÇAS AO LONGO DO TEMPO</strong></a></li>
-  <li><a href="#qualidade-do-seguimento" id="toc-qualidade-do-seguimento" class="nav-link" data-scroll-target="#qualidade-do-seguimento"><span class="header-section-number">10.1.8.4</span> <strong>QUALIDADE DO SEGUIMENTO</strong></a></li>
+  <li><a href="#representatividade" id="toc-representatividade" class="nav-link" data-scroll-target="#representatividade"><span class="header-section-number">11.1.8.1</span> <strong>REPRESENTATIVIDADE</strong></a></li>
+  <li><a href="#dados-ausentes" id="toc-dados-ausentes" class="nav-link" data-scroll-target="#dados-ausentes"><span class="header-section-number">11.1.8.2</span> <strong>DADOS AUSENTES</strong></a></li>
+  <li><a href="#mudanças-ao-longo-do-tempo" id="toc-mudanças-ao-longo-do-tempo" class="nav-link" data-scroll-target="#mudanças-ao-longo-do-tempo"><span class="header-section-number">11.1.8.3</span> <strong>MUDANÇAS AO LONGO DO TEMPO</strong></a></li>
+  <li><a href="#qualidade-do-seguimento" id="toc-qualidade-do-seguimento" class="nav-link" data-scroll-target="#qualidade-do-seguimento"><span class="header-section-number">11.1.8.4</span> <strong>QUALIDADE DO SEGUIMENTO</strong></a></li>
   </ul></li>
-  <li><a href="#acesso-e-obtenção-da-base-de-dados" id="toc-acesso-e-obtenção-da-base-de-dados" class="nav-link" data-scroll-target="#acesso-e-obtenção-da-base-de-dados"><span class="header-section-number">10.1.9</span> <strong>ACESSO E OBTENÇÃO DA BASE DE DADOS</strong></a>
+  <li><a href="#acesso-e-obtenção-da-base-de-dados" id="toc-acesso-e-obtenção-da-base-de-dados" class="nav-link" data-scroll-target="#acesso-e-obtenção-da-base-de-dados"><span class="header-section-number">11.1.9</span> <strong>ACESSO E OBTENÇÃO DA BASE DE DADOS</strong></a>
   <ul class="collapse">
-  <li><a href="#arquivos-disponíveis" id="toc-arquivos-disponíveis" class="nav-link" data-scroll-target="#arquivos-disponíveis"><span class="header-section-number">10.1.9.1</span> <strong>ARQUIVOS DISPONÍVEIS</strong></a></li>
+  <li><a href="#arquivos-disponíveis" id="toc-arquivos-disponíveis" class="nav-link" data-scroll-target="#arquivos-disponíveis"><span class="header-section-number">11.1.9.1</span> <strong>ARQUIVOS DISPONÍVEIS</strong></a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#primeiros-passos" id="toc-primeiros-passos" class="nav-link" data-scroll-target="#primeiros-passos"><span class="header-section-number">10.2</span> <strong>PRIMEIROS PASSOS</strong></a>
+  <li><a href="#primeiros-passos" id="toc-primeiros-passos" class="nav-link" data-scroll-target="#primeiros-passos"><span class="header-section-number">11.2</span> <strong>PRIMEIROS PASSOS</strong></a>
   <ul>
-  <li><a href="#leitura-da-base" id="toc-leitura-da-base" class="nav-link" data-scroll-target="#leitura-da-base"><span class="header-section-number">10.2.1</span> <strong>LEITURA DA BASE</strong></a></li>
-  <li><a href="#principais-variáveis" id="toc-principais-variáveis" class="nav-link" data-scroll-target="#principais-variáveis"><span class="header-section-number">10.2.2</span> <strong>PRINCIPAIS VARIÁVEIS</strong></a></li>
-  <li><a href="#escolha-das-neoplasias" id="toc-escolha-das-neoplasias" class="nav-link" data-scroll-target="#escolha-das-neoplasias"><span class="header-section-number">10.2.3</span> <strong>ESCOLHA DAS NEOPLASIAS</strong></a></li>
-  <li><a href="#sorteio-das-neoplasias" id="toc-sorteio-das-neoplasias" class="nav-link" data-scroll-target="#sorteio-das-neoplasias"><span class="header-section-number">10.2.4</span> <strong>SORTEIO DAS NEOPLASIAS</strong></a></li>
-  <li><a href="#critérios-de-exclusão" id="toc-critérios-de-exclusão" class="nav-link" data-scroll-target="#critérios-de-exclusão"><span class="header-section-number">10.2.5</span> <strong>CRITÉRIOS DE EXCLUSÃO</strong></a></li>
-  <li><a href="#variáveis-selecionadas" id="toc-variáveis-selecionadas" class="nav-link" data-scroll-target="#variáveis-selecionadas"><span class="header-section-number">10.2.6</span> <strong>VARIÁVEIS SELECIONADAS</strong></a></li>
-  <li><a href="#construção-da-variável-resposta" id="toc-construção-da-variável-resposta" class="nav-link" data-scroll-target="#construção-da-variável-resposta"><span class="header-section-number">10.2.7</span> <strong>CONSTRUÇÃO DA VARIÁVEL RESPOSTA</strong></a></li>
+  <li><a href="#leitura-da-base" id="toc-leitura-da-base" class="nav-link" data-scroll-target="#leitura-da-base"><span class="header-section-number">11.2.1</span> <strong>LEITURA DA BASE</strong></a></li>
+  <li><a href="#principais-variáveis" id="toc-principais-variáveis" class="nav-link" data-scroll-target="#principais-variáveis"><span class="header-section-number">11.2.2</span> <strong>PRINCIPAIS VARIÁVEIS</strong></a></li>
+  <li><a href="#escolha-das-neoplasias" id="toc-escolha-das-neoplasias" class="nav-link" data-scroll-target="#escolha-das-neoplasias"><span class="header-section-number">11.2.3</span> <strong>ESCOLHA DAS NEOPLASIAS</strong></a></li>
+  <li><a href="#sorteio-das-neoplasias" id="toc-sorteio-das-neoplasias" class="nav-link" data-scroll-target="#sorteio-das-neoplasias"><span class="header-section-number">11.2.4</span> <strong>SORTEIO DAS NEOPLASIAS</strong></a></li>
+  <li><a href="#critérios-de-exclusão" id="toc-critérios-de-exclusão" class="nav-link" data-scroll-target="#critérios-de-exclusão"><span class="header-section-number">11.2.5</span> <strong>CRITÉRIOS DE EXCLUSÃO</strong></a></li>
+  <li><a href="#variáveis-selecionadas" id="toc-variáveis-selecionadas" class="nav-link" data-scroll-target="#variáveis-selecionadas"><span class="header-section-number">11.2.6</span> <strong>VARIÁVEIS SELECIONADAS</strong></a></li>
+  <li><a href="#construção-da-variável-resposta" id="toc-construção-da-variável-resposta" class="nav-link" data-scroll-target="#construção-da-variável-resposta"><span class="header-section-number">11.2.7</span> <strong>CONSTRUÇÃO DA VARIÁVEL RESPOSTA</strong></a></li>
   </ul></li>
-  <li><a href="#parte-i-análise-não-paramétrica" id="toc-parte-i-análise-não-paramétrica" class="nav-link" data-scroll-target="#parte-i-análise-não-paramétrica"><span class="header-section-number">10.3</span> <strong>PARTE I — ANÁLISE NÃO PARAMÉTRICA</strong></a>
+  <li><a href="#parte-i-análise-não-paramétrica" id="toc-parte-i-análise-não-paramétrica" class="nav-link" data-scroll-target="#parte-i-análise-não-paramétrica"><span class="header-section-number">11.3</span> <strong>PARTE I — ANÁLISE NÃO PARAMÉTRICA</strong></a>
   <ul>
-  <li><a href="#introdução-1" id="toc-introdução-1" class="nav-link" data-scroll-target="#introdução-1"><span class="header-section-number">10.3.1</span> <strong>INTRODUÇÃO</strong></a></li>
-  <li><a href="#metodologia" id="toc-metodologia" class="nav-link" data-scroll-target="#metodologia"><span class="header-section-number">10.3.2</span> <strong>METODOLOGIA</strong></a></li>
-  <li><a href="#resultados" id="toc-resultados" class="nav-link" data-scroll-target="#resultados"><span class="header-section-number">10.3.3</span> <strong>RESULTADOS</strong></a>
+  <li><a href="#introdução-1" id="toc-introdução-1" class="nav-link" data-scroll-target="#introdução-1"><span class="header-section-number">11.3.1</span> <strong>INTRODUÇÃO</strong></a></li>
+  <li><a href="#metodologia" id="toc-metodologia" class="nav-link" data-scroll-target="#metodologia"><span class="header-section-number">11.3.2</span> <strong>METODOLOGIA</strong></a></li>
+  <li><a href="#resultados" id="toc-resultados" class="nav-link" data-scroll-target="#resultados"><span class="header-section-number">11.3.3</span> <strong>RESULTADOS</strong></a>
   <ul class="collapse">
-  <li><a href="#análise-sem-covariáveis" id="toc-análise-sem-covariáveis" class="nav-link" data-scroll-target="#análise-sem-covariáveis"><span class="header-section-number">10.3.3.1</span> <strong>ANÁLISE SEM COVARIÁVEIS</strong></a></li>
-  <li><a href="#covariáveis-qualitativas" id="toc-covariáveis-qualitativas" class="nav-link" data-scroll-target="#covariáveis-qualitativas"><span class="header-section-number">10.3.3.2</span> <strong>COVARIÁVEIS QUALITATIVAS</strong></a></li>
-  <li><a href="#covariáveis-quantitativas" id="toc-covariáveis-quantitativas" class="nav-link" data-scroll-target="#covariáveis-quantitativas"><span class="header-section-number">10.3.3.3</span> <strong>COVARIÁVEIS QUANTITATIVAS</strong></a></li>
+  <li><a href="#análise-sem-covariáveis" id="toc-análise-sem-covariáveis" class="nav-link" data-scroll-target="#análise-sem-covariáveis"><span class="header-section-number">11.3.3.1</span> <strong>ANÁLISE SEM COVARIÁVEIS</strong></a></li>
+  <li><a href="#covariáveis-qualitativas" id="toc-covariáveis-qualitativas" class="nav-link" data-scroll-target="#covariáveis-qualitativas"><span class="header-section-number">11.3.3.2</span> <strong>COVARIÁVEIS QUALITATIVAS</strong></a></li>
+  <li><a href="#covariáveis-quantitativas" id="toc-covariáveis-quantitativas" class="nav-link" data-scroll-target="#covariáveis-quantitativas"><span class="header-section-number">11.3.3.3</span> <strong>COVARIÁVEIS QUANTITATIVAS</strong></a></li>
   </ul></li>
-  <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão"><span class="header-section-number">10.3.4</span> <strong>CONCLUSÃO</strong></a></li>
+  <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão"><span class="header-section-number">11.3.4</span> <strong>CONCLUSÃO</strong></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -271,7 +277,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title"><strong>TRABALHO</strong></span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Código</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Mostrar o código</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Esconder o código</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Ver o código fonte</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title"><strong>TRABALHO</strong></span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Código</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Mostrar o código</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Esconder o código</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Ver o código fonte</a></li></ul></div></div>
 </div>
 
 
@@ -289,8 +295,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>Nesta atividade, será desenvolvido um estudo utilizando dados dos <strong>Registros Hospitalares de Câncer do Estado de São Paulo (RHC/SP)</strong>, disponibilizados pela <strong>Fundação Oncocentro de São Paulo (FOSP)</strong>.</p>
-<section id="introdução" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">10.1</span> <strong>INTRODUÇÃO</strong></h2>
+<section id="introdução" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">11.1</span> <strong>INTRODUÇÃO</strong></h2>
 <p>A <strong>Fundação Oncocentro de São Paulo (FOSP)</strong> é uma instituição vinculada à <strong>Secretaria de Estado da Saúde de São Paulo</strong>, com atuação na área de oncologia.</p>
 <p>Entre suas atividades está a coordenação dos <strong>Registros Hospitalares de Câncer (RHC)</strong> no Estado de São Paulo.</p>
 <p>Os registros hospitalares permitem:</p>
@@ -301,8 +307,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>produzir informações úteis para estudos <strong>epidemiológicos e estatísticos</strong>.</li>
 </ul>
 <hr>
-<section id="o-que-é-um-registro-hospitalar-de-câncer" class="level3" data-number="10.1.1">
-<h3 data-number="10.1.1" class="anchored" data-anchor-id="o-que-é-um-registro-hospitalar-de-câncer"><span class="header-section-number">10.1.1</span> <strong>O QUE É UM REGISTRO HOSPITALAR DE CÂNCER?</strong></h3>
+<section id="o-que-é-um-registro-hospitalar-de-câncer" class="level3" data-number="11.1.1">
+<h3 data-number="11.1.1" class="anchored" data-anchor-id="o-que-é-um-registro-hospitalar-de-câncer"><span class="header-section-number">11.1.1</span> <strong>O QUE É UM REGISTRO HOSPITALAR DE CÂNCER?</strong></h3>
 <p>Um <strong>Registro Hospitalar de Câncer (RHC)</strong> é um sistema destinado à coleta e ao armazenamento de informações sobre pacientes com diagnóstico de câncer atendidos em instituições hospitalares.</p>
 <p>Os registros podem reunir informações relacionadas a:</p>
 <ul>
@@ -318,19 +324,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Portanto, o RHC não registra apenas a ocorrência do câncer. Ele permite acompanhar diferentes aspectos da <strong>trajetória do paciente dentro do serviço de saúde</strong>.</p>
 <hr>
 </section>
-<section id="rhc-não-é-um-registro-de-base-populacional" class="level3" data-number="10.1.2">
-<h3 data-number="10.1.2" class="anchored" data-anchor-id="rhc-não-é-um-registro-de-base-populacional"><span class="header-section-number">10.1.2</span> <strong>RHC NÃO É UM REGISTRO DE BASE POPULACIONAL</strong></h3>
+<section id="rhc-não-é-um-registro-de-base-populacional" class="level3" data-number="11.1.2">
+<h3 data-number="11.1.2" class="anchored" data-anchor-id="rhc-não-é-um-registro-de-base-populacional"><span class="header-section-number">11.1.2</span> <strong>RHC NÃO É UM REGISTRO DE BASE POPULACIONAL</strong></h3>
 <p>Uma distinção fundamental é compreender a diferença entre um <strong>Registro Hospitalar de Câncer</strong> e um <strong>Registro de Câncer de Base Populacional</strong>.</p>
-<section id="registro-hospitalar-de-câncer" class="level4" data-number="10.1.2.1">
-<h4 data-number="10.1.2.1" class="anchored" data-anchor-id="registro-hospitalar-de-câncer"><span class="header-section-number">10.1.2.1</span> <strong>REGISTRO HOSPITALAR DE CÂNCER</strong></h4>
+<section id="registro-hospitalar-de-câncer" class="level4" data-number="11.1.2.1">
+<h4 data-number="11.1.2.1" class="anchored" data-anchor-id="registro-hospitalar-de-câncer"><span class="header-section-number">11.1.2.1</span> <strong>REGISTRO HOSPITALAR DE CÂNCER</strong></h4>
 <p>Tem como referência os:</p>
 <blockquote class="blockquote">
 <p><strong>pacientes atendidos nas instituições participantes do sistema de registro.</strong></p>
 </blockquote>
 <p>Portanto, sua população é formada pelos pacientes que chegaram aos hospitais incluídos no RHC.</p>
 </section>
-<section id="registro-de-câncer-de-base-populacional" class="level4" data-number="10.1.2.2">
-<h4 data-number="10.1.2.2" class="anchored" data-anchor-id="registro-de-câncer-de-base-populacional"><span class="header-section-number">10.1.2.2</span> <strong>REGISTRO DE CÂNCER DE BASE POPULACIONAL</strong></h4>
+<section id="registro-de-câncer-de-base-populacional" class="level4" data-number="11.1.2.2">
+<h4 data-number="11.1.2.2" class="anchored" data-anchor-id="registro-de-câncer-de-base-populacional"><span class="header-section-number">11.1.2.2</span> <strong>REGISTRO DE CÂNCER DE BASE POPULACIONAL</strong></h4>
 <p>Tem como objetivo identificar casos de câncer ocorridos em uma:</p>
 <blockquote class="blockquote">
 <p><strong>população geograficamente definida</strong>, independentemente do hospital em que o paciente tenha sido atendido.</p>
@@ -353,8 +359,8 @@ Aviso
 <hr>
 </section>
 </section>
-<section id="o-que-representa-uma-observação-da-base" class="level3" data-number="10.1.3">
-<h3 data-number="10.1.3" class="anchored" data-anchor-id="o-que-representa-uma-observação-da-base"><span class="header-section-number">10.1.3</span> <strong>O QUE REPRESENTA UMA OBSERVAÇÃO DA BASE?</strong></h3>
+<section id="o-que-representa-uma-observação-da-base" class="level3" data-number="11.1.3">
+<h3 data-number="11.1.3" class="anchored" data-anchor-id="o-que-representa-uma-observação-da-base"><span class="header-section-number">11.1.3</span> <strong>O QUE REPRESENTA UMA OBSERVAÇÃO DA BASE?</strong></h3>
 <p>Uma pergunta essencial ao receber qualquer banco de dados é:</p>
 <blockquote class="blockquote">
 <p><strong>O que representa uma linha da base?</strong></p>
@@ -372,8 +378,8 @@ Aviso
 <p>A unidade analítica definitiva do estudo será estabelecida posteriormente, após a inspeção dos <strong>identificadores</strong> e da estrutura do banco.</p>
 <hr>
 </section>
-<section id="dados-observacionais" class="level3" data-number="10.1.4">
-<h3 data-number="10.1.4" class="anchored" data-anchor-id="dados-observacionais"><span class="header-section-number">10.1.4</span> <strong>DADOS OBSERVACIONAIS</strong></h3>
+<section id="dados-observacionais" class="level3" data-number="11.1.4">
+<h3 data-number="11.1.4" class="anchored" data-anchor-id="dados-observacionais"><span class="header-section-number">11.1.4</span> <strong>DADOS OBSERVACIONAIS</strong></h3>
 <p>Os dados da FOSP são provenientes da <strong>assistência e do acompanhamento dos pacientes nos serviços de saúde</strong>.</p>
 <p>Portanto, trata-se de uma base de <strong>dados observacionais</strong>.</p>
 <p>Não existe, por exemplo, alocação aleatória dos pacientes segundo:</p>
@@ -400,8 +406,8 @@ Importante
 </div>
 <hr>
 </section>
-<section id="dimensão-temporal" class="level3" data-number="10.1.5">
-<h3 data-number="10.1.5" class="anchored" data-anchor-id="dimensão-temporal"><span class="header-section-number">10.1.5</span> <strong>DIMENSÃO TEMPORAL</strong></h3>
+<section id="dimensão-temporal" class="level3" data-number="11.1.5">
+<h3 data-number="11.1.5" class="anchored" data-anchor-id="dimensão-temporal"><span class="header-section-number">11.1.5</span> <strong>DIMENSÃO TEMPORAL</strong></h3>
 <p>Uma característica especialmente importante do RHC/SP é sua <strong>dimensão temporal</strong>.</p>
 <p>Os registros permitem acompanhar diferentes momentos da trajetória do paciente, como:</p>
 <ul>
@@ -417,8 +423,8 @@ Importante
 <p>Esse tipo de estrutura torna a base particularmente interessante para estudos de <strong>análise de sobrevivência</strong>.</p>
 <hr>
 </section>
-<section id="acompanhamento-dos-pacientes" class="level3" data-number="10.1.6">
-<h3 data-number="10.1.6" class="anchored" data-anchor-id="acompanhamento-dos-pacientes"><span class="header-section-number">10.1.6</span> <strong>ACOMPANHAMENTO DOS PACIENTES</strong></h3>
+<section id="acompanhamento-dos-pacientes" class="level3" data-number="11.1.6">
+<h3 data-number="11.1.6" class="anchored" data-anchor-id="acompanhamento-dos-pacientes"><span class="header-section-number">11.1.6</span> <strong>ACOMPANHAMENTO DOS PACIENTES</strong></h3>
 <p>Os pacientes não necessariamente apresentam o mesmo período de acompanhamento.</p>
 <p>Podemos encontrar, por exemplo:</p>
 <ul>
@@ -436,8 +442,8 @@ Importante
 </ul>
 <hr>
 </section>
-<section id="potencialidades-do-rhcsp" class="level3" data-number="10.1.7">
-<h3 data-number="10.1.7" class="anchored" data-anchor-id="potencialidades-do-rhcsp"><span class="header-section-number">10.1.7</span> <strong>POTENCIALIDADES DO RHC/SP</strong></h3>
+<section id="potencialidades-do-rhcsp" class="level3" data-number="11.1.7">
+<h3 data-number="11.1.7" class="anchored" data-anchor-id="potencialidades-do-rhcsp"><span class="header-section-number">11.1.7</span> <strong>POTENCIALIDADES DO RHC/SP</strong></h3>
 <p>A base apresenta características particularmente interessantes para estudos estatísticos:</p>
 <ul>
 <li><strong>grande quantidade de registros</strong>;</li>
@@ -452,10 +458,10 @@ Importante
 <p>Essas características permitem desenvolver análises que vão desde uma <strong>descrição epidemiológica</strong> até modelos estatísticos mais complexos.</p>
 <hr>
 </section>
-<section id="principais-limitações" class="level3" data-number="10.1.8">
-<h3 data-number="10.1.8" class="anchored" data-anchor-id="principais-limitações"><span class="header-section-number">10.1.8</span> <strong>PRINCIPAIS LIMITAÇÕES</strong></h3>
-<section id="representatividade" class="level4" data-number="10.1.8.1">
-<h4 data-number="10.1.8.1" class="anchored" data-anchor-id="representatividade"><span class="header-section-number">10.1.8.1</span> <strong>REPRESENTATIVIDADE</strong></h4>
+<section id="principais-limitações" class="level3" data-number="11.1.8">
+<h3 data-number="11.1.8" class="anchored" data-anchor-id="principais-limitações"><span class="header-section-number">11.1.8</span> <strong>PRINCIPAIS LIMITAÇÕES</strong></h3>
+<section id="representatividade" class="level4" data-number="11.1.8.1">
+<h4 data-number="11.1.8.1" class="anchored" data-anchor-id="representatividade"><span class="header-section-number">11.1.8.1</span> <strong>REPRESENTATIVIDADE</strong></h4>
 <p>Os registros correspondem aos pacientes atendidos nos <strong>hospitais participantes</strong>.</p>
 <p>Portanto:</p>
 <ul>
@@ -464,8 +470,8 @@ Importante
 </ul>
 <hr>
 </section>
-<section id="dados-ausentes" class="level4" data-number="10.1.8.2">
-<h4 data-number="10.1.8.2" class="anchored" data-anchor-id="dados-ausentes"><span class="header-section-number">10.1.8.2</span> <strong>DADOS AUSENTES</strong></h4>
+<section id="dados-ausentes" class="level4" data-number="11.1.8.2">
+<h4 data-number="11.1.8.2" class="anchored" data-anchor-id="dados-ausentes"><span class="header-section-number">11.1.8.2</span> <strong>DADOS AUSENTES</strong></h4>
 <p>Nem todas as informações estarão necessariamente disponíveis para todos os pacientes.</p>
 <p>Será necessário investigar:</p>
 <ul>
@@ -476,8 +482,8 @@ Importante
 </ul>
 <hr>
 </section>
-<section id="mudanças-ao-longo-do-tempo" class="level4" data-number="10.1.8.3">
-<h4 data-number="10.1.8.3" class="anchored" data-anchor-id="mudanças-ao-longo-do-tempo"><span class="header-section-number">10.1.8.3</span> <strong>MUDANÇAS AO LONGO DO TEMPO</strong></h4>
+<section id="mudanças-ao-longo-do-tempo" class="level4" data-number="11.1.8.3">
+<h4 data-number="11.1.8.3" class="anchored" data-anchor-id="mudanças-ao-longo-do-tempo"><span class="header-section-number">11.1.8.3</span> <strong>MUDANÇAS AO LONGO DO TEMPO</strong></h4>
 <p>Por se tratar de uma base histórica, podem ocorrer mudanças relacionadas a:</p>
 <ul>
 <li><strong>sistemas de classificação</strong>;</li>
@@ -489,8 +495,8 @@ Importante
 <p>Por isso, a escolha do <strong>recorte temporal</strong> não deve considerar apenas o tamanho da amostra.</p>
 <hr>
 </section>
-<section id="qualidade-do-seguimento" class="level4" data-number="10.1.8.4">
-<h4 data-number="10.1.8.4" class="anchored" data-anchor-id="qualidade-do-seguimento"><span class="header-section-number">10.1.8.4</span> <strong>QUALIDADE DO SEGUIMENTO</strong></h4>
+<section id="qualidade-do-seguimento" class="level4" data-number="11.1.8.4">
+<h4 data-number="11.1.8.4" class="anchored" data-anchor-id="qualidade-do-seguimento"><span class="header-section-number">11.1.8.4</span> <strong>QUALIDADE DO SEGUIMENTO</strong></h4>
 <p>O acompanhamento pode variar entre:</p>
 <ul>
 <li>pacientes;</li>
@@ -501,13 +507,13 @@ Importante
 <hr>
 </section>
 </section>
-<section id="acesso-e-obtenção-da-base-de-dados" class="level3" data-number="10.1.9">
-<h3 data-number="10.1.9" class="anchored" data-anchor-id="acesso-e-obtenção-da-base-de-dados"><span class="header-section-number">10.1.9</span> <strong>ACESSO E OBTENÇÃO DA BASE DE DADOS</strong></h3>
+<section id="acesso-e-obtenção-da-base-de-dados" class="level3" data-number="11.1.9">
+<h3 data-number="11.1.9" class="anchored" data-anchor-id="acesso-e-obtenção-da-base-de-dados"><span class="header-section-number">11.1.9</span> <strong>ACESSO E OBTENÇÃO DA BASE DE DADOS</strong></h3>
 <p>Os dados do <strong>Registro Hospitalar de Câncer do Estado de São Paulo (RHC/SP)</strong> são disponibilizados pela <strong>Fundação Oncocentro de São Paulo (FOSP)</strong>.</p>
 <p>As informações gerais sobre o banco podem ser consultadas no <a href="https://fosp.saude.sp.gov.br/fosp/diretoria-adjunta-de-informacao-e-epidemiologia/rhc-registro-hospitalar-de-cancer/banco-de-dados-do-rhc/"><strong>portal do RHC/SP</strong></a>, enquanto os arquivos estão disponíveis na página de <a href="https://fosp.saude.sp.gov.br/fosp/diretoria-adjunta-de-informacao-e-epidemiologia/rhc-registro-hospitalar-de-cancer/download-de-arquivos/"><strong>download da FOSP</strong></a>.</p>
 <hr>
-<section id="arquivos-disponíveis" class="level4" data-number="10.1.9.1">
-<h4 data-number="10.1.9.1" class="anchored" data-anchor-id="arquivos-disponíveis"><span class="header-section-number">10.1.9.1</span> <strong>ARQUIVOS DISPONÍVEIS</strong></h4>
+<section id="arquivos-disponíveis" class="level4" data-number="11.1.9.1">
+<h4 data-number="11.1.9.1" class="anchored" data-anchor-id="arquivos-disponíveis"><span class="header-section-number">11.1.9.1</span> <strong>ARQUIVOS DISPONÍVEIS</strong></h4>
 <p>Entre os arquivos disponibilizados pela FOSP encontram-se:</p>
 <ul>
 <li>o <strong>Dicionário de Dados do RHC/SP</strong>;</li>
@@ -536,8 +542,8 @@ Nota
 </ul>
 <p>A definição do período de análise será realizada de acordo com os objetivos do estudo e com a qualidade e completude dos registros, e não apenas com base na disponibilidade temporal dos dados.</p>
 <hr>
-<section id="download-dos-dados" class="level4" data-number="10.1.9.2">
-<h4 data-number="10.1.9.2" class="anchored" data-anchor-id="download-dos-dados"><span class="header-section-number">10.1.9.2</span> <strong>DOWNLOAD DOS DADOS</strong></h4>
+<section id="download-dos-dados" class="level4" data-number="11.1.9.2">
+<h4 data-number="11.1.9.2" class="anchored" data-anchor-id="download-dos-dados"><span class="header-section-number">11.1.9.2</span> <strong>DOWNLOAD DOS DADOS</strong></h4>
 <p>Para preparar os arquivos que serão utilizados no projeto:</p>
 <ol type="1">
 <li>acesse a página de <a href="https://fosp.saude.sp.gov.br/fosp/diretoria-adjunta-de-informacao-e-epidemiologia/rhc-registro-hospitalar-de-cancer/download-de-arquivos/"><strong>download do RHC/SP</strong></a>;</li>
@@ -552,8 +558,8 @@ Nota
 </section>
 </section>
 </section>
-<section id="primeiros-passos" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="primeiros-passos"><span class="header-section-number">10.2</span> <strong>PRIMEIROS PASSOS</strong></h2>
+<section id="primeiros-passos" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="primeiros-passos"><span class="header-section-number">11.2</span> <strong>PRIMEIROS PASSOS</strong></h2>
 <p>Para aplicarmos nossos critérios de exclusão na base de dados original, precisaremos dos seguintes pacotes:</p>
 <div class="cell">
 <details class="code-fold">
@@ -570,9 +576,9 @@ Nota
 <li>facilitar procedimentos de <strong>seleção, filtragem e manipulação</strong>;</li>
 <li>evitar algumas limitações associadas ao formato original da base.</li>
 </ul>
-<section id="leitura-da-base" class="level3" data-number="10.2.1">
-<h3 data-number="10.2.1" class="anchored" data-anchor-id="leitura-da-base"><span class="header-section-number">10.2.1</span> <strong>LEITURA DA BASE</strong></h3>
-<p>A base de dados está armazenada no arquivo “FOSP.parquet”, disponível no <em>Classroom</em> na atividade. Para realizar a leitura do arquivo no <code>R</code>, utilizaremos o pacote <code>arrow</code>:</p>
+<section id="leitura-da-base" class="level3" data-number="11.2.1">
+<h3 data-number="11.2.1" class="anchored" data-anchor-id="leitura-da-base"><span class="header-section-number">11.2.1</span> <strong>LEITURA DA BASE</strong></h3>
+<p>A base de dados está armazenada no arquivo “FOSP.parquet”, disponível no <em>Classroom</em> na aba <em>Bases de Dados</em>. Para realizar a leitura do arquivo no <code>R</code>, utilizaremos o pacote <code>arrow</code>:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
@@ -594,8 +600,8 @@ Nota
 </details>
 </div>
 </section>
-<section id="principais-variáveis" class="level3" data-number="10.2.2">
-<h3 data-number="10.2.2" class="anchored" data-anchor-id="principais-variáveis"><span class="header-section-number">10.2.2</span> <strong>PRINCIPAIS VARIÁVEIS</strong></h3>
+<section id="principais-variáveis" class="level3" data-number="11.2.2">
+<h3 data-number="11.2.2" class="anchored" data-anchor-id="principais-variáveis"><span class="header-section-number">11.2.2</span> <strong>PRINCIPAIS VARIÁVEIS</strong></h3>
 <p>A base do RHC/SP reúne informações de diferentes naturezas. Para este estudo, as principais variáveis podem ser organizadas nos seguintes <strong>grandes grupos</strong>:</p>
 <ul>
 <li><p><strong>Características sociodemográficas:</strong> informações relacionadas ao perfil do paciente, como <strong>idade, sexo, escolaridade, raça/cor, estado civil e local de residência</strong>.</p></li>
@@ -605,8 +611,8 @@ Nota
 <li><p><strong>Seguimento e desfecho:</strong> informações referentes ao <strong>acompanhamento do paciente</strong>, incluindo a data da última informação e sua situação nesse momento, permitindo identificar <strong>óbito por câncer, óbito por outras causas ou censura</strong>.</p></li>
 </ul>
 </section>
-<section id="escolha-das-neoplasias" class="level3" data-number="10.2.3">
-<h3 data-number="10.2.3" class="anchored" data-anchor-id="escolha-das-neoplasias"><span class="header-section-number">10.2.3</span> <strong>ESCOLHA DAS NEOPLASIAS</strong></h3>
+<section id="escolha-das-neoplasias" class="level3" data-number="11.2.3">
+<h3 data-number="11.2.3" class="anchored" data-anchor-id="escolha-das-neoplasias"><span class="header-section-number">11.2.3</span> <strong>ESCOLHA DAS NEOPLASIAS</strong></h3>
 <p>Para o desenvolvimento do estudo, foram selecionadas quatro <strong>neoplasias do trato gastrointestinal e órgãos associados</strong>:</p>
 <ul>
 <li><strong>Esôfago — C15</strong></li>
@@ -626,8 +632,8 @@ Nota
 <p>A utilização de neoplasias relacionadas, mas com diferentes comportamentos de sobrevivência, permitirá comparar os resultados entre os alunos mantendo uma <strong>estrutura metodológica semelhante</strong>.</p>
 <hr>
 </section>
-<section id="sorteio-das-neoplasias" class="level3" data-number="10.2.4">
-<h3 data-number="10.2.4" class="anchored" data-anchor-id="sorteio-das-neoplasias"><span class="header-section-number">10.2.4</span> <strong>SORTEIO DAS NEOPLASIAS</strong></h3>
+<section id="sorteio-das-neoplasias" class="level3" data-number="11.2.4">
+<h3 data-number="11.2.4" class="anchored" data-anchor-id="sorteio-das-neoplasias"><span class="header-section-number">11.2.4</span> <strong>SORTEIO DAS NEOPLASIAS</strong></h3>
 <p>Cada aluno ficará responsável pela análise de uma das quatro neoplasias selecionadas.</p>
 <p>O sorteio será realizado no <code>R</code>, garantindo que <strong>cada câncer seja atribuído a apenas um aluno</strong>.</p>
 <div class="cell">
@@ -711,8 +717,8 @@ Nota
 </div>
 </div>
 </section>
-<section id="critérios-de-exclusão" class="level3" data-number="10.2.5">
-<h3 data-number="10.2.5" class="anchored" data-anchor-id="critérios-de-exclusão"><span class="header-section-number">10.2.5</span> <strong>CRITÉRIOS DE EXCLUSÃO</strong></h3>
+<section id="critérios-de-exclusão" class="level3" data-number="11.2.5">
+<h3 data-number="11.2.5" class="anchored" data-anchor-id="critérios-de-exclusão"><span class="header-section-number">11.2.5</span> <strong>CRITÉRIOS DE EXCLUSÃO</strong></h3>
 <p>Antes da construção da base analítica, serão aplicados critérios de elegibilidade com o objetivo de obter uma população mais homogênea e garantir informações adequadas para a análise de sobrevivência.</p>
 <p>Serão adotados os seguintes critérios:</p>
 <ul>
@@ -775,8 +781,8 @@ Nota
 </div>
 <p>Ao final dessa etapa, a base <code>DadosF</code> contém apenas os pacientes que atendem aos critérios estabelecidos e as variáveis que serão consideradas nas análises posteriores.</p>
 </section>
-<section id="variáveis-selecionadas" class="level3" data-number="10.2.6">
-<h3 data-number="10.2.6" class="anchored" data-anchor-id="variáveis-selecionadas"><span class="header-section-number">10.2.6</span> <strong>VARIÁVEIS SELECIONADAS</strong></h3>
+<section id="variáveis-selecionadas" class="level3" data-number="11.2.6">
+<h3 data-number="11.2.6" class="anchored" data-anchor-id="variáveis-selecionadas"><span class="header-section-number">11.2.6</span> <strong>VARIÁVEIS SELECIONADAS</strong></h3>
 <p>Após a aplicação dos critérios de exclusão, serão consideradas as seguintes variáveis para a caracterização dos pacientes e para as análises de sobrevivência:</p>
 <ul>
 <li><p><strong><code>TOPOGRUP</code> — Grupo de topografia da neoplasia</strong></p>
@@ -884,8 +890,8 @@ Nota
 </details>
 </div>
 </section>
-<section id="construção-da-variável-resposta" class="level3" data-number="10.2.7">
-<h3 data-number="10.2.7" class="anchored" data-anchor-id="construção-da-variável-resposta"><span class="header-section-number">10.2.7</span> <strong>CONSTRUÇÃO DA VARIÁVEL RESPOSTA</strong></h3>
+<section id="construção-da-variável-resposta" class="level3" data-number="11.2.7">
+<h3 data-number="11.2.7" class="anchored" data-anchor-id="construção-da-variável-resposta"><span class="header-section-number">11.2.7</span> <strong>CONSTRUÇÃO DA VARIÁVEL RESPOSTA</strong></h3>
 <p>Em uma análise de sobrevivência, a variável resposta é formada por duas informações:</p>
 <ul>
 <li>o <strong>tempo até a ocorrência do evento ou censura</strong>;</li>
@@ -924,8 +930,8 @@ Nota
 <p>A resposta utilizada nas análises de sobrevivência será:</p>
 </section>
 </section>
-<section id="parte-i-análise-não-paramétrica" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="parte-i-análise-não-paramétrica"><span class="header-section-number">10.3</span> <strong>PARTE I — ANÁLISE NÃO PARAMÉTRICA</strong></h2>
+<section id="parte-i-análise-não-paramétrica" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="parte-i-análise-não-paramétrica"><span class="header-section-number">11.3</span> <strong>PARTE I — ANÁLISE NÃO PARAMÉTRICA</strong></h2>
 <p>Nesta primeira etapa, deverá ser construída uma <strong>apresentação em slides</strong> com os resultados da análise não paramétrica de sobrevivência.</p>
 <p>A apresentação deverá ser organizada nos seguintes capítulos:</p>
 <ul>
@@ -934,8 +940,8 @@ Nota
 <li><strong>Resultados</strong>;</li>
 <li><strong>Conclusão</strong>.</li>
 </ul>
-<section id="introdução-1" class="level3" data-number="10.3.1">
-<h3 data-number="10.3.1" class="anchored" data-anchor-id="introdução-1"><span class="header-section-number">10.3.1</span> <strong>INTRODUÇÃO</strong></h3>
+<section id="introdução-1" class="level3" data-number="11.3.1">
+<h3 data-number="11.3.1" class="anchored" data-anchor-id="introdução-1"><span class="header-section-number">11.3.1</span> <strong>INTRODUÇÃO</strong></h3>
 <p>A apresentação deverá iniciar com a <strong>contextualização do problema</strong>, destacando:</p>
 <ul>
 <li>a <strong>fonte dos dados</strong>;</li>
@@ -960,8 +966,8 @@ Nota
 <p>O foco deve estar principalmente no <strong>significado prático das variáveis no contexto do câncer estudado</strong>.</p>
 <hr>
 </section>
-<section id="metodologia" class="level3" data-number="10.3.2">
-<h3 data-number="10.3.2" class="anchored" data-anchor-id="metodologia"><span class="header-section-number">10.3.2</span> <strong>METODOLOGIA</strong></h3>
+<section id="metodologia" class="level3" data-number="11.3.2">
+<h3 data-number="11.3.2" class="anchored" data-anchor-id="metodologia"><span class="header-section-number">11.3.2</span> <strong>METODOLOGIA</strong></h3>
 <p>A metodologia deve apresentar de forma objetiva os procedimentos estatísticos utilizados.</p>
 <p>Nesta etapa serão considerados:</p>
 <ul>
@@ -996,11 +1002,11 @@ Nota
 </div>
 <hr>
 </section>
-<section id="resultados" class="level3" data-number="10.3.3">
-<h3 data-number="10.3.3" class="anchored" data-anchor-id="resultados"><span class="header-section-number">10.3.3</span> <strong>RESULTADOS</strong></h3>
+<section id="resultados" class="level3" data-number="11.3.3">
+<h3 data-number="11.3.3" class="anchored" data-anchor-id="resultados"><span class="header-section-number">11.3.3</span> <strong>RESULTADOS</strong></h3>
 <p>Os resultados deverão ser organizados em <strong>três blocos</strong>.</p>
-<section id="análise-sem-covariáveis" class="level4" data-number="10.3.3.1">
-<h4 data-number="10.3.3.1" class="anchored" data-anchor-id="análise-sem-covariáveis"><span class="header-section-number">10.3.3.1</span> <strong>ANÁLISE SEM COVARIÁVEIS</strong></h4>
+<section id="análise-sem-covariáveis" class="level4" data-number="11.3.3.1">
+<h4 data-number="11.3.3.1" class="anchored" data-anchor-id="análise-sem-covariáveis"><span class="header-section-number">11.3.3.1</span> <strong>ANÁLISE SEM COVARIÁVEIS</strong></h4>
 <p>Apresentar:</p>
 <ul>
 <li><strong>curva de sobrevivência global</strong> estimada por Kaplan-Meier;</li>
@@ -1011,8 +1017,8 @@ Nota
 </ul>
 <hr>
 </section>
-<section id="covariáveis-qualitativas" class="level4" data-number="10.3.3.2">
-<h4 data-number="10.3.3.2" class="anchored" data-anchor-id="covariáveis-qualitativas"><span class="header-section-number">10.3.3.2</span> <strong>COVARIÁVEIS QUALITATIVAS</strong></h4>
+<section id="covariáveis-qualitativas" class="level4" data-number="11.3.3.2">
+<h4 data-number="11.3.3.2" class="anchored" data-anchor-id="covariáveis-qualitativas"><span class="header-section-number">11.3.3.2</span> <strong>COVARIÁVEIS QUALITATIVAS</strong></h4>
 <p>Para cada covariável qualitativa selecionada, apresentar:</p>
 <ul>
 <li><strong>curvas de sobrevivência por grupo</strong>;</li>
@@ -1029,8 +1035,8 @@ Nota
 <p>A interpretação deve identificar quais grupos apresentam <strong>maior ou menor sobrevivência</strong> e se as diferenças possuem evidência estatística.</p>
 <hr>
 </section>
-<section id="covariáveis-quantitativas" class="level4" data-number="10.3.3.3">
-<h4 data-number="10.3.3.3" class="anchored" data-anchor-id="covariáveis-quantitativas"><span class="header-section-number">10.3.3.3</span> <strong>COVARIÁVEIS QUANTITATIVAS</strong></h4>
+<section id="covariáveis-quantitativas" class="level4" data-number="11.3.3.3">
+<h4 data-number="11.3.3.3" class="anchored" data-anchor-id="covariáveis-quantitativas"><span class="header-section-number">11.3.3.3</span> <strong>COVARIÁVEIS QUANTITATIVAS</strong></h4>
 <p>Para as covariáveis quantitativas, apresentar medidas resumo:</p>
 <ul>
 <li>para o <strong>conjunto total de pacientes</strong>;</li>
@@ -1042,8 +1048,8 @@ Nota
 <hr>
 </section>
 </section>
-<section id="conclusão" class="level3" data-number="10.3.4">
-<h3 data-number="10.3.4" class="anchored" data-anchor-id="conclusão"><span class="header-section-number">10.3.4</span> <strong>CONCLUSÃO</strong></h3>
+<section id="conclusão" class="level3" data-number="11.3.4">
+<h3 data-number="11.3.4" class="anchored" data-anchor-id="conclusão"><span class="header-section-number">11.3.4</span> <strong>CONCLUSÃO</strong></h3>
 <p>A apresentação deverá terminar com uma síntese dos principais resultados da análise não paramétrica.</p>
 <p>Destacar:</p>
 <ul>
@@ -1521,8 +1527,8 @@ Nota
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Cap6.html" class="pagination-link" aria-label="**COMPARAÇÃO DE CURVAS DE SOBREVIVÊNCIA/CONFIABILIDADE (PRÁTICA)**">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title"><strong>COMPARAÇÃO DE CURVAS DE SOBREVIVÊNCIA/CONFIABILIDADE (PRÁTICA)</strong></span></span>
+      <a href="./Cap7.html" class="pagination-link" aria-label="**MODELOS PARAMÉTRICOS EM ANÁLISE DE SOBREVIVÊNCIA/CONFIABILIDADE**">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title"><strong>MODELOS PARAMÉTRICOS EM ANÁLISE DE SOBREVIVÊNCIA/CONFIABILIDADE</strong></span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -1815,7 +1821,7 @@ Nota
 <span id="cb8-287"><a href="#cb8-287" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-288"><a href="#cb8-288" aria-hidden="true" tabindex="-1"></a><span class="fu">### **LEITURA DA BASE**</span></span>
 <span id="cb8-289"><a href="#cb8-289" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-290"><a href="#cb8-290" aria-hidden="true" tabindex="-1"></a>A base de dados está armazenada no arquivo "FOSP.parquet", disponível no *Classroom* na atividade. Para realizar a leitura do arquivo no <span class="in">`R`</span>, utilizaremos o pacote <span class="in">`arrow`</span>:</span>
+<span id="cb8-290"><a href="#cb8-290" aria-hidden="true" tabindex="-1"></a>A base de dados está armazenada no arquivo "FOSP.parquet", disponível no *Classroom* na aba *Bases de Dados*. Para realizar a leitura do arquivo no <span class="in">`R`</span>, utilizaremos o pacote <span class="in">`arrow`</span>:</span>
 <span id="cb8-291"><a href="#cb8-291" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-294"><a href="#cb8-294" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb8-295"><a href="#cb8-295" aria-hidden="true" tabindex="-1"></a>Dados <span class="ot">&lt;-</span> <span class="fu">read_parquet</span>(<span class="st">"FOSP.parquet"</span>)</span>
