@@ -532,7 +532,7 @@ AIC = 138.5478</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
        est      lcl      ucl       se
-1 20.41176 12.46916 33.17376 5.272589</code></pre>
+1 20.41176 12.96593 33.50784 5.321013</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -540,8 +540,8 @@ AIC = 138.5478</code></pre>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
-       est      lcl      ucl       se
-1 14.14836 8.852527 22.71908 3.603781</code></pre>
+       est      lcl   ucl       se
+1 14.14836 8.947847 23.07 3.585609</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -550,7 +550,7 @@ AIC = 138.5478</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
   quantile      est      lcl      ucl       se
-1      0.8 32.85147 20.28782 52.43298 8.138999</code></pre>
+1      0.8 32.85147 20.28768 52.51745 8.545485</code></pre>
 </div>
 </div>
 <p>Já o <strong>comando a seguir fornece o tempo médio residual de ocorrência do evento de interesse no instante <code>t=20</code> meses</strong>.</p>
@@ -642,7 +642,7 @@ AIC = 136.2667</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
        est      lcl      ucl       se
-1 19.20078 14.44329 25.80311 3.046397</code></pre>
+1 19.20078 14.03091 26.54627 3.092334</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -651,7 +651,7 @@ AIC = 136.2667</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
        est      lcl      ucl       se
-1 16.82823 12.02144 23.41996 2.921329</code></pre>
+1 16.82823 11.95267 23.98301 3.003267</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -660,7 +660,7 @@ AIC = 136.2667</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
   quantile      est      lcl      ucl       se
-1      0.8 29.04556 21.52518 39.37311 4.668918</code></pre>
+1      0.8 29.04556 21.63171 40.42802 4.848237</code></pre>
 </div>
 </div>
 <p>Já o comando a seguir fornece <strong>o tempo médio residual de ocorrência do evento de interesse no instante <code>t=20</code> meses</strong>.</p>
@@ -753,7 +753,7 @@ AIC = 135.4798</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
        est      lcl      ucl       se
-1 20.28026 13.69346 30.67225 4.577968</code></pre>
+1 20.28026 13.77199 31.56038 4.625729</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -761,8 +761,8 @@ AIC = 135.4798</code></pre>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
-       est     lcl      ucl      se
-1 15.13751 10.8164 21.50136 2.74657</code></pre>
+       est      lcl      ucl       se
+1 15.13751 10.94575 21.64073 2.705581</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -771,7 +771,7 @@ AIC = 135.4798</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
   quantile    est      lcl      ucl       se
-1      0.8 28.814 18.56758 44.11251 6.546765</code></pre>
+1      0.8 28.814 18.97944 44.16997 6.706434</code></pre>
 </div>
 </div>
 <p>Já o comando a seguir fornece o <strong>tempo médio residual</strong> de ocorrência do evento de interesse no instante <code>t=20</code> meses.</p>
@@ -864,7 +864,7 @@ AIC = 135.6951</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
        est      lcl      ucl       se
-1 19.22915 14.36665 26.38189 3.235765</code></pre>
+1 19.22915 13.88822 26.58671 3.311985</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -872,8 +872,8 @@ AIC = 135.6951</code></pre>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
-       est      lcl     ucl       se
-1 16.33618 11.55606 22.6816 2.810592</code></pre>
+       est      lcl      ucl      se
+1 16.33618 11.66726 22.60789 2.76197</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -881,8 +881,8 @@ AIC = 135.6951</code></pre>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
-  quantile      est     lcl     ucl       se
-1      0.8 28.55305 21.0317 40.3569 5.008124</code></pre>
+  quantile      est      lcl      ucl       se
+1      0.8 28.55305 20.45143 40.67266 5.068557</code></pre>
 </div>
 </div>
 <p>Já o comando a seguir fornece <strong>o tempo médio residual de ocorrência do evento de interesse no instante <code>t=20</code> meses.</strong></p>
@@ -916,14 +916,14 @@ flexsurvreg(formula = Surv(tempos, cens) ~ 1, data = dados1,
 
 Estimates: 
        est       L95%      U95%      se      
-shape  4.14e-01  2.15e-03  7.99e+01  1.11e+00
-scale  5.52e-02  8.03e-26  3.80e+22  1.55e+00
-k      1.07e+01  4.57e-04  2.51e+05  5.50e+01
+shape   0.40865   0.34727   0.48087   0.03393
+scale   0.04752   0.04517   0.04998   0.00123
+k      11.00910   7.67530  15.79096   2.02614
 
 N = 20,  Events: 17,  Censored: 3
 Total time at risk: 347
-Log-likelihood = -65.69348, df = 3
-AIC = 137.387</code></pre>
+Log-likelihood = -65.69311, df = 3
+AIC = 137.3862</code></pre>
 </div>
 </div>
 <p>Assim, <span class="math inline">\(\hat{a}=0,052\)</span> é o <strong>estimador de máxima verossimilhança para</strong> <span class="math inline">\(a\)</span>, <span class="math inline">\(\hat{b}=0,414\)</span> é o estimador de máxima verossimilhança para <span class="math inline">\(b\)</span> e <span class="math inline">\(\hat{\kappa}=1,07\)</span> é o estimador de máxima verossimilhança para <span class="math inline">\(\kappa\)</span>.</p>
@@ -1012,7 +1012,7 @@ AIC = 137.3815</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
        est      lcl      ucl       se
-1 15.53366 11.12865 22.92014 2.990523</code></pre>
+1 15.53366 11.19157 22.34255 2.956146</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -1021,7 +1021,7 @@ AIC = 137.3815</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
   quantile      est      lcl      ucl       se
-1      0.8 28.58017 19.69198 60.71497 19.90537</code></pre>
+1      0.8 28.58017 19.83681 58.12622 11.93528</code></pre>
 </div>
 </div>
 <p>Já o comando a seguir fornece <strong>o tempo médio residual de ocorrência do evento de interesse no instante <code>t=20</code> meses.</strong></p>
@@ -1397,7 +1397,7 @@ Gama Generalizada NA       15.53366 28.58017     14.81276      </code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
        est      lcl      ucl       se
-1 20.28026 13.81852 31.60098 4.551772</code></pre>
+1 20.28026 13.93603 31.71679 4.673834</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -1406,8 +1406,8 @@ Gama Generalizada NA       15.53366 28.58017     14.81276      </code></pre>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
-       est     lcl      ucl       se
-1 15.13751 10.3214 21.22677 2.691418</code></pre>
+       est      lcl      ucl       se
+1 15.13751 10.69443 21.23903 2.700879</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -1418,7 +1418,7 @@ Gama Generalizada NA       15.53366 28.58017     14.81276      </code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code> 
   quantile    est      lcl      ucl       se
-1      0.8 28.814 19.66768 44.38338 6.487169</code></pre>
+1      0.8 28.814 20.00695 45.58706 6.957943</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
