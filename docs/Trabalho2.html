@@ -311,6 +311,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão"><span class="header-section-number">18.3.4</span> <strong>CONCLUSÃO</strong></a></li>
   </ul></li>
+  <li><a href="#parte-ii---modelos-paramétricos" id="toc-parte-ii---modelos-paramétricos" class="nav-link" data-scroll-target="#parte-ii---modelos-paramétricos"><span class="header-section-number">18.4</span> <strong>PARTE II - MODELOS PARAMÉTRICOS</strong></a>
+  <ul>
+  <li><a href="#etapa-i-modelos-paramétricos-sem-covariáveis" id="toc-etapa-i-modelos-paramétricos-sem-covariáveis" class="nav-link" data-scroll-target="#etapa-i-modelos-paramétricos-sem-covariáveis"><span class="header-section-number">18.4.1</span> <strong>ETAPA I — MODELOS PARAMÉTRICOS SEM COVARIÁVEIS</strong></a></li>
+  <li><a href="#etapa-ii-modelos-paramétricos-com-covariáveis" id="toc-etapa-ii-modelos-paramétricos-com-covariáveis" class="nav-link" data-scroll-target="#etapa-ii-modelos-paramétricos-com-covariáveis"><span class="header-section-number">18.4.2</span> <strong>ETAPA II — MODELOS PARAMÉTRICOS COM COVARIÁVEIS</strong></a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1101,6 +1106,63 @@ Nota
 <li>covariáveis que apresentaram diferenças relevantes;</li>
 <li>possíveis <strong>implicações práticas</strong>;</li>
 <li>principais <strong>limitações da análise</strong>.</li>
+</ul>
+</section>
+</section>
+<section id="parte-ii---modelos-paramétricos" class="level2" data-number="18.4">
+<h2 data-number="18.4" class="anchored" data-anchor-id="parte-ii---modelos-paramétricos"><span class="header-section-number">18.4</span> <strong>PARTE II - MODELOS PARAMÉTRICOS</strong></h2>
+<p>Nesta segunda etapa do trabalho, os alunos deverão aprofundar a análise de sobrevivência por meio do ajuste de <strong>modelos paramétricos</strong>, explorando tanto modelos <strong>sem covariáveis</strong> quanto modelos de <strong>regressão paramétrica com covariáveis</strong>.</p>
+<p>O objetivo desta parte é desenvolver a capacidade de: - identificar distribuições adequadas para modelar tempos de sobrevivência; - comparar modelos concorrentes; - selecionar variáveis relevantes; - avaliar a qualidade do ajuste; - interpretar os parâmetros no contexto aplicado do problema.</p>
+<p>A análise deverá ser organizada em duas grandes etapas:</p>
+<section id="etapa-i-modelos-paramétricos-sem-covariáveis" class="level3" data-number="18.4.1">
+<h3 data-number="18.4.1" class="anchored" data-anchor-id="etapa-i-modelos-paramétricos-sem-covariáveis"><span class="header-section-number">18.4.1</span> <strong>ETAPA I — MODELOS PARAMÉTRICOS SEM COVARIÁVEIS</strong></h3>
+<p>Nesta primeira etapa, os alunos deverão assumir que <strong>não existem covariáveis explicativas na base de dados</strong>, considerando apenas o comportamento da variável de tempo e da censura.</p>
+<p>O objetivo será identificar qual distribuição paramétrica apresenta o melhor ajuste aos dados observados.</p>
+<p>Os seguintes modelos paramétricos deverão ser ajustados:</p>
+<ul>
+<li>Exponencial;</li>
+<li>Weibull;</li>
+<li>Log-normal;</li>
+<li>Gama Generalizada;</li>
+<li>Gama Generalizada Generalizada.</li>
+</ul>
+<p>A escolha do modelo mais adequado deverá ser conduzida utilizando os <strong>quatro critérios discutidos em sala</strong>:</p>
+<ol type="1">
+<li><strong>Método gráfico via Kaplan-Meier</strong>;</li>
+<li><strong>Método da linearização</strong>;</li>
+<li><strong>Critérios de informação AIC e BIC</strong>;</li>
+<li><strong>Teste da Razão de Verossimilhanças (TRV)</strong> para modelos aninhados.</li>
+</ol>
+<p>Nesta seção, os alunos devem descrever sem muitos detalhes técnicos: - os modelos paramétricos considerados; - os critérios utilizados para comparação; - como cada critério auxilia na escolha do modelo;</p>
+<blockquote class="blockquote">
+<p>Não é necessário apresentar demonstrações matemáticas ou deduções teóricas detalhadas. O foco deve estar na descrição prática da metodologia empregada.</p>
+</blockquote>
+<p>Ao final da etapa, os alunos deverão justificar qual distribuição paramétrica foi considerada mais adequada para representar os dados, integrando todas as evidências obtidas pelos diferentes critérios.</p>
+</section>
+<section id="etapa-ii-modelos-paramétricos-com-covariáveis" class="level3" data-number="18.4.2">
+<h3 data-number="18.4.2" class="anchored" data-anchor-id="etapa-ii-modelos-paramétricos-com-covariáveis"><span class="header-section-number">18.4.2</span> <strong>ETAPA II — MODELOS PARAMÉTRICOS COM COVARIÁVEIS</strong></h3>
+<p>Nesta etapa, os alunos deverão ajustar modelos de regressão paramétrica para investigar a associação entre as covariáveis e o tempo de sobrevivência.</p>
+<p>A seleção de variáveis deverá seguir o procedimento descrito aqui no capítulo 16. Nesta etapa, os alunos deverão descrever brevemente o procedimento de seleção de variáveis utilizado;</p>
+<blockquote class="blockquote">
+<p>Não é necessário apresentar demonstrações matemáticas. O foco deve estar na descrição dos procedimentos utilizados e na justificativa das decisões tomadas durante a modelagem.</p>
+</blockquote>
+<p>A adequação do modelo final deverá ser avaliada por meio de:</p>
+<ul>
+<li>resíduos de Cox-Snell;</li>
+<li>resíduos quantílicos aleatorizados.</li>
+</ul>
+<p>Os alunos devem apresentar:</p>
+<ul>
+<li>gráficos diagnósticos;</li>
+<li>interpretação dos padrões observados;</li>
+<li>evidências de adequação ou inadequação do modelo.</li>
+</ul>
+<p>Para o modelo final selecionado, os alunos deverão interpretar os efeitos das covariáveis significativas utilizando as <strong>razões de tempos medianos</strong>.</p>
+<p>As interpretações devem ser realizadas no contexto aplicado da base de dados, discutindo:</p>
+<ul>
+<li>direção dos efeitos;</li>
+<li>magnitude das associações;</li>
+<li>implicações práticas dos resultados.</li>
 </ul>
 
 
@@ -2335,6 +2397,77 @@ Nota
 <span id="cb8-771"><a href="#cb8-771" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>covariáveis que apresentaram diferenças relevantes;</span>
 <span id="cb8-772"><a href="#cb8-772" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>possíveis **implicações práticas**;</span>
 <span id="cb8-773"><a href="#cb8-773" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>principais **limitações da análise**.</span>
+<span id="cb8-774"><a href="#cb8-774" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-775"><a href="#cb8-775" aria-hidden="true" tabindex="-1"></a><span class="fu">## **PARTE II - MODELOS PARAMÉTRICOS**</span></span>
+<span id="cb8-776"><a href="#cb8-776" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-777"><a href="#cb8-777" aria-hidden="true" tabindex="-1"></a>Nesta segunda etapa do trabalho, os alunos deverão aprofundar a análise de sobrevivência por meio do ajuste de **modelos paramétricos**, explorando tanto modelos **sem covariáveis** quanto modelos de **regressão paramétrica com covariáveis**.</span>
+<span id="cb8-778"><a href="#cb8-778" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-779"><a href="#cb8-779" aria-hidden="true" tabindex="-1"></a>O objetivo desta parte é desenvolver a capacidade de:</span>
+<span id="cb8-780"><a href="#cb8-780" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>identificar distribuições adequadas para modelar tempos de sobrevivência;</span>
+<span id="cb8-781"><a href="#cb8-781" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>comparar modelos concorrentes;</span>
+<span id="cb8-782"><a href="#cb8-782" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>selecionar variáveis relevantes;</span>
+<span id="cb8-783"><a href="#cb8-783" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>avaliar a qualidade do ajuste;</span>
+<span id="cb8-784"><a href="#cb8-784" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>interpretar os parâmetros no contexto aplicado do problema.</span>
+<span id="cb8-785"><a href="#cb8-785" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-786"><a href="#cb8-786" aria-hidden="true" tabindex="-1"></a>A análise deverá ser organizada em duas grandes etapas:</span>
+<span id="cb8-787"><a href="#cb8-787" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-788"><a href="#cb8-788" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-789"><a href="#cb8-789" aria-hidden="true" tabindex="-1"></a><span class="fu">### **ETAPA I — MODELOS PARAMÉTRICOS SEM COVARIÁVEIS**</span></span>
+<span id="cb8-790"><a href="#cb8-790" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-791"><a href="#cb8-791" aria-hidden="true" tabindex="-1"></a>Nesta primeira etapa, os alunos deverão assumir que **não existem covariáveis explicativas na base de dados**, considerando apenas o comportamento da variável de tempo e da censura.</span>
+<span id="cb8-792"><a href="#cb8-792" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-793"><a href="#cb8-793" aria-hidden="true" tabindex="-1"></a>O objetivo será identificar qual distribuição paramétrica apresenta o melhor ajuste aos dados observados.</span>
+<span id="cb8-794"><a href="#cb8-794" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-795"><a href="#cb8-795" aria-hidden="true" tabindex="-1"></a>Os seguintes modelos paramétricos deverão ser ajustados:</span>
+<span id="cb8-796"><a href="#cb8-796" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-797"><a href="#cb8-797" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Exponencial;</span>
+<span id="cb8-798"><a href="#cb8-798" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Weibull;</span>
+<span id="cb8-799"><a href="#cb8-799" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Log-normal;</span>
+<span id="cb8-800"><a href="#cb8-800" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Gama Generalizada;</span>
+<span id="cb8-801"><a href="#cb8-801" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Gama Generalizada Generalizada.</span>
+<span id="cb8-802"><a href="#cb8-802" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-803"><a href="#cb8-803" aria-hidden="true" tabindex="-1"></a>A escolha do modelo mais adequado deverá ser conduzida utilizando os **quatro critérios discutidos em sala**:</span>
+<span id="cb8-804"><a href="#cb8-804" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-805"><a href="#cb8-805" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Método gráfico via Kaplan-Meier**;</span>
+<span id="cb8-806"><a href="#cb8-806" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Método da linearização**;</span>
+<span id="cb8-807"><a href="#cb8-807" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Critérios de informação AIC e BIC**;</span>
+<span id="cb8-808"><a href="#cb8-808" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Teste da Razão de Verossimilhanças (TRV)** para modelos aninhados.</span>
+<span id="cb8-809"><a href="#cb8-809" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-810"><a href="#cb8-810" aria-hidden="true" tabindex="-1"></a>Nesta seção, os alunos devem descrever sem muitos detalhes técnicos:</span>
+<span id="cb8-811"><a href="#cb8-811" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>os modelos paramétricos considerados;</span>
+<span id="cb8-812"><a href="#cb8-812" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>os critérios utilizados para comparação;</span>
+<span id="cb8-813"><a href="#cb8-813" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>como cada critério auxilia na escolha do modelo;</span>
+<span id="cb8-814"><a href="#cb8-814" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-815"><a href="#cb8-815" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Não é necessário apresentar demonstrações matemáticas ou deduções teóricas detalhadas. O foco deve estar na descrição prática da metodologia empregada.</span></span>
+<span id="cb8-816"><a href="#cb8-816" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-817"><a href="#cb8-817" aria-hidden="true" tabindex="-1"></a>Ao final da etapa, os alunos deverão justificar qual distribuição paramétrica foi considerada mais adequada para representar os dados, integrando todas as evidências obtidas pelos diferentes critérios.</span>
+<span id="cb8-818"><a href="#cb8-818" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-819"><a href="#cb8-819" aria-hidden="true" tabindex="-1"></a><span class="fu">### **ETAPA II — MODELOS PARAMÉTRICOS COM COVARIÁVEIS**</span></span>
+<span id="cb8-820"><a href="#cb8-820" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-821"><a href="#cb8-821" aria-hidden="true" tabindex="-1"></a>Nesta etapa, os alunos deverão ajustar modelos de regressão paramétrica para investigar a associação entre as covariáveis e o tempo de sobrevivência.</span>
+<span id="cb8-822"><a href="#cb8-822" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-823"><a href="#cb8-823" aria-hidden="true" tabindex="-1"></a>A seleção de variáveis deverá seguir o procedimento descrito aqui no capítulo 16. Nesta etapa, os alunos deverão descrever brevemente o procedimento de seleção de variáveis utilizado;</span>
+<span id="cb8-824"><a href="#cb8-824" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-825"><a href="#cb8-825" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Não é necessário apresentar demonstrações matemáticas. O foco deve estar na descrição dos procedimentos utilizados e na justificativa das decisões tomadas durante a modelagem.</span></span>
+<span id="cb8-826"><a href="#cb8-826" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-827"><a href="#cb8-827" aria-hidden="true" tabindex="-1"></a>A adequação do modelo final deverá ser avaliada por meio de:</span>
+<span id="cb8-828"><a href="#cb8-828" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-829"><a href="#cb8-829" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>resíduos de Cox-Snell;</span>
+<span id="cb8-830"><a href="#cb8-830" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>resíduos quantílicos aleatorizados.</span>
+<span id="cb8-831"><a href="#cb8-831" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-832"><a href="#cb8-832" aria-hidden="true" tabindex="-1"></a>Os alunos devem apresentar:</span>
+<span id="cb8-833"><a href="#cb8-833" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-834"><a href="#cb8-834" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>gráficos diagnósticos;</span>
+<span id="cb8-835"><a href="#cb8-835" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>interpretação dos padrões observados;</span>
+<span id="cb8-836"><a href="#cb8-836" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>evidências de adequação ou inadequação do modelo.</span>
+<span id="cb8-837"><a href="#cb8-837" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-838"><a href="#cb8-838" aria-hidden="true" tabindex="-1"></a>Para o modelo final selecionado, os alunos deverão interpretar os efeitos das covariáveis significativas utilizando as **razões de tempos medianos**.</span>
+<span id="cb8-839"><a href="#cb8-839" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-840"><a href="#cb8-840" aria-hidden="true" tabindex="-1"></a>As interpretações devem ser realizadas no contexto aplicado da base de dados, discutindo:</span>
+<span id="cb8-841"><a href="#cb8-841" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-842"><a href="#cb8-842" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>direção dos efeitos;</span>
+<span id="cb8-843"><a href="#cb8-843" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>magnitude das associações;</span>
+<span id="cb8-844"><a href="#cb8-844" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>implicações práticas dos resultados.</span>
 </code><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
