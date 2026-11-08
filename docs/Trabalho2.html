@@ -1142,27 +1142,30 @@ Nota
 <section id="etapa-ii-modelos-paramétricos-com-covariáveis" class="level3" data-number="18.4.2">
 <h3 data-number="18.4.2" class="anchored" data-anchor-id="etapa-ii-modelos-paramétricos-com-covariáveis"><span class="header-section-number">18.4.2</span> <strong>ETAPA II — MODELOS PARAMÉTRICOS COM COVARIÁVEIS</strong></h3>
 <p>Nesta etapa, os alunos deverão ajustar modelos de regressão paramétrica para investigar a associação entre as covariáveis e o tempo de sobrevivência.</p>
-<p>A seleção de variáveis deverá seguir o procedimento descrito aqui no capítulo 16. Nesta etapa, os alunos deverão descrever brevemente o procedimento de seleção de variáveis utilizado;</p>
+<p>A seleção de variáveis deverá seguir o procedimento descrito no Capítulo 16, considerando as seguintes orientações:</p>
+<ul>
+<li>Selecionar inicialmente <strong>cerca de 5 a 6 covariáveis candidatas</strong>, com justificativa clínica ou epidemiológica;</li>
+<li>Utilizar o <strong>teste da razão de verossimilhanças (TRV)</strong> no procedimento de seleção;</li>
+<li>Considerar também o <strong>AIC e o BIC</strong>, especialmente o BIC como critério complementar de parcimônia;</li>
+<li>Não utilizar exclusivamente a significância estatística para decidir pela inclusão ou exclusão de covariáveis, considerando também a <strong>magnitude dos efeitos e a relevância prática</strong>;</li>
+<li>Após a escolha da distribuição probabilística, reavaliar a contribuição das covariáveis no modelo selecionado;</li>
+<li>Investigar <strong>até duas interações</strong>, desde que apresentem justificativa clínica ou epidemiológica.</li>
+</ul>
+<p>Os alunos deverão descrever brevemente o procedimento de seleção utilizado e justificar as principais decisões tomadas.</p>
 <blockquote class="blockquote">
-<p>Não é necessário apresentar demonstrações matemáticas. O foco deve estar na descrição dos procedimentos utilizados e na justificativa das decisões tomadas durante a modelagem.</p>
+<p>Não é necessário apresentar demonstrações matemáticas. Considerando o tamanho das bases de dados, valores-p pequenos podem ocorrer mesmo para associações de baixa magnitude. Portanto, a significância estatística não deve ser o único critério de decisão.</p>
 </blockquote>
 <p>A adequação do modelo final deverá ser avaliada por meio de:</p>
 <ul>
-<li>resíduos de Cox-Snell;</li>
-<li>resíduos quantílicos aleatorizados.</li>
+<li>Resíduos de Cox-Snell;</li>
+<li>Resíduos quantílicos aleatorizados.</li>
 </ul>
-<p>Os alunos devem apresentar:</p>
+<p>Os alunos deverão apresentar os gráficos diagnósticos, interpretar os padrões observados e discutir as evidências de adequação ou inadequação do modelo.</p>
+<p>Para o modelo final selecionado, deverão interpretar os efeitos das covariáveis utilizando as <strong>razões de tempos medianos</strong>, quando apropriadas à parametrização adotada, considerando:</p>
 <ul>
-<li>gráficos diagnósticos;</li>
-<li>interpretação dos padrões observados;</li>
-<li>evidências de adequação ou inadequação do modelo.</li>
-</ul>
-<p>Para o modelo final selecionado, os alunos deverão interpretar os efeitos das covariáveis significativas utilizando as <strong>razões de tempos medianos</strong>.</p>
-<p>As interpretações devem ser realizadas no contexto aplicado da base de dados, discutindo:</p>
-<ul>
-<li>direção dos efeitos;</li>
-<li>magnitude das associações;</li>
-<li>implicações práticas dos resultados.</li>
+<li>Direção dos efeitos;</li>
+<li>Magnitude das associações;</li>
+<li>Implicações práticas dos resultados.</li>
 </ul>
 
 
@@ -2446,28 +2449,31 @@ Nota
 <span id="cb8-820"><a href="#cb8-820" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-821"><a href="#cb8-821" aria-hidden="true" tabindex="-1"></a>Nesta etapa, os alunos deverão ajustar modelos de regressão paramétrica para investigar a associação entre as covariáveis e o tempo de sobrevivência.</span>
 <span id="cb8-822"><a href="#cb8-822" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-823"><a href="#cb8-823" aria-hidden="true" tabindex="-1"></a>A seleção de variáveis deverá seguir o procedimento descrito aqui no capítulo 16. Nesta etapa, os alunos deverão descrever brevemente o procedimento de seleção de variáveis utilizado;</span>
+<span id="cb8-823"><a href="#cb8-823" aria-hidden="true" tabindex="-1"></a>A seleção de variáveis deverá seguir o procedimento descrito no Capítulo 16, considerando as seguintes orientações:</span>
 <span id="cb8-824"><a href="#cb8-824" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-825"><a href="#cb8-825" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Não é necessário apresentar demonstrações matemáticas. O foco deve estar na descrição dos procedimentos utilizados e na justificativa das decisões tomadas durante a modelagem.</span></span>
-<span id="cb8-826"><a href="#cb8-826" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-827"><a href="#cb8-827" aria-hidden="true" tabindex="-1"></a>A adequação do modelo final deverá ser avaliada por meio de:</span>
-<span id="cb8-828"><a href="#cb8-828" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-829"><a href="#cb8-829" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>resíduos de Cox-Snell;</span>
-<span id="cb8-830"><a href="#cb8-830" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>resíduos quantílicos aleatorizados.</span>
+<span id="cb8-825"><a href="#cb8-825" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Selecionar inicialmente **cerca de 5 a 6 covariáveis candidatas**, com justificativa clínica ou epidemiológica;</span>
+<span id="cb8-826"><a href="#cb8-826" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Utilizar o **teste da razão de verossimilhanças (TRV)** no procedimento de seleção;</span>
+<span id="cb8-827"><a href="#cb8-827" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Considerar também o **AIC e o BIC**, especialmente o BIC como critério complementar de parcimônia;</span>
+<span id="cb8-828"><a href="#cb8-828" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Não utilizar exclusivamente a significância estatística para decidir pela inclusão ou exclusão de covariáveis, considerando também a **magnitude dos efeitos e a relevância prática**;</span>
+<span id="cb8-829"><a href="#cb8-829" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Após a escolha da distribuição probabilística, reavaliar a contribuição das covariáveis no modelo selecionado;</span>
+<span id="cb8-830"><a href="#cb8-830" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Investigar **até duas interações**, desde que apresentem justificativa clínica ou epidemiológica.</span>
 <span id="cb8-831"><a href="#cb8-831" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-832"><a href="#cb8-832" aria-hidden="true" tabindex="-1"></a>Os alunos devem apresentar:</span>
+<span id="cb8-832"><a href="#cb8-832" aria-hidden="true" tabindex="-1"></a>Os alunos deverão descrever brevemente o procedimento de seleção utilizado e justificar as principais decisões tomadas.</span>
 <span id="cb8-833"><a href="#cb8-833" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-834"><a href="#cb8-834" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>gráficos diagnósticos;</span>
-<span id="cb8-835"><a href="#cb8-835" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>interpretação dos padrões observados;</span>
-<span id="cb8-836"><a href="#cb8-836" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>evidências de adequação ou inadequação do modelo.</span>
+<span id="cb8-834"><a href="#cb8-834" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Não é necessário apresentar demonstrações matemáticas. Considerando o tamanho das bases de dados, valores-p pequenos podem ocorrer mesmo para associações de baixa magnitude. Portanto, a significância estatística não deve ser o único critério de decisão.</span></span>
+<span id="cb8-835"><a href="#cb8-835" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-836"><a href="#cb8-836" aria-hidden="true" tabindex="-1"></a>A adequação do modelo final deverá ser avaliada por meio de:</span>
 <span id="cb8-837"><a href="#cb8-837" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-838"><a href="#cb8-838" aria-hidden="true" tabindex="-1"></a>Para o modelo final selecionado, os alunos deverão interpretar os efeitos das covariáveis significativas utilizando as **razões de tempos medianos**.</span>
-<span id="cb8-839"><a href="#cb8-839" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-840"><a href="#cb8-840" aria-hidden="true" tabindex="-1"></a>As interpretações devem ser realizadas no contexto aplicado da base de dados, discutindo:</span>
-<span id="cb8-841"><a href="#cb8-841" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-842"><a href="#cb8-842" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>direção dos efeitos;</span>
-<span id="cb8-843"><a href="#cb8-843" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>magnitude das associações;</span>
-<span id="cb8-844"><a href="#cb8-844" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>implicações práticas dos resultados.</span>
+<span id="cb8-838"><a href="#cb8-838" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Resíduos de Cox-Snell;</span>
+<span id="cb8-839"><a href="#cb8-839" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Resíduos quantílicos aleatorizados.</span>
+<span id="cb8-840"><a href="#cb8-840" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-841"><a href="#cb8-841" aria-hidden="true" tabindex="-1"></a>Os alunos deverão apresentar os gráficos diagnósticos, interpretar os padrões observados e discutir as evidências de adequação ou inadequação do modelo.</span>
+<span id="cb8-842"><a href="#cb8-842" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-843"><a href="#cb8-843" aria-hidden="true" tabindex="-1"></a>Para o modelo final selecionado, deverão interpretar os efeitos das covariáveis utilizando as **razões de tempos medianos**, quando apropriadas à parametrização adotada, considerando:</span>
+<span id="cb8-844"><a href="#cb8-844" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-845"><a href="#cb8-845" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Direção dos efeitos;</span>
+<span id="cb8-846"><a href="#cb8-846" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Magnitude das associações;</span>
+<span id="cb8-847"><a href="#cb8-847" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Implicações práticas dos resultados.</span>
 </code><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
