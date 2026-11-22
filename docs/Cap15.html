@@ -305,7 +305,7 @@ window.Quarto = {
   <li><a href="#ajuste-do-modelo" id="toc-ajuste-do-modelo" class="nav-link" data-scroll-target="#ajuste-do-modelo"><span class="header-section-number">18.3</span> <strong>AJUSTE DO MODELO</strong></a></li>
   <li><a href="#adequação-do-ajuste" id="toc-adequação-do-ajuste" class="nav-link" data-scroll-target="#adequação-do-ajuste"><span class="header-section-number">18.4</span> <strong>ADEQUAÇÃO DO AJUSTE</strong></a>
   <ul>
-  <li><a href="#resíduos-cox-snell" id="toc-resíduos-cox-snell" class="nav-link" data-scroll-target="#resíduos-cox-snell"><span class="header-section-number">18.4.1</span> <strong>RESÍDUOS COX-SNELL</strong></a></li>
+  <li><a href="#resíduos-de-cox-snell" id="toc-resíduos-de-cox-snell" class="nav-link" data-scroll-target="#resíduos-de-cox-snell"><span class="header-section-number">18.4.1</span> <strong>RESÍDUOS DE COX-SNELL</strong></a></li>
   <li><a href="#teste-dos-resíduos-de-schoenfeld" id="toc-teste-dos-resíduos-de-schoenfeld" class="nav-link" data-scroll-target="#teste-dos-resíduos-de-schoenfeld"><span class="header-section-number">18.4.2</span> <strong>TESTE DOS RESÍDUOS DE SCHOENFELD</strong></a></li>
   <li><a href="#gráfico-dos-resíduos-de-schoenfeld" id="toc-gráfico-dos-resíduos-de-schoenfeld" class="nav-link" data-scroll-target="#gráfico-dos-resíduos-de-schoenfeld"><span class="header-section-number">18.4.3</span> <strong>GRÁFICO DOS RESÍDUOS DE SCHOENFELD</strong></a></li>
   </ul></li>
@@ -357,14 +357,14 @@ window.Quarto = {
 <center>
 <img src="images/laringe.png" class="img-fluid">
 </center>
-<p>Neste exemplo, <strong>os dados considerados referem-se a um estudo, descrito em Klein e Moeschberger (2003)</strong>, realizado com <strong>90 pacientes do sexo masculino</strong> diagnosticados no <strong>perÍodo com cancer de laringe</strong>. Para cada paciente, <strong>foram registrados, no diagnóstico, a idade (em anos) e o estágio da doença (I = tumor primário, II = envolvimento de nódulos, III = metástases e IV = combinações dos 3 estágios anteriores)</strong>, bem como seus respectivos tempos de morte ou censura (em meses). Os <strong>estágios encontram-se ordenados pelo grau de seriedade da doença (menos sério para mais sério)</strong>. A base de dados está armazenada no objeto <code>laringe.txt</code>.</p>
+<p>Neste exemplo, <strong>os dados considerados referem-se a um estudo, descrito em Klein e Moeschberger (2003)</strong>, realizado com <strong>90 pacientes do sexo masculino</strong> diagnosticados no <strong>período com cancer de laringe</strong>. Para cada paciente, <strong>foram registrados, no diagnóstico, a idade (em anos) e o estágio da doença (I = tumor primário, II = envolvimento de nódulos, III = metástases e IV = combinações dos 3 estágios anteriores)</strong>, bem como seus respectivos tempos de morte ou censura (em meses). Os <strong>estágios encontram-se ordenados pelo grau de seriedade da doença (menos sério para mais sério)</strong>. A base de dados está armazenada no objeto <code>laringe.txt</code>.</p>
 </section>
 <section id="câncer-de-ovário" class="level3" data-number="18.2.2">
 <h3 data-number="18.2.2" class="anchored" data-anchor-id="câncer-de-ovário"><span class="header-section-number">18.2.2</span> <strong>CÂNCER DE OVÁRIO</strong></h3>
 <center>
 <img src="images/Ovario.png" class="img-fluid">
 </center>
-<p>Um estudo realizado para comparar <strong>dois tratamentos pós-cirúrgicos de câncer de ovário</strong>, envolveu o acompanhamento de 26 mulheres após a cirurgia de remoção do tumor. A resposta foi o tempo (em dias), <strong>contado a partir do início do tratamento (aleatorização) até a morte do paciente</strong>. As **seguintes covariáveis foram registradas: Idade e Resíduo resíduo (<code>ParcRemovido</code> se o resíduo da doença foi parcialmente removido e <code>Removido</code> se foi completamente removido). Os dados encontram-se no arquivo <code>ovario.txt</code></p>
+<p>Um estudo envolveu o acompanhamento de 26 mulheres após a cirurgia de remoção do tumor. A resposta foi o tempo (em dias), <strong>contado a partir do início do tratamento (aleatorização) até a morte do paciente</strong>. As <strong>seguintes covariáveis foram registradas</strong>: Idade e Resíduo (<code>ParcRemovido</code> se o resíduo da doença foi parcialmente removido e <code>Removido</code> se foi completamente removido). Os dados encontram-se no arquivo <code>ovario.txt</code></p>
 </section>
 </section>
 <section id="ajuste-do-modelo" class="level2" data-number="18.3">
@@ -377,7 +377,7 @@ window.Quarto = {
 </details>
 </div>
 <p>No <code>R</code> <strong>o ajuste do modelo de regressão de Cox será feito a partir da função <code>coxph</code> do pacote <code>survival</code></strong>. A <strong>sintaxe da função e sua saída é muito parecida com modelos paramétricos que ja ajustamos</strong>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coxph</span>(<span class="at">formula =</span> <span class="fu">Surv</span>(Tempos<span class="sc">~</span>Cenx)<span class="sc">~</span>Covariaveis,</span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coxph</span>(<span class="at">formula =</span> <span class="fu">Surv</span>(Tempos<span class="sc">~</span>Cens)<span class="sc">~</span>Covariaveis,</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> dados)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Como temos duas covariáveis, <strong>precisamos fazer uma seleção delas para o modelo final</strong>. Assim, <strong>vamos ajustar todos os modelos possíveis</strong>:</p>
 <div class="cell">
@@ -492,54 +492,55 @@ n= 90, number of events= 50 </code></pre>
 <li>Teste dos resíduos de Schoenfeld</li>
 <li>Gráfico dos resíduos de Schoenfeld</li>
 </ul>
-<section id="resíduos-cox-snell" class="level3" data-number="18.4.1">
-<h3 data-number="18.4.1" class="anchored" data-anchor-id="resíduos-cox-snell"><span class="header-section-number">18.4.1</span> <strong>RESÍDUOS COX-SNELL</strong></h3>
-<p>No modelo de Cox, existe uma relação direta entre os resíduos os resíduos de Cox-Snell e os resíduos de Martingale.</p>
-<p>Os resíduos de Martingale são definidos por</p>
+<section id="resíduos-de-cox-snell" class="level3" data-number="18.4.1">
+<h3 data-number="18.4.1" class="anchored" data-anchor-id="resíduos-de-cox-snell"><span class="header-section-number">18.4.1</span> <strong>RESÍDUOS DE COX-SNELL</strong></h3>
+<p>Os resíduos de Cox-Snell são utilizados para avaliar a adequação global do ajuste de modelos de sobrevivência. No modelo de Cox, esses resíduos são definidos pela função de risco acumulado estimada para cada indivíduo até seu tempo observado:</p>
 <p><span class="math display">\[
-M_i=\delta_i-\widehat H_i(T_i),
+r_i = \widehat{H}_i(T_i).
 \]</span></p>
-<p>em que:</p>
-<ul>
-<li><span class="math inline">\(\delta_i\)</span> representa o indicador de ocorrência do evento;</li>
-<li><span class="math inline">\(\widehat H_i(T_i)\)</span> corresponde à função de risco acumulado estimada para o indivíduo <span class="math inline">\(i\)</span>.</li>
-</ul>
-<p>Reorganizando a expressão anterior, obtém-se</p>
-<p><span class="math display">\[
-\widehat H_i(T_i)
-=
-\delta_i-M_i.
-\]</span></p>
-<p>Como os resíduos de Cox-Snell são definidos por</p>
-<p><span class="math display">\[
-r_i=\widehat H_i(T_i),
-\]</span></p>
-<p>segue que</p>
-<p><span class="math display">\[
-r_i
-=
-\delta_i-M_i.
-\]</span></p>
-<p>Portanto, os resíduos de Cox-Snell podem ser obtidos subtraindo-se os resíduos de Martingale do indicador de ocorrência do evento:</p>
+<p>No R, os resíduos de Cox-Snell podem ser obtidos diretamente pela função <code>predict()</code>, utilizando o argumento <code>type = "expected"</code>, que retorna o risco acumulado estimado para cada indivíduo.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ResiduoCS <span class="ot">&lt;-</span> dados<span class="sc">$</span>cens<span class="sc">-</span><span class="fu">residuals</span>(mod2, <span class="at">type =</span> <span class="st">"martingale"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ResiduoCS <span class="ot">&lt;-</span> <span class="fu">predict</span>(mod2, <span class="at">type =</span> <span class="st">"expected"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>Seguem, portanto, os gráficos para estes resíduos:</p>
+<p>Se o modelo estiver adequadamente ajustado, espera-se que os resíduos de Cox-Snell apresentem comportamento aproximadamente compatível com uma distribuição exponencial de média 1. Portanto, a função de risco acumulado dos resíduos deve se aproximar da reta <span class="math inline">\(H(r)=r\)</span>, enquanto a função de sobrevivência deve se aproximar de <span class="math inline">\(S(r)=\exp(-r)\)</span>.</p>
+<p>Os gráficos de diagnóstico são apresentados a seguir:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>ekm<span class="ot">&lt;-</span> <span class="fu">survfit</span> (<span class="fu">Surv</span>(ResiduoCS,dados<span class="sc">$</span>cens)<span class="sc">~</span><span class="dv">1</span>,<span class="at">type=</span><span class="st">"kaplan-meier"</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ekm, <span class="at">fun=</span><span class="st">"cumhaz"</span>,<span class="at">xlab=</span><span class="st">"Resíduos de Cox-Snell"</span>,<span class="at">ylab=</span><span class="st">"Função de risco acumulado"</span>)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">col=</span><span class="st">"red"</span>)</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ekm, <span class="at">xlab=</span><span class="st">"Resíduos de Cox-Snell"</span>,<span class="at">ylab=</span><span class="st">"Função de sobrevivência"</span>)</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>ResiduoCS<span class="ot">&lt;-</span><span class="fu">sort</span>(ResiduoCS)</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>exp1<span class="ot">&lt;-</span><span class="fu">exp</span>(<span class="sc">-</span>ResiduoCS)</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(ResiduoCS,exp1, <span class="at">col=</span><span class="st">"red"</span>,<span class="at">type=</span><span class="st">"l"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>ekm <span class="ot">&lt;-</span> <span class="fu">survfit</span>(</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Surv</span>(ResiduoCS, dados<span class="sc">$</span>cens) <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"kaplan-meier"</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Função de risco acumulado</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  ekm,</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">fun =</span> <span class="st">"cumhaz"</span>,</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Resíduos de Cox-Snell"</span>,</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Função de risco acumulado"</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Função de sobrevivência</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>  ekm,</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Resíduos de Cox-Snell"</span>,</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Função de sobrevivência"</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">exp</span>(<span class="sc">-</span>x),</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">from =</span> <span class="dv">0</span>,</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">to =</span> <span class="fu">max</span>(ResiduoCS),</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">"red"</span>,</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">lwd =</span> <span class="dv">2</span>,</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>  <span class="at">add =</span> <span class="cn">TRUE</span></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -548,8 +549,12 @@ r_i
 </figure>
 </div>
 </div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-<p>Conforme apontado nos gráficos, os resíduos estão bem comportados segundo o comportamento teórico.</p>
+<p>Conforme observado nos gráficos, as curvas estimadas apresentam comportamento próximo ao esperado teoricamente, indicando uma adequação global satisfatória do modelo de Cox aos dados.</p>
 </section>
 <section id="teste-dos-resíduos-de-schoenfeld" class="level3" data-number="18.4.2">
 <h3 data-number="18.4.2" class="anchored" data-anchor-id="teste-dos-resíduos-de-schoenfeld"><span class="header-section-number">18.4.2</span> <strong>TESTE DOS RESÍDUOS DE SCHOENFELD</strong></h3>
@@ -586,8 +591,8 @@ H_1:\text{Pelo menos uma covariável apresenta efeito dependente do tempo}
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>ResiduoSH <span class="ot">=</span> <span class="fu">cox.zph</span>(mod2)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>ResiduoSH</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>ResiduoSH <span class="ot">=</span> <span class="fu">cox.zph</span>(mod2)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>ResiduoSH</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>        chisq df    p
@@ -603,7 +608,7 @@ GLOBAL   3.59  3 0.31</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ResiduoSH)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ResiduoSH)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -625,7 +630,7 @@ GLOBAL   3.59  3 0.31</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>mod2</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>mod2</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Call:
@@ -643,7 +648,7 @@ n= 90, number of events= 50 </code></pre>
 <p>Assim:</p>
 <ul>
 <li>O estágio II apresenta um aumento de 6% no risco de morte, se comparado ao estágio I (não significativo)</li>
-<li>O estágio III apresenta um aumento de 84% no risco de morte, se comparado ao estágio II (significativo)</li>
+<li>O estágio III apresenta um aumento de 84% no risco de morte, se comparado ao estágio I (não significativo)</li>
 <li>O estágio IV apresenta um risco de morte 5,66 vezes maior que o estágio I (significativo)</li>
 </ul>
 </section>
@@ -654,16 +659,16 @@ n= 90, number of events= 50 </code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"I"</span>)),</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"blue"</span>,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>, <span class="at">ylab=</span><span class="st">"Sobrevivência Estimada"</span>)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"II"</span>)),</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"red"</span>)</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"III"</span>)),</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"green"</span>)</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"IV"</span>)),</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"orange"</span>)</span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="dv">0</span>,<span class="fl">0.25</span>,<span class="at">legend=</span><span class="fu">c</span>(<span class="st">"Estagio I"</span>, <span class="st">"Estagio II"</span>, <span class="st">"Estagio III"</span>, <span class="st">"Estagio IV"</span>),</span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span><span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>, <span class="st">"green"</span>, <span class="st">"orange"</span>),<span class="at">lty=</span><span class="dv">1</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"I"</span>)),</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"blue"</span>,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>, <span class="at">ylab=</span><span class="st">"Sobrevivência Estimada"</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"II"</span>)),</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"red"</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"III"</span>)),</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"green"</span>)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"IV"</span>)),</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"orange"</span>)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="dv">0</span>,<span class="fl">0.25</span>,<span class="at">legend=</span><span class="fu">c</span>(<span class="st">"Estagio I"</span>, <span class="st">"Estagio II"</span>, <span class="st">"Estagio III"</span>, <span class="st">"Estagio IV"</span>),</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span><span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>, <span class="st">"green"</span>, <span class="st">"orange"</span>),<span class="at">lty=</span><span class="dv">1</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -677,16 +682,16 @@ n= 90, number of events= 50 </code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"I"</span>)),</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">conf.int =</span> F,<span class="at">fun =</span> <span class="st">"cumhaz"</span>,<span class="at">col=</span><span class="st">"blue"</span>,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>, <span class="at">ylab=</span><span class="st">"Risco acumulado estimado"</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">5</span>))</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"II"</span>)),</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">fun =</span> <span class="st">"cumhaz"</span>,<span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"red"</span>)</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"III"</span>)),</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">fun =</span> <span class="st">"cumhaz"</span>,<span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"green"</span>)</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"IV"</span>)),</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">fun =</span> <span class="st">"cumhaz"</span>,<span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"orange"</span>)</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="dv">0</span>,<span class="dv">4</span>,<span class="at">legend=</span><span class="fu">c</span>(<span class="st">"Estagio I"</span>, <span class="st">"Estagio II"</span>, <span class="st">"Estagio III"</span>, <span class="st">"Estagio IV"</span>),</span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span><span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>, <span class="st">"green"</span>, <span class="st">"orange"</span>),<span class="at">lty=</span><span class="dv">1</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"I"</span>)),</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">conf.int =</span> F,<span class="at">fun =</span> <span class="st">"cumhaz"</span>,<span class="at">col=</span><span class="st">"blue"</span>,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>, <span class="at">ylab=</span><span class="st">"Risco acumulado estimado"</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">5</span>))</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"II"</span>)),</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">fun =</span> <span class="st">"cumhaz"</span>,<span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"red"</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"III"</span>)),</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">fun =</span> <span class="st">"cumhaz"</span>,<span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"green"</span>)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"IV"</span>)),</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">fun =</span> <span class="st">"cumhaz"</span>,<span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"orange"</span>)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="dv">0</span>,<span class="dv">4</span>,<span class="at">legend=</span><span class="fu">c</span>(<span class="st">"Estagio I"</span>, <span class="st">"Estagio II"</span>, <span class="st">"Estagio III"</span>, <span class="st">"Estagio IV"</span>),</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span><span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>, <span class="st">"green"</span>, <span class="st">"orange"</span>),<span class="at">lty=</span><span class="dv">1</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -700,7 +705,7 @@ n= 90, number of events= 50 </code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"I"</span>)))<span class="sc">$</span>table</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"I"</span>)))<span class="sc">$</span>table</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>   records      n.max    n.start     events      rmean  se(rmean)     median 
@@ -710,7 +715,7 @@ n= 90, number of events= 50 </code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"II"</span>)))<span class="sc">$</span>table</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"II"</span>)))<span class="sc">$</span>table</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>   records      n.max    n.start     events      rmean  se(rmean)     median 
@@ -720,7 +725,7 @@ n= 90, number of events= 50 </code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"III"</span>)))<span class="sc">$</span>table</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"III"</span>)))<span class="sc">$</span>table</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>   records      n.max    n.start     events      rmean  se(rmean)     median 
@@ -730,7 +735,7 @@ n= 90, number of events= 50 </code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"IV"</span>)))<span class="sc">$</span>table</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"IV"</span>)))<span class="sc">$</span>table</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>    records       n.max     n.start      events       rmean   se(rmean) 
@@ -1228,324 +1233,323 @@ n= 90, number of events= 50 </code></pre>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Código fonte</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb30" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="an">output:</span><span class="co"> html_document</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="an">editor_options:</span><span class="co"> </span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co">  chunk_output_type: console</span></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># **MODELO DE REGRESSÃO DE COX (PRÁTICA)**</span></span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## **PACOTES NECESSÁRIOS**</span></span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>Para esta **sexta aula prática** de Análise de Sobrevivência e Confiabilidade, precisaremos do seguinte **pacote**:</span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
-<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(survival)</span>
-<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Pacote** `survival`: É o **pacote básico** para o **estudo** de Análise de Sobrevivência e Confiabilidade. Contém as **principais rotinas**, incluindo definição de **objetos** `Surv`, **curvas Kaplan-Meier**, **modelos Cox** e **modelos paramétricos**.</span>
-<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## **BASES DE DADOS**</span></span>
-<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a><span class="fu">### **CÂNCER DE LARINGE**</span></span>
-<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">center</span><span class="dt">&gt;</span></span>
-<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a><span class="al">![ ](images/laringe.png)</span></span>
-<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">center</span><span class="dt">&gt;</span></span>
-<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a>Neste exemplo, **os dados considerados referem-se a um estudo, descrito em Klein e Moeschberger (2003)**, realizado com **90 pacientes do sexo masculino** diagnosticados no **perÍodo com cancer de laringe**. Para cada paciente, **foram registrados, no diagnóstico, a idade (em anos) e o estágio da doença (I = tumor primário, II = envolvimento de nódulos, III = metástases e IV = combinações dos 3 estágios anteriores)**, bem como seus respectivos tempos de morte ou censura (em meses). Os **estágios encontram-se ordenados pelo grau de seriedade da doença (menos sério para mais sério)**. A base de dados está armazenada no objeto <span class="in">`laringe.txt`</span>.</span>
-<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a><span class="fu">### **CÂNCER DE OVÁRIO**</span></span>
-<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">center</span><span class="dt">&gt;</span></span>
-<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a><span class="al">![ ](images/Ovario.png)</span></span>
-<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">center</span><span class="dt">&gt;</span></span>
-<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a>Um estudo realizado para comparar **dois tratamentos pós-cirúrgicos de câncer de ovário**, envolveu o acompanhamento de 26 mulheres após a cirurgia de remoção do tumor. A resposta foi o tempo (em dias), **contado a partir do início do tratamento (aleatorização) até a morte do paciente**. As **seguintes covariáveis foram registradas: Idade e Resíduo resíduo (<span class="in">`ParcRemovido`</span> se o resíduo da doença foi parcialmente removido e <span class="in">`Removido`</span> se foi completamente removido). Os dados encontram-se no arquivo <span class="in">`ovario.txt`</span></span>
-<span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## **AJUSTE DO MODELO**</span></span>
-<span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-38"><a href="#cb30-38" aria-hidden="true" tabindex="-1"></a>Para **começar a nossa análise dos dados de câncer de laringe**, vamos carregar a base de dados:</span>
-<span id="cb30-39"><a href="#cb30-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-40"><a href="#cb30-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
-<span id="cb30-41"><a href="#cb30-41" aria-hidden="true" tabindex="-1"></a>dados<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">"laringe.txt"</span>,<span class="at">header=</span>T)</span>
-<span id="cb30-42"><a href="#cb30-42" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-43"><a href="#cb30-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-44"><a href="#cb30-44" aria-hidden="true" tabindex="-1"></a>No <span class="in">`R`</span> **o ajuste do modelo de regressão de Cox será feito a partir da função `coxph` do pacote `survival`**. A **sintaxe da função e sua saída é muito parecida com modelos paramétricos que ja ajustamos**:</span>
-<span id="cb30-45"><a href="#cb30-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-46"><a href="#cb30-46" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
-<span id="cb30-47"><a href="#cb30-47" aria-hidden="true" tabindex="-1"></a><span class="fu">coxph</span>(<span class="at">formula =</span> <span class="fu">Surv</span>(Tempos<span class="sc">~</span>Cenx)<span class="sc">~</span>Covariaveis,</span>
-<span id="cb30-48"><a href="#cb30-48" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> dados)</span>
-<span id="cb30-49"><a href="#cb30-49" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-50"><a href="#cb30-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-51"><a href="#cb30-51" aria-hidden="true" tabindex="-1"></a>Como temos duas covariáveis, **precisamos fazer uma seleção delas para o modelo final**. Assim,  **vamos ajustar todos os modelos possíveis**:</span>
-<span id="cb30-52"><a href="#cb30-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-53"><a href="#cb30-53" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
-<span id="cb30-54"><a href="#cb30-54" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(tempos,cens)<span class="sc">~</span>idade, <span class="at">data=</span>dados)</span>
-<span id="cb30-55"><a href="#cb30-55" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(tempos,cens)<span class="sc">~</span>estagio, <span class="at">data=</span>dados)</span>
-<span id="cb30-56"><a href="#cb30-56" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(tempos,cens)<span class="sc">~</span>idade<span class="sc">+</span>estagio, <span class="at">data=</span>dados)</span>
-<span id="cb30-57"><a href="#cb30-57" aria-hidden="true" tabindex="-1"></a>mod4 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(tempos,cens)<span class="sc">~</span>idade<span class="sc">+</span>estagio<span class="sc">+</span>idade<span class="sc">*</span>estagio, <span class="at">data=</span>dados)</span>
-<span id="cb30-58"><a href="#cb30-58" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-59"><a href="#cb30-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-60"><a href="#cb30-60" aria-hidden="true" tabindex="-1"></a>Para **escolher qual destes é o melhor modelo, vamos usar como critério, inicialmente, o TRV**, comparando os modelos mais simples (<span class="in">`mod1`</span>, <span class="in">`mod2`</span> e <span class="in">`mod3`</span>) com o modelo mais complexo (<span class="in">`mod4`</span>). Entretanto, antes da realização do teste, é importante se atentar à quantidade de parâmetros estimados de cada modelo:</span>
-<span id="cb30-61"><a href="#cb30-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-62"><a href="#cb30-62" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`mod1`</span> = 1 parâmetro</span>
-<span id="cb30-63"><a href="#cb30-63" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`mod2`</span> = 3 parâmetros</span>
-<span id="cb30-64"><a href="#cb30-64" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`mod3`</span> = 4 parâmetros</span>
-<span id="cb30-65"><a href="#cb30-65" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`mod4`</span> = 7 parâmetros</span>
-<span id="cb30-66"><a href="#cb30-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-67"><a href="#cb30-67" aria-hidden="true" tabindex="-1"></a>Além disso, a função <span class="in">`coxph`</span> retorna sempre 2 valores para a função de log-verossimilhança parcial. Veja no seguinte exemplo para o modelo <span class="in">`mod1`</span>:</span>
-<span id="cb30-68"><a href="#cb30-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-71"><a href="#cb30-71" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-72"><a href="#cb30-72" aria-hidden="true" tabindex="-1"></a>mod1<span class="sc">$</span>loglik</span>
-<span id="cb30-73"><a href="#cb30-73" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-74"><a href="#cb30-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-75"><a href="#cb30-75" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>O primeiro valor é sempre a log verossimilhança parcial do modelo nulo.</span>
-<span id="cb30-76"><a href="#cb30-76" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>O segundo valor é a log verossimilhança de fato do modelo ajustado.</span>
-<span id="cb30-77"><a href="#cb30-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-78"><a href="#cb30-78" aria-hidden="true" tabindex="-1"></a>Para os nossos TRV, precisaremos utilizar o segundo valor da <span class="in">`loglik`</span>. Finalmente, podemos fazer os TRV com os seguintes comandos:</span>
-<span id="cb30-79"><a href="#cb30-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-82"><a href="#cb30-82" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-83"><a href="#cb30-83" aria-hidden="true" tabindex="-1"></a>TRV_1 <span class="ot">=</span> <span class="dv">2</span><span class="sc">*</span>(mod4<span class="sc">$</span>loglik[<span class="dv">2</span>]<span class="sc">-</span>mod1<span class="sc">$</span>loglik[<span class="dv">2</span>])</span>
-<span id="cb30-84"><a href="#cb30-84" aria-hidden="true" tabindex="-1"></a>P_valor_1 <span class="ot">=</span> <span class="fu">pchisq</span>(TRV_1,<span class="dv">6</span>,<span class="at">lower.tail=</span>F)</span>
-<span id="cb30-85"><a href="#cb30-85" aria-hidden="true" tabindex="-1"></a>TRV_2 <span class="ot">=</span> <span class="dv">2</span><span class="sc">*</span>(mod4<span class="sc">$</span>loglik[<span class="dv">2</span>]<span class="sc">-</span>mod2<span class="sc">$</span>loglik[<span class="dv">2</span>])</span>
-<span id="cb30-86"><a href="#cb30-86" aria-hidden="true" tabindex="-1"></a>P_valor_2 <span class="ot">=</span> <span class="fu">pchisq</span>(TRV_2,<span class="dv">4</span>,<span class="at">lower.tail=</span>F)</span>
-<span id="cb30-87"><a href="#cb30-87" aria-hidden="true" tabindex="-1"></a>TRV_3 <span class="ot">=</span> <span class="dv">2</span><span class="sc">*</span>(mod4<span class="sc">$</span>loglik[<span class="dv">2</span>]<span class="sc">-</span>mod3<span class="sc">$</span>loglik[<span class="dv">2</span>])</span>
-<span id="cb30-88"><a href="#cb30-88" aria-hidden="true" tabindex="-1"></a>P_valor_3 <span class="ot">=</span> <span class="fu">pchisq</span>(TRV_3,<span class="dv">3</span>,<span class="at">lower.tail=</span>F)</span>
-<span id="cb30-89"><a href="#cb30-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-90"><a href="#cb30-90" aria-hidden="true" tabindex="-1"></a>Comparacao <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Mod4 x Mod1"</span>,  <span class="st">"Mod4 x Mod2"</span>,</span>
-<span id="cb30-91"><a href="#cb30-91" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Mod4 x Mod3"</span>)</span>
-<span id="cb30-92"><a href="#cb30-92" aria-hidden="true" tabindex="-1"></a>P_valor <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb30-93"><a href="#cb30-93" aria-hidden="true" tabindex="-1"></a>  P_valor_1,  P_valor_2,  P_valor_3</span>
-<span id="cb30-94"><a href="#cb30-94" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-95"><a href="#cb30-95" aria-hidden="true" tabindex="-1"></a>TRV<span class="ot">&lt;-</span><span class="fu">data.frame</span>(Comparacao,P_valor)</span>
-<span id="cb30-96"><a href="#cb30-96" aria-hidden="true" tabindex="-1"></a>TRV</span>
-<span id="cb30-97"><a href="#cb30-97" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-98"><a href="#cb30-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-99"><a href="#cb30-99" aria-hidden="true" tabindex="-1"></a>Ao nível de 5% de significância, os modelos <span class="in">`mod2`</span> e <span class="in">`mod3`</span> são compatíveis com o modelo <span class="in">`mod4`</span>. Por serem mais simples, são preferíveis para um melhor ajuste aos dados. Para corroborar a nossa decisão, vamos avaliar os valores de AIC e BIC destes modelos: </span>
-<span id="cb30-100"><a href="#cb30-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-101"><a href="#cb30-101" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
-<span id="cb30-102"><a href="#cb30-102" aria-hidden="true" tabindex="-1"></a>AIC<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fu">AIC</span>(mod1),<span class="fu">AIC</span>(mod2),<span class="fu">AIC</span>(mod3),<span class="fu">AIC</span>(mod4))</span>
-<span id="cb30-103"><a href="#cb30-103" aria-hidden="true" tabindex="-1"></a>BIC<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fu">BIC</span>(mod1),<span class="fu">BIC</span>(mod2),<span class="fu">BIC</span>(mod3),<span class="fu">BIC</span>(mod4))</span>
-<span id="cb30-104"><a href="#cb30-104" aria-hidden="true" tabindex="-1"></a>AIC_BIC<span class="ot">&lt;-</span><span class="fu">cbind</span>(AIC,BIC)</span>
-<span id="cb30-105"><a href="#cb30-105" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(AIC_BIC)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Idade"</span>,<span class="st">"Estágio"</span>,<span class="st">"Idade + Estágio"</span>, <span class="st">"Idade + Estágio + Interação"</span>)</span>
-<span id="cb30-106"><a href="#cb30-106" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(AIC_BIC)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"AIC"</span>,<span class="st">"BIC"</span>)</span>
-<span id="cb30-107"><a href="#cb30-107" aria-hidden="true" tabindex="-1"></a>AIC_BIC</span>
-<span id="cb30-108"><a href="#cb30-108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-109"><a href="#cb30-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-110"><a href="#cb30-110" aria-hidden="true" tabindex="-1"></a>Após a análise de AIC e BIC, recomenda-se **darmos sequência ao modelo que possui apenas a covariável estágio**. Os comandos a seguir, trazem um resumo desse modelo:</span>
-<span id="cb30-111"><a href="#cb30-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-112"><a href="#cb30-112" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
-<span id="cb30-113"><a href="#cb30-113" aria-hidden="true" tabindex="-1"></a>mod2</span>
-<span id="cb30-114"><a href="#cb30-114" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-115"><a href="#cb30-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-116"><a href="#cb30-116" aria-hidden="true" tabindex="-1"></a>As **saídas representam**:</span>
-<span id="cb30-117"><a href="#cb30-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-118"><a href="#cb30-118" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`coef`</span>: **Estimativa dos parâmetros** $\pmb{\beta}$.</span>
-<span id="cb30-119"><a href="#cb30-119" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`exp(coef)`</span>: **Exponencial das estimativas dos parâmetros** $\pmb{\beta}$ (útil para interpretação).</span>
-<span id="cb30-120"><a href="#cb30-120" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`se(coef)`</span>: **Erro padrão associado às estimativas dos parâmetros** $\pmb{\beta}$.</span>
-<span id="cb30-121"><a href="#cb30-121" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`z`</span>: **Estatística de teste de Wald**.</span>
-<span id="cb30-122"><a href="#cb30-122" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`p`</span>: **P-Valor associado à estatística de teste de Wald**.</span>
-<span id="cb30-123"><a href="#cb30-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-124"><a href="#cb30-124" aria-hidden="true" tabindex="-1"></a>Observe como **não há estimativa para o intercepto. A função de risco de base absorve esse componente**. Além disso, a covariável  estagio é significativa.</span>
-<span id="cb30-125"><a href="#cb30-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-126"><a href="#cb30-126" aria-hidden="true" tabindex="-1"></a><span class="fu">## **ADEQUAÇÃO DO AJUSTE**</span></span>
-<span id="cb30-127"><a href="#cb30-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-128"><a href="#cb30-128" aria-hidden="true" tabindex="-1"></a>Para verificar a adequação do ajuste, faremos três diagnósticos:</span>
-<span id="cb30-129"><a href="#cb30-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-130"><a href="#cb30-130" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Resíduos CoxSnell</span>
-<span id="cb30-131"><a href="#cb30-131" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Teste dos resíduos de Schoenfeld</span>
-<span id="cb30-132"><a href="#cb30-132" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Gráfico dos resíduos de Schoenfeld</span>
-<span id="cb30-133"><a href="#cb30-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-134"><a href="#cb30-134" aria-hidden="true" tabindex="-1"></a><span class="fu">### **RESÍDUOS COX-SNELL**</span></span>
-<span id="cb30-135"><a href="#cb30-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-136"><a href="#cb30-136" aria-hidden="true" tabindex="-1"></a>No modelo de Cox, existe uma relação direta entre os resíduos os resíduos de Cox-Snell e os resíduos de Martingale.</span>
-<span id="cb30-137"><a href="#cb30-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-138"><a href="#cb30-138" aria-hidden="true" tabindex="-1"></a>Os resíduos de Martingale são definidos por</span>
-<span id="cb30-139"><a href="#cb30-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-140"><a href="#cb30-140" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb30-141"><a href="#cb30-141" aria-hidden="true" tabindex="-1"></a>M_i=\delta_i-\widehat H_i(T_i),</span>
-<span id="cb30-142"><a href="#cb30-142" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb30-143"><a href="#cb30-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-144"><a href="#cb30-144" aria-hidden="true" tabindex="-1"></a>em que:</span>
-<span id="cb30-145"><a href="#cb30-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-146"><a href="#cb30-146" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$\delta_i$ representa o indicador de ocorrência do evento;</span>
-<span id="cb30-147"><a href="#cb30-147" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$\widehat H_i(T_i)$ corresponde à função de risco acumulado estimada para o indivíduo $i$.</span>
-<span id="cb30-148"><a href="#cb30-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-149"><a href="#cb30-149" aria-hidden="true" tabindex="-1"></a>Reorganizando a expressão anterior, obtém-se</span>
-<span id="cb30-150"><a href="#cb30-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-151"><a href="#cb30-151" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb30-152"><a href="#cb30-152" aria-hidden="true" tabindex="-1"></a>\widehat H_i(T_i)</span>
-<span id="cb30-153"><a href="#cb30-153" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb30-154"><a href="#cb30-154" aria-hidden="true" tabindex="-1"></a>\delta_i-M_i.</span>
-<span id="cb30-155"><a href="#cb30-155" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb30-156"><a href="#cb30-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-157"><a href="#cb30-157" aria-hidden="true" tabindex="-1"></a>Como os resíduos de Cox-Snell são definidos por</span>
-<span id="cb30-158"><a href="#cb30-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-159"><a href="#cb30-159" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb30-160"><a href="#cb30-160" aria-hidden="true" tabindex="-1"></a>r_i=\widehat H_i(T_i),</span>
-<span id="cb30-161"><a href="#cb30-161" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb30-162"><a href="#cb30-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-163"><a href="#cb30-163" aria-hidden="true" tabindex="-1"></a>segue que</span>
-<span id="cb30-164"><a href="#cb30-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-165"><a href="#cb30-165" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb30-166"><a href="#cb30-166" aria-hidden="true" tabindex="-1"></a>r_i</span>
-<span id="cb30-167"><a href="#cb30-167" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb30-168"><a href="#cb30-168" aria-hidden="true" tabindex="-1"></a>\delta_i-M_i.</span>
-<span id="cb30-169"><a href="#cb30-169" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb30-170"><a href="#cb30-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-171"><a href="#cb30-171" aria-hidden="true" tabindex="-1"></a>Portanto, os resíduos de Cox-Snell podem ser obtidos subtraindo-se os resíduos de Martingale do indicador de ocorrência do evento:</span>
-<span id="cb30-172"><a href="#cb30-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-175"><a href="#cb30-175" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-176"><a href="#cb30-176" aria-hidden="true" tabindex="-1"></a>ResiduoCS <span class="ot">&lt;-</span> dados<span class="sc">$</span>cens<span class="sc">-</span><span class="fu">residuals</span>(mod2, <span class="at">type =</span> <span class="st">"martingale"</span>)</span>
-<span id="cb30-177"><a href="#cb30-177" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-178"><a href="#cb30-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-179"><a href="#cb30-179" aria-hidden="true" tabindex="-1"></a>Seguem, portanto, os gráficos para estes resíduos:</span>
-<span id="cb30-180"><a href="#cb30-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-183"><a href="#cb30-183" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-184"><a href="#cb30-184" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb30-185"><a href="#cb30-185" aria-hidden="true" tabindex="-1"></a>ekm<span class="ot">&lt;-</span> <span class="fu">survfit</span> (<span class="fu">Surv</span>(ResiduoCS,dados<span class="sc">$</span>cens)<span class="sc">~</span><span class="dv">1</span>,<span class="at">type=</span><span class="st">"kaplan-meier"</span>)</span>
-<span id="cb30-186"><a href="#cb30-186" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ekm, <span class="at">fun=</span><span class="st">"cumhaz"</span>,<span class="at">xlab=</span><span class="st">"Resíduos de Cox-Snell"</span>,<span class="at">ylab=</span><span class="st">"Função de risco acumulado"</span>)</span>
-<span id="cb30-187"><a href="#cb30-187" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">col=</span><span class="st">"red"</span>)</span>
-<span id="cb30-188"><a href="#cb30-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-189"><a href="#cb30-189" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ekm, <span class="at">xlab=</span><span class="st">"Resíduos de Cox-Snell"</span>,<span class="at">ylab=</span><span class="st">"Função de sobrevivência"</span>)</span>
-<span id="cb30-190"><a href="#cb30-190" aria-hidden="true" tabindex="-1"></a>ResiduoCS<span class="ot">&lt;-</span><span class="fu">sort</span>(ResiduoCS)</span>
-<span id="cb30-191"><a href="#cb30-191" aria-hidden="true" tabindex="-1"></a>exp1<span class="ot">&lt;-</span><span class="fu">exp</span>(<span class="sc">-</span>ResiduoCS)</span>
-<span id="cb30-192"><a href="#cb30-192" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(ResiduoCS,exp1, <span class="at">col=</span><span class="st">"red"</span>,<span class="at">type=</span><span class="st">"l"</span>)</span>
-<span id="cb30-193"><a href="#cb30-193" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-194"><a href="#cb30-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-195"><a href="#cb30-195" aria-hidden="true" tabindex="-1"></a>Conforme apontado nos gráficos, os resíduos estão bem comportados segundo o comportamento teórico.</span>
-<span id="cb30-196"><a href="#cb30-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-197"><a href="#cb30-197" aria-hidden="true" tabindex="-1"></a><span class="fu">### **TESTE DOS RESÍDUOS DE SCHOENFELD**</span></span>
-<span id="cb30-198"><a href="#cb30-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-199"><a href="#cb30-199" aria-hidden="true" tabindex="-1"></a>Para realizar o teste de hipótese acerca dos resíduos de Schoenfeld, utilizaremos a função <span class="in">`cox.zph`</span>. Essa função realiza um teste para cada covariável e também faz um teste global.</span>
-<span id="cb30-200"><a href="#cb30-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-201"><a href="#cb30-201" aria-hidden="true" tabindex="-1"></a>Para cada covariável as hipóteses são:</span>
-<span id="cb30-202"><a href="#cb30-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-203"><a href="#cb30-203" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb30-204"><a href="#cb30-204" aria-hidden="true" tabindex="-1"></a>H_0:\beta_k(t)=\beta_k</span>
-<span id="cb30-205"><a href="#cb30-205" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb30-206"><a href="#cb30-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-207"><a href="#cb30-207" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb30-208"><a href="#cb30-208" aria-hidden="true" tabindex="-1"></a>H_1:\beta_k(t)\neq\beta_k</span>
-<span id="cb30-209"><a href="#cb30-209" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb30-210"><a href="#cb30-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-211"><a href="#cb30-211" aria-hidden="true" tabindex="-1"></a>em que:</span>
-<span id="cb30-212"><a href="#cb30-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-213"><a href="#cb30-213" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$\beta_k(t)$ representa o efeito da covariável ao longo do tempo;</span>
-<span id="cb30-214"><a href="#cb30-214" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$\beta_k$ representa um efeito constante.</span>
-<span id="cb30-215"><a href="#cb30-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-216"><a href="#cb30-216" aria-hidden="true" tabindex="-1"></a>Assim:</span>
-<span id="cb30-217"><a href="#cb30-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-218"><a href="#cb30-218" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>sob $H_0$, a covariável satisfaz a hipótese de riscos proporcionais;</span>
-<span id="cb30-219"><a href="#cb30-219" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>sob $H_1$, o efeito da covariável varia ao longo do tempo, violando a hipótese de riscos proporcionais.</span>
-<span id="cb30-220"><a href="#cb30-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-221"><a href="#cb30-221" aria-hidden="true" tabindex="-1"></a>Para o teste global as hipóteses são:</span>
-<span id="cb30-222"><a href="#cb30-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-223"><a href="#cb30-223" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb30-224"><a href="#cb30-224" aria-hidden="true" tabindex="-1"></a>H_0:\beta_1(t)=\beta_1,\ \beta_2(t)=\beta_2,\ \ldots,\ \beta_p(t)=\beta_p</span>
-<span id="cb30-225"><a href="#cb30-225" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb30-226"><a href="#cb30-226" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-227"><a href="#cb30-227" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb30-228"><a href="#cb30-228" aria-hidden="true" tabindex="-1"></a>H_1:\text{Pelo menos uma covariável apresenta efeito dependente do tempo}</span>
-<span id="cb30-229"><a href="#cb30-229" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb30-230"><a href="#cb30-230" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-231"><a href="#cb30-231" aria-hidden="true" tabindex="-1"></a>Assim:</span>
-<span id="cb30-232"><a href="#cb30-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-233"><a href="#cb30-233" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>sob $H_0$, todas as covariáveis satisfazem simultaneamente a hipótese de riscos proporcionais;</span>
-<span id="cb30-234"><a href="#cb30-234" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>sob $H_1$, pelo menos uma covariável viola essa hipótese.</span>
-<span id="cb30-235"><a href="#cb30-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-238"><a href="#cb30-238" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-239"><a href="#cb30-239" aria-hidden="true" tabindex="-1"></a>ResiduoSH <span class="ot">=</span> <span class="fu">cox.zph</span>(mod2)</span>
-<span id="cb30-240"><a href="#cb30-240" aria-hidden="true" tabindex="-1"></a>ResiduoSH</span>
-<span id="cb30-241"><a href="#cb30-241" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-242"><a href="#cb30-242" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-243"><a href="#cb30-243" aria-hidden="true" tabindex="-1"></a>Assim, de acordo com o valor-p a suposição dos riscos proporcionais é satisfeita. Como o modelo possui apenas uma covariável, o teste global é igual ao da covariável.</span>
-<span id="cb30-244"><a href="#cb30-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-245"><a href="#cb30-245" aria-hidden="true" tabindex="-1"></a><span class="fu">### **GRÁFICO DOS RESÍDUOS DE SCHOENFELD**</span></span>
-<span id="cb30-246"><a href="#cb30-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-247"><a href="#cb30-247" aria-hidden="true" tabindex="-1"></a>Os seguintes comandos fazem o gráfico dos resíduos de Schoenfeld. Lembre-se que será feito um gráfico para cada covariável. No nosso exemplo, teremos apenas uma representação gráfica:</span>
-<span id="cb30-248"><a href="#cb30-248" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-249"><a href="#cb30-249" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
-<span id="cb30-250"><a href="#cb30-250" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ResiduoSH)</span>
-<span id="cb30-251"><a href="#cb30-251" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-252"><a href="#cb30-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-253"><a href="#cb30-253" aria-hidden="true" tabindex="-1"></a>Note como não há uma tendência definida no gráfico, corroborando o teste formal.</span>
-<span id="cb30-254"><a href="#cb30-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-255"><a href="#cb30-255" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Para gráficos com mais covariáveis use os comandos </span><span class="in">`par(mfrow=c(.))`</span><span class="at"> para propiciar mais janelas gráficas. Todos os gráficos são feitos de uma vez.</span></span>
-<span id="cb30-256"><a href="#cb30-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-257"><a href="#cb30-257" aria-hidden="true" tabindex="-1"></a><span class="fu">## **INTERPRETAÇÃO DOS COEFICIENTES** </span></span>
-<span id="cb30-258"><a href="#cb30-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-259"><a href="#cb30-259" aria-hidden="true" tabindex="-1"></a>Agora que temos o modelo bem ajustado, vamos à interpretação dos coeficientes. Retomemos as estimativas do modelo ajustado:</span>
-<span id="cb30-260"><a href="#cb30-260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-263"><a href="#cb30-263" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-264"><a href="#cb30-264" aria-hidden="true" tabindex="-1"></a>mod2</span>
-<span id="cb30-265"><a href="#cb30-265" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-266"><a href="#cb30-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-267"><a href="#cb30-267" aria-hidden="true" tabindex="-1"></a>Assim:</span>
-<span id="cb30-268"><a href="#cb30-268" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-269"><a href="#cb30-269" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>O estágio II apresenta um aumento de 6% no risco de morte, se comparado ao estágio I (não significativo)</span>
-<span id="cb30-270"><a href="#cb30-270" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>O estágio III apresenta um aumento de 84% no risco de morte, se comparado ao estágio II (significativo)</span>
-<span id="cb30-271"><a href="#cb30-271" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>O estágio IV apresenta um risco de morte 5,66 vezes maior que o estágio I (significativo)</span>
-<span id="cb30-272"><a href="#cb30-272" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-273"><a href="#cb30-273" aria-hidden="true" tabindex="-1"></a><span class="fu">## **ESTIMAÇÃO DE FUNÇÕES RELACIONADAS A $\lambda_0(t)$** </span></span>
-<span id="cb30-274"><a href="#cb30-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-275"><a href="#cb30-275" aria-hidden="true" tabindex="-1"></a>Os **coeficientes de regressão $\pmb{\beta}$ são as quantidades de maior interesse na modelagem estatística dos dados**. Entretanto, funções relacionadas a $\lambda_0(t)$ são também importantes no modelo de Cox. </span>
-<span id="cb30-276"><a href="#cb30-276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-277"><a href="#cb30-277" aria-hidden="true" tabindex="-1"></a>Na figura abaixo, estão estimadas as funções de sobrevivência dos pacientes em cada grupo ao longo do período do estudo:</span>
-<span id="cb30-278"><a href="#cb30-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-279"><a href="#cb30-279" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
-<span id="cb30-280"><a href="#cb30-280" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"I"</span>)),</span>
-<span id="cb30-281"><a href="#cb30-281" aria-hidden="true" tabindex="-1"></a>     <span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"blue"</span>,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>, <span class="at">ylab=</span><span class="st">"Sobrevivência Estimada"</span>)</span>
-<span id="cb30-282"><a href="#cb30-282" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"II"</span>)),</span>
-<span id="cb30-283"><a href="#cb30-283" aria-hidden="true" tabindex="-1"></a>      <span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"red"</span>)</span>
-<span id="cb30-284"><a href="#cb30-284" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"III"</span>)),</span>
-<span id="cb30-285"><a href="#cb30-285" aria-hidden="true" tabindex="-1"></a>      <span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"green"</span>)</span>
-<span id="cb30-286"><a href="#cb30-286" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"IV"</span>)),</span>
-<span id="cb30-287"><a href="#cb30-287" aria-hidden="true" tabindex="-1"></a>      <span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"orange"</span>)</span>
-<span id="cb30-288"><a href="#cb30-288" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="dv">0</span>,<span class="fl">0.25</span>,<span class="at">legend=</span><span class="fu">c</span>(<span class="st">"Estagio I"</span>, <span class="st">"Estagio II"</span>, <span class="st">"Estagio III"</span>, <span class="st">"Estagio IV"</span>),</span>
-<span id="cb30-289"><a href="#cb30-289" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span><span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>, <span class="st">"green"</span>, <span class="st">"orange"</span>),<span class="at">lty=</span><span class="dv">1</span>)</span>
-<span id="cb30-290"><a href="#cb30-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-291"><a href="#cb30-291" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-292"><a href="#cb30-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-293"><a href="#cb30-293" aria-hidden="true" tabindex="-1"></a>Na figura abaixo, estão estimadas as funções de risco acumulado dos pacientes em cada grupo ao longo do período do estudo:</span>
-<span id="cb30-294"><a href="#cb30-294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-295"><a href="#cb30-295" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
-<span id="cb30-296"><a href="#cb30-296" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"I"</span>)),</span>
-<span id="cb30-297"><a href="#cb30-297" aria-hidden="true" tabindex="-1"></a>     <span class="at">conf.int =</span> F,<span class="at">fun =</span> <span class="st">"cumhaz"</span>,<span class="at">col=</span><span class="st">"blue"</span>,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>, <span class="at">ylab=</span><span class="st">"Risco acumulado estimado"</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">5</span>))</span>
-<span id="cb30-298"><a href="#cb30-298" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"II"</span>)),</span>
-<span id="cb30-299"><a href="#cb30-299" aria-hidden="true" tabindex="-1"></a>      <span class="at">fun =</span> <span class="st">"cumhaz"</span>,<span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"red"</span>)</span>
-<span id="cb30-300"><a href="#cb30-300" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"III"</span>)),</span>
-<span id="cb30-301"><a href="#cb30-301" aria-hidden="true" tabindex="-1"></a>      <span class="at">fun =</span> <span class="st">"cumhaz"</span>,<span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"green"</span>)</span>
-<span id="cb30-302"><a href="#cb30-302" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"IV"</span>)),</span>
-<span id="cb30-303"><a href="#cb30-303" aria-hidden="true" tabindex="-1"></a>      <span class="at">fun =</span> <span class="st">"cumhaz"</span>,<span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"orange"</span>)</span>
-<span id="cb30-304"><a href="#cb30-304" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="dv">0</span>,<span class="dv">4</span>,<span class="at">legend=</span><span class="fu">c</span>(<span class="st">"Estagio I"</span>, <span class="st">"Estagio II"</span>, <span class="st">"Estagio III"</span>, <span class="st">"Estagio IV"</span>),</span>
-<span id="cb30-305"><a href="#cb30-305" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span><span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>, <span class="st">"green"</span>, <span class="st">"orange"</span>),<span class="at">lty=</span><span class="dv">1</span>)</span>
-<span id="cb30-306"><a href="#cb30-306" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-307"><a href="#cb30-307" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-308"><a href="#cb30-308" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-309"><a href="#cb30-309" aria-hidden="true" tabindex="-1"></a>Podemos, também, obter estimativas de medidas-resumo para cada grupo:</span>
-<span id="cb30-310"><a href="#cb30-310" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-313"><a href="#cb30-313" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-314"><a href="#cb30-314" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"I"</span>)))<span class="sc">$</span>table</span>
-<span id="cb30-315"><a href="#cb30-315" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"II"</span>)))<span class="sc">$</span>table</span>
-<span id="cb30-316"><a href="#cb30-316" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"III"</span>)))<span class="sc">$</span>table</span>
-<span id="cb30-317"><a href="#cb30-317" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"IV"</span>)))<span class="sc">$</span>table</span>
-<span id="cb30-318"><a href="#cb30-318" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-319"><a href="#cb30-319" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-320"><a href="#cb30-320" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-321"><a href="#cb30-321" aria-hidden="true" tabindex="-1"></a><span class="fu">## **EXERCÍCIO**</span></span>
-<span id="cb30-322"><a href="#cb30-322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-323"><a href="#cb30-323" aria-hidden="true" tabindex="-1"></a>1- Para os dados de câncer de ovário:</span>
-<span id="cb30-324"><a href="#cb30-324" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-325"><a href="#cb30-325" aria-hidden="true" tabindex="-1"></a>a) Ajuste um modelo de Cox a estes dados fazendo seleção de covariáveis.</span>
-<span id="cb30-326"><a href="#cb30-326" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-327"><a href="#cb30-327" aria-hidden="true" tabindex="-1"></a>b) No modelo ajustado em a):</span>
-<span id="cb30-328"><a href="#cb30-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-329"><a href="#cb30-329" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Faça a análise de resíduos</span>
-<span id="cb30-330"><a href="#cb30-330" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Faça a interpretação dos coeficientes</span>
-<span id="cb30-331"><a href="#cb30-331" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Estime a sobrevivência e medidas-resumo para indivíduos distintos de acordo com a(s) covariável(is) do modelo.</span>
-<span id="cb30-332"><a href="#cb30-332" aria-hidden="true" tabindex="-1"></a></span>
+<div class="sourceCode" id="cb31" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="an">output:</span><span class="co"> html_document</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="an">editor_options:</span><span class="co"> </span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co">  chunk_output_type: console</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># **MODELO DE REGRESSÃO DE COX (PRÁTICA)**</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## **PACOTES NECESSÁRIOS**</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>Para esta **sexta aula prática** de Análise de Sobrevivência e Confiabilidade, precisaremos do seguinte **pacote**:</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(survival)</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Pacote** `survival`: É o **pacote básico** para o **estudo** de Análise de Sobrevivência e Confiabilidade. Contém as **principais rotinas**, incluindo definição de **objetos** `Surv`, **curvas Kaplan-Meier**, **modelos Cox** e **modelos paramétricos**.</span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## **BASES DE DADOS**</span></span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a><span class="fu">### **CÂNCER DE LARINGE**</span></span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">center</span><span class="dt">&gt;</span></span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a><span class="al">![ ](images/laringe.png)</span></span>
+<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">center</span><span class="dt">&gt;</span></span>
+<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a>Neste exemplo, **os dados considerados referem-se a um estudo, descrito em Klein e Moeschberger (2003)**, realizado com **90 pacientes do sexo masculino** diagnosticados no **período com cancer de laringe**. Para cada paciente, **foram registrados, no diagnóstico, a idade (em anos) e o estágio da doença (I = tumor primário, II = envolvimento de nódulos, III = metástases e IV = combinações dos 3 estágios anteriores)**, bem como seus respectivos tempos de morte ou censura (em meses). Os **estágios encontram-se ordenados pelo grau de seriedade da doença (menos sério para mais sério)**. A base de dados está armazenada no objeto <span class="in">`laringe.txt`</span>.</span>
+<span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a><span class="fu">### **CÂNCER DE OVÁRIO**</span></span>
+<span id="cb31-29"><a href="#cb31-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-30"><a href="#cb31-30" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">center</span><span class="dt">&gt;</span></span>
+<span id="cb31-31"><a href="#cb31-31" aria-hidden="true" tabindex="-1"></a><span class="al">![ ](images/Ovario.png)</span></span>
+<span id="cb31-32"><a href="#cb31-32" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">center</span><span class="dt">&gt;</span></span>
+<span id="cb31-33"><a href="#cb31-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-34"><a href="#cb31-34" aria-hidden="true" tabindex="-1"></a>Um estudo envolveu o acompanhamento de 26 mulheres após a cirurgia de remoção do tumor. A resposta foi o tempo (em dias), **contado a partir do início do tratamento (aleatorização) até a morte do paciente**. As **seguintes covariáveis foram registradas**: Idade e Resíduo  (<span class="in">`ParcRemovido`</span> se o resíduo da doença foi parcialmente removido e <span class="in">`Removido`</span> se foi completamente removido). Os dados encontram-se no arquivo <span class="in">`ovario.txt`</span></span>
+<span id="cb31-35"><a href="#cb31-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-36"><a href="#cb31-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## **AJUSTE DO MODELO**</span></span>
+<span id="cb31-37"><a href="#cb31-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-38"><a href="#cb31-38" aria-hidden="true" tabindex="-1"></a>Para **começar a nossa análise dos dados de câncer de laringe**, vamos carregar a base de dados:</span>
+<span id="cb31-39"><a href="#cb31-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-40"><a href="#cb31-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
+<span id="cb31-41"><a href="#cb31-41" aria-hidden="true" tabindex="-1"></a>dados<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">"laringe.txt"</span>,<span class="at">header=</span>T)</span>
+<span id="cb31-42"><a href="#cb31-42" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-43"><a href="#cb31-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-44"><a href="#cb31-44" aria-hidden="true" tabindex="-1"></a>No <span class="in">`R`</span> **o ajuste do modelo de regressão de Cox será feito a partir da função `coxph` do pacote `survival`**. A **sintaxe da função e sua saída é muito parecida com modelos paramétricos que ja ajustamos**:</span>
+<span id="cb31-45"><a href="#cb31-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-46"><a href="#cb31-46" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb31-47"><a href="#cb31-47" aria-hidden="true" tabindex="-1"></a><span class="fu">coxph</span>(<span class="at">formula =</span> <span class="fu">Surv</span>(Tempos<span class="sc">~</span>Cens)<span class="sc">~</span>Covariaveis,</span>
+<span id="cb31-48"><a href="#cb31-48" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> dados)</span>
+<span id="cb31-49"><a href="#cb31-49" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-50"><a href="#cb31-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-51"><a href="#cb31-51" aria-hidden="true" tabindex="-1"></a>Como temos duas covariáveis, **precisamos fazer uma seleção delas para o modelo final**. Assim,  **vamos ajustar todos os modelos possíveis**:</span>
+<span id="cb31-52"><a href="#cb31-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-53"><a href="#cb31-53" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
+<span id="cb31-54"><a href="#cb31-54" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(tempos,cens)<span class="sc">~</span>idade, <span class="at">data=</span>dados)</span>
+<span id="cb31-55"><a href="#cb31-55" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(tempos,cens)<span class="sc">~</span>estagio, <span class="at">data=</span>dados)</span>
+<span id="cb31-56"><a href="#cb31-56" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(tempos,cens)<span class="sc">~</span>idade<span class="sc">+</span>estagio, <span class="at">data=</span>dados)</span>
+<span id="cb31-57"><a href="#cb31-57" aria-hidden="true" tabindex="-1"></a>mod4 <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(tempos,cens)<span class="sc">~</span>idade<span class="sc">+</span>estagio<span class="sc">+</span>idade<span class="sc">*</span>estagio, <span class="at">data=</span>dados)</span>
+<span id="cb31-58"><a href="#cb31-58" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-59"><a href="#cb31-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-60"><a href="#cb31-60" aria-hidden="true" tabindex="-1"></a>Para **escolher qual destes é o melhor modelo, vamos usar como critério, inicialmente, o TRV**, comparando os modelos mais simples (<span class="in">`mod1`</span>, <span class="in">`mod2`</span> e <span class="in">`mod3`</span>) com o modelo mais complexo (<span class="in">`mod4`</span>). Entretanto, antes da realização do teste, é importante se atentar à quantidade de parâmetros estimados de cada modelo:</span>
+<span id="cb31-61"><a href="#cb31-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-62"><a href="#cb31-62" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`mod1`</span> = 1 parâmetro</span>
+<span id="cb31-63"><a href="#cb31-63" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`mod2`</span> = 3 parâmetros</span>
+<span id="cb31-64"><a href="#cb31-64" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`mod3`</span> = 4 parâmetros</span>
+<span id="cb31-65"><a href="#cb31-65" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`mod4`</span> = 7 parâmetros</span>
+<span id="cb31-66"><a href="#cb31-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-67"><a href="#cb31-67" aria-hidden="true" tabindex="-1"></a>Além disso, a função <span class="in">`coxph`</span> retorna sempre 2 valores para a função de log-verossimilhança parcial. Veja no seguinte exemplo para o modelo <span class="in">`mod1`</span>:</span>
+<span id="cb31-68"><a href="#cb31-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-71"><a href="#cb31-71" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb31-72"><a href="#cb31-72" aria-hidden="true" tabindex="-1"></a>mod1<span class="sc">$</span>loglik</span>
+<span id="cb31-73"><a href="#cb31-73" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-74"><a href="#cb31-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-75"><a href="#cb31-75" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>O primeiro valor é sempre a log verossimilhança parcial do modelo nulo.</span>
+<span id="cb31-76"><a href="#cb31-76" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>O segundo valor é a log verossimilhança de fato do modelo ajustado.</span>
+<span id="cb31-77"><a href="#cb31-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-78"><a href="#cb31-78" aria-hidden="true" tabindex="-1"></a>Para os nossos TRV, precisaremos utilizar o segundo valor da <span class="in">`loglik`</span>. Finalmente, podemos fazer os TRV com os seguintes comandos:</span>
+<span id="cb31-79"><a href="#cb31-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-82"><a href="#cb31-82" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb31-83"><a href="#cb31-83" aria-hidden="true" tabindex="-1"></a>TRV_1 <span class="ot">=</span> <span class="dv">2</span><span class="sc">*</span>(mod4<span class="sc">$</span>loglik[<span class="dv">2</span>]<span class="sc">-</span>mod1<span class="sc">$</span>loglik[<span class="dv">2</span>])</span>
+<span id="cb31-84"><a href="#cb31-84" aria-hidden="true" tabindex="-1"></a>P_valor_1 <span class="ot">=</span> <span class="fu">pchisq</span>(TRV_1,<span class="dv">6</span>,<span class="at">lower.tail=</span>F)</span>
+<span id="cb31-85"><a href="#cb31-85" aria-hidden="true" tabindex="-1"></a>TRV_2 <span class="ot">=</span> <span class="dv">2</span><span class="sc">*</span>(mod4<span class="sc">$</span>loglik[<span class="dv">2</span>]<span class="sc">-</span>mod2<span class="sc">$</span>loglik[<span class="dv">2</span>])</span>
+<span id="cb31-86"><a href="#cb31-86" aria-hidden="true" tabindex="-1"></a>P_valor_2 <span class="ot">=</span> <span class="fu">pchisq</span>(TRV_2,<span class="dv">4</span>,<span class="at">lower.tail=</span>F)</span>
+<span id="cb31-87"><a href="#cb31-87" aria-hidden="true" tabindex="-1"></a>TRV_3 <span class="ot">=</span> <span class="dv">2</span><span class="sc">*</span>(mod4<span class="sc">$</span>loglik[<span class="dv">2</span>]<span class="sc">-</span>mod3<span class="sc">$</span>loglik[<span class="dv">2</span>])</span>
+<span id="cb31-88"><a href="#cb31-88" aria-hidden="true" tabindex="-1"></a>P_valor_3 <span class="ot">=</span> <span class="fu">pchisq</span>(TRV_3,<span class="dv">3</span>,<span class="at">lower.tail=</span>F)</span>
+<span id="cb31-89"><a href="#cb31-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-90"><a href="#cb31-90" aria-hidden="true" tabindex="-1"></a>Comparacao <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Mod4 x Mod1"</span>,  <span class="st">"Mod4 x Mod2"</span>,</span>
+<span id="cb31-91"><a href="#cb31-91" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Mod4 x Mod3"</span>)</span>
+<span id="cb31-92"><a href="#cb31-92" aria-hidden="true" tabindex="-1"></a>P_valor <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb31-93"><a href="#cb31-93" aria-hidden="true" tabindex="-1"></a>  P_valor_1,  P_valor_2,  P_valor_3</span>
+<span id="cb31-94"><a href="#cb31-94" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb31-95"><a href="#cb31-95" aria-hidden="true" tabindex="-1"></a>TRV<span class="ot">&lt;-</span><span class="fu">data.frame</span>(Comparacao,P_valor)</span>
+<span id="cb31-96"><a href="#cb31-96" aria-hidden="true" tabindex="-1"></a>TRV</span>
+<span id="cb31-97"><a href="#cb31-97" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-98"><a href="#cb31-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-99"><a href="#cb31-99" aria-hidden="true" tabindex="-1"></a>Ao nível de 5% de significância, os modelos <span class="in">`mod2`</span> e <span class="in">`mod3`</span> são compatíveis com o modelo <span class="in">`mod4`</span>. Por serem mais simples, são preferíveis para um melhor ajuste aos dados. Para corroborar a nossa decisão, vamos avaliar os valores de AIC e BIC destes modelos: </span>
+<span id="cb31-100"><a href="#cb31-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-101"><a href="#cb31-101" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
+<span id="cb31-102"><a href="#cb31-102" aria-hidden="true" tabindex="-1"></a>AIC<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fu">AIC</span>(mod1),<span class="fu">AIC</span>(mod2),<span class="fu">AIC</span>(mod3),<span class="fu">AIC</span>(mod4))</span>
+<span id="cb31-103"><a href="#cb31-103" aria-hidden="true" tabindex="-1"></a>BIC<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fu">BIC</span>(mod1),<span class="fu">BIC</span>(mod2),<span class="fu">BIC</span>(mod3),<span class="fu">BIC</span>(mod4))</span>
+<span id="cb31-104"><a href="#cb31-104" aria-hidden="true" tabindex="-1"></a>AIC_BIC<span class="ot">&lt;-</span><span class="fu">cbind</span>(AIC,BIC)</span>
+<span id="cb31-105"><a href="#cb31-105" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(AIC_BIC)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Idade"</span>,<span class="st">"Estágio"</span>,<span class="st">"Idade + Estágio"</span>, <span class="st">"Idade + Estágio + Interação"</span>)</span>
+<span id="cb31-106"><a href="#cb31-106" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(AIC_BIC)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"AIC"</span>,<span class="st">"BIC"</span>)</span>
+<span id="cb31-107"><a href="#cb31-107" aria-hidden="true" tabindex="-1"></a>AIC_BIC</span>
+<span id="cb31-108"><a href="#cb31-108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-109"><a href="#cb31-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-110"><a href="#cb31-110" aria-hidden="true" tabindex="-1"></a>Após a análise de AIC e BIC, recomenda-se **darmos sequência ao modelo que possui apenas a covariável estágio**. Os comandos a seguir, trazem um resumo desse modelo:</span>
+<span id="cb31-111"><a href="#cb31-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-112"><a href="#cb31-112" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
+<span id="cb31-113"><a href="#cb31-113" aria-hidden="true" tabindex="-1"></a>mod2</span>
+<span id="cb31-114"><a href="#cb31-114" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-115"><a href="#cb31-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-116"><a href="#cb31-116" aria-hidden="true" tabindex="-1"></a>As **saídas representam**:</span>
+<span id="cb31-117"><a href="#cb31-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-118"><a href="#cb31-118" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`coef`</span>: **Estimativa dos parâmetros** $\pmb{\beta}$.</span>
+<span id="cb31-119"><a href="#cb31-119" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`exp(coef)`</span>: **Exponencial das estimativas dos parâmetros** $\pmb{\beta}$ (útil para interpretação).</span>
+<span id="cb31-120"><a href="#cb31-120" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`se(coef)`</span>: **Erro padrão associado às estimativas dos parâmetros** $\pmb{\beta}$.</span>
+<span id="cb31-121"><a href="#cb31-121" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`z`</span>: **Estatística de teste de Wald**.</span>
+<span id="cb31-122"><a href="#cb31-122" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`p`</span>: **P-Valor associado à estatística de teste de Wald**.</span>
+<span id="cb31-123"><a href="#cb31-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-124"><a href="#cb31-124" aria-hidden="true" tabindex="-1"></a>Observe como **não há estimativa para o intercepto. A função de risco de base absorve esse componente**. Além disso, a covariável  estagio é significativa.</span>
+<span id="cb31-125"><a href="#cb31-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-126"><a href="#cb31-126" aria-hidden="true" tabindex="-1"></a><span class="fu">## **ADEQUAÇÃO DO AJUSTE**</span></span>
+<span id="cb31-127"><a href="#cb31-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-128"><a href="#cb31-128" aria-hidden="true" tabindex="-1"></a>Para verificar a adequação do ajuste, faremos três diagnósticos:</span>
+<span id="cb31-129"><a href="#cb31-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-130"><a href="#cb31-130" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Resíduos CoxSnell</span>
+<span id="cb31-131"><a href="#cb31-131" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Teste dos resíduos de Schoenfeld</span>
+<span id="cb31-132"><a href="#cb31-132" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Gráfico dos resíduos de Schoenfeld</span>
+<span id="cb31-133"><a href="#cb31-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-134"><a href="#cb31-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-135"><a href="#cb31-135" aria-hidden="true" tabindex="-1"></a><span class="fu">### **RESÍDUOS DE COX-SNELL**</span></span>
+<span id="cb31-136"><a href="#cb31-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-137"><a href="#cb31-137" aria-hidden="true" tabindex="-1"></a>Os resíduos de Cox-Snell são utilizados para avaliar a adequação global do ajuste de modelos de sobrevivência. No modelo de Cox, esses resíduos são definidos pela função de risco acumulado estimada para cada indivíduo até seu tempo observado:</span>
+<span id="cb31-138"><a href="#cb31-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-139"><a href="#cb31-139" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb31-140"><a href="#cb31-140" aria-hidden="true" tabindex="-1"></a>r_i = \widehat{H}_i(T_i).</span>
+<span id="cb31-141"><a href="#cb31-141" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb31-142"><a href="#cb31-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-143"><a href="#cb31-143" aria-hidden="true" tabindex="-1"></a>No R, os resíduos de Cox-Snell podem ser obtidos diretamente pela função <span class="in">`predict()`</span>, utilizando o argumento <span class="in">`type = "expected"`</span>, que retorna o risco acumulado estimado para cada indivíduo.</span>
+<span id="cb31-144"><a href="#cb31-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-147"><a href="#cb31-147" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb31-148"><a href="#cb31-148" aria-hidden="true" tabindex="-1"></a>ResiduoCS <span class="ot">&lt;-</span> <span class="fu">predict</span>(mod2, <span class="at">type =</span> <span class="st">"expected"</span>)</span>
+<span id="cb31-149"><a href="#cb31-149" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-150"><a href="#cb31-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-151"><a href="#cb31-151" aria-hidden="true" tabindex="-1"></a>Se o modelo estiver adequadamente ajustado, espera-se que os resíduos de Cox-Snell apresentem comportamento aproximadamente compatível com uma distribuição exponencial de média 1. Portanto, a função de risco acumulado dos resíduos deve se aproximar da reta $H(r)=r$, enquanto a função de sobrevivência deve se aproximar de $S(r)=\exp(-r)$.</span>
+<span id="cb31-152"><a href="#cb31-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-153"><a href="#cb31-153" aria-hidden="true" tabindex="-1"></a>Os gráficos de diagnóstico são apresentados a seguir:</span>
+<span id="cb31-154"><a href="#cb31-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-157"><a href="#cb31-157" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb31-158"><a href="#cb31-158" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb31-159"><a href="#cb31-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-160"><a href="#cb31-160" aria-hidden="true" tabindex="-1"></a>ekm <span class="ot">&lt;-</span> <span class="fu">survfit</span>(</span>
+<span id="cb31-161"><a href="#cb31-161" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Surv</span>(ResiduoCS, dados<span class="sc">$</span>cens) <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb31-162"><a href="#cb31-162" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"kaplan-meier"</span></span>
+<span id="cb31-163"><a href="#cb31-163" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb31-164"><a href="#cb31-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-165"><a href="#cb31-165" aria-hidden="true" tabindex="-1"></a><span class="co"># Função de risco acumulado</span></span>
+<span id="cb31-166"><a href="#cb31-166" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb31-167"><a href="#cb31-167" aria-hidden="true" tabindex="-1"></a>  ekm,</span>
+<span id="cb31-168"><a href="#cb31-168" aria-hidden="true" tabindex="-1"></a>  <span class="at">fun =</span> <span class="st">"cumhaz"</span>,</span>
+<span id="cb31-169"><a href="#cb31-169" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Resíduos de Cox-Snell"</span>,</span>
+<span id="cb31-170"><a href="#cb31-170" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Função de risco acumulado"</span></span>
+<span id="cb31-171"><a href="#cb31-171" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb31-172"><a href="#cb31-172" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb31-173"><a href="#cb31-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-174"><a href="#cb31-174" aria-hidden="true" tabindex="-1"></a><span class="co"># Função de sobrevivência</span></span>
+<span id="cb31-175"><a href="#cb31-175" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb31-176"><a href="#cb31-176" aria-hidden="true" tabindex="-1"></a>  ekm,</span>
+<span id="cb31-177"><a href="#cb31-177" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Resíduos de Cox-Snell"</span>,</span>
+<span id="cb31-178"><a href="#cb31-178" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Função de sobrevivência"</span></span>
+<span id="cb31-179"><a href="#cb31-179" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb31-180"><a href="#cb31-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-181"><a href="#cb31-181" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(</span>
+<span id="cb31-182"><a href="#cb31-182" aria-hidden="true" tabindex="-1"></a>  <span class="fu">exp</span>(<span class="sc">-</span>x),</span>
+<span id="cb31-183"><a href="#cb31-183" aria-hidden="true" tabindex="-1"></a>  <span class="at">from =</span> <span class="dv">0</span>,</span>
+<span id="cb31-184"><a href="#cb31-184" aria-hidden="true" tabindex="-1"></a>  <span class="at">to =</span> <span class="fu">max</span>(ResiduoCS),</span>
+<span id="cb31-185"><a href="#cb31-185" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">"red"</span>,</span>
+<span id="cb31-186"><a href="#cb31-186" aria-hidden="true" tabindex="-1"></a>  <span class="at">lwd =</span> <span class="dv">2</span>,</span>
+<span id="cb31-187"><a href="#cb31-187" aria-hidden="true" tabindex="-1"></a>  <span class="at">add =</span> <span class="cn">TRUE</span></span>
+<span id="cb31-188"><a href="#cb31-188" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb31-189"><a href="#cb31-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-190"><a href="#cb31-190" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb31-191"><a href="#cb31-191" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-192"><a href="#cb31-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-193"><a href="#cb31-193" aria-hidden="true" tabindex="-1"></a>Conforme observado nos gráficos, as curvas estimadas apresentam comportamento próximo ao esperado teoricamente, indicando uma adequação global satisfatória do modelo de Cox aos dados.</span>
+<span id="cb31-194"><a href="#cb31-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-195"><a href="#cb31-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-196"><a href="#cb31-196" aria-hidden="true" tabindex="-1"></a><span class="fu">### **TESTE DOS RESÍDUOS DE SCHOENFELD**</span></span>
+<span id="cb31-197"><a href="#cb31-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-198"><a href="#cb31-198" aria-hidden="true" tabindex="-1"></a>Para realizar o teste de hipótese acerca dos resíduos de Schoenfeld, utilizaremos a função <span class="in">`cox.zph`</span>. Essa função realiza um teste para cada covariável e também faz um teste global.</span>
+<span id="cb31-199"><a href="#cb31-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-200"><a href="#cb31-200" aria-hidden="true" tabindex="-1"></a>Para cada covariável as hipóteses são:</span>
+<span id="cb31-201"><a href="#cb31-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-202"><a href="#cb31-202" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb31-203"><a href="#cb31-203" aria-hidden="true" tabindex="-1"></a>H_0:\beta_k(t)=\beta_k</span>
+<span id="cb31-204"><a href="#cb31-204" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb31-205"><a href="#cb31-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-206"><a href="#cb31-206" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb31-207"><a href="#cb31-207" aria-hidden="true" tabindex="-1"></a>H_1:\beta_k(t)\neq\beta_k</span>
+<span id="cb31-208"><a href="#cb31-208" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb31-209"><a href="#cb31-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-210"><a href="#cb31-210" aria-hidden="true" tabindex="-1"></a>em que:</span>
+<span id="cb31-211"><a href="#cb31-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-212"><a href="#cb31-212" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$\beta_k(t)$ representa o efeito da covariável ao longo do tempo;</span>
+<span id="cb31-213"><a href="#cb31-213" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$\beta_k$ representa um efeito constante.</span>
+<span id="cb31-214"><a href="#cb31-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-215"><a href="#cb31-215" aria-hidden="true" tabindex="-1"></a>Assim:</span>
+<span id="cb31-216"><a href="#cb31-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-217"><a href="#cb31-217" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>sob $H_0$, a covariável satisfaz a hipótese de riscos proporcionais;</span>
+<span id="cb31-218"><a href="#cb31-218" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>sob $H_1$, o efeito da covariável varia ao longo do tempo, violando a hipótese de riscos proporcionais.</span>
+<span id="cb31-219"><a href="#cb31-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-220"><a href="#cb31-220" aria-hidden="true" tabindex="-1"></a>Para o teste global as hipóteses são:</span>
+<span id="cb31-221"><a href="#cb31-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-222"><a href="#cb31-222" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb31-223"><a href="#cb31-223" aria-hidden="true" tabindex="-1"></a>H_0:\beta_1(t)=\beta_1,\ \beta_2(t)=\beta_2,\ \ldots,\ \beta_p(t)=\beta_p</span>
+<span id="cb31-224"><a href="#cb31-224" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb31-225"><a href="#cb31-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-226"><a href="#cb31-226" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb31-227"><a href="#cb31-227" aria-hidden="true" tabindex="-1"></a>H_1:\text{Pelo menos uma covariável apresenta efeito dependente do tempo}</span>
+<span id="cb31-228"><a href="#cb31-228" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb31-229"><a href="#cb31-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-230"><a href="#cb31-230" aria-hidden="true" tabindex="-1"></a>Assim:</span>
+<span id="cb31-231"><a href="#cb31-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-232"><a href="#cb31-232" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>sob $H_0$, todas as covariáveis satisfazem simultaneamente a hipótese de riscos proporcionais;</span>
+<span id="cb31-233"><a href="#cb31-233" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>sob $H_1$, pelo menos uma covariável viola essa hipótese.</span>
+<span id="cb31-234"><a href="#cb31-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-237"><a href="#cb31-237" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb31-238"><a href="#cb31-238" aria-hidden="true" tabindex="-1"></a>ResiduoSH <span class="ot">=</span> <span class="fu">cox.zph</span>(mod2)</span>
+<span id="cb31-239"><a href="#cb31-239" aria-hidden="true" tabindex="-1"></a>ResiduoSH</span>
+<span id="cb31-240"><a href="#cb31-240" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-241"><a href="#cb31-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-242"><a href="#cb31-242" aria-hidden="true" tabindex="-1"></a>Assim, de acordo com o valor-p a suposição dos riscos proporcionais é satisfeita. Como o modelo possui apenas uma covariável, o teste global é igual ao da covariável.</span>
+<span id="cb31-243"><a href="#cb31-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-244"><a href="#cb31-244" aria-hidden="true" tabindex="-1"></a><span class="fu">### **GRÁFICO DOS RESÍDUOS DE SCHOENFELD**</span></span>
+<span id="cb31-245"><a href="#cb31-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-246"><a href="#cb31-246" aria-hidden="true" tabindex="-1"></a>Os seguintes comandos fazem o gráfico dos resíduos de Schoenfeld. Lembre-se que será feito um gráfico para cada covariável. No nosso exemplo, teremos apenas uma representação gráfica:</span>
+<span id="cb31-247"><a href="#cb31-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-248"><a href="#cb31-248" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
+<span id="cb31-249"><a href="#cb31-249" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ResiduoSH)</span>
+<span id="cb31-250"><a href="#cb31-250" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-251"><a href="#cb31-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-252"><a href="#cb31-252" aria-hidden="true" tabindex="-1"></a>Note como não há uma tendência definida no gráfico, corroborando o teste formal.</span>
+<span id="cb31-253"><a href="#cb31-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-254"><a href="#cb31-254" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Para gráficos com mais covariáveis use os comandos </span><span class="in">`par(mfrow=c(.))`</span><span class="at"> para propiciar mais janelas gráficas. Todos os gráficos são feitos de uma vez.</span></span>
+<span id="cb31-255"><a href="#cb31-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-256"><a href="#cb31-256" aria-hidden="true" tabindex="-1"></a><span class="fu">## **INTERPRETAÇÃO DOS COEFICIENTES** </span></span>
+<span id="cb31-257"><a href="#cb31-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-258"><a href="#cb31-258" aria-hidden="true" tabindex="-1"></a>Agora que temos o modelo bem ajustado, vamos à interpretação dos coeficientes. Retomemos as estimativas do modelo ajustado:</span>
+<span id="cb31-259"><a href="#cb31-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-262"><a href="#cb31-262" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb31-263"><a href="#cb31-263" aria-hidden="true" tabindex="-1"></a>mod2</span>
+<span id="cb31-264"><a href="#cb31-264" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-265"><a href="#cb31-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-266"><a href="#cb31-266" aria-hidden="true" tabindex="-1"></a>Assim:</span>
+<span id="cb31-267"><a href="#cb31-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-268"><a href="#cb31-268" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>O estágio II apresenta um aumento de 6% no risco de morte, se comparado ao estágio I (não significativo)</span>
+<span id="cb31-269"><a href="#cb31-269" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>O estágio III apresenta um aumento de 84% no risco de morte, se comparado ao estágio I (não significativo)</span>
+<span id="cb31-270"><a href="#cb31-270" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>O estágio IV apresenta um risco de morte 5,66 vezes maior que o estágio I (significativo)</span>
+<span id="cb31-271"><a href="#cb31-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-272"><a href="#cb31-272" aria-hidden="true" tabindex="-1"></a><span class="fu">## **ESTIMAÇÃO DE FUNÇÕES RELACIONADAS A $\lambda_0(t)$** </span></span>
+<span id="cb31-273"><a href="#cb31-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-274"><a href="#cb31-274" aria-hidden="true" tabindex="-1"></a>Os **coeficientes de regressão $\pmb{\beta}$ são as quantidades de maior interesse na modelagem estatística dos dados**. Entretanto, funções relacionadas a $\lambda_0(t)$ são também importantes no modelo de Cox. </span>
+<span id="cb31-275"><a href="#cb31-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-276"><a href="#cb31-276" aria-hidden="true" tabindex="-1"></a>Na figura abaixo, estão estimadas as funções de sobrevivência dos pacientes em cada grupo ao longo do período do estudo:</span>
+<span id="cb31-277"><a href="#cb31-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-278"><a href="#cb31-278" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
+<span id="cb31-279"><a href="#cb31-279" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"I"</span>)),</span>
+<span id="cb31-280"><a href="#cb31-280" aria-hidden="true" tabindex="-1"></a>     <span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"blue"</span>,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>, <span class="at">ylab=</span><span class="st">"Sobrevivência Estimada"</span>)</span>
+<span id="cb31-281"><a href="#cb31-281" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"II"</span>)),</span>
+<span id="cb31-282"><a href="#cb31-282" aria-hidden="true" tabindex="-1"></a>      <span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"red"</span>)</span>
+<span id="cb31-283"><a href="#cb31-283" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"III"</span>)),</span>
+<span id="cb31-284"><a href="#cb31-284" aria-hidden="true" tabindex="-1"></a>      <span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"green"</span>)</span>
+<span id="cb31-285"><a href="#cb31-285" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"IV"</span>)),</span>
+<span id="cb31-286"><a href="#cb31-286" aria-hidden="true" tabindex="-1"></a>      <span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"orange"</span>)</span>
+<span id="cb31-287"><a href="#cb31-287" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="dv">0</span>,<span class="fl">0.25</span>,<span class="at">legend=</span><span class="fu">c</span>(<span class="st">"Estagio I"</span>, <span class="st">"Estagio II"</span>, <span class="st">"Estagio III"</span>, <span class="st">"Estagio IV"</span>),</span>
+<span id="cb31-288"><a href="#cb31-288" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span><span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>, <span class="st">"green"</span>, <span class="st">"orange"</span>),<span class="at">lty=</span><span class="dv">1</span>)</span>
+<span id="cb31-289"><a href="#cb31-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-290"><a href="#cb31-290" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-291"><a href="#cb31-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-292"><a href="#cb31-292" aria-hidden="true" tabindex="-1"></a>Na figura abaixo, estão estimadas as funções de risco acumulado dos pacientes em cada grupo ao longo do período do estudo:</span>
+<span id="cb31-293"><a href="#cb31-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-294"><a href="#cb31-294" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=T}</span></span>
+<span id="cb31-295"><a href="#cb31-295" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"I"</span>)),</span>
+<span id="cb31-296"><a href="#cb31-296" aria-hidden="true" tabindex="-1"></a>     <span class="at">conf.int =</span> F,<span class="at">fun =</span> <span class="st">"cumhaz"</span>,<span class="at">col=</span><span class="st">"blue"</span>,<span class="at">xlab=</span><span class="st">"Tempos (meses)"</span>, <span class="at">ylab=</span><span class="st">"Risco acumulado estimado"</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">5</span>))</span>
+<span id="cb31-297"><a href="#cb31-297" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"II"</span>)),</span>
+<span id="cb31-298"><a href="#cb31-298" aria-hidden="true" tabindex="-1"></a>      <span class="at">fun =</span> <span class="st">"cumhaz"</span>,<span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"red"</span>)</span>
+<span id="cb31-299"><a href="#cb31-299" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"III"</span>)),</span>
+<span id="cb31-300"><a href="#cb31-300" aria-hidden="true" tabindex="-1"></a>      <span class="at">fun =</span> <span class="st">"cumhaz"</span>,<span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"green"</span>)</span>
+<span id="cb31-301"><a href="#cb31-301" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"IV"</span>)),</span>
+<span id="cb31-302"><a href="#cb31-302" aria-hidden="true" tabindex="-1"></a>      <span class="at">fun =</span> <span class="st">"cumhaz"</span>,<span class="at">conf.int =</span> F,<span class="at">col=</span><span class="st">"orange"</span>)</span>
+<span id="cb31-303"><a href="#cb31-303" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="dv">0</span>,<span class="dv">4</span>,<span class="at">legend=</span><span class="fu">c</span>(<span class="st">"Estagio I"</span>, <span class="st">"Estagio II"</span>, <span class="st">"Estagio III"</span>, <span class="st">"Estagio IV"</span>),</span>
+<span id="cb31-304"><a href="#cb31-304" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span><span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>, <span class="st">"green"</span>, <span class="st">"orange"</span>),<span class="at">lty=</span><span class="dv">1</span>)</span>
+<span id="cb31-305"><a href="#cb31-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-306"><a href="#cb31-306" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-307"><a href="#cb31-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-308"><a href="#cb31-308" aria-hidden="true" tabindex="-1"></a>Podemos, também, obter estimativas de medidas-resumo para cada grupo:</span>
+<span id="cb31-309"><a href="#cb31-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-312"><a href="#cb31-312" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb31-313"><a href="#cb31-313" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"I"</span>)))<span class="sc">$</span>table</span>
+<span id="cb31-314"><a href="#cb31-314" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"II"</span>)))<span class="sc">$</span>table</span>
+<span id="cb31-315"><a href="#cb31-315" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"III"</span>)))<span class="sc">$</span>table</span>
+<span id="cb31-316"><a href="#cb31-316" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">survfit</span>(mod2,<span class="at">newdata=</span><span class="fu">list</span>(<span class="at">estagio=</span><span class="st">"IV"</span>)))<span class="sc">$</span>table</span>
+<span id="cb31-317"><a href="#cb31-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-318"><a href="#cb31-318" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb31-319"><a href="#cb31-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-320"><a href="#cb31-320" aria-hidden="true" tabindex="-1"></a><span class="fu">## **EXERCÍCIO**</span></span>
+<span id="cb31-321"><a href="#cb31-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-322"><a href="#cb31-322" aria-hidden="true" tabindex="-1"></a>1- Para os dados de câncer de ovário:</span>
+<span id="cb31-323"><a href="#cb31-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-324"><a href="#cb31-324" aria-hidden="true" tabindex="-1"></a>a) Ajuste um modelo de Cox a estes dados fazendo seleção de covariáveis.</span>
+<span id="cb31-325"><a href="#cb31-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-326"><a href="#cb31-326" aria-hidden="true" tabindex="-1"></a>b) No modelo ajustado em a):</span>
+<span id="cb31-327"><a href="#cb31-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-328"><a href="#cb31-328" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Faça a análise de resíduos</span>
+<span id="cb31-329"><a href="#cb31-329" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Faça a interpretação dos coeficientes</span>
+<span id="cb31-330"><a href="#cb31-330" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Estime a sobrevivência e medidas-resumo para indivíduos distintos de acordo com a(s) covariável(is) do modelo.</span>
+<span id="cb31-331"><a href="#cb31-331" aria-hidden="true" tabindex="-1"></a></span>
 </code><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
